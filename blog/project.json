@@ -1,0 +1,67 @@
+{
+  "name": "blog",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "./blog/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": [
+        "{options.outputPath}",
+        "dist/./blog/.nitro",
+        "dist/./blog/ssr",
+        "dist/./blog/analog"
+      ],
+      "options": {
+        "main": "./blog/src/main.ts",
+        "configFile": "./blog/vite.config.ts",
+        "outputPath": "dist/./blog/client"
+      },
+      "defaultConfiguration": "production",
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "sourcemap": false,
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "blog:build",
+        "port": 4200
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "blog:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "blog:build:production"
+        }
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "blog:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["./blog/**/*.ts", "./blog/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["./blog/coverage"]
+    }
+  },
+  "tags": []
+}
