@@ -4,41 +4,23 @@
     "default": {
       "runner": "nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
         "accessToken": "MDUxMjQ4ZTItN2U2MS00ZjlmLWE0OWQtM2ZiM2RlMDgwMTIyfHJlYWQtd3JpdGU="
       }
     }
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "inputs": [
-        "production",
-        "^production"
-      ]
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     },
     "e2e": {
-      "inputs": [
-        "default",
-        "^production"
-      ]
+      "inputs": ["default", "^production"]
     }
   },
   "namedInputs": {
-    "default": [
-      "{projectRoot}/**/*",
-      "sharedGlobals"
-    ],
-    "production": [
-      "default"
-    ],
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": ["default"],
     "sharedGlobals": []
   },
   "generators": {
@@ -53,7 +35,8 @@
       "unitTestRunner": "none"
     },
     "@nx/angular:component": {
-      "style": "css"
+      "style": "css",
+      "standaloneConfig": true
     }
   }
 }

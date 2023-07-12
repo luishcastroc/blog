@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { DashboardComponent } from './components/dashboard.component';
 
 @Component({
   selector: 'blog-root',
   standalone: true,
-  imports: [RouterOutlet],
-  template: ` <router-outlet></router-outlet> `,
+  imports: [DashboardComponent],
+  template: ` <blog-dashboard /> `,
 })
 export class AppComponent {}
