@@ -1,15 +1,22 @@
 import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, Renderer2, inject } from '@angular/core';
 import {
   RouterLinkActive,
   RouterLinkWithHref,
   RouterOutlet,
 } from '@angular/router';
+import { SvgIconComponent, SvgIcons } from '@ngneat/svg-icon';
 
 @Component({
   selector: 'blog-dashboard',
   standalone: true,
-  imports: [RouterOutlet, RouterLinkWithHref, RouterLinkActive, NgFor],
+  imports: [
+    RouterOutlet,
+    RouterLinkWithHref,
+    RouterLinkActive,
+    NgFor,
+    SvgIconComponent,
+  ],
   host: {
     class: 'flex min-h-screen flex-col',
   },
@@ -77,11 +84,7 @@ import {
                 href="https://twitter.com/LuisHCCDev"
                 target="_blank"
                 rel="noreferrer noopener"
-                ><img
-                  src="assets/twitter.svg"
-                  width="30px"
-                  height="30px"
-                  alt="twitter"
+                ><svg-icon key="twitter" fontSize="30px" height="30px"
               /></a>
             </li>
             <li>
@@ -89,11 +92,7 @@ import {
                 href="https://github.com/luishcastroc"
                 target="_blank"
                 rel="noreferrer noopener"
-                ><img
-                  src="assets/github.svg"
-                  width="30px"
-                  height="30px"
-                  alt="github"
+                ><svg-icon key="github" fontSize="30px" height="30px"
               /></a>
             </li>
             <li>
@@ -101,12 +100,13 @@ import {
                 href="https://www.threads.net/@luishccdev"
                 target="_blank"
                 rel="noreferrer noopener"
-                ><img
-                  src="assets/threads.svg"
-                  width="30px"
-                  height="30px"
-                  alt="threads"
+                ><svg-icon key="threads" fontSize="30px" height="30px"
               /></a>
+            </li>
+            <li>
+              <button class="btn btn-square btn-ghost" (click)="changeTheme()">
+                <svg-icon [key]="icon" fontSize="30px" height="30px" />
+              </button>
             </li>
           </ul>
         </div>
@@ -121,5 +121,20 @@ import {
   `,
 })
 export class DashboardComponent {
+  #renderer = inject(Renderer2);
+  #cdr = inject(ChangeDetectorRef);
+  icon: SvgIcons = 'dark-mode';
   numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+
+  changeTheme() {
+    const body = this.#renderer.selectRootElement('body', true) as HTMLElement;
+    if (body.getAttribute('data-theme') === 'dark') {
+      this.icon = 'dark-mode';
+      body.setAttribute('data-theme', 'bumblebee');
+    } else {
+      this.icon = 'light';
+      body.setAttribute('data-theme', 'dark');
+    }
+    this.#cdr.detectChanges();
+  }
 }

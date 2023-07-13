@@ -2,8 +2,30 @@
   "name": "@senior-robot/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
-  "private": true,
+  "scripts": {
+    "prestart": "npm run svg",
+    "start": "nx serve blog",
+    "build": "nx build blog",
+    "prebuild": "npm run svg",
+    "svg": "svg-generator"
+  },
+  "svgGenerator": {
+    "outputPath": "./dist/blog/client/assets/",
+    "srcPath": "./blog/src/public/assets/",
+    "svgoConfig": {
+      "plugins": [
+        "removeDimensions",
+        "cleanupAttrs",
+        {
+          "name": "convertColors",
+          "params": {
+            "currentColor": true
+          }
+        }
+      ]
+    }
+  },
+  "private": false,
   "dependencies": {
     "@analogjs/content": "^0.2.0-beta.25",
     "@analogjs/router": "^0.2.0-beta.25",
@@ -16,6 +38,7 @@
     "@angular/platform-browser-dynamic": "~16.1.0",
     "@angular/platform-server": "~16.1.0",
     "@angular/router": "~16.1.0",
+    "@ngneat/svg-icon": "^7.0.0",
     "front-matter": "^4.0.2",
     "marked": "^5.0.2",
     "marked-gfm-heading-id": "^3.0.4",
@@ -34,6 +57,7 @@
     "@angular/cli": "~16.1.0",
     "@angular/compiler-cli": "~16.1.0",
     "@angular/language-service": "~16.1.0",
+    "@ngneat/svg-generator": "^7.0.1",
     "@nx/angular": "^16.4.0",
     "@nx/cypress": "16.5.1",
     "@nx/devkit": "^16.4.0",
