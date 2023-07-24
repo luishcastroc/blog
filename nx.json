@@ -36,7 +36,11 @@
     },
     "@nx/angular:component": {
       "style": "css",
-      "standaloneConfig": true
+      "standalone": true,
+      "inlineStyle": true,
+      "inlineTemplate": true,
+      "skipTests": true,
+      "flat": true
     }
   }
 }
