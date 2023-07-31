@@ -5,6 +5,7 @@
 :root {
   --scrollbar-bg: white;
   --scrollbar-color: #4e54c8;
+  --bg: white;
 }
 
 @layer base {
@@ -12,6 +13,7 @@
   body {
     @apply flex flex-col flex-1 w-full min-h-full antialiased;
     font-family: 'Inter', sans-serif;
+    background-color: var(--bg) !important;
   }
 }
 
@@ -43,6 +45,8 @@ div {
       flex: 1 1 auto;
       width: 100%;
       min-height: 100dvh;
+      z-index: 99;
+      padding: 1rem 1.5rem;
     }
   }
 }
@@ -50,6 +54,7 @@ div {
 [data-theme='bumblebee'] {
   --scrollbar-bg: white;
   --scrollbar-color: #4e54c8;
+  --bg: white;
 
   .circle-container {
     --circle-bg: rgba(0, 0, 0, 0.2);
@@ -63,6 +68,7 @@ div {
 [data-theme='dark'] {
   --scrollbar-bg: hsl(var(--n));
   --scrollbar-color: #f7c545;
+  --bg: hsl(var(--n));
 
   .circle-container {
     --circle-bg: rgba(255, 255, 255, 0.2);

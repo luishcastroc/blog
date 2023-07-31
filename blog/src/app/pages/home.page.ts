@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'sr-home',
   standalone: true,
   imports: [],
   template: `

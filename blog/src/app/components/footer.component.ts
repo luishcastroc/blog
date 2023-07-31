@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { SvgIconComponent } from '@ngneat/svg-icon';
 
 @Component({
   selector: 'sr-footer',
   standalone: true,
-  imports: [CommonModule, SvgIconComponent],
+  imports: [CommonModule, SvgIconComponent, NgOptimizedImage],
   template: `<footer
     class="footer footer-center p-10 bg-primary text-primary-content">
     <div>
@@ -61,7 +61,15 @@ import { SvgIconComponent } from '@ngneat/svg-icon';
         </li>
       </ul>
     </div>
+    <div>
+      <a href="https://analogjs.org/" target="_blank" rel="noreferrer noopener"
+        ><img
+          ngSrc="assets/powered_by_analog.png"
+          width="119"
+          height="34.5"
+          alt="Powered by Analog"
+      /></a>
+    </div>
   </footer>`,
-  styles: [],
 })
 export class FooterComponent {}
