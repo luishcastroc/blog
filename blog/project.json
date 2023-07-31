@@ -8,9 +8,9 @@
       "executor": "@nx/vite:build",
       "outputs": [
         "{options.outputPath}",
-        "dist/./blog/.nitro",
-        "dist/./blog/ssr",
-        "dist/./blog/analog"
+        "{workspaceRoot}/dist/blog/.nitro",
+        "{workspaceRoot}/dist/blog/ssr",
+        "{workspaceRoot}/dist/blog/analog"
       ],
       "options": {
         "main": "./blog/src/main.ts",
@@ -72,7 +72,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["./blog/coverage"]
+      "outputs": ["{projectRoot}/blog/coverage"]
     }
   },
   "tags": []
