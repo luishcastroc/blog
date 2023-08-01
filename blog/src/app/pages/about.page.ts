@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -6,6 +6,5 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `<p>about works!</p>`,
   styles: [],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class AboutIndexPage {}

@@ -8,11 +8,15 @@ import { twitterIcon } from '@app/svg/twitter';
 import { githubIcon } from '@app/svg/github';
 import { threadsIcon } from '@app/svg/threads';
 import { lightIcon } from '@app/svg/light';
+import { provideContent, withMarkdownRenderer } from '@analogjs/content';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideFileRouter(),
     provideClientHydration(),
+    provideContent(
+      withMarkdownRenderer({ loadMermaid: () => import('mermaid') })
+    ),
     provideHttpClient(),
     provideSvgIcons([
       darkModeIcon,

@@ -1,9 +1,16 @@
+import { mergeApplicationConfig, ApplicationConfig } from '@angular/core';
+import {
+  provideServerRendering,
+  ɵSERVER_CONTEXT as SERVER_CONTEXT,
+} from '@angular/platform-server';
+
 import { appConfig } from './app.config';
-import { ApplicationConfig, mergeApplicationConfig } from '@angular/core';
-import { provideServerRendering } from '@angular/platform-server';
 
 const serverConfig: ApplicationConfig = {
-  providers: [provideServerRendering()],
+  providers: [
+    provideServerRendering(),
+    { provide: SERVER_CONTEXT, useValue: 'ssr-analog' },
+  ],
 };
 
 export const config = mergeApplicationConfig(appConfig, serverConfig);
