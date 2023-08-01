@@ -1,6 +1,6 @@
 ---
 title: Unlocking the Power of Micro-Frontends, A Guided Journey From Monolith to Modular
-slug: 2023-06-29-my-second-open-source-contribution
+slug: module-federation
 description: Brief overview on Micro Frontedns with Module Federation and Nx Mono Repos
 coverImage: /assets/cover-images/mf-cover.webp
 ---
@@ -31,9 +31,11 @@ I personally love Angular and with all the changes the team is introducing is ge
 
 First we need to generate a new nx workspace:
 
-`npx create-nx-workspace@latest --preset=empty --name=mf-example && cd mf-example && npm i @nx/angular`
+```shell
+npx create-nx-workspace@latest --preset=empty --name=mf-example && cd mf-example && npm i @nx/angular
+```
 
-Once everything runs we should now have a proper `Nx` workspace with no apps simple right?, call it `npm init` with sugar.
+Once everything runs we should now have a proper **Nx** workspace with no apps simple right?, call it `shell npm init` with sugar.
 
 Now we need to start adding our projects, for this example i'll add one host and two remotes we will call them **main** (for the host), **dashboard** and **settings**.
 

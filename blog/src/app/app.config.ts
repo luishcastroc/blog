@@ -12,12 +12,10 @@ import { provideContent, withMarkdownRenderer } from '@analogjs/content';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideFileRouter(),
     provideClientHydration(),
-    provideContent(
-      withMarkdownRenderer({ loadMermaid: () => import('mermaid') })
-    ),
+    provideContent(withMarkdownRenderer()),
     provideHttpClient(),
+    provideFileRouter(),
     provideSvgIcons([
       darkModeIcon,
       twitterIcon,

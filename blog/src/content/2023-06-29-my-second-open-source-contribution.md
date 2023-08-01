@@ -1,6 +1,6 @@
 ---
 title: My Second Open Source Contribution, The AnalogJS Journey
-slug: 2023-06-29-my-second-open-source-contribution
+slug: my-second-open-source-contribution
 description: Venturing into the realm of open source contributions
 coverImage: /assets/cover-images/oss-cover.webp
 ---

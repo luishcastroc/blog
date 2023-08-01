@@ -6,6 +6,9 @@ import { SvgIconComponent } from '@ngneat/svg-icon';
   selector: 'sr-footer',
   standalone: true,
   imports: [CommonModule, SvgIconComponent, NgOptimizedImage],
+  host: {
+    class: 'z-[99]',
+  },
   template: `<footer
     class="footer footer-center p-10 bg-primary text-primary-content">
     <div>

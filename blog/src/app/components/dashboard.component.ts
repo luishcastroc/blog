@@ -17,7 +17,7 @@ import { FooterComponent } from './footer.component';
       <div class="relative">
         <router-outlet></router-outlet>
         <!-- Animated circles container -->
-        <div class="circle-container absolute inset-0">
+        <div class="circle-container fixed">
           <ul class="circles">
             <li *ngFor="let number of numbers"></li>
           </ul>
