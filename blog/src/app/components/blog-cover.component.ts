@@ -8,18 +8,21 @@ import { RouterLinkWithHref } from '@angular/router';
   selector: 'blog-cover',
   standalone: true,
   imports: [CommonModule, NgOptimizedImage, RouterLinkWithHref],
-  template: `<div class="card w-full md:w-96 bg-base-100 shadow-xl">
+  host: {
+    class: 'p-0',
+  },
+  template: `<div class="card lg:w-96 bg-base-100 shadow-xl">
     <figure>
       <img
         [ngSrc]="post.attributes.coverImage"
-        width="400"
-        height="164"
+        width="500"
+        height="264"
         alt="Cover Image" />
     </figure>
     <div class="card-body">
       <h2 class="card-title">{{ post.attributes.title }}</h2>
       <p>{{ post.attributes.description }}</p>
-      <div class="card-actions justify-between items-center">
+      <div class="card-actions justify-between jus items-center">
         <div class="badge badge-outline">{{ post.attributes.date | date }}</div>
         <button [routerLink]="post.attributes.slug" class="btn btn-primary">
           Read
@@ -27,7 +30,6 @@ import { RouterLinkWithHref } from '@angular/router';
       </div>
     </div>
   </div>`,
-  styles: [],
 })
 export class BlogCoverComponent {
   @Input({ required: true }) post!: ContentFile<PostAttributes>;

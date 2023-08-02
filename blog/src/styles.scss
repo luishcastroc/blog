@@ -47,7 +47,7 @@ div {
       width: 100%;
       min-height: 100dvh;
       z-index: 99;
-      padding: 4rem 1.5rem;
+      @apply px-8 py-6 sm:px-16 md:px-20 lg:p-6;
     }
   }
 }

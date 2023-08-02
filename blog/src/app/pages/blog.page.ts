@@ -12,7 +12,7 @@ export const routeMeta: RouteMeta = {
   standalone: true,
   imports: [RouterLink, NgFor, JsonPipe, RouterOutlet],
   template: `
-    <div class="flex gap-4 flex-col md:flex-row overflow-auto ">
+    <div class="flex flex-col lg:flex-row overflow-auto ">
       <router-outlet></router-outlet>
     </div>
   `,

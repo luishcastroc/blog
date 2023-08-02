@@ -51,7 +51,7 @@ import { SvgIconComponent } from '@ngneat/svg-icon';
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
             class="hover:outline-none hover:[&:not(.active)]:bg-transparent"
-            >Homepage</a
+            >Home</a
           >
         </li>
         <li
@@ -140,7 +140,7 @@ export class NavbarComponent {
   #renderer = inject(Renderer2);
   isDarkMode = false;
   links = [
-    { name: 'Homepage', path: '/home' },
+    { name: 'Home', path: '/home' },
     { name: 'Blog', path: '/blog' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },

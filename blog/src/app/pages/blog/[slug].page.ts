@@ -4,7 +4,6 @@ import { AsyncPipe, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { postMetaResolver, postTitleResolver } from '../../models/resolvers';
 import { PostAttributes } from '../../models/post.model';
-import { tap } from 'rxjs';
 
 export const routeMeta: RouteMeta = {
   title: postTitleResolver,
