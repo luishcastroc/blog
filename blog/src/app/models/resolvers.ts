@@ -21,7 +21,7 @@ export const postTitleResolver: ResolveFn<string> = route =>
 
 export const postMetaResolver: ResolveFn<MetaTag[]> = route => {
   const postAttributes = injectActivePostAttributes(route);
-
+  console.log('postAttributes: ', postAttributes);
   return [
     {
       name: 'description',

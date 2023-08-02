@@ -2,8 +2,9 @@ import { injectContent, MarkdownComponent } from '@analogjs/content';
 import { RouteMeta } from '@analogjs/router';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { postMetaResolver, postTitleResolver } from '../models/resolvers';
-import { PostAttributes } from '../models/post.model';
+import { postMetaResolver, postTitleResolver } from '../../models/resolvers';
+import { PostAttributes } from '../../models/post.model';
+import { tap } from 'rxjs';
 
 export const routeMeta: RouteMeta = {
   title: postTitleResolver,
@@ -14,8 +15,13 @@ export const routeMeta: RouteMeta = {
   standalone: true,
   imports: [MarkdownComponent, AsyncPipe, NgIf],
   template: `
-    <article class="flex flex-col gap-4" *ngIf="post$ | async as post">
-      <h1>{{ post.attributes.title }}</h1>
+    <article
+      class="flex flex-col flex-auto gap-4 w-full items-center overflow-auto"
+      *ngIf="post$ | async as post">
+      <h1
+        class="text-3xl font-extrabold self-center md:w-1/2 lg:w-3/5 text-center">
+        {{ post.attributes.title }}
+      </h1>
       <div
         class="container mx-auto pt-4 px-8 md:px-0 pb-8 w-full md:w-1/2 lg:w-3/5 line-numbers blog-post">
         <analog-markdown [content]="post.content"></analog-markdown>

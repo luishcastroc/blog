@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { injectContentFiles } from '@analogjs/content';
 import { JsonPipe, NgFor } from '@angular/common';
 import { RouteMeta } from '@analogjs/router';
-import { PostAttributes } from '../models/post.model';
-import { BlogCoverComponent } from '../components/blog-cover.component';
 
 export const routeMeta: RouteMeta = {
   title: 'Luis Castro - Blog',
@@ -13,15 +10,11 @@ export const routeMeta: RouteMeta = {
 
 @Component({
   standalone: true,
-  imports: [RouterLink, NgFor, JsonPipe, BlogCoverComponent],
+  imports: [RouterLink, NgFor, JsonPipe, RouterOutlet],
   template: `
-    <div class="grid gap-4 lg:grid-cols-5">
-      <ng-container *ngFor="let post of posts">
-        <blog-cover [post]="post" />
-      </ng-container>
+    <div class="flex gap-4 flex-col md:flex-row overflow-auto ">
+      <router-outlet></router-outlet>
     </div>
   `,
 })
-export default class BlogPage {
-  readonly posts = injectContentFiles<PostAttributes>();
-}
+export default class BlogPage {}

@@ -3,6 +3,7 @@ title: My Second Open Source Contribution, The AnalogJS Journey
 slug: my-second-open-source-contribution
 description: Venturing into the realm of open source contributions
 coverImage: /assets/cover-images/oss-cover.webp
+date: 06-29-2023
 ---
 
 Venturing into the realm of open source contributions can be daunting, especially for newcomers. This is the story of my maiden voyage into this exciting world, where I aimed to contribute to [AnalogJS](https://analogjs.org), an Angular meta-framework.

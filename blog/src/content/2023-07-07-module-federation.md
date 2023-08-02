@@ -3,6 +3,7 @@ title: Unlocking the Power of Micro-Frontends, A Guided Journey From Monolith to
 slug: module-federation
 description: Brief overview on Micro Frontedns with Module Federation and Nx Mono Repos
 coverImage: /assets/cover-images/mf-cover.webp
+date: 07-07-2023
 ---
 
 In the world of web development, architectural approaches are constantly evolving. One transformative approach gaining traction is the shift from traditional monolithic structures to micro-frontends. In this article, we delve into the fascinating realm of micro-frontends based on the research paper "Micro-Frontends: A Multivocal Literature Review" by Severi Peltonen, Luca Mezzalira, and Davide Taibi.
@@ -41,17 +42,23 @@ Now we need to start adding our projects, for this example i'll add one host and
 
 first we will add the **main** app with this command:
 
-`nx g host main --standalone --standaloneConfig --style=scss --addTailwind`
+```shell
+nx g host main --standalone --standaloneConfig --style=scss --addTailwind
+```
 
 now we will add the remotes with this command:
 
-`nx g remote dashboard --host=main --standalone --standaloneConfig --style=scss --addTailwind `
+```shell
+nx g remote dashboard --host=main --standalone --standaloneConfig --style=scss --addTailwind
+```
 
-`nx g remote settings --host=main --standalone --standaloneConfig --style=scss --addTailwind`
+```shell
+nx g remote settings --host=main --standalone --standaloneConfig --style=scss --addTailwind
+```
 
 We should end up with a folder structure like this:
 
-```
+```shell
 .
 ├── README.md
 ├── apps

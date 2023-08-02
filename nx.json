@@ -25,7 +25,7 @@
   },
   "generators": {
     "@nx/angular:application": {
-      "style": "css",
+      "style": "scss",
       "linter": "eslint",
       "unitTestRunner": "none",
       "e2eTestRunner": "cypress"
@@ -35,7 +35,7 @@
       "unitTestRunner": "none"
     },
     "@nx/angular:component": {
-      "style": "css",
+      "style": "scss",
       "standalone": true,
       "inlineStyle": true,
       "inlineTemplate": true,
