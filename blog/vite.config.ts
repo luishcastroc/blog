@@ -17,6 +17,10 @@ export default defineConfig(({ mode }) => {
       analog({
         nitro: {
           preset: 'vercel',
+          externals: {
+            inline: ['zone.js/node'],
+            external: ['node-fetch-native/dist/polyfill', 'destr'],
+          },
         },
       }),
       nxViteTsPaths(),
