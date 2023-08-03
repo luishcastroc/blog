@@ -15,7 +15,6 @@ export default defineConfig(({ mode }) => {
     plugins: [
       analog({
         nitro: {
-          preset: 'vercel',
           externals: {
             inline: ['zone.js/node'],
             external: ['node-fetch-native/dist/polyfill', 'destr'],
