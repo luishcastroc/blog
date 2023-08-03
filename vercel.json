@@ -1,4 +1,4 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "nx build blog"
+  "buildCommand": "npm run build"
 }
