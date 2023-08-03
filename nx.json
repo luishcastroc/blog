@@ -9,6 +9,7 @@
       }
     }
   },
+  "defaultProject": "blog",
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"],
