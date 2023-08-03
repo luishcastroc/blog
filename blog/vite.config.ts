@@ -15,6 +15,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       analog({
         nitro: {
+          serveStatic: false,
           preset: 'vercel',
           externals: {
             inline: ['zone.js/node'],
