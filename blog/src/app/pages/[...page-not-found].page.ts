@@ -1,6 +1,11 @@
+import { RouteMeta } from '@analogjs/router';
 import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+
+export const routeMeta: RouteMeta = {
+  title: 'Luis Castro - Page Not Found',
+};
 
 @Component({
   standalone: true,

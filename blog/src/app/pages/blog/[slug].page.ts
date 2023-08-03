@@ -15,7 +15,7 @@ export const routeMeta: RouteMeta = {
   imports: [MarkdownComponent, AsyncPipe, NgIf],
   template: `
     <article
-      class="flex flex-col flex-auto gap-4 w-full items-center overflow-auto"
+      class="flex flex-col flex-auto gap-4 w-full items-center overflow-auto text-primary-content"
       *ngIf="post$ | async as post">
       <h1
         class="text-3xl font-extrabold self-center md:w-1/2 lg:w-3/5 text-center">
