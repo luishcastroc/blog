@@ -4,7 +4,9 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run svg && nx serve blog",
+    "start:prod": "npm run svg && nx serve blog --configuration=production",
     "build": "npm run svg && nx build blog",
+    "build:netlify": "npm i && npm run svg && nx build blog",
     "svg": "svg-generator"
   },
   "svgGenerator": {
