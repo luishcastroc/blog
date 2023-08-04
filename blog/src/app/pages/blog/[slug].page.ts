@@ -13,6 +13,7 @@ export const routeMeta: RouteMeta = {
 @Component({
   standalone: true,
   imports: [MarkdownComponent, AsyncPipe, NgIf],
+  host: { class: 'px-0' },
   template: `
     <article
       class="flex flex-col flex-auto gap-4 w-full items-center overflow-auto text-primary-content"

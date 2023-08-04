@@ -5,6 +5,7 @@ import { JsonPipe, NgFor } from '@angular/common';
 import { PostAttributes } from '../../models/post.model';
 import { RouteMeta } from '@analogjs/router';
 import { RouterLink } from '@angular/router';
+import { DateTime } from 'luxon';
 
 export const routeMeta: RouteMeta = {
   title: 'Luis Castro - Blog',
@@ -23,10 +24,22 @@ export const routeMeta: RouteMeta = {
   `,
 })
 export default class BlogIndexPage {
-  readonly posts = injectContentFiles<PostAttributes>().sort((a, b) => {
-    return (
-      new Date(b.attributes.date).getTime() -
-      new Date(a.attributes.date).getTime()
-    );
-  });
+  readonly posts = injectContentFiles<PostAttributes>()
+    .map(post => {
+      const date = DateTime.fromFormat(post.attributes.date, 'MM-dd-yyyy');
+      const dateString = date.toISODate();
+      return {
+        ...post,
+        attributes: {
+          ...post.attributes,
+          date: dateString as string,
+        },
+      };
+    })
+    .sort((a, b) => {
+      return (
+        DateTime.fromISO(b.attributes.date).toMillis() -
+        DateTime.fromISO(a.attributes.date).toMillis()
+      );
+    });
 }

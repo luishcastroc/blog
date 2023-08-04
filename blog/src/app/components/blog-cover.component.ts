@@ -16,7 +16,7 @@ import { RouterLinkWithHref } from '@angular/router';
       <img
         [ngSrc]="post.attributes.coverImage"
         width="500"
-        height="264"
+        height="210"
         alt="Cover Image" />
     </figure>
     <div class="card-body">
