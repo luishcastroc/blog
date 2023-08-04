@@ -35,7 +35,7 @@ import { SvgIconComponent } from '@ngneat/svg-icon';
               key="twitter"
               fontSize="30px"
               height="30px"
-              aria-label="twitter"
+              aria-label="Luis's Twitter Profile"
           /></a>
         </li>
         <li class="hover:text-base-100 w-16 hover:transition-all">
@@ -47,7 +47,7 @@ import { SvgIconComponent } from '@ngneat/svg-icon';
               key="github"
               fontSize="30px"
               height="30px"
-              aria-label="github"
+              aria-label="Luis's GitHub Profile"
           /></a>
         </li>
         <li class="hover:text-base-100 w-16 hover:transition-all">
@@ -59,7 +59,7 @@ import { SvgIconComponent } from '@ngneat/svg-icon';
               key="threads"
               fontSize="30px"
               height="30px"
-              aria-label="threads"
+              aria-label="Luis's Threads Profile"
           /></a>
         </li>
         <li class="hover:text-base-100 w-16 hover:transition-all">
@@ -71,7 +71,7 @@ import { SvgIconComponent } from '@ngneat/svg-icon';
               key="linkedin"
               fontSize="30px"
               height="30px"
-              aria-label="linkedin"
+              aria-label="Luis's LinkedIn Profile"
           /></a>
         </li>
       </ul>
@@ -82,7 +82,7 @@ import { SvgIconComponent } from '@ngneat/svg-icon';
           ngSrc="assets/powered_by_analog.png"
           width="119"
           height="34.5"
-          alt="Powered by Analog"
+          alt="Powered by Analog Image"
       /></a>
     </div>
   </footer>`,

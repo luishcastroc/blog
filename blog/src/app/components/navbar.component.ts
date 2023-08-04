@@ -20,12 +20,14 @@ import {
     NgFor,
   ],
   template: `<nav class="navbar bg-primary text-primary-content max-h-20">
-    <div class="navbar-start lg:justify-end mr-3">
+    <div class="navbar-start mr-3 lg:justify-end">
       <div #dropdownButton class="dropdown lg:hidden">
         <label
           (click)="toggleDropdown(dropdownButton)"
           tabindex="0"
-          class="btn btn-ghost btn-circle">
+          class="btn btn-ghost btn-circle"
+          aria-haspopup="true"
+          aria-expanded="false">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5"
@@ -41,7 +43,8 @@ import {
         </label>
         <ul
           tabindex="0"
-          class="menu menu-sm dropdown-content mt-3 z-[99] p-2 shadow bg-base-100 rounded-box w-52">
+          class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[99] mt-3 w-52 p-2 shadow"
+          role="menu">
           <li *ngFor="let link of links">
             <a
               [class.active]="activeLink === link.path"
@@ -51,9 +54,9 @@ import {
           </li>
         </ul>
       </div>
-      <ul class="menu menu-horizontal px-1 text-base xl:gap-8 hidden lg:flex">
+      <ul class="menu menu-horizontal hidden px-1 text-base lg:flex xl:gap-8">
         <li
-          class="relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:[&:not(&:has(a.active))]:scale-x-100 after:transition after:duration-300 after:origin-center">
+          class="relative block w-fit text-xl after:absolute after:block after:h-[3px] after:w-full after:origin-center after:scale-x-0 after:bg-black after:transition after:duration-300 after:content-[''] after:hover:[&:not(&:has(a.active))]:scale-x-100">
           <a
             routerLink="/home"
             routerLinkActive="active"
@@ -63,7 +66,7 @@ import {
           >
         </li>
         <li
-          class="relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:[&:not(&:has(a.active))]:scale-x-100 after:transition after:duration-300 after:origin-center">
+          class="relative block w-fit text-xl after:absolute after:block after:h-[3px] after:w-full after:origin-center after:scale-x-0 after:bg-black after:transition after:duration-300 after:content-[''] after:hover:[&:not(&:has(a.active))]:scale-x-100">
           <a
             routerLink="/blog"
             routerLinkActive="active"
@@ -73,7 +76,7 @@ import {
           >
         </li>
         <li
-          class="relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:[&:not(&:has(a.active))]:scale-x-100 after:transition after:duration-300 after:origin-center">
+          class="relative block w-fit text-xl after:absolute after:block after:h-[3px] after:w-full after:origin-center after:scale-x-0 after:bg-black after:transition after:duration-300 after:content-[''] after:hover:[&:not(&:has(a.active))]:scale-x-100">
           <a
             routerLink="/about"
             routerLinkActive="active"
@@ -83,7 +86,7 @@ import {
           >
         </li>
         <li
-          class="relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:[&:not(&:has(a.active))]:scale-x-100 after:transition after:duration-300 after:origin-center">
+          class="relative block w-fit text-xl after:absolute after:block after:h-[3px] after:w-full after:origin-center after:scale-x-0 after:bg-black after:transition after:duration-300 after:content-[''] after:hover:[&:not(&:has(a.active))]:scale-x-100">
           <a
             routerLink="/contact"
             routerLinkActive="active"
@@ -94,16 +97,17 @@ import {
         </li>
       </ul>
     </div>
-    <div class="navbar-center mr-4 ml-4">
+    <div class="navbar-center ml-4 mr-4">
       <div class="avatar">
         <div
-          class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 hover:ring-secondary-focus hover:w-28 hover:h-auto hover:transition-all">
+          class="ring-primary ring-offset-base-100 hover:ring-secondary-focus w-24 rounded-full ring ring-offset-2 hover:h-auto hover:w-28 hover:transition-all">
           <a routerLink="/home"
             ><img
               src="assets/logo.svg"
               width="80"
               height="80"
-              aria-label="logo"
+              alt="Luis H. Castro Dev logo"
+              aria-label="Luis H. Castro Dev logo"
           /></a>
         </div>
       </div>
@@ -112,23 +116,23 @@ import {
       <ul class="menu menu-horizontal px-1 text-base xl:gap-8">
         <li class="w-16">
           <button
-            class="btn btn-square btn-ghost w-full h-[46px] relative overflow-hidden"
+            class="btn btn-square btn-ghost relative h-[46px] w-full overflow-hidden"
             (click)="changeTheme()">
             <svg-icon
-              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+              class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
               [ngClass]="{
-              'opacity-0 transition-all translate-y-[20%] rotate-[50deg]': isDarkMode,
-              'opacity-[1] transition-all ease-out duration-1000': !isDarkMode,
+              'translate-y-[20%] rotate-[50deg] opacity-0 transition-all': isDarkMode,
+              'opacity-[1] transition-all duration-1000 ease-out': !isDarkMode,
             }"
               key="dark-mode"
               fontSize="30px"
               height="30px"
               aria-label="Chage theme to dark" />
             <svg-icon
-              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+              class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
               [ngClass]="{
-                'opacity-[1] transition-all ease-out duration-1000': isDarkMode,
-                'opacity-0 transition-all translate-y-[20%] rotate-[100deg]':
+                'opacity-[1] transition-all duration-1000 ease-out': isDarkMode,
+                'translate-y-[20%] rotate-[100deg] opacity-0 transition-all':
                   !isDarkMode
               }"
               key="light"
