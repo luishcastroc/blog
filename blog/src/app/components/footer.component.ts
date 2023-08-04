@@ -62,6 +62,18 @@ import { SvgIconComponent } from '@ngneat/svg-icon';
               aria-label="threads"
           /></a>
         </li>
+        <li class="hover:text-base-100 w-16 hover:transition-all">
+          <a
+            href="https://www.linkedin.com/in/luis-castro-cabrera/"
+            target="_blank"
+            rel="noreferrer noopener"
+            ><svg-icon
+              key="linkedin"
+              fontSize="30px"
+              height="30px"
+              aria-label="linkedin"
+          /></a>
+        </li>
       </ul>
     </div>
     <div>

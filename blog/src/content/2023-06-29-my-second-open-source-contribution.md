@@ -34,7 +34,7 @@ With that said, let's return to the deprecation issue at hand.
 
 The deprecation messages I aimed to fix were:
 
-```bash
+```shell
 marked(): highlight and langPrefix parameters are deprecated since version 5.0.0, should not be used and will be removed in the future. Instead use https://www.npmjs.com/package/marked-highlight.
 
 marked(): mangle parameter is enabled by default, but is deprecated since version 5.0.0, and will be removed in the future. To clear this warning, install https://www.npmjs.com/package/marked-mangle, or disable by setting `{mangle: false}`.
@@ -145,7 +145,7 @@ Having understood the required changes from the documentation, I moved onto the 
 
 One of them was really straightforward since it was functionality not really used in the implementation:
 
-```bash
+```shell
 marked(): mangle parameter is enabled by default, but is deprecated since version 5.0.0, and will be removed in the future. To clear this warning, install https://www.npmjs.com/package/marked-mangle, or disable by setting `{mangle: false}`.
 ```
 
@@ -205,7 +205,9 @@ With that information and based on the documentation and the message, 2 new pack
 
 So, I proceeded to add them to the repo by using:
 
-`pnpm add marked-highlight marked-gfm-heading-id -w`
+```shell
+pnpm add marked-highlight marked-gfm-heading-id -w
+```
 
 After adding the dependencies, I proceeded to use them as the documentation was recommending and ended up with something like this:
 

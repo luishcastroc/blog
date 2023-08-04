@@ -13,7 +13,7 @@
 
 html,
 body {
-  @apply flex flex-col flex-auto w-full antialiased min-h-screen;
+  @apply flex min-h-screen w-full flex-auto flex-col antialiased;
   font-family: 'Inter', sans-serif;
   background-color: var(--bg) !important;
 }
@@ -214,6 +214,24 @@ div {
 
     h2 {
       font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+    }
+
+    pre {
+      font-size: 0.8rem;
+    }
+
+    code:not([class]) {
+      @apply text-primary-content bg-primary rounded-sm px-1;
+    }
+
+    a {
+      text-decoration: revert;
       font-weight: 600;
     }
   }
