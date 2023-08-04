@@ -9,23 +9,23 @@ export const routeMeta: RouteMeta = {
   standalone: true,
   imports: [],
   template: `
-    <section class="flex flex-col flex-1 pt-6 w-full z-10">
+    <section class="z-10 flex w-full flex-1 flex-col">
       <div class="hero flex-1">
         <div class="bg-opacity-60"></div>
         <div class="hero-content text-primary-content">
           <div class="max-w-md md:max-w-[80%]">
             <h1
-              class="mb-5 text-3xl md:text-5xl font-bold w-fit before:w-5 before:h-5
-          before:bg-primary before:absolute before:top-[70%] before:left-[98%] before:-z-10
-          after:w-5 after:h-5 after:bg-primary after:absolute after:top-[70%] after:left-[-15px] after:-z-10 relative
-          before:transition-all before:duration-500 before:translate-y-0 hover:before:translate-y-[-20px]
-          after:transition-all after:duration-500 after:translate-y-0 hover:after:translate-y-[-20px]">
+              class="before:bg-primary after:bg-primary relative mb-5 w-fit text-3xl font-bold
+                     before:absolute before:left-[98%] before:top-[70%] before:-z-10 before:h-5
+                     before:w-5 before:translate-y-0 before:transition-all before:duration-500 after:absolute
+                     after:left-[-15px] after:top-[70%] after:-z-10 after:h-5 after:w-5 after:translate-y-0 after:transition-all
+                     after:duration-500 hover:before:translate-y-[-20px] hover:after:translate-y-[-20px] md:text-5xl">
               Welcome! I'm Luis Castro
             </h1>
             <p class="mb-5 text-lg md:text-2xl md:leading-8 lg:leading-[3rem]">
               I'm a
               <span
-                class="font-extrabold inline-block bg-secondary text-secondary-content skew-y-3 border-none"
+                class="bg-secondary text-secondary-content inline-block skew-y-3 border-none font-extrabold"
                 >dedicated</span
               >
               software engineer with over a decade of experience.
@@ -33,12 +33,12 @@ export const routeMeta: RouteMeta = {
             <p class="mb-5 text-lg md:text-2xl md:leading-8 lg:leading-[3rem]">
               Originally from
               <span
-                class="font-extrabold text-black inline-block bg-gradient-to-r from-green-600 via-white to-red-600 skew-y-3 border-none"
+                class="inline-block skew-y-3 border-none bg-gradient-to-r from-green-600 via-white to-red-600 font-extrabold text-black"
                 >México</span
               >, now residing in the United States, I thrive on new
               technologies, particularly
               <span
-                class="font-extrabold inline-block bg-secondary text-secondary-content skew-y-3 border-none"
+                class="bg-secondary text-secondary-content inline-block skew-y-3 border-none font-extrabold"
                 >Angular</span
               >
               and JavaScript.

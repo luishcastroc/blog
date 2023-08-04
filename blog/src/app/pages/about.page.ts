@@ -9,16 +9,17 @@ export const routeMeta: RouteMeta = {
 @Component({
   standalone: true,
   imports: [CommonModule],
+  host: { class: 'justify-center' },
   template: `
     <div
-      class="container flex flex-col gap-6 flex-auto px-16 md:px-24 text-primary-content">
+      class="text-primary-content container flex flex-auto flex-col gap-6 px-16 pt-16 md:px-24">
       <header>
         <h1
-          class="w-fit text-4xl md:text-5xl font-bold before:w-5 before:h-5
-          before:bg-primary before:absolute before:top-[70%] before:left-[95%] before:-z-10
-          after:w-5 after:h-5 after:bg-primary after:absolute after:top-[70%] after:left-[-20px] after:-z-10 relative
-          before:transition-all before:duration-500 before:translate-y-0 hover:before:translate-y-[-20px]
-          after:transition-all after:duration-500 after:translate-y-0 hover:after:translate-y-[-20px]">
+          class="before:bg-primary after:bg-primary relative w-fit text-4xl font-bold
+          before:absolute before:left-[95%] before:top-[70%] before:-z-10 before:h-5
+          before:w-5 before:translate-y-0 before:transition-all before:duration-500 after:absolute after:left-[-20px] after:top-[70%] after:-z-10
+          after:h-5 after:w-5 after:translate-y-0 after:transition-all
+          after:duration-500 hover:before:translate-y-[-20px] hover:after:translate-y-[-20px] md:text-5xl">
           About Me!!
         </h1>
       </header>

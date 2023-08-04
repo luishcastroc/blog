@@ -1,7 +1,13 @@
-import { Component, Renderer2, inject } from '@angular/core';
+import { Component, inject, Renderer2 } from '@angular/core';
+import { filter } from 'rxjs';
 import { NgClass, NgFor } from '@angular/common';
-import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 import { SvgIconComponent } from '@ngneat/svg-icon';
+import {
+  NavigationEnd,
+  Router,
+  RouterLinkActive,
+  RouterLinkWithHref,
+} from '@angular/router';
 
 @Component({
   selector: 'sr-navbar',
@@ -15,8 +21,11 @@ import { SvgIconComponent } from '@ngneat/svg-icon';
   ],
   template: `<nav class="navbar bg-primary text-primary-content max-h-20">
     <div class="navbar-start lg:justify-end mr-3">
-      <div class="dropdown lg:hidden">
-        <label tabindex="0" class="btn btn-ghost btn-circle">
+      <div #dropdownButton class="dropdown lg:hidden">
+        <label
+          (click)="toggleDropdown(dropdownButton)"
+          tabindex="0"
+          class="btn btn-ghost btn-circle">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5"
@@ -35,9 +44,8 @@ import { SvgIconComponent } from '@ngneat/svg-icon';
           class="menu menu-sm dropdown-content mt-3 z-[99] p-2 shadow bg-base-100 rounded-box w-52">
           <li *ngFor="let link of links">
             <a
-              routerLink="{{ link.path }}"
-              routerLinkActive="active"
-              [routerLinkActiveOptions]="{ exact: true }"
+              [class.active]="activeLink === link.path"
+              (click)="linkClick($event, dropdownButton, link.path)"
               >{{ link.name }}</a
             >
           </li>
@@ -145,6 +153,33 @@ export class NavbarComponent {
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];
+
+  activeLink = '';
+
+  constructor(private router: Router) {
+    this.router.events
+      .pipe(
+        filter(
+          (event): event is NavigationEnd => event instanceof NavigationEnd
+        )
+      )
+      .subscribe((event: NavigationEnd) => {
+        this.activeLink = event.urlAfterRedirects;
+      });
+  }
+
+  toggleDropdown(button: HTMLDivElement) {
+    button.classList.toggle('dropdown-open');
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
+  }
+
+  linkClick(event: Event, parent: HTMLDivElement, route: string) {
+    event.preventDefault();
+    this.toggleDropdown(parent);
+    this.router.navigate([route]);
+  }
 
   changeTheme() {
     const body = this.#renderer.selectRootElement('body', true) as HTMLElement;

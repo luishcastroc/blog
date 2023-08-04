@@ -10,11 +10,11 @@ import { SvgIconComponent } from '@ngneat/svg-icon';
     class: 'z-[99]',
   },
   template: `<footer
-    class="footer footer-center p-10 bg-primary text-primary-content">
+    class="footer footer-center bg-primary text-primary-content p-10">
     <div>
       <div class="avatar">
         <div
-          class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+          class="ring-primary ring-offset-base-100 w-24 rounded-full ring ring-offset-2">
           <img src="assets/logo.svg" width="80" height="80" aria-label="logo" />
         </div>
       </div>
@@ -26,7 +26,7 @@ import { SvgIconComponent } from '@ngneat/svg-icon';
     </div>
     <div>
       <ul class="grid grid-flow-col text-base xl:gap-8">
-        <li class="w-16 hover:text-base-100 hover:transition-all">
+        <li class="hover:text-base-100 w-16 hover:transition-all">
           <a
             href="https://twitter.com/LuisHCCDev"
             target="_blank"
@@ -38,7 +38,7 @@ import { SvgIconComponent } from '@ngneat/svg-icon';
               aria-label="twitter"
           /></a>
         </li>
-        <li class="w-16 hover:text-base-100 hover:transition-all">
+        <li class="hover:text-base-100 w-16 hover:transition-all">
           <a
             href="https://github.com/luishcastroc"
             target="_blank"
@@ -50,7 +50,7 @@ import { SvgIconComponent } from '@ngneat/svg-icon';
               aria-label="github"
           /></a>
         </li>
-        <li class="w-16 hover:text-base-100 hover:transition-all">
+        <li class="hover:text-base-100 w-16 hover:transition-all">
           <a
             href="https://www.threads.net/@luishccdev"
             target="_blank"

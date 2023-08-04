@@ -12,9 +12,9 @@ import { FooterComponent } from './footer.component';
     class: 'flex min-h-[100dvh] flex-col',
   },
   template: `
-    <main class="flex flex-col flex-auto pt-6 w-full z-10">
+    <main class="z-10 flex w-full flex-auto flex-col pt-6">
       <sr-navbar />
-      <div class="relative">
+      <div class="relative flex flex-auto">
         <router-outlet></router-outlet>
         <!-- Animated circles container -->
         <div class="circle-container fixed">

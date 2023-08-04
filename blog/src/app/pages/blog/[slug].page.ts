@@ -16,14 +16,14 @@ export const routeMeta: RouteMeta = {
   host: { class: 'px-0' },
   template: `
     <article
-      class="flex flex-col flex-auto gap-4 w-full items-center overflow-auto text-primary-content"
+      class="text-primary-content flex w-full flex-auto flex-col items-center gap-4 overflow-auto"
       *ngIf="post$ | async as post">
       <h1
-        class="text-3xl font-extrabold self-center md:w-1/2 lg:w-3/5 text-center">
+        class="self-center text-center text-3xl font-extrabold md:w-1/2 lg:w-3/5">
         {{ post.attributes.title }}
       </h1>
       <div
-        class="container mx-auto pt-4 px-8 md:px-0 pb-8 w-full md:w-1/2 lg:w-3/5 line-numbers blog-post">
+        class="line-numbers blog-post container w-full px-8 pb-8 pt-4 md:w-11/12 md:px-0 lg:w-3/5">
         <analog-markdown [content]="post.content"></analog-markdown>
       </div>
     </article>

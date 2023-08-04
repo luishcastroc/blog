@@ -11,18 +11,19 @@ import { RouterLinkWithHref } from '@angular/router';
   host: {
     class: 'p-0',
   },
-  template: `<div class="card lg:w-96 bg-base-100 shadow-xl">
+  template: `<div class="card bg-base-100 shadow-xl lg:w-96">
     <figure>
       <img
         [ngSrc]="post.attributes.coverImage"
         width="500"
         height="210"
+        [priority]="true"
         alt="Cover Image" />
     </figure>
     <div class="card-body">
       <h2 class="card-title">{{ post.attributes.title }}</h2>
       <p>{{ post.attributes.description }}</p>
-      <div class="card-actions justify-between jus items-center">
+      <div class="card-actions jus items-center justify-between">
         <div class="badge badge-outline">{{ post.attributes.date | date }}</div>
         <button [routerLink]="post.attributes.slug" class="btn btn-primary">
           Read
