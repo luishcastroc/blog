@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@app/svg/*": ["dist/blog/client/assets/*"]
+      "@app/svg/*": ["blog/src/app/svg/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -9,7 +9,7 @@
     "svg": "svg-generator"
   },
   "svgGenerator": {
-    "outputPath": "./dist/blog/client/assets/",
+    "outputPath": "./blog/src/app/svg/",
     "srcPath": "./blog/src/public/assets/",
     "svgoConfig": {
       "plugins": [
