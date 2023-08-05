@@ -92,7 +92,7 @@ import { HotToastService } from '@ngneat/hot-toast';
 export class ContactComponent {
   #http = inject(HttpClient);
   #toast = inject(HotToastService);
-  loading = signal(true);
+  loading = signal(false);
   readonly #environment = environment;
   contactForm = inject(FormBuilder).group(
     {
