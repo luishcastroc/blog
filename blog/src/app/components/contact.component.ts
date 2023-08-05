@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../environments/environment.development';
 import { HotToastService } from '@ngneat/hot-toast';
 
@@ -116,7 +116,7 @@ export class ContactComponent {
   }
 
   submitForm() {
-    this.loading.set(false);
+    this.loading.set(true);
     this.contactForm.disable();
     const { name, email, message } = this.contactForm.value;
     this.#http
@@ -128,13 +128,22 @@ export class ContactComponent {
       .subscribe({
         next: () => {
           this.loading.set(false);
-          this.#toast.success('Email sent successfully');
+          this.#toast.success('Email sent successfully', {
+            duration: 3500,
+            position: 'bottom-center',
+          });
           this.contactForm.enable();
           this.contactForm.reset();
         },
-        error: () => {
+        error: (error: HttpErrorResponse) => {
           this.loading.set(false);
-          this.#toast.error('Error sending email');
+          this.#toast.error(
+            `Error ${error.status} sending email: ${error.statusText}`,
+            {
+              duration: 3500,
+              position: 'bottom-center',
+            }
+          );
           this.contactForm.enable();
         },
       });
