@@ -1,4 +1,4 @@
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { darkModeIcon } from '@app/svg/dark-mode';
 import { githubIcon } from '@app/svg/github';
 import { lightIcon } from '@app/svg/light';
@@ -10,6 +10,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideSvgIcons } from '@ngneat/svg-icon';
 import { threadsIcon } from '@app/svg/threads';
 import { twitterIcon } from '@app/svg/twitter';
+import { HotToastModule } from '@ngneat/hot-toast';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -25,5 +26,6 @@ export const appConfig: ApplicationConfig = {
       lightIcon,
       linkedinIcon,
     ]),
+    importProvidersFrom(HotToastModule.forRoot()),
   ],
 };
