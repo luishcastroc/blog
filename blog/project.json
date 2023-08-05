@@ -45,13 +45,7 @@
         },
         "production": {
           "sourcemap": false,
-          "mode": "production",
-          "fileReplacements": [
-            {
-              "replace": "blog/src/environments/environment.ts",
-              "with": "blog/src/environments/environment.production.ts"
-            }
-          ]
+          "mode": "production"
         }
       }
     },

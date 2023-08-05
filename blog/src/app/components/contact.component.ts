@@ -2,7 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
@@ -118,6 +118,7 @@ export class ContactComponent {
   submitForm() {
     this.loading.set(true);
     this.contactForm.disable();
+    console.log('submitForm', this.#environment.apiUrl);
     const { name, email, message } = this.contactForm.value;
     this.#http
       .post(`${this.#environment.apiUrl}/send-email`, {
