@@ -10,7 +10,22 @@ import { HotToastService } from '@ngneat/hot-toast';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   host: { class: 'w-full' },
-  template: `<div class="flex flex-auto flex-col items-center pt-20">
+  template: `<div class="flex flex-auto flex-col items-center gap-3 pt-20">
+    <div
+      class="flex w-full flex-col justify-start gap-4 align-baseline md:max-w-md">
+      <h1
+        class=" before:bg-primary after:bg-primary relative mb-5 w-fit text-3xl font-bold
+                before:absolute before:left-[98%] before:top-[70%] before:-z-10 before:h-5
+                before:w-5 before:translate-y-0 before:transition-all before:duration-500 after:absolute
+                after:left-[-15px] after:top-[70%] after:-z-10 after:h-5 after:w-5 after:translate-y-0 after:transition-all
+                after:duration-500 hover:before:translate-y-[-20px] hover:after:translate-y-[-20px] md:text-5xl">
+        Contact Me
+      </h1>
+      <p class=" text-lg font-bold">
+        Have any question?, project? debate about Futbol, game you want me to
+        try?... shoot me a mail!
+      </p>
+    </div>
     <form
       [formGroup]="contactForm"
       (ngSubmit)="submitForm()"

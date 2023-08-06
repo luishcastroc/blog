@@ -28,7 +28,7 @@ export const postMetaResolver: ResolveFn<MetaTag[]> = route => {
     },
     {
       name: 'author',
-      content: 'Analog Team',
+      content: postAttributes.author,
     },
     {
       property: 'og:title',

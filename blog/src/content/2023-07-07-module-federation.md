@@ -2,6 +2,7 @@
 title: Unlocking the Power of Micro-Frontends, A Guided Journey From Monolith to Modular
 slug: module-federation
 description: Brief overview on Micro Frontedns with Module Federation and Nx Mono Repos
+author: Luis Castro
 coverImage: /assets/cover-images/mf-cover.webp
 date: 07-07-2023
 ---
@@ -92,7 +93,7 @@ Once the library is installed and configured, we'll make a small change inside t
 ```html
 <div class="navbar bg-base-100">
   <div class="flex-1">
-    <a class="btn btn-ghost normal-case text-xl">MF</a>
+    <a class="btn btn-ghost text-xl normal-case">MF</a>
   </div>
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">

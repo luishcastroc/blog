@@ -23,7 +23,7 @@ export const routeMeta: RouteMeta = {
         {{ post.attributes.title }}
       </h1>
       <div
-        class="line-numbers blog-post container w-full px-8 pb-8 pt-4 md:w-11/12 md:px-0 lg:w-3/5">
+        class="line-numbers blog-post container w-full pb-8 pt-4 md:w-11/12 md:px-0 lg:w-3/5">
         <analog-markdown [content]="post.content"></analog-markdown>
       </div>
     </article>

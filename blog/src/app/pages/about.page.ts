@@ -12,7 +12,7 @@ export const routeMeta: RouteMeta = {
   host: { class: 'justify-center' },
   template: `
     <div
-      class="text-primary-content container flex flex-auto flex-col gap-6 px-16 pt-16 md:px-24">
+      class="text-primary-content container flex flex-auto flex-col gap-6 px-2 pt-16 md:px-24">
       <header>
         <h1
           class="before:bg-primary after:bg-primary relative w-fit text-4xl font-bold
