@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => {
       analog({
         nitro: {
           externals: {
-            inline: ['zone.js/node'],
+            inline: ['zone.js/node', 'tslib'],
             external: ['node-fetch-native/dist/polyfill', 'destr'],
           },
         },
