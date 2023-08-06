@@ -1,7 +1,7 @@
 ---
 title: My Second Open Source Contribution, The AnalogJS Journey
 slug: my-second-open-source-contribution
-description: Venturing into the realm of open source contributions
+description: Venturing into the realm of open source contributions.
 author: Luis Castro
 coverImage: /assets/cover-images/oss-cover.webp
 date: 06-29-2023

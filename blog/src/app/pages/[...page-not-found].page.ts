@@ -11,7 +11,7 @@ export const routeMeta: RouteMeta = {
   standalone: true,
   imports: [RouterLink, NgOptimizedImage],
   template: `
-    <div class="container flex flex-auto items-center justify-center">
+    <div class="relative flex flex-auto items-center justify-center">
       <div class="flex flex-col items-center justify-items-center">
         <img
           ngSrc="assets/not-found.svg"
