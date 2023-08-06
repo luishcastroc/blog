@@ -78,7 +78,7 @@
     "daisyui": "^3.2.1",
     "jsdom": "^22.0.0",
     "nx": "16.6.0",
-    "nx-cloud": "16.1.1",
+    "nx-cloud": "16.2.0",
     "postcss": "^8.4.5",
     "postcss-nesting": "^12.0.0",
     "prettier": "^2.6.2",

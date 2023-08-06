@@ -35,13 +35,7 @@
       "defaultConfiguration": "production",
       "configurations": {
         "development": {
-          "mode": "development",
-          "fileReplacements": [
-            {
-              "replace": "blog/src/environments/environment.ts",
-              "with": "blog/src/environments/environment.development.ts"
-            }
-          ]
+          "mode": "development"
         },
         "production": {
           "sourcemap": false,
@@ -62,7 +56,13 @@
           "hmr": true
         },
         "production": {
-          "buildTarget": "blog:build:production"
+          "buildTarget": "blog:build:production",
+          "fileReplacements": [
+            {
+              "replace": "blog/src/environments/environment.ts",
+              "with": "blog/src/environments/environment.prod.ts"
+            }
+          ]
         }
       }
     },
