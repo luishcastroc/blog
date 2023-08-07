@@ -3,7 +3,7 @@ title: Unlocking the Power of Micro-Frontends, A Guided Journey From Monolith to
 slug: module-federation
 description: Brief overview on Micro Frontedns with Module Federation and Nx Mono Repos.
 author: Luis Castro
-coverImage: https://res.cloudinary.com/lhcc0134/image/upload/v1691372381/mf-cover.webp
+coverImage: v1691372381/mf-cover.webp
 date: 07-07-2023
 ---
 

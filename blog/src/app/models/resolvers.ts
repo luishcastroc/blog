@@ -40,7 +40,7 @@ export const postMetaResolver: ResolveFn<MetaTag[]> = route => {
     },
     {
       property: 'og:image',
-      content: postAttributes.coverImage,
+      content: `https://res.cloudinary.com/lhcc0134/${postAttributes.coverImage}`,
     },
   ];
 };

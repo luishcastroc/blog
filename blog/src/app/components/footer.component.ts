@@ -15,7 +15,11 @@ import { SvgIconComponent } from '@ngneat/svg-icon';
       <div class="avatar">
         <div
           class="ring-primary ring-offset-base-100 w-24 rounded-full ring ring-offset-2">
-          <img src="assets/logo.svg" width="80" height="80" aria-label="logo" />
+          <img
+            ngSrc="v1691434864/logo.svg"
+            width="80"
+            height="80"
+            aria-label="logo" />
         </div>
       </div>
       <p class="font-bold">
@@ -79,7 +83,7 @@ import { SvgIconComponent } from '@ngneat/svg-icon';
     <div>
       <a href="https://analogjs.org/" target="_blank" rel="noreferrer noopener"
         ><img
-          ngSrc="assets/powered_by_analog.png"
+          ngSrc="v1691434864/powered_by_analog.png"
           width="119"
           height="34.5"
           alt="Powered by Analog Image"

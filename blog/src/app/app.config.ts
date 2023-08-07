@@ -11,6 +11,7 @@ import { provideSvgIcons } from '@ngneat/svg-icon';
 import { threadsIcon } from '@app/svg/threads';
 import { twitterIcon } from '@app/svg/twitter';
 import { HotToastModule } from '@ngneat/hot-toast';
+import { provideCloudinaryLoader } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -27,5 +28,6 @@ export const appConfig: ApplicationConfig = {
       linkedinIcon,
     ]),
     importProvidersFrom(HotToastModule.forRoot()),
+    provideCloudinaryLoader('https://res.cloudinary.com/lhcc0134'),
   ],
 };
