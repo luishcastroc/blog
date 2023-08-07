@@ -1,5 +1,5 @@
 import { Component, inject, Renderer2 } from '@angular/core';
-import { filter } from 'rxjs';
+import { filter, fromEvent, map, startWith } from 'rxjs';
 import { NgClass, NgFor } from '@angular/common';
 import { SvgIconComponent } from '@ngneat/svg-icon';
 import {
@@ -170,6 +170,22 @@ export class NavbarComponent {
       .subscribe((event: NavigationEnd) => {
         this.activeLink = event.urlAfterRedirects;
       });
+
+    //be sure you're running inside a browser
+    const isBrowser = typeof window !== 'undefined';
+    if (isBrowser) {
+      //check the system theme
+      const darkThemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      //listen for changes
+      fromEvent<MediaQueryList>(darkThemeQuery, 'change')
+        .pipe(
+          startWith(darkThemeQuery),
+          map((list: MediaQueryList) => list.matches)
+        )
+        .subscribe(isDarkMode => {
+          this.changeTheme(isDarkMode);
+        });
+    }
   }
 
   toggleDropdown(button: HTMLDivElement) {
@@ -185,12 +201,12 @@ export class NavbarComponent {
     this.router.navigate([route]);
   }
 
-  changeTheme() {
+  changeTheme(theme?: boolean) {
     const body = this.#renderer.selectRootElement('body', true) as HTMLElement;
     if (body.getAttribute('data-theme') === 'dark') {
       body.setAttribute('data-theme', 'bumblebee');
       this.isDarkMode = false;
-    } else {
+    } else if (theme || body.getAttribute('data-theme') === 'bumblebee') {
       body.setAttribute('data-theme', 'dark');
       this.isDarkMode = true;
     }
