@@ -70,7 +70,7 @@ npx create-nx-workspace@latest --preset=@analogjs/platform
 
 This is pretty much the project structure that i'm using.
 
-```treeview
+```shell
 ├── index.html
 ├── postcss.config.js
 ├── project.json
