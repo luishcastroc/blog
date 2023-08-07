@@ -1,8 +1,7 @@
+import { ActivatedRouteSnapshot, ResolveFn } from '@angular/router';
 import { injectContentFiles } from '@analogjs/content';
 import { MetaTag } from '@analogjs/router';
-import { ActivatedRouteSnapshot, ResolveFn } from '@angular/router';
 import { PostAttributes } from './post.model';
-import { environment } from '../../environments/environment';
 
 function injectActivePostAttributes(
   route: ActivatedRouteSnapshot
@@ -41,7 +40,7 @@ export const postMetaResolver: ResolveFn<MetaTag[]> = route => {
     },
     {
       property: 'og:image',
-      content: `${environment.websiteUrl}${postAttributes.coverImage}`,
+      content: postAttributes.coverImage,
     },
   ];
 };

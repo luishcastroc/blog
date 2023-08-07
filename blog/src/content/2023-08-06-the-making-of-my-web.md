@@ -3,7 +3,7 @@ title: The Making of my Web, an AnalogJs journey!!
 slug: the-making-of-my-web
 description: Discovering AnalogJs, Building My Blog.
 author: Luis Castro
-coverImage: /assets/cover-images/my-blog-cover.webp
+coverImage: https://res.cloudinary.com/lhcc0134/image/upload/v1691372359/my-blog-cover.webp
 date: 08-06-2023
 ---
 
