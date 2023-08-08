@@ -203,12 +203,18 @@ export class NavbarComponent {
 
   changeTheme(theme?: boolean) {
     const body = this.#renderer.selectRootElement('body', true) as HTMLElement;
-    if (!theme || body.getAttribute('data-theme') === 'dark') {
-      body.setAttribute('data-theme', 'bumblebee');
-      this.isDarkMode = false;
-    } else if (theme || body.getAttribute('data-theme') === 'bumblebee') {
+
+    if (typeof theme === 'undefined') {
+      // Toggle the theme if no argument is provided
+      theme = body.getAttribute('data-theme') !== 'dark';
+    }
+
+    if (theme) {
       body.setAttribute('data-theme', 'dark');
       this.isDarkMode = true;
+    } else {
+      body.setAttribute('data-theme', 'bumblebee');
+      this.isDarkMode = false;
     }
   }
 }
