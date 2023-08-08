@@ -203,7 +203,7 @@ export class NavbarComponent {
 
   changeTheme(theme?: boolean) {
     const body = this.#renderer.selectRootElement('body', true) as HTMLElement;
-    if (body.getAttribute('data-theme') === 'dark') {
+    if (!theme || body.getAttribute('data-theme') === 'dark') {
       body.setAttribute('data-theme', 'bumblebee');
       this.isDarkMode = false;
     } else if (theme || body.getAttribute('data-theme') === 'bumblebee') {
