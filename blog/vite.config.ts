@@ -3,9 +3,7 @@
 import analog from '@analogjs/platform';
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import * as fs from 'fs';
 
-const posts = fs.readdirSync('./blog/src/content');
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
@@ -16,21 +14,6 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       analog({
-        static: true,
-        prerender: {
-          routes: [
-            '/home',
-            '/blog',
-            '/about',
-            '/contact',
-            ...posts.map(
-              post =>
-                `/blog/posts/${post
-                  .replace('.md', '')
-                  .replace(/^\d{4}-\d{2}-\d{2}-/, '')}`
-            ),
-          ],
-        },
         nitro: {
           externals: {
             inline: ['zone.js/node', 'tslib'],
