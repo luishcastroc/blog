@@ -56,43 +56,14 @@ import {
       </div>
       <ul class="menu menu-horizontal hidden px-1 text-base lg:flex xl:gap-8">
         <li
+          *ngFor="let link of links"
           class="relative block w-fit text-xl after:absolute after:block after:h-[3px] after:w-full after:origin-center after:scale-x-0 after:bg-black after:transition after:duration-300 after:content-[''] after:hover:[&:not(&:has(a.active))]:scale-x-100">
           <a
-            routerLink="/home"
+            routerLink="{{ link.path }}"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
             class="hover:outline-none hover:[&:not(.active)]:bg-transparent"
-            >Home</a
-          >
-        </li>
-        <li
-          class="relative block w-fit text-xl after:absolute after:block after:h-[3px] after:w-full after:origin-center after:scale-x-0 after:bg-black after:transition after:duration-300 after:content-[''] after:hover:[&:not(&:has(a.active))]:scale-x-100">
-          <a
-            routerLink="/blog"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-            class="hover:outline-none hover:[&:not(.active)]:bg-transparent"
-            >Blog</a
-          >
-        </li>
-        <li
-          class="relative block w-fit text-xl after:absolute after:block after:h-[3px] after:w-full after:origin-center after:scale-x-0 after:bg-black after:transition after:duration-300 after:content-[''] after:hover:[&:not(&:has(a.active))]:scale-x-100">
-          <a
-            routerLink="/about"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-            class="hover:outline-none hover:[&:not(.active)]:bg-transparent"
-            >About</a
-          >
-        </li>
-        <li
-          class="relative block w-fit text-xl after:absolute after:block after:h-[3px] after:w-full after:origin-center after:scale-x-0 after:bg-black after:transition after:duration-300 after:content-[''] after:hover:[&:not(&:has(a.active))]:scale-x-100">
-          <a
-            routerLink="/contact"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-            class="hover:outline-none hover:[&:not(.active)]:bg-transparent"
-            >Contact</a
+            >{{ link.name }}</a
           >
         </li>
       </ul>
