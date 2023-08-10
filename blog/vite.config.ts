@@ -6,6 +6,9 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import * as fs from 'fs';
 
 const posts = fs.readdirSync('./blog/src/content');
+const postRoutes = posts.map(
+  post => `/blog/${post.replace('.md', '').replace(/^\d{4}-\d{2}-\d{2}-/, '')}`
+);
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
@@ -16,26 +19,14 @@ export default defineConfig(({ mode }) => {
     plugins: [
       analog({
         prerender: {
-          routes: [
-            '/home',
-            '/blog',
-            '/about',
-            '/contact',
-            ...posts.map(
-              post =>
-                `/blog/posts/${post
-                  .replace('.md', '')
-                  .replace(/^\d{4}-\d{2}-\d{2}-/, '')}`
-            ),
-          ],
+          routes: ['/', '/home', '/blog', '/about', '/contact', ...postRoutes],
+          sitemap: {
+            host: 'https://mrrobot.dev',
+          },
         },
         nitro: {
           preset: 'vercel',
           serveStatic: false,
-          externals: {
-            inline: ['zone.js/node', 'tslib'],
-            external: ['node-fetch-native/dist/polyfill', 'destr'],
-          },
         },
       }),
       tsconfigPaths(),
