@@ -78,6 +78,12 @@ div {
     background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
     width: 100%;
   }
+
+  button {
+    &:disabled {
+      @apply cursor-not-allowed bg-gray-500;
+    }
+  }
 }
 
 .circles {
