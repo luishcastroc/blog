@@ -27,6 +27,7 @@ import {
           tabindex="0"
           class="btn btn-ghost btn-circle"
           aria-haspopup="true"
+          aria-label="Open menu"
           aria-expanded="false">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -88,6 +89,7 @@ import {
         <li class="w-16">
           <button
             class="btn btn-square btn-ghost relative h-[46px] w-full overflow-hidden"
+            aria-label="Change theme"
             (click)="changeTheme()">
             <svg-icon
               class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
