@@ -461,7 +461,7 @@ And you can use your favorite software to connect to the database and check the 
 
 ![Database](https://res.cloudinary.com/lhcc0134/image/upload/v1691879744/final-result.png)
 
-**Conclusion**
+## Conclusion
 
 This guide walked you through the process of integrating Analog with Prisma, tRPC, and CockroachDB. By merging these technologies, we've transformed a basic array-based app into a scalable, database-driven application. This illustrates the potential of modern development tools and frameworks in facilitating efficient and robust app development.
 
