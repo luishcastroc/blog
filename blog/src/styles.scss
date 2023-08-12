@@ -229,6 +229,11 @@ div {
       font-weight: 600;
     }
 
+    h4 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
     ul {
       list-style: disc;
       padding-left: 1.5rem;
@@ -245,6 +250,11 @@ div {
     a {
       text-decoration: revert;
       font-weight: 600;
+    }
+
+    ol {
+      list-style: decimal;
+      padding-left: 1.5rem;
     }
   }
 }

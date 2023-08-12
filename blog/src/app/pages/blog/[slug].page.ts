@@ -1,5 +1,4 @@
 import {
-  ContentFile,
   injectContent,
   injectContentFiles,
   MarkdownComponent,
@@ -10,8 +9,10 @@ import { Component } from '@angular/core';
 import { postMetaResolver, postTitleResolver } from '../../models/resolvers';
 import { PostAttributes } from '../../models/post.model';
 import { RouterLinkWithHref } from '@angular/router';
-import { combineLatest, map, of, tap } from 'rxjs';
+import { combineLatest, map, of } from 'rxjs';
 import { DateTime } from 'luxon';
+import 'prismjs/components/prism-go';
+import 'prismjs/components/prism-sql';
 
 export const routeMeta: RouteMeta = {
   title: postTitleResolver,
