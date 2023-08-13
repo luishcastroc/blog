@@ -17,7 +17,7 @@ export const routeMeta: RouteMeta = {
   imports: [RouterLink, NgFor, JsonPipe, BlogCoverComponent],
   template: `
     <div
-      class="flex flex-col flex-wrap gap-8 overflow-auto lg:flex-row lg:gap-6 ">
+      class="flex flex-col flex-wrap justify-center gap-8 overflow-auto lg:flex-row lg:gap-6 ">
       <ng-container *ngFor="let post of posts">
         <blog-cover [post]="post" />
       </ng-container>
