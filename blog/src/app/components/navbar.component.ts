@@ -48,6 +48,7 @@ import {
           role="menu">
           <li *ngFor="let link of links">
             <a
+              href="{{ link.path }}"
               [class.active]="activeLink === link.path"
               (click)="linkClick($event, dropdownButton, link.path)"
               >{{ link.name }}</a
@@ -94,9 +95,10 @@ import {
             <svg-icon
               class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
               [ngClass]="{
-              'translate-y-[20%] rotate-[50deg] opacity-0 transition-all': isDarkMode,
-              'opacity-[1] transition-all duration-1000 ease-out': !isDarkMode,
-            }"
+                'translate-y-[20%] rotate-[50deg] opacity-0 transition-all':
+                  isDarkMode,
+                'opacity-[1] transition-all duration-1000 ease-out': !isDarkMode
+              }"
               key="dark-mode"
               fontSize="30px"
               height="30px"
