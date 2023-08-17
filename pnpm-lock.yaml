@@ -151,6 +151,9 @@ devDependencies:
   daisyui:
     specifier: ^3.5.1
     version: 3.5.1
+  destr:
+    specifier: ^2.0.1
+    version: 2.0.1
   jsdom:
     specifier: ^22.1.0
     version: 22.1.0
