@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "npm run svg && nx serve blog",
-    "start:prod": "npm run svg && nx serve blog --configuration=production",
-    "build": "npm run svg && nx build blog",
+    "start": "pnpm run svg && nx serve blog",
+    "start:prod": "pnpm run svg && pnpm nx serve blog --configuration=production",
+    "build": "pnpm run svg && pnpm nx build blog",
     "svg": "svg-generator"
   },
   "svgGenerator": {
@@ -88,5 +88,6 @@
     "vite": "^4.4.9",
     "vite-tsconfig-paths": "^4.2.0",
     "vitest": "^0.34.1"
-  }
+  },
+  "packageManager": "pnpm@8.0.0"
 }
