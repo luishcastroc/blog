@@ -256,6 +256,26 @@ div {
       list-style: decimal;
       padding-left: 1.5rem;
     }
+
+    blockquote {
+      position: relative;
+      padding: 1rem 2rem; /* Padding around the quote */
+      margin: 2rem 0; /* Vertical spacing */
+      font-style: italic; /* Italicized font for emphasis */
+      @apply bg-primary text-primary-content border-primary-content border-l-4; /* Light gray background for contrast */
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+
+      /* Large quotation mark style */
+      &::before {
+        content: '“'; /* Quotation mark character */
+        font-size: 3rem; /* Large font size */
+        position: absolute;
+        top: -10px; /* Position slightly above blockquote */
+        left: 10px; /* Small spacing from the left */
+        @apply text-primary-content;
+        opacity: 0.7; /* Slightly transparent for subtlety */
+      }
+    }
   }
 }
 
