@@ -12,8 +12,9 @@ Welcome to the **Senior Robot Blog** project. This is a modern web application d
 
 ## Prerequisites
 
-1. Ensure you have `Node 18` and `npm` installed. You can download and install them from [here](https://nodejs.org/).
-2. Knowledge of `AnalogJS` and `Angular` is recommended for development purposes.
+1. Ensure you have `Node 18` installed. You can download and install them from [here](https://nodejs.org/).
+2. Ensure you have `pnpm` installed. You can download and install it from [here](https://pnpm.io/).
+3. Knowledge of `AnalogJS` and `Angular` is recommended for development purposes.
 
 ## Getting Started
 
@@ -27,7 +28,7 @@ Welcome to the **Senior Robot Blog** project. This is a modern web application d
 2. **Install Dependencies**
 
    ```
-   npm install
+   pnpm install
    ```
 
 ## Development
@@ -35,7 +36,7 @@ Welcome to the **Senior Robot Blog** project. This is a modern web application d
 To start the development server:
 
 ```
-npm start
+pnpm start
 ```
 
 Once executed, the Senior Robot Blog will be accessible at `http://localhost:4200` or another specified port if 4200 is occupied.
@@ -47,7 +48,7 @@ While in development, `nxtools` offers a range of tools to aid your process, ens
 To build the project for a production-ready deployment:
 
 ```
-npm run build
+pnpm run build
 ```
 
 The output will be available in the `dist/` directory, ready to be served by your preferred web server.
