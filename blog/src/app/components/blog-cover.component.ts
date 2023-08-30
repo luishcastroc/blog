@@ -18,12 +18,11 @@ import { DateTime } from 'luxon';
       New!!
     </div>
     <div class="card bg-base-100 relative h-[490px] shadow-xl lg:w-96">
-      <figure>
+      <figure class="flex-none">
         <img
           [ngSrc]="post.attributes.coverImage"
           width="500"
           height="210"
-          [priority]="true"
           alt="Cover Image" />
       </figure>
       <div class="card-body">
