@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
 import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
-  selector: 'contact',
+  selector: 'mr-contact',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   host: { class: 'w-full' },
@@ -104,7 +104,7 @@ import { HotToastService } from '@ngneat/hot-toast';
   </div> `,
   styles: [],
 })
-export class ContactComponent {
+export class ContactFormComponent {
   #http = inject(HttpClient);
   #toast = inject(HotToastService);
   loading = signal(false);

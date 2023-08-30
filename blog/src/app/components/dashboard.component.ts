@@ -5,7 +5,7 @@ import { NavbarComponent } from './navbar.component';
 import { FooterComponent } from './footer.component';
 
 @Component({
-  selector: 'blog-dashboard',
+  selector: 'mr-dashboard',
   standalone: true,
   imports: [RouterOutlet, NavbarComponent, FooterComponent, NgFor],
   host: {
@@ -13,7 +13,7 @@ import { FooterComponent } from './footer.component';
   },
   template: `
     <main class="z-10 flex w-full flex-auto flex-col pt-6">
-      <sr-navbar />
+      <mr-navbar />
       <div class="relative flex flex-auto">
         <router-outlet></router-outlet>
         <!-- Animated circles container -->
@@ -23,7 +23,7 @@ import { FooterComponent } from './footer.component';
           </ul>
         </div>
       </div>
-      <sr-footer />
+      <mr-footer />
     </main>
   `,
 })

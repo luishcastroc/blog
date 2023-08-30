@@ -1,14 +1,14 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { DatePipe, NgIf, NgOptimizedImage } from '@angular/common';
 import { PostAttributes } from '../models/post.model';
 import { ContentFile } from '@analogjs/content';
 import { RouterLinkWithHref } from '@angular/router';
 import { DateTime } from 'luxon';
 
 @Component({
-  selector: 'blog-cover',
+  selector: 'mr-cover',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, RouterLinkWithHref],
+  imports: [NgIf, NgOptimizedImage, RouterLinkWithHref, DatePipe],
   host: {
     class: 'p-0',
   },

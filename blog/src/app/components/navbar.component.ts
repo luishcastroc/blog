@@ -10,7 +10,7 @@ import {
 } from '@angular/router';
 
 @Component({
-  selector: 'sr-navbar',
+  selector: 'mr-navbar',
   standalone: true,
   imports: [
     RouterLinkActive,

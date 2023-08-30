@@ -4,7 +4,7 @@ slug: first-angular-contribution
 description: A recount of my exploration into Angular, from my first simple contributions to understanding the intricacies of its documentation process.
 author: Luis Castro
 coverImage: v1692660417/my-first-angular-contribution.png
-date: 08-19-2023
+date: 08-21-2023
 ---
 
 ## Introduction

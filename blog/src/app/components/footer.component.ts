@@ -3,7 +3,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { SvgIconComponent } from '@ngneat/svg-icon';
 
 @Component({
-  selector: 'sr-footer',
+  selector: 'mr-footer',
   standalone: true,
   imports: [CommonModule, SvgIconComponent, NgOptimizedImage],
   host: {

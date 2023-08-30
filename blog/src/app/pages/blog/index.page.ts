@@ -19,7 +19,7 @@ export const routeMeta: RouteMeta = {
     <div
       class="flex flex-col flex-wrap justify-center gap-8 overflow-auto pb-4 pt-4 lg:flex-row lg:gap-6 ">
       <ng-container *ngFor="let post of posts">
-        <blog-cover [post]="post" />
+        <mr-cover [post]="post" />
       </ng-container>
     </div>
   `,
