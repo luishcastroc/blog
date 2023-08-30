@@ -25,7 +25,7 @@ import { DateTime } from 'luxon';
           height="210"
           alt="Cover Image" />
       </figure>
-      <div class="card-body">
+      <div class="card-body p-4">
         <h2 class="card-title">{{ post.attributes.title }}</h2>
         <p>{{ post.attributes.description }}</p>
         <div class="card-actions jus items-center justify-between">
