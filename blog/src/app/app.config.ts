@@ -5,7 +5,7 @@ import { provideContent, withMarkdownRenderer } from '@analogjs/content';
 import { provideFileRouter } from '@analogjs/router';
 import { provideHttpClient } from '@angular/common/http';
 import { provideSvgIcons } from '@ngneat/svg-icon';
-import { provideTransloco } from '@ngneat/transloco';
+import { getBrowserLang, provideTransloco } from '@ngneat/transloco';
 import { svgIcons } from './svg-icons';
 import { TranslocoHttpLoader } from './transloco-loader';
 import {
@@ -26,7 +26,7 @@ export const appConfig: ApplicationConfig = {
     provideTransloco({
       config: {
         availableLangs: ['en', 'es'],
-        defaultLang: 'en',
+        defaultLang: getBrowserLang() || 'en',
         // Remove this option if your application doesn't support changing language in runtime.
         reRenderOnLangChange: true,
         prodMode: !isDevMode(),

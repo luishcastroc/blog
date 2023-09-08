@@ -5,7 +5,7 @@ import { PostAttributes } from '../../models/post.model';
 import { postMetaResolver, postTitleResolver } from '../../models/resolvers';
 import { RouteMeta } from '@analogjs/router';
 import { Router, RouterLinkWithHref } from '@angular/router';
-import { TranslocoService } from '@ngneat/transloco';
+import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
 import 'prismjs/components/prism-go';
 import 'prismjs/components/prism-sql';
 import {
@@ -29,9 +29,15 @@ export const routeMeta: RouteMeta = {
 
 @Component({
   standalone: true,
-  imports: [MarkdownComponent, AsyncPipe, NgIf, RouterLinkWithHref],
+  imports: [
+    MarkdownComponent,
+    AsyncPipe,
+    NgIf,
+    RouterLinkWithHref,
+    TranslocoModule,
+  ],
   host: { class: 'px-0' },
-  template: `
+  template: `<ng-container *transloco="let t; read: 'blog'">
     <article
       class="text-primary-content flex w-full flex-auto flex-col items-center gap-4 overflow-auto"
       *ngIf="post$ | async as post">
@@ -42,15 +48,15 @@ export const routeMeta: RouteMeta = {
           [disabled]="!post.previousPost"
           class="btn btn-accent w-28"
           type="button"
-          aria-label="Previous Blog Post">
-          Previous</button
+          attr.aria-label="{{ t('aria-previous') }}">
+          {{ t('previous') }}</button
         ><button
           [routerLink]="['/blog', post.nextPost]"
           [disabled]="!post.nextPost"
           class="btn btn-accent w-28"
           type="button"
-          aria-label="Next Blog Post">
-          Next
+          attr.aria-label="{{ t('aria-next') }}">
+          {{ t('next') }}
         </button>
       </section>
       <h1 class="self-center text-center text-3xl font-extrabold lg:w-3/5">
@@ -59,9 +65,8 @@ export const routeMeta: RouteMeta = {
       <div
         class="line-numbers blog-post container w-full pb-8 pt-4 md:w-11/12 md:px-0 lg:w-3/5">
         <analog-markdown [content]="post.content"></analog-markdown>
-      </div>
-    </article>
-  `,
+      </div></article
+  ></ng-container> `,
 })
 export default class BlogPostComponent implements OnInit, OnDestroy {
   #transloco = inject(TranslocoService);

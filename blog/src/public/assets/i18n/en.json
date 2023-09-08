@@ -27,7 +27,11 @@
   "blog": {
     "read": "Read",
     "new": "New!!",
-    "alt": "Cover Image"
+    "alt": "Cover Image",
+    "previous": "Previous",
+    "aria-previous": "Previous Post",
+    "next": "Next",
+    "aria-next": "Next Post"
   },
   "about": {
     "header": "About Me!!",
@@ -61,5 +65,14 @@
     "say-hi": "Say hi!",
     "send": "Send",
     "clear": "Clear"
+  },
+  "footer": {
+    "slogan": "Providing solutions inside the madworld of tech since 2007.",
+    "copyright": "Copyright © 2023 - All right reserved",
+    "aria-label-twitter": "Luis's Twitter Profile",
+    "aria-label-linkedin": "Luis's LinkedIn Profile",
+    "aria-label-threads": "Luis's Threads Profile",
+    "aria-label-github": "Luis's Github Profile",
+    "alt-powered-by-analog": "Powered by Analog"
   }
 }

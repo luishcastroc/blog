@@ -39,6 +39,7 @@ import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
 })
 export class TranslateButtonComponent {
   #transloco = inject(TranslocoService);
+  availableLangs = this.#transloco.getAvailableLangs();
   toggleLang = this.#transloco.getActiveLang() === 'en' ? true : false;
   private subscription!: Subscription | null;
 

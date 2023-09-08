@@ -27,7 +27,11 @@
   "blog": {
     "read": "Leer",
     "new": "Nuevo!!",
-    "alt": "Imagen de blog"
+    "alt": "Imagen de blog",
+    "previous": "Anterior",
+    "aria-previous": "Ir al blog anterior",
+    "next": "Siguiente",
+    "aria-next": "Ir al siguiente blog"
   },
   "about": {
     "header": "Acerca de mi!!",
@@ -61,5 +65,14 @@
     "say-hi": "Di Hola!",
     "send": "Enviar",
     "clear": "Limpiar"
+  },
+  "footer": {
+    "slogan": "Generando soluciones dentro del mundo loco de la tecnología desde 2007.",
+    "copyright": "Copyright © 2023 - Todos los derechos reservados",
+    "aria-label-twitter": "Perfil de Twitter de Luis",
+    "aria-label-linkedin": "Perfil de LinkedIn de Luis",
+    "aria-label-threads": "Perfil de Threads de Luis",
+    "aria-label-github": "Perfil de Github de Luis",
+    "alt-powered-by-analog": "Construido con Analog"
   }
 }
