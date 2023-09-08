@@ -1,4 +1,4 @@
-import { defineEventHandler, readBody, createError } from 'h3';
+import { createError, defineEventHandler, readBody } from 'h3';
 import { MailtrapClient } from 'mailtrap';
 import 'dotenv/config';
 

@@ -1,14 +1,5 @@
 import { AsyncPipe, NgIf } from '@angular/common';
-import {
-  Subject,
-  combineLatest,
-  map,
-  of,
-  skip,
-  switchMap,
-  take,
-  takeUntil,
-} from 'rxjs';
+import { combineLatest, map, of, Subject, switchMap, takeUntil } from 'rxjs';
 import { DateTime } from 'luxon';
 import { PostAttributes } from '../../models/post.model';
 import { postMetaResolver, postTitleResolver } from '../../models/resolvers';

@@ -1,11 +1,11 @@
-import { Component, inject } from '@angular/core';
 import { AsyncPipe, JsonPipe, NgFor } from '@angular/common';
 import { BlogCoverComponent } from './blog-cover.component';
-import { TranslocoService } from '@ngneat/transloco';
-import { Observable, map, tap } from 'rxjs';
+import { Component, inject } from '@angular/core';
 import { ContentFile, injectContentFiles } from '@analogjs/content';
 import { DateTime } from 'luxon';
+import { map, Observable } from 'rxjs';
 import { PostAttributes } from '../models/post.model';
+import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'mr-blog-list',

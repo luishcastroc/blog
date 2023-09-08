@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { Component } from '@angular/core';
 import { SvgIconComponent } from '@ngneat/svg-icon';
 
 @Component({

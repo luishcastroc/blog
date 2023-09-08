@@ -1,6 +1,6 @@
-import { RouteMeta } from '@analogjs/router';
-import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
+import { RouteMeta } from '@analogjs/router';
 import { RouterLink } from '@angular/router';
 
 export const routeMeta: RouteMeta = {

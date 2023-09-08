@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
 import { JsonPipe, NgFor } from '@angular/common';
 import { RouteMeta } from '@analogjs/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 export const routeMeta: RouteMeta = {
   title: 'Luis Castro - Blog',

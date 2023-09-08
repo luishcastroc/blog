@@ -24,6 +24,11 @@
     "mission": "Mi misión es crear aplicaciones eficientes, escalables y amigables al usuario, transformando visión en realidad.",
     "conclusion": "Cuando no estoy codificando o tratando de estar actualizado en las tendencias tecnológicas, podrás encontrarme jugando Fútbol o jugando videojuegos (Si mis hijos me lo permiten)."
   },
+  "blog": {
+    "read": "Leer",
+    "new": "Nuevo!!",
+    "alt": "Imagen de blog"
+  },
   "about": {
     "header": "Acerca de mi!!",
     "subheader": "Antecedentes Profesionales",
@@ -42,7 +47,7 @@
     }
   },
   "contact": {
-    "header": "Contactame",
+    "header": "Contáctame",
     "subheader": "¿Tiene alguna pregunta?, ¿proyecto? debate sobre Futbol, ​​juego que quieres que pruebe?... envíame un mail!",
     "name": "Cual es tu nombre?",
     "name-error": "El nombre es requerido.",

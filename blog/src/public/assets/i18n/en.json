@@ -24,6 +24,11 @@
     "mission": "My mission is to create efficient, scalable, and user-friendly web applications, transforming visions into reality.",
     "conclusion": "When I'm not deep in code or keeping up with the latest tech trends, you might catch me in a heated soccer (fútbol!) match or masterfully playing a video game (if my kids and wife allow me)."
   },
+  "blog": {
+    "read": "Read",
+    "new": "New!!",
+    "alt": "Cover Image"
+  },
   "about": {
     "header": "About Me!!",
     "subheader": "Professional Background",

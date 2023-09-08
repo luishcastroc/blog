@@ -1,54 +1,54 @@
 ---
-title: Unlocking the Power of Micro-Frontends, A Guided Journey From Monolith to Modular
+title: Desbloqueando el Poder de los Micro-Frontends, Un Viaje Guiado del Monolito al Modular
 slug: module-federation
 otherSlug: module-federation
-description: Brief overview on Micro Frontedns with Module Federation and Nx Mono Repos.
+description: Resumen breve sobre Micro Frontends con Module Federation y Nx Mono Repos.
 author: Luis Castro
 coverImage: v1691372381/mf-cover.webp
 date: 07-07-2023
 ---
 
-In the world of web development, architectural approaches are constantly evolving. One transformative approach gaining traction is the shift from traditional monolithic structures to micro-frontends. In this article, we delve into the fascinating realm of micro-frontends based on the research paper "Micro-Frontends: A Multivocal Literature Review" by Severi Peltonen, Luca Mezzalira, and Davide Taibi.
+En el mundo del desarrollo web, las aproximaciones arquitectónicas están en constante evolución. Un enfoque transformador que está ganando terreno es el cambio de las estructuras monolíticas tradicionales a micro-frontends. En este artículo, nos adentramos en el fascinante mundo de los micro-frontends basándonos en el artículo de investigación "Micro-Frontends: Una revisión literaria multivocal" de Severi Peltonen, Luca Mezzalira y Davide Taibi.
 
-## What Are Micro-Frontends?
+## ¿Qué son los Micro-Frontends?
 
-Micro-frontends are a modular architectural pattern for frontend applications. Unlike monolithic frontends, they are composed of independent and self-contained sub-applications. Each micro-frontend can be developed, tested, and deployed independently by different teams, enabling greater flexibility and scalability.
+Los micro-frontends son un patrón arquitectónico modular para aplicaciones frontend. A diferencia de los frontends monolíticos, están compuestos por sub-aplicaciones independientes y autónomas. Cada micro-frontend puede ser desarrollado, probado y desplegado de forma independiente por diferentes equipos, lo que permite una mayor flexibilidad y escalabilidad.
 
-## Why Transition From Monolithic Frontends to Micro-Frontends?
+## ¿Por qué pasar de Frontends Monolíticos a Micro-Frontends?
 
-The transition to micro-frontends is driven by the challenges posed by monolithic frontends as they grow in complexity. Micro-frontends offer a solution to manage and scale frontend development by breaking it down into smaller, more manageable parts. By embracing micro-frontends, organizations can empower teams to work independently, fostering innovation and accelerating development cycles.
+La transición a micro-frontends es impulsada por los desafíos que presentan los frontends monolíticos a medida que crecen en complejidad. Los micro-frontends ofrecen una solución para gestionar y escalar el desarrollo frontend dividiéndolo en partes más pequeñas y manejables. Al adoptar micro-frontends, las organizaciones pueden permitir que los equipos trabajen de forma independiente, fomentando la innovación y acelerando los ciclos de desarrollo.
 
-However, the adoption of micro-frontends comes with its own set of challenges. As the system becomes more distributed, complexity increases, and careful coordination is required to ensure consistency and seamless integration.
+Sin embargo, la adopción de micro-frontends trae consigo su propio conjunto de desafíos. A medida que el sistema se vuelve más distribuido, la complejidad aumenta y se requiere una cuidadosa coordinación para garantizar la consistencia e integración sin fisuras.
 
-## Exploring Micro-Frontends with Module Federation
+## Explorando Micro-Frontends con Module Federation
 
-One approach to implementing micro-frontends is by leveraging the powerful Webpack's Module Federation plugin. This plugin enables JavaScript applications to dynamically load code from other projects at runtime. By combining the magic of Module Federation with a build framework like Nx (which we will focus on in this article), developers can unleash the full potential of micro-frontends. However, if you're interested in exploring other solutions, you can check out the informative 10-article series on [The Microfrontend Revolution: Module Federation in Webpack 5](https://www.angulararchitects.io/en/aktuelles/the-microfrontend-revolution-module-federation-in-webpack-5/) by Angular Architects.
+Un enfoque para implementar micro-frontends es aprovechando el poderoso plugin Module Federation de Webpack. Este plugin permite que las aplicaciones JavaScript carguen dinámicamente código de otros proyectos en tiempo de ejecución. Combinando la magia de Module Federation con un marco de construcción como Nx (en el que nos centraremos en este artículo), los desarrolladores pueden liberar el potencial completo de los micro-frontends. Sin embargo, si estás interesado en explorar otras soluciones, puedes consultar la informativa serie de 10 artículos sobre [La Revolución de los Microfrontend: Module Federation en Webpack 5](https://www.angulararchitects.io/en/aktuelles/the-microfrontend-revolution-module-federation-in-webpack-5/) de Angular Architects.
 
-## Embarking on the Micro-Frontend Journey with Nx and Module Federation
+## Embarcándonos en el Viaje de Micro-Frontends con Nx y Module Federation
 
-To embark on the micro-frontend journey, developers can utilize Nx, a powerful build framework that brings structure and organization to applications. With Nx's monorepo architecture, developers can efficiently manage multiple micro-frontends within a single codebase. By integrating the Module Federation plugin, micro-frontends can seamlessly interact and share functionality, creating a cohesive user experience across different sub-applications.
+Para embarcarse en el viaje de micro-frontends, los desarrolladores pueden utilizar Nx, un marco de construcción potente que aporta estructura y organización a las aplicaciones. Con la arquitectura monorepo de Nx, los desarrolladores pueden gestionar eficientemente múltiples micro-frontends dentro de un único repositorio de código. Al integrar el complemento Module Federation, los micro-frontends pueden interactuar e intercambiar funcionalidad sin problemas, creando una experiencia de usuario cohesiva a través de diferentes sub-aplicaciones.
 
-## The Angular Use Case
+## El Caso de Uso de Angular
 
-I personally love Angular and with all the changes the team is introducing is getting even better, you can check those out here [What's new in Angular 16](https://dev.to/this-is-angular/whats-new-in-angular-16-375b), so let's take a look in how by using `Nx` tools we can generate a Module Federation project ready to start coding with all the benefits (as well dissavantages that i'll mention) from a monorepo and micro frontend architecture.
+Personalmente, me encanta Angular y, con todos los cambios que el equipo está introduciendo, está mejorando aún más. Puedes consultar estos cambios aquí [Qué hay de nuevo en Angular 16](https://dev.to/this-is-angular/whats-new-in-angular-16-375b). Así que vamos a ver cómo, utilizando las herramientas `Nx`, podemos generar un proyecto Module Federation listo para comenzar a programar con todos los beneficios (así como las desventajas que mencionaré) de una arquitectura monorepo y micro frontend.
 
-First we need to generate a new nx workspace:
+Primero, necesitamos generar un nuevo espacio de trabajo nx:
 
 ```shell
 npx create-nx-workspace@latest --preset=empty --name=mf-example && cd mf-example && npm i @nx/angular
 ```
 
-Once everything runs we should now have a proper **Nx** workspace with no apps simple right?, call it `shell npm init` with sugar.
+Una vez que todo se ejecuta, deberíamos tener un espacio de trabajo **Nx** adecuado sin aplicaciones, ¿simple, verdad? Llamémoslo `shell npm init` con azúcar.
 
-Now we need to start adding our projects, for this example i'll add one host and two remotes we will call them **main** (for the host), **dashboard** and **settings**.
+Ahora necesitamos empezar a agregar nuestros proyectos. Para este ejemplo, añadiré un host y dos remotos. Los llamaremos **main** (para el host), **dashboard** y **settings**.
 
-first we will add the **main** app with this command:
+Primero añadiremos la aplicación **main** con este comando:
 
 ```shell
 nx g host main --standalone --standaloneConfig --style=scss --addTailwind
 ```
 
-now we will add the remotes with this command:
+ahora añadiremos los remotos con este comando:
 
 ```shell
 nx g remote dashboard --host=main --standalone --standaloneConfig --style=scss --addTailwind
@@ -58,7 +58,7 @@ nx g remote dashboard --host=main --standalone --standaloneConfig --style=scss -
 nx g remote settings --host=main --standalone --standaloneConfig --style=scss --addTailwind
 ```
 
-We should end up with a folder structure like this:
+Deberíamos tener una estructura de carpetas como esta:
 
 ```shell
 .
@@ -81,15 +81,15 @@ We should end up with a folder structure like this:
 └── tsconfig.base.json
 ```
 
-## The Mono Repo Approach
+## Enfoque del Mono Repositorio
 
-So, since we're using Nx for our project, we can obtain all the advantages of a monorepo combined with a micro-frontend architecture. However, this approach comes with some considerations that are mentioned in the Angular Architects article.
+Así que, ya que estamos usando Nx para nuestro proyecto, podemos obtener todas las ventajas de un monorepositorio combinado con una arquitectura micro-frontend. Sin embargo, este enfoque viene con algunas consideraciones que se mencionan en el artículo de Angular Architects.
 
-Specifically, teams need to agree on one version of dependencies, such as Angular (in our example, we're using this decision), and establish a common update cycle for them. In other words, we trade some freedom to prevent version conflicts and avoid increased bundle sizes.
+Específicamente, los equipos necesitan acordar una versión de las dependencias, como Angular (en nuestro ejemplo, estamos usando esta decisión), y establecer un ciclo de actualización común para ellas. En otras palabras, sacrificamos algo de libertad para prevenir conflictos de versión y evitar aumentar el tamaño de los paquetes.
 
-Before running our app, let's enhance its appearance by installing a library of components for Tailwind CSS. We'll be using [daysi ui](https://daisyui.com/), which provides a set of ready-to-use UI components.
+Antes de ejecutar nuestra aplicación, mejoremos su apariencia instalando una biblioteca de componentes para Tailwind CSS. Utilizaremos [daysi ui](https://daisyui.com/), que proporciona un conjunto de componentes UI listos para usar.
 
-Once the library is installed and configured, we'll make a small change inside the `app.component.html` file within our main app.
+Una vez instalada y configurada la biblioteca, haremos un pequeño cambio dentro del archivo `app.component.html` en nuestra aplicación principal.
 
 ```html
 <div class="navbar bg-base-100">
@@ -107,35 +107,35 @@ Once the library is installed and configured, we'll make a small change inside t
 <router-outlet></router-outlet>
 ```
 
-Now continuing with the example we can now run the host application `nx serve main`, this command will run the main and the other two apps to generate the **Full** app.
+Ahora, continuando con el ejemplo, podemos ejecutar la aplicación host `nx serve main`. Este comando ejecutará la aplicación principal y las otras dos aplicaciones para generar la **Aplicación Completa**.
 
-You should see something like this.
+Deberías ver algo como esto:
 
-## Home App
+## Aplicación Principal
 
-![Home App](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/fv2dpvg2isgx0vm0jita.png)
+![Aplicación Principal](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/fv2dpvg2isgx0vm0jita.png)
 
-If you click the menu's you should see the page changing:
+Si haces clic en los menús, deberías ver que la página cambia:
 
-## Dashboard App
+## Aplicación del Panel de Control
 
-![Dashboard App](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/640358vp61ymlso2sd05.png)
+![Aplicación del Panel de Control](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/640358vp61ymlso2sd05.png)
 
-## Settings App
+## Aplicación de Configuración
 
-![Settings App](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/238k4mo1b9o9oia3sdj8.png)
+![Aplicación de Configuración](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/238k4mo1b9o9oia3sdj8.png)
 
-As we see the page behaves how is supposed to behave for the user and we don't even notice the difference but on the inside there's a lot happening and **home**, **dashobard** and **settings** are independent apps running in paralel.
+Como vemos, la página se comporta como se supone que debe comportarse para el usuario y ni siquiera notamos la diferencia, pero en el interior está ocurriendo mucho y **home**, **dashboard** y **settings** son aplicaciones independientes que se ejecutan en paralelo.
 
-You can run the remotes with this command:
-`nx serve dashboard` and `nx serve settings`
+Puedes ejecutar las aplicaciones remotas con este comando:
+`nx serve dashboard` y `nx serve settings`
 
-If you want to keep playing with it take a look to this repo [MF Angular Example](https://github.com/luishcastroc/mf-angular-ex)
+Si quieres seguir jugando con esto, echa un vistazo a este repositorio [Ejemplo MF Angular](https://github.com/luishcastroc/mf-angular-ex)
 
-## Concluding Remarks
+## Comentarios Finales
 
-The transition from monolithic frontends to micro-frontends represents a paradigm shift in web development. While it offers numerous benefits such as flexibility, scalability, and independent team workflows, careful consideration must be given to manage the increased complexity and ensure consistent user experiences.
+La transición de frontends monolíticos a micro-frontends representa un cambio de paradigma en el desarrollo web. Aunque ofrece numerosos beneficios como flexibilidad, escalabilidad y flujos de trabajo de equipos independientes, se debe considerar cuidadosamente para gestionar la complejidad aumentada y garantizar experiencias de usuario consistentes.
 
-As we conclude this exploration into the world of micro-frontends, we recognize the significance of this architectural pattern in shaping the future of web development. It opens up new possibilities for building modular, maintainable, and scalable applications.
+Al concluir esta exploración en el mundo de los micro-frontends, reconocemos la importancia de este patrón arquitectónico en la configuración del futuro del desarrollo web. Abre nuevas posibilidades para construir aplicaciones modulares, mantenibles y escalables.
 
-1. Peltonen, S., Mezzalira, L., & Taibi, D. (2021). Micro-Frontends: A Multivocal Literature Review. Information and Software Technology, 136, 106571. [Link to the original article](https://www.sciencedirect.com/science/article/pii/S0950584921000549)
+1. Peltonen, S., Mezzalira, L., & Taibi, D. (2021). Micro-Frontends: Una revisión literaria multivocal. Information and Software Technology, 136, 106571. [Enlace al artículo original](https://www.sciencedirect.com/science/article/pii/S0950584921000549)

@@ -1,10 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HotToastService } from '@ngneat/hot-toast';
-import { TranslocoModule } from '@ngneat/transloco';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { NgIf } from '@angular/common';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
   selector: 'mr-contact',

@@ -1,5 +1,5 @@
-import { RouteMeta } from '@analogjs/router';
 import { Component } from '@angular/core';
+import { RouteMeta } from '@analogjs/router';
 import { TranslocoModule } from '@ngneat/transloco';
 
 export const routeMeta: RouteMeta = {

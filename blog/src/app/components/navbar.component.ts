@@ -1,8 +1,9 @@
-import { ThemeButtonComponent } from './theme-button.component';
 import { Component } from '@angular/core';
 import { filter } from 'rxjs';
 import { NgClass, NgFor } from '@angular/common';
 import { SvgIconComponent } from '@ngneat/svg-icon';
+import { ThemeButtonComponent } from './theme-button.component';
+import { TranslateButtonComponent } from './translate-button.component';
 import { TranslocoModule } from '@ngneat/transloco';
 import {
   NavigationEnd,
@@ -10,7 +11,6 @@ import {
   RouterLinkActive,
   RouterLinkWithHref,
 } from '@angular/router';
-import { TranslateButtonComponent } from './translate-button.component';
 
 @Component({
   selector: 'mr-navbar',

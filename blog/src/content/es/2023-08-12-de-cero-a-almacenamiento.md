@@ -1,153 +1,153 @@
 ---
-title: From Scratch to Storage, Note App with AnalogJs, tRPC, Prisma and CockroachDB
+title: Desde Cero a Almacenamiento, Aplicación de Notas con AnalogJs, tRPC, Prisma y CockroachDB.
 slug: de-cero-a-almacenamiento
 otherSlug: from-scratch-to-storage
-description: Explore the basics of AnalogJs, tRPC, Prisma ORM, and CockroachDB Cloud by building a straightforward note-taking application.
+description: Explora los conceptos básicos de AnalogJs, tRPC, Prisma ORM y CockroachDB Cloud construyendo una aplicación sencilla de toma de notas.
 author: Luis Castro
 coverImage: v1691372359/analog-trpc-roach-prisma.png
 date: 08-12-2023
 ---
 
-## Introduction
+## Introducción
 
-Don't you love when things just work out of the box? Like when you power up a brand new iPhone and it effortlessly guides you through setup, or when you plug in a Google Chromecast and are instantly ready to stream your favorite shows. There's a certain magic in tools and technologies that eliminate the fuss, delivering a seamless experience from the get-go. In this article, we'll delve into the art of simplicity as we build a straightforward note application, combining **[AnalogJs](https://analogjs.org/)**, **[tRPC](https://trpc.io/)**, **[Prisma](https://www.prisma.io/)** and **[CockroachDB](https://www.cockroachlabs.com/)**
+¿No te encanta cuando las cosas funcionan directamente al sacarlas de la caja? Como cuando enciendes un nuevo iPhone y te guía sin esfuerzo a través de la configuración, o cuando conectas un Google Chromecast y estás listo al instante para transmitir tus programas favoritos. Hay cierta magia en las herramientas y tecnologías que eliminan las complicaciones, ofreciendo una experiencia sin problemas desde el principio. En este artículo, profundizaremos en el arte de la simplicidad mientras construimos una aplicación de notas sencilla, combinando **[AnalogJs](https://analogjs.org/)**, **[tRPC](https://trpc.io/)**, **[Prisma](https://www.prisma.io/)** y **[CockroachDB](https://www.cockroachlabs.com/)**.
 
-### Why Choose AnalogJs, tRPC, Prisma ORM, and CockroachDB Cloud?
+### ¿Por qué elegir AnalogJs, tRPC, Prisma ORM y CockroachDB Cloud?
 
-- **AnalogJs**: Analog stands as a fullstack meta-framework tailored for crafting applications and websites atop Angular's foundation. Falling in line with renowned meta-frameworks like Next.JS, Nuxt, SvelteKit, and Qwik City, Analog enriches the Angular experience. Its array of features includes:
+- **AnalogJs**: Analog es un metaframework de pila completa diseñado para crear aplicaciones y sitios web sobre la base de Angular. Siguiendo la línea de reconocidos metaframeworks como Next.JS, Nuxt, SvelteKit y Qwik City, Analog enriquece la experiencia de Angular. Sus características incluyen:
 
-  - File-based routing
-  - Support for using markdown as content routes
-  - API/server route capabilities
-  - Hybrid SSR/SSG support
-  - Integration with Vite, Vitest, and Playwright
-  - Compatibility with Angular CLI/Nx workspaces
-  - A partnership with Astro for Angular components.
+  - Enrutamiento basado en archivos
+  - Soporte para utilizar markdown como rutas de contenido
+  - Capacidades de rutas API/servidor
+  - Soporte híbrido SSR/SSG
+  - Integración con Vite, Vitest y Playwright
+  - Compatibilidad con Angular CLI/Nx workspaces
+  - Asociación con Astro para componentes de Angular.
 
-- **tRPC**: At its core, RPC, or "Remote Procedure Call," redefines the way we think about server-client interactions. Instead of accessing URLs as with traditional HTTP/REST APIs, you're essentially calling functions from one computer (the client) on another (the server). The philosophy? Simplify to "just functions." This seamless function-call mechanism results in more intuitive, clean, and direct interactions between client and server. Furthermore, Analog integrates tRPC out of the box, ensuring developers can make the most of this paradigm with ease.
+- **tRPC**: En su núcleo, RPC, o "Llamada a Procedimiento Remoto", redefine la forma en que pensamos en las interacciones servidor-cliente. En lugar de acceder a URL como con las API HTTP/REST tradicionales, básicamente estás llamando a funciones de una computadora (el cliente) en otra (el servidor). ¿La filosofía? Simplificar a "solo funciones". Este mecanismo de llamada de función sin problemas resulta en interacciones más intuitivas, limpias y directas entre el cliente y el servidor. Además, Analog integra tRPC de forma nativa, asegurando que los desarrolladores puedan aprovechar al máximo este paradigma con facilidad.
 
-- **Prisma ORM**: A next-gen ORM, Prisma simplifies database workflows. With auto-generated queries, a robust query engine, and a type-safe database client, it’s a boon for developers wanting to seamlessly integrate databases into their apps.
+- **Prisma ORM**: Como un ORM de última generación, Prisma simplifica los flujos de trabajo de la base de datos. Con consultas auto-generadas, un motor de consulta robusto y un cliente de base de datos seguro en cuanto a tipos, es una bendición para los desarrolladores que desean integrar bases de datos sin problemas en sus aplicaciones.
 
-- **CockroachDB Cloud**: The appeal of CockroachDB lies in its resilience and scalability. As a cloud-native distributed SQL database, it ensures data remains consistent and available, even when parts of your app or service face issues.
+- **CockroachDB Cloud**: El atractivo de CockroachDB radica en su resistencia y escalabilidad. Como una base de datos SQL distribuida nativa en la nube, garantiza que los datos sigan siendo consistentes y estén disponibles, incluso cuando partes de tu aplicación o servicio enfrenten problemas.
 
-## Kicking Off with Analog: Setting up Your Project
+## Iniciando con Analog: Configuración de tu Proyecto
 
-One of Analog's strengths is its seamless integration with Nx monorepos and workspaces. By leveraging a specialized workspace preset and an application generator, developers have the flexibility to either initiate a fresh Analog application or integrate it into an existing Nx workspace.
+Una de las fortalezas de Analog es su integración perfecta con monorrepos y espacios de trabajo Nx. Al aprovechar un conjunto de herramientas especializado y un generador de aplicaciones, los desarrolladores tienen la flexibilidad de iniciar una nueva aplicación de Analog o integrarla en un espacio de trabajo Nx existente.
 
-### Creating a Standalone Nx project
+### Creando un Proyecto Nx Independiente
 
-For those new to the ecosystem or those wanting to kick-start a separate project, Analog simplifies the process.
+Para aquellos nuevos en el ecosistema o aquellos que deseen iniciar un proyecto independiente, Analog simplifica el proceso.
 
-To scaffold a standalone Nx project, employ the `create-nx-workspace` command coupled with the `@analogjs/platform` preset:
+Para crear un proyecto Nx independiente, utiliza el comando `create-nx-workspace` junto con el conjunto de herramientas `@analogjs/platform`:
 
 ```bash
 npx create-nx-workspace@latest --preset=@analogjs/platform
 ```
 
-During the initialization process, the Analog preset will prompt you for specific details. You'll be asked for the name of your application; for demonstration purposes, we'll christen it `analog-app`. But the customization doesn't stop there. You also get queried about integrating powerful tools like TailwindCSS and tRPC right from the start. Opting to include either or both ensures that the required dependencies are seamlessly installed, and the necessary configurations are appended to your project without any manual intervention.
+Durante el proceso de inicialización, el conjunto de herramientas de Analog te solicitará detalles específicos. Se te pedirá el nombre de tu aplicación; para fines de demostración, lo llamaremos `analog-app`. Pero la personalización no se detiene ahí. También se te preguntará sobre la integración de herramientas poderosas como TailwindCSS y tRPC desde el principio. Optar por incluir una o ambas asegura que las dependencias requeridas se instalen sin problemas y que las configuraciones necesarias se agreguen a tu proyecto sin necesidad de intervención manual.
 
-## Setting up CockroachDB with Prisma for Your Application
+## Configuración de CockroachDB con Prisma para tu Aplicación
 
-With the foundation of our application in place, the next critical step is establishing our database. For this project, we'll harness the power of CockroachDB in tandem with Prisma. Here's how you can seamlessly integrate both:
+Con los cimientos de nuestra aplicación en su lugar, el siguiente paso crítico es establecer nuestra base de datos. Para este proyecto, aprovecharemos el poder de CockroachDB junto con Prisma. Así es cómo puedes integrar ambos sin problemas:
 
-### 1. Creating an Account on CockroachDB
+### 1. Crear una Cuenta en CockroachDB
 
-First things first, navigate to [CockroachLabs](https://www.cockroachlabs.com) and sign up for a new account. The website is intuitive, ensuring a hassle-free sign-up process.
+Lo primero es lo primero, accede a [CockroachLabs](https://www.cockroachlabs.com) y regístrate para obtener una cuenta nueva. El sitio web es intuitivo y garantiza un proceso de registro sin complicaciones.
 
-### 2. Setting Up Your Cluster
+### 2. Configurar tu Clúster
 
-After registering, you'll be ushered into the process of setting up a cluster. CockroachDB’s platform, with its developer-centric design, makes this straightforward. On the **Free** tier, there's a limitation of one cluster per user. However, for our application's needs, this suffices.
+Después de registrarte, te guiarán en el proceso de configuración de un clúster. La plataforma de CockroachDB, con su diseño centrado en los desarrolladores, facilita esto. En el nivel **Gratuito**, existe una limitación de un clúster por usuario. Sin embargo, para las necesidades de nuestra aplicación, esto es suficiente.
 
-#### Step 1: Initiating Cluster Creation
+#### Paso 1: Iniciar la Creación del Clúster
 
-Click on the "Create Cluster" button.
-![Create Cluster!!](https://res.cloudinary.com/lhcc0134/image/upload/v1691874497/create-cluster-1.png)
+Haz clic en el botón "Crear Clúster".
+![¡Crear Clúster!](https://res.cloudinary.com/lhcc0134/image/upload/v1691874497/create-cluster-1.png)
 
-#### Step 2: Choosing the Plan
+#### Paso 2: Elegir el Plan
 
-Select the free plan from the available options.
-![Choosing the plan](https://res.cloudinary.com/lhcc0134/image/upload/v1691874497/create-cluster-2.png)
+Selecciona el plan gratuito de las opciones disponibles.
+![Elegir el plan](https://res.cloudinary.com/lhcc0134/image/upload/v1691874497/create-cluster-2.png)
 
-#### Step 3: Naming Your Cluster
+#### Paso 3: Nombrar tu Clúster
 
-Name your cluster "analog-test".
-![Naming the cluster](https://res.cloudinary.com/lhcc0134/image/upload/v1691874497/create-cluster-3.png)
+Nombre de tu clúster "analog-test".
+![Nombrar el clúster](https://res.cloudinary.com/lhcc0134/image/upload/v1691874497/create-cluster-3.png)
 
-#### Step 4: SQL User Creation
+#### Paso 4: Creación del Usuario SQL
 
-Proceed to create your SQL user.
-![Create SQL user](https://res.cloudinary.com/lhcc0134/image/upload/v1691874497/create-cluster-4.png)
+Procede a crear tu usuario SQL.
+![Crear usuario SQL](https://res.cloudinary.com/lhcc0134/image/upload/v1691874497/create-cluster-4.png)
 
-#### Step 5: Secure Your Password
+#### Paso 5: Asegurar tu Contraseña
 
-An autogenerated password will be provided. Copy and secure this password — losing it means starting the setup from scratch.
-![Secure your password](https://res.cloudinary.com/lhcc0134/image/upload/v1691874497/create-cluster-5.png)
+Se proporcionará una contraseña autogenerada. Copia y asegura esta contraseña, perderla significa comenzar la configuración desde cero.
+![Asegura tu contraseña](https://res.cloudinary.com/lhcc0134/image/upload/v1691874497/create-cluster-5.png)
 
-#### Step 6: Database Creation
+#### Paso 6: Creación de la Base de Datos
 
-Now, it's time to set up the database. Name it "notes-db".
-![Create the database](https://res.cloudinary.com/lhcc0134/image/upload/v1691874497/create-cluster-6.png)
+Ahora es el momento de configurar la base de datos. Nombrala "notes-db".
+![Crear la base de datos](https://res.cloudinary.com/lhcc0134/image/upload/v1691874497/create-cluster-6.png)
 
 <br/>
 
-![Name the database](https://res.cloudinary.com/lhcc0134/image/upload/v1691874497/create-cluster-7.png)
+![Nombrar la base de datos](https://res.cloudinary.com/lhcc0134/image/upload/v1691874497/create-cluster-7.png)
 
-### 3. Integrating Prisma with Your Project
+### 3. Integración de Prisma con tu Proyecto
 
-Prisma offers a powerful set of tools to help manage and interact with your database. Let's walk through the steps to seamlessly integrate Prisma into our AnalogJs project.
+Prisma ofrece un conjunto poderoso de herramientas para ayudar a administrar e interactuar con tu base de datos. Vamos a seguir los pasos para integrar Prisma sin problemas en nuestro proyecto de AnalogJs.
 
-#### Step 1: Installing Prisma Dependencies
+#### Paso 1: Instalar Dependencias de Prisma
 
-First, you'll need to add Prisma to your project. Use the following command:
+Primero, deberás agregar Prisma a tu proyecto. Usa el siguiente comando:
 
 ```bash
 npm install prisma --save-dev
 ```
 
-#### Step 2: Initializing Prisma
+#### Paso 2: Inicializar Prisma
 
-Next, initiate Prisma in your project with the following command:
+A continuación, inicia Prisma en tu proyecto con el siguiente comando:
 
 ```bash
 npx prisma init
 ```
 
-Executing this command will do two things:
+Ejecutar este comando realizará dos acciones:
 
-- Create a `prisma` folder in your project root. Inside this folder, you'll find an initial `schema.prisma` file which defines your database schema.
-- Generate a `.env` file for environment variables. This file will hold the database connection details.
+- Creará una carpeta `prisma` en la raíz de tu proyecto. Dentro de esta carpeta, encontrarás un archivo inicial `schema.prisma` que define el esquema de tu base de datos.
+- Generará un archivo `.env` para las variables de entorno. Este archivo contendrá los detalles de la conexión a la base de datos.
 
-#### Step 3: Configuring Database Connection
+#### Paso 3: Configuración de la Conexión a la Base de Datos
 
-Open the `.env` file and you'll find a placeholder for the database connection. Replace this with the connection details from your CockroachDB cluster. Ensure you're referencing the correct details, especially if you've named your cluster "analog-test" and your database "notes-db".
+Abre el archivo `.env` y encontrarás un marcador de posición para la conexión a la base de datos. Reemplaza esto con los detalles de conexión de tu clúster de CockroachDB. Asegúrate de estar haciendo referencia a los detalles correctos, especialmente si has nombrado tu clúster "analog-test" y tu base de datos "notes-db".
 
 ```bash
 DATABASE_URL="your_cockroachdb_connection_string_here"
 ```
 
-### 4. Transitioning from Array to Database Integration
+### 4. Transición de una Matriz a la Integración de Base de Datos
 
-The provided Analog app comes with a straightforward notes application. The initial implementation stores notes in an in-memory array, which is excellent for rapid prototyping but lacks persistence. To build a more robust application, we'll transition from this array storage to a persistent database using Prisma and our CockroachDB setup.
+La aplicación Analog proporcionada incluye una aplicación de notas sencilla. La implementación inicial almacena las notas en una matriz en memoria, lo cual es excelente para prototipado rápido pero carece de persistencia. Para construir una aplicación más sólida, haremos la transición desde este almacenamiento en matriz hacia una base de datos persistente utilizando Prisma y nuestra configuración de CockroachDB.
 
-#### Step 1: Understand the Existing Structure
+#### Paso 1: Comprender la Estructura Existente
 
-Before embarking on modifications, take a moment to acquaint yourself with the foundational layout of the current app. Pay special attention to the highlighted files, as we'll either tweak the existing ones or establish those yet to be created:
+Antes de realizar modificaciones, tómate un momento para familiarizarte con la estructura fundamental de la aplicación actual. Presta especial atención a los archivos destacados, ya que ajustaremos los existentes o crearemos los que aún no existen:
 
-![Analog app structure](https://res.cloudinary.com/lhcc0134/image/upload/v1691875369/analog-app-structure.png)
+![Estructura de la aplicación Analog](https://res.cloudinary.com/lhcc0134/image/upload/v1691875369/analog-app-structure.png)
 
-Key areas in this snapshot are:
+Las áreas clave en esta captura de pantalla son:
 
-- **Pages**: The heart of file-based routing magic. Nested within, our homepage makes use of the `analog-welcome.component.ts`. This file will undergo modifications once all configurations are squared away.
+- **Páginas**: El núcleo de la magia de enrutamiento basado en archivos. En su interior, nuestra página de inicio utiliza el `analog-welcome.component.ts`. Este archivo se modificará una vez que todas las configuraciones estén listas.
 
-- **server/trpc**: This will serve as our hub for setting up and managing all tRPC procedures, ensuring smooth integration with Prisma.
+- **server/trpc**: Esto servirá como nuestro centro para configurar y gestionar todos los procedimientos de tRPC, asegurando una integración fluida con Prisma.
 
-- **Prisma folder (at the project's root)**: This is where we'll outline our schema. Prisma will harness this schema to spawn the necessary TypeScript types and piece together the essentials for a seamless database experience.
+- **Carpeta Prisma (en la raíz del proyecto)**: Aquí es donde delinearemos nuestro esquema. Prisma utilizará este esquema para generar los tipos TypeScript necesarios y ensamblar los elementos esenciales para una experiencia de base de datos sin problemas.
 
-![Analog app structure - root](https://res.cloudinary.com/lhcc0134/image/upload/v1691875650/analog-root.png)
+![Estructura de la aplicación Analog - raíz](https://res.cloudinary.com/lhcc0134/image/upload/v1691875650/analog-root.png)
 
-#### Step 2: Modify the Prisma Schema
+#### Paso 2: Modificar el Esquema de Prisma
 
-Our next move is to head over to the Prisma folder and adjust our schema. This involves introducing the `Note` model and specifying our provider. Here's the updated schema:
+Nuestro próximo paso es dirigirnos a la carpeta de Prisma y ajustar nuestro esquema. Esto implica introducir el modelo `Note` y especificar nuestro proveedor. Aquí está el esquema actualizado:
 
 ```go
 // This is your Prisma schema file,
@@ -169,61 +169,54 @@ model Note {
 }
 ```
 
-Let's break down the changes:
+### Paso 3: Obtener la Cadena de Conexión desde el Panel de Control de CockroachDB
 
-- **Provider**: We've set our provider to `cockroachdb`, aligning with the database we're using.
-- **Note Model**: This model will map to a `Note` table in our database. The table will encompass columns `id`, `note`, and `createdAt`. The `id` column is auto-populated using the `uuid()` function, ensuring a unique identifier for each note. Concurrently, the `createdAt` column captures the timestamp of the note's inception.
+Volviendo al panel de control de CockroachDB, es hora de recuperar nuestra cadena de conexión a la base de datos. Si has almacenado con seguridad esa contraseña generada automáticamente (como se recomendó anteriormente), la utilizaremos en breve.
 
-The configurations look good and set the stage for our database operations.
+Para encontrar la cadena de conexión:
 
-#### Step 3: Fetching the Connection String from CockroachDB Dashboard
+1. Accede a tu panel de control de CockroachDB.
+2. Encuentra y haz clic en el botón `Conectar`.
+3. Cuando se te pregunte por las opciones de lenguaje/framework, selecciona `JavaScript/TypeScript`, seguido de `Prisma`.
+4. El panel de control te proporcionará la cadena de conexión específica para Prisma.
 
-Venturing back to the CockroachDB dashboard, it's now time to retrieve our database connection string. If you've safely stored that auto-generated password (as recommended earlier), we'll be using it shortly.
+![Conexión Cockroach](https://res.cloudinary.com/lhcc0134/image/upload/v1691874497/connect-string.png))
 
-To find the connection string:
+Asegúrate de reemplazar el marcador de posición `<ENTER_SQL_USER_PASSWORD>` en la cadena de conexión con la contraseña que guardaste anteriormente. Esto es crucial para establecer una conexión exitosa con nuestra base de datos. Con la cadena de conexión en mano, la integraremos en nuestro proyecto en el siguiente paso.
 
-1. Navigate to your CockroachDB dashboard.
-2. Spot and click on the `Connect` button.
-3. When prompted with language/framework options, select `JavaScript/TypeScript` followed by `Prisma`.
-4. The dashboard will then present you with your connection string tailored for Prisma.
+### Paso 4: Actualizar el Archivo `.env` con Nuestra Cadena de Conexión
 
-![Cockroach Connection](https://res.cloudinary.com/lhcc0134/image/upload/v1691874497/connect-string.png))
+Habiendo obtenido nuestra cadena de conexión desde el panel de control de CockroachDB, procederemos a integrarla en nuestro proyecto. El archivo `.env`, que fue creado por Prisma durante la inicialización, es el lugar designado para tales configuraciones.
 
-Ensure you replace the `<ENTER_SQL_USER_PASSWORD>` placeholder in the connection string with the password you saved earlier. This is crucial to establish a successful connection to our database. With the connection string in hand, we'll integrate it into our project in the next step.
-
-#### Step 4: Updating the `.env` File with Our Connection String
-
-Having acquired our connection string from the CockroachDB dashboard, we'll now proceed to integrate it into our project. The `.env` file, which was created by Prisma during initialization, is the designated place for such configurations.
-
-Navigate to the `.env` file in your project directory. You'll likely find a default database URL already present. We will replace it with our new connection string:
+Dirígete al archivo `.env` en el directorio de tu proyecto. Es probable que ya encuentres presente una URL de base de datos por defecto. La reemplazaremos con nuestra nueva cadena de conexión:
 
 ```shell
 DATABASE_URL="postgresql://luishcastroc:<ENTER-SQL-USER-PASSWORD>@analog-prisma-4966.g8z.cockroachlabs.cloud:26257/notes-db?sslmode=verify-full"
 ```
 
-Remember to substitute `<ENTER-SQL-USER-PASSWORD>` with the password you saved earlier from CockroachDB.
+Recuerda reemplazar `<ENTER-SQL-USER-PASSWORD>` con la contraseña que guardaste anteriormente de CockroachDB.
 
-By updating this connection string, we're essentially providing our application with the necessary credentials and details to interact with our CockroachDB instance. Always ensure your `.env` file is protected and not accidentally committed to public repositories to safeguard your database credentials.
+Al actualizar esta cadena de conexión, estamos proporcionando a nuestra aplicación las credenciales y detalles necesarios para interactuar con nuestra instancia de CockroachDB. Siempre asegúrate de que tu archivo `.env` esté protegido y no se incluya accidentalmente en repositorios públicos para resguardar tus credenciales de la base de datos.
 
-#### Step 5: Applying Prisma Migrations
+### Paso 5: Aplicar las Migraciones de Prisma
 
-Prisma Migrations allow you to keep your database schema and Prisma schema in sync with one another. It's one of the features that makes working with Prisma a delightful experience.
+Las Migraciones de Prisma te permiten mantener sincronizado tu esquema de base de datos y tu esquema de Prisma. Es una de las características que hacen que trabajar con Prisma sea una experiencia encantadora.
 
-To apply our first migration, and consequently, have our database reflect the `Note` model from our Prisma schema, execute the following command:
+Para aplicar nuestra primera migración y, consecuentemente, hacer que nuestra base de datos refleje el modelo `Note` de nuestro esquema de Prisma, ejecuta el siguiente comando:
 
 ```bash
 npx prisma migrate dev --name init
 ```
 
-Upon successful execution, this command performs a few tasks:
+Una vez que este comando se ha ejecutado con éxito, realiza algunas tareas:
 
-1. It generates SQL migration files in the `prisma/migrations` directory based on the changes detected in your Prisma schema.
-2. It runs the migrations, updating your database schema.
-3. It also generates a new `PrismaClient` internally, enabling type-safe database access.
+1. Genera archivos de migración SQL en el directorio `prisma/migrations` basados en los cambios detectados en tu esquema de Prisma.
+2. Ejecuta las migraciones, actualizando el esquema de tu base de datos.
+3. También genera un nuevo `PrismaClient` internamente, lo que habilita el acceso a la base de datos de manera segura en cuanto a tipos.
 
-If everything is set up correctly (and the database connection is accurate), your CockroachDB instance should now have a `Note` table reflecting the structure we defined earlier.
+Si todo está configurado correctamente (y la conexión a la base de datos es precisa), tu instancia de CockroachDB debería tener ahora una tabla `Note` que refleje la estructura que definimos anteriormente.
 
-If you're curious about how the migration should look like, this is what is generated:
+Si tienes curiosidad acerca de cómo debería verse la migración, esto es lo que se genera:
 
 ```sql
 -- CreateTable
@@ -236,17 +229,17 @@ CREATE TABLE "Note" (
 );
 ```
 
-**Pretty Cool right??**
+**¡Bastante genial, ¿verdad?!**
 
-If everything went well you should see the new tables generated using your cockroachdb dashboard:
+Si todo salió bien, deberías ver las nuevas tablas generadas utilizando tu panel de CockroachDB:
 
-![NoteDB Tables Generated](https://res.cloudinary.com/lhcc0134/image/upload/v1691877369/note-db.png)
+![Tablas generadas en NoteDB](https://res.cloudinary.com/lhcc0134/image/upload/v1691877369/note-db.png)
 
-#### Step 6: Setting Up Analog/TRPC Integration with Prisma
+#### Paso 6: Configuración de la Integración de Analog/TRPC con Prisma
 
-To harness the full potential of the Analog/TRPC integration, we need to instantiate a Prisma client. This client will act as the primary conduit between our Analog application and our CockroachDB database, ensuring type-safe database operations throughout.
+Para aprovechar al máximo la integración de Analog/TRPC, necesitamos instanciar un cliente de Prisma. Este cliente actuará como el conducto principal entre nuestra aplicación de Analog y nuestra base de datos CockroachDB, asegurando operaciones seguras en cuanto a tipos en toda la base de datos.
 
-Start by creating a file named `prisma.ts` inside the `server/trpc` directory. Populate it with the following code:
+Comienza creando un archivo llamado `prisma.ts` dentro del directorio `server/trpc`. Luego, llénalo con el siguiente código:
 
 ```ts
 /**
@@ -263,13 +256,13 @@ export const prisma: PrismaClient = prismaGlobal.prisma ?? new PrismaClient();
 prismaGlobal.prisma = prisma;
 ```
 
-In this snippet, we are leveraging a global caching mechanism to ensure a single instance of the Prisma client throughout our application's lifecycle. This setup avoids potential database connection issues, especially when working with serverless deployments.
+En este fragmento, estamos aprovechando un mecanismo de almacenamiento en caché global para garantizar una única instancia del cliente de Prisma durante todo el ciclo de vida de nuestra aplicación. Esta configuración evita posibles problemas de conexión con la base de datos, especialmente al trabajar con implementaciones sin servidor.
 
-#### Step 7: Setting Up the Notes Router
+#### Paso 7: Configuración del Enrutador de Notas
 
-Now that our Prisma client is in place, the next logical step is to set up our CRUD operations to interact with our database. Conveniently, Analog has generated a default `notes.ts` file inside the `routers` directory for us. This file will act as the router for our note operations.
+Ahora que nuestro cliente de Prisma está en su lugar, el siguiente paso lógico es configurar nuestras operaciones CRUD para interactuar con nuestra base de datos. Afortunadamente, Analog ha generado un archivo `notes.ts` por defecto dentro del directorio `routers` para nosotros. Este archivo actuará como el enrutador para nuestras operaciones de notas.
 
-Replace or modify the contents of the `notes.ts` file with the following code:
+Reemplaza o modifica el contenido del archivo `notes.ts` con el siguiente código:
 
 ```ts
 import { z } from 'zod';
@@ -325,15 +318,15 @@ export const noteRouter = router({
 });
 ```
 
-In the above code:
+En el código anterior:
 
-- We're importing necessary modules and our previously created Prisma instance.
-- We define a default selector for our Note to ensure we're explicitly specifying the data we wish to retrieve, which helps to avoid unintended data leaks.
-- We then declare our `noteRouter` and outline the CRUD operations (create, list, and remove) for notes, leveraging the power of tRPC and Prisma together.
+- Estamos importando los módulos necesarios y nuestra instancia de Prisma previamente creada.
+- Definimos un selector predeterminado para nuestras Notas para asegurarnos de que estamos especificando explícitamente los datos que deseamos recuperar, lo que ayuda a evitar filtraciones de datos no deseadas.
+- Luego, declaramos nuestro `noteRouter` y esbozamos las operaciones CRUD (crear, listar y eliminar) para las notas, aprovechando la potencia de tRPC y Prisma juntos.
 
-With this setup, our backend logic is now well-prepared to interact with our database in a type-safe manner!
+Con esta configuración, nuestra lógica del lado del servidor está ahora bien preparada para interactuar con nuestra base de datos de manera segura en cuanto a tipos.
 
-But, before everything falls into place, there's a slight adjustment needed in the pre-existing `note.ts` model that Analog provides by default. Update the code as follows:
+Pero, antes de que todo encaje perfectamente, se necesita un ligero ajuste en el modelo `note.ts` preexistente que Analog proporciona por defecto. Actualiza el código de la siguiente manera:
 
 ```typescript
 export type Note = {
@@ -343,9 +336,9 @@ export type Note = {
 };
 ```
 
-### Step 8: Update the Analog-Welcome Component
+### Paso 8: Actualizar el Componente Analog-Welcome
 
-Now, navigate to the `analog-welcome.component` and modify the component's logic to reflect the changes we made to the `note.ts` model. The updated component should look like this:
+Ahora, navega hasta el componente `analog-welcome.component` y modifica la lógica del componente para reflejar los cambios que hicimos en el modelo `note.ts`. El componente actualizado debería verse así:
 
 ```typescript
 export class AnalogWelcomeComponent {
@@ -388,21 +381,19 @@ export class AnalogWelcomeComponent {
 }
 ```
 
-Now our model types and our component types match which will avoid development errors.
+### Paso 9: Desentrañando la lógica del componente `AnalogWelcomeComponent`
 
-### Step 9: Unraveling the `AnalogWelcomeComponent` Logic
+Ahora que hemos integrado el componente `AnalogWelcomeComponent` con nuestros servicios tRPC con respaldo de Prisma, es fundamental comprender sus partes internas. Desmenucemos el código:
 
-Now that we have integrated the `AnalogWelcomeComponent` with our Prisma-backed tRPC services, it's essential to understand its internals. Let's dissect the code:
-
-1. **Dependency Injection of tRPC Client**:
+1. **Inyección de dependencia del cliente tRPC**:
 
    ```typescript
    private _trpc = injectTrpcClient();
    ```
 
-   This action injects the tRPC client, a pivotal tool that allows the component to seamlessly communicate with the tRPC server and, by extension, with our database.
+   Esta acción inyecta el cliente tRPC, una herramienta fundamental que permite al componente comunicarse sin problemas con el servidor tRPC y, por extensión, con nuestra base de datos.
 
-2. **The Notes Stream**:
+2. **El flujo de notas**:
 
    ```typescript
    public triggerRefresh$ = new Subject<void>();
@@ -412,9 +403,9 @@ Now that we have integrated the `AnalogWelcomeComponent` with our Prisma-backed 
    );
    ```
 
-   Here, we create an observable stream of notes. The marvel is that whenever `triggerRefresh$` emits a value, it sets in motion a query to retrieve all the notes. The `shareReplay(1)` makes sure that the latest fetched list of notes is consistently shared among all subscribers, without the need to fetch again.
+   Aquí, creamos un flujo observable de notas. La maravilla es que cada vez que `triggerRefresh$` emite un valor, pone en marcha una consulta para recuperar todas las notas. El `shareReplay(1)` se asegura de que la lista de notas más reciente que se ha obtenido se comparta de forma coherente entre todos los suscriptores, sin necesidad de volver a obtenerla.
 
-3. **Component's Initialization**:
+3. **Inicialización de los Componentes**:
 
    ```typescript
    constructor() {
@@ -423,9 +414,9 @@ Now that we have integrated the `AnalogWelcomeComponent` with our Prisma-backed 
    }
    ```
 
-   The moment the component springs to life, it invokes a refresh to pull all existing notes by broadcasting a value through the `triggerRefresh$` subject.
+   En el momento en que el componente cobra vida, invoca una actualización para recuperar todas las notas existentes al transmitir un valor a través del sujeto `triggerRefresh$`.
 
-4. **The "Add Note" Mechanism**:
+4. **El Método "Add Note"**:
 
    ```typescript
    public addNote(form: NgForm) {
@@ -433,42 +424,45 @@ Now that we have integrated the `AnalogWelcomeComponent` with our Prisma-backed 
    }
    ```
 
-   This function is where notes get added. It first ascertains the form's validity. Then, with the tRPC client's assistance, it introduces the new note into the database. Upon successful addition, it instigates a refreshing of the notes list.
+   Esta función es donde se agregan las notas. Primero, verifica la validez del formulario. Luego, con la ayuda del cliente tRPC, introduce la nueva nota en la base de datos. Tras la adición exitosa, provoca una actualización de la lista de notas.
 
-5. **The "Remove Note" Mechanism**:
+5. **El Método "Remove Note"**:
    ```typescript
    public removeNote(id: string) {
      ...
    }
    ```
-   This function oversees note deletion. Employing the tRPC client, it ejects the note from the database using its specific ID. Post-deletion, it triggers a fresh fetch of the notes list.
 
-In essence, the `AnalogWelcomeComponent` forms the heart of our application. It interacts with our tRPC services, which in turn, tap into the power of Prisma and our database. The resulting symphony ensures a dynamic, real-time note-taking application!
+Esta función se encarga de eliminar notas. Utilizando el cliente tRPC, elimina la nota de la base de datos utilizando su ID específico. Después de la eliminación, se activa una nueva obtención de la lista de notas.
 
-### Step 10: Fire It Up and Test!
+En esencia, el componente `AnalogWelcomeComponent` forma el corazón de nuestra aplicación. Interacciona con nuestros servicios tRPC, que a su vez aprovechan el poder de Prisma y nuestra base de datos. La sinfonía resultante garantiza una aplicación de notas dinámica y en tiempo real.
 
-With all our integrations and changes in place, it's time to see our application in action!
+### Paso 10: ¡Arranquemos y probemos!
 
-To start our development server, we'll use the following command:
+Con todas nuestras integraciones y cambios en su lugar, ¡es hora de ver nuestra aplicación en acción!
+
+Para iniciar nuestro servidor de desarrollo, usaremos el siguiente comando:
 
 ```bash
 nx serve analog-app
 ```
 
-Upon executing the command `nx serve analog-app`, NX will initiate the compiling process for your project and soon after, launch the development server. Once it completes, you should see an output detailing the port number where the application is running, typically `http://localhost:4200/`.
+### Ejecución de la Aplicación y Resultado Final
 
-Head over to that URL in your preferred browser. If everything was set up correctly, you'll be welcomed by the Analog application's user interface. Here, you can experiment with adding, viewing, and deleting notes. Each action you perform will be mirrored in real-time in your CockroachDB database, showcasing the efficacy of our integrated setup.
+Al ejecutar el comando `nx serve analog-app`, NX iniciará el proceso de compilación de tu proyecto y, poco después, lanzará el servidor de desarrollo. Una vez completado, deberías ver una salida que detalla el número de puerto en el que se está ejecutando la aplicación, normalmente `http://localhost:4200/`.
 
-![Final App in action](https://res.cloudinary.com/lhcc0134/image/upload/v1691879744/analog-app.gif)
+Dirígete a esa URL en tu navegador preferido. Si todo se configuró correctamente, serás recibido por la interfaz de usuario de la aplicación Analog. Aquí, puedes experimentar agregando, viendo y eliminando notas. Cada acción que realices se reflejará en tiempo real en tu base de datos de CockroachDB, mostrando la eficacia de nuestra configuración integrada.
 
-And you can use your favorite software to connect to the database and check the results (im using [DBeaver](https://dbeaver.io/) in here)
+![Aplicación Final en acción](https://res.cloudinary.com/lhcc0134/image/upload/v1691879744/analog-app.gif)
 
-![Database](https://res.cloudinary.com/lhcc0134/image/upload/v1691879744/final-result.png)
+Y puedes utilizar tu software favorito para conectarte a la base de datos y verificar los resultados (estoy utilizando [DBeaver](https://dbeaver.io/) aquí).
 
-## Conclusion
+![Base de Datos](https://res.cloudinary.com/lhcc0134/image/upload/v1691879744/final-result.png)
 
-This guide walked you through the process of integrating Analog with Prisma, tRPC, and CockroachDB. By merging these technologies, we've transformed a basic array-based app into a scalable, database-driven application. This illustrates the potential of modern development tools and frameworks in facilitating efficient and robust app development.
+## Conclusión
 
-Wishing you fruitful coding sessions, and always keep an eye out for more opportunities to refine and enhance your applications!
+Esta guía te llevó a través del proceso de integrar Analog con Prisma, tRPC y CockroachDB. Al combinar estas tecnologías, hemos transformado una aplicación básica basada en matrices en una aplicación impulsada por una base de datos escalable. Esto ilustra el potencial de las herramientas y los marcos de desarrollo modernos para facilitar el desarrollo de aplicaciones eficientes y robustas.
 
-While I don’t have a comment section, I always value feedback and interaction. Feel free to follow or connect with me on [Twitter](https://twitter.com/LuisHCCDev), [Threads](https://www.threads.net/@luishccdev), or [LinkedIn](https://www.linkedin.com/in/luis-castro-cabrera/). For those interested in diving deeper into the technical details, you're welcome to explore the project's code on my [GitHub](https://github.com/luishcastroc/analog-prisma). Looking forward to our digital crossings!
+¡Te deseo sesiones de código fructíferas y siempre mantente atento a más oportunidades para refinar y mejorar tus aplicaciones!
+
+Si bien no tengo una sección de comentarios, siempre valoro los comentarios y la interacción. No dudes en seguirme o conectarte conmigo en [Twitter](https://twitter.com/LuisHCCDev), [Threads](https://www.threads.net/@luishccdev) o [LinkedIn](https://www.linkedin.com/in/luis-castro-cabrera/). Para aquellos interesados en profundizar en los detalles técnicos, están invitados a explorar el código del proyecto en mi [GitHub](https://github.com/luishcastroc/analog-prisma). ¡Espero con interés nuestros encuentros digitales!

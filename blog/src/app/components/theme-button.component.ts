@@ -1,6 +1,6 @@
-import { Component, Renderer2, inject } from '@angular/core';
-import { NgClass } from '@angular/common';
+import { Component, inject, Renderer2 } from '@angular/core';
 import { fromEvent, map, startWith } from 'rxjs';
+import { NgClass } from '@angular/common';
 import { SvgIconComponent } from '@ngneat/svg-icon';
 import { TranslocoModule } from '@ngneat/transloco';
 

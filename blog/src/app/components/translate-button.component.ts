@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { NgClass } from '@angular/common';
-import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
 import { Subscription, take } from 'rxjs';
+import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'mr-translate-button',
@@ -17,8 +17,8 @@ import { Subscription, take } from 'rxjs';
           class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
           [ngClass]="{
             'translate-y-[20%] rotate-[50deg] opacity-0 transition-all':
-              toggleLang,
-            'opacity-[1] transition-all duration-1000 ease-out': !toggleLang
+              !toggleLang,
+            'opacity-[1] transition-all duration-1000 ease-out': toggleLang
           }"
           src="assets/mexico.png"
           height="40"
@@ -26,9 +26,9 @@ import { Subscription, take } from 'rxjs';
         <img
           class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
           [ngClass]="{
-            'opacity-[1] transition-all duration-1000 ease-out': toggleLang,
+            'opacity-[1] transition-all duration-1000 ease-out': !toggleLang,
             'translate-y-[20%] rotate-[100deg] opacity-0 transition-all':
-              !toggleLang
+              toggleLang
           }"
           src="assets/usa.png"
           height="40"

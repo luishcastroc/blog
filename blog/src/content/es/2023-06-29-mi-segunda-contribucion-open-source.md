@@ -10,31 +10,31 @@ date: 06-29-2023
 
 Aventurarse en el ámbito de las contribuciones de código abierto puede resultar desalentador, especialmente para los recién llegados. Esta es la historia de mi viaje inaugural a este apasionante mundo, en el que pretendía contribuir a [AnalogJS](https://analogjs.org), un meta-framework de Angular.
 
-## Finding a Good First Issue
+## Encontrando un Buen Primer Problema
 
-In general, a good starting point is to explore the _issues_ tab of the project you're interested in. Often, maintainers will kindly label some issues with "good first issue", easing the fear of diving headfirst into the deep end of the project. However, this time around, I wasn't able to spot such a tag, so I took it upon myself to tackle an issue involving the elimination of some deprecation messages.
+En general, un buen punto de partida es explorar la pestaña de _problemas_ (o _issues_ en inglés) del proyecto que te interesa. A menudo, los encargados marcan algunos problemas con etiquetas como "buen primer problema" o "good first issue", aliviando el miedo de sumergirse de lleno en las partes más complicadas del proyecto. Sin embargo, en esta ocasión, no pude encontrar dicha etiqueta, así que decidí tomar la iniciativa y abordar un problema relacionado con la eliminación de algunos mensajes de obsolescencia.
 
-Before we go further, let's understand a little more about AnalogJS.
+Antes de continuar, conozcamos un poco más sobre AnalogJS.
 
-## AnalogJS: A Brief Overview
+## AnalogJS: Una Breve Descripción
 
-AnalogJS, as defined in the project's documentation, is a fullstack meta-framework for building applications and websites with Angular. Drawing parallels with other meta-frameworks such as Next.JS, Nuxt, SvelteKit, Qwik City, and others, Analog offers a similar experience, but with an Angular twist.
+AnalogJS, según se define en la documentación del proyecto, es un meta-framework "fullstack" para construir aplicaciones y sitios web con Angular. Trazando paralelismos con otros meta-frameworks como Next.JS, Nuxt, SvelteKit, Qwik City y otros, Analog ofrece una experiencia similar, pero con un toque Angular.
 
-Here are some features that make AnalogJS stand out:
+Aquí hay algunas características que hacen que AnalogJS se destaque:
 
-- Supports Vite/Vitest/Playwright
-- File-based routing
-- Support for using markdown as content routes
-- Support for API/server routes
-- Hybrid SSR/SSG support
-- Supports Angular CLI/Nx workspaces
-- Supports Angular components with Astro
+- Soporta Vite/Vitest/Playwright
+- Enrutamiento basado en archivos
+- Soporte para usar markdown como rutas de contenido
+- Soporte para rutas API/servidor
+- Soporte híbrido SSR/SSG
+- Soporta espacios de trabajo de Angular CLI/Nx
+- Soporta componentes Angular con Astro
 
-With that said, let's return to the deprecation issue at hand.
+Dicho esto, volvamos al problema de obsolescencia que tenemos entre manos.
 
-## The Deprecation Messages
+## Los Mensajes de Obsolescencia
 
-The deprecation messages I aimed to fix were:
+Los mensajes de obsolescencia que intenté corregir fueron:
 
 ```shell
 marked(): highlight and langPrefix parameters are deprecated since version 5.0.0, should not be used and will be removed in the future. Instead use https://www.npmjs.com/package/marked-highlight.
@@ -44,11 +44,11 @@ marked(): mangle parameter is enabled by default, but is deprecated since versio
 marked(): headerIds and headerPrefix parameters enabled by default, but are deprecated since version 5.0.0, and will be removed in the future. To clear this warning, install  https://www.npmjs.com/package/marked-gfm-heading-id, or disable by setting `{headerIds: false}`.
 ```
 
-The maintainers had helpfully hinted at the code that needed alteration, located in `packages/content/src/lib/markdown-content-renderer.service.ts`.
+Los encargados habían dado pistas útiles sobre el código que necesitaba ser alterado, localizado en `packages/content/src/lib/markdown-content-renderer.service.ts`.
 
-## Diving into the Code
+## Sumergiéndome en el Código
 
-To avoid wreaking havoc on the original codebase, I began by forking the repository, which would allow me to work on my own copy. I then navigated to the aforementioned service, which looked something like this:
+Para evitar causar estragos en el código original, comencé haciendo un "fork" del repositorio, lo que me permitiría trabajar en mi propia copia. Luego, me dirigí al servicio mencionado anteriormente, que lucía algo así:
 
 ```ts
 /**
@@ -139,19 +139,19 @@ export function provideContent(...features: Provider[]) {
 }
 ```
 
-Armed with the location of the code and the deprecation messages as my guide, I began to dig into the [marked library documentation](https://marked.js.org). The deprecation messages provided a roadmap for the changes needed to resolve the issue.
+Armado con la ubicación del código y los mensajes de obsolescencia como mi guía, comencé a investigar la [documentación de la biblioteca marked](https://marked.js.org). Los mensajes de obsolescencia proporcionaron una ruta sobre los cambios necesarios para resolver el problema.
 
-I realized I needed to replace the deprecated parameters with the recommended alternatives. This included replacing the `highlight` and `langPrefix` parameters with a new package `marked-highlight`, adjusting the `mangle` parameter by either installing the `marked-mangle` package or by setting `{mangle: false}`, and lastly, handling the `headerIds` and `headerPrefix` parameters by either integrating the `marked-gfm-heading-id` package or by setting `{headerIds: false}`.
+Me di cuenta de que necesitaba reemplazar los parámetros obsoletos con las alternativas recomendadas. Esto incluía reemplazar los parámetros `highlight` y `langPrefix` con un nuevo paquete `marked-highlight`, ajustar el parámetro `mangle` ya sea instalando el paquete `marked-mangle` o estableciendo `{mangle: false}`, y finalmente, manejando los parámetros `headerIds` y `headerPrefix` ya sea integrando el paquete `marked-gfm-heading-id` o estableciendo `{headerIds: false}`.
 
-Having understood the required changes from the documentation, I moved onto the next step: amending the code in my forked repository.
+Habiendo comprendido los cambios requeridos de la documentación, pasé al siguiente paso: modificar el código en mi repositorio (fork).
 
-One of them was really straightforward since it was functionality not really used in the implementation:
+Uno de ellos fue realmente sencillo ya que era una funcionalidad que realmente no se utilizaba en la implementación:
 
 ```shell
 marked(): mangle parameter is enabled by default, but is deprecated since version 5.0.0, and will be removed in the future. To clear this warning, install https://www.npmjs.com/package/marked-mangle, or disable by setting `{mangle: false}`.
 ```
 
-This message was resolved by just adding the proper flag as false (as stated in the message itself).
+Este mensaje se resolvió simplemente añadiendo el indicador adecuado como falso (como se indicaba en el propio mensaje).
 
 ```ts
 async render(content: string) {
@@ -189,29 +189,29 @@ async render(content: string) {
 
 ```
 
-Piece of cake! Now with the excitement of being able to fix things, I thought the next one was going to be as easy as this, and my incoming contribution to this project was imminent. But I was wrong.
+¡Pan comido! Ahora, con la emoción de poder arreglar cosas, pensé que el siguiente sería tan fácil como este, y mi próxima contribución a este proyecto era inminente. Pero estaba equivocado.
 
-The next two messages were for things that were actually part of the implementation:
+Los siguientes dos mensajes eran sobre cosas que realmente formaban parte de la implementación:
 
-## GFM Heading ids
+## IDs de Encabezados GFM
 
-A GFM (GitHub Flavored Markdown) heading ID is the identifier that GitHub automatically assigns to each heading in a markdown file. It allows you to link directly to a specific section within a document.
+Un ID de encabezado GFM (Markdown con Sabor a GitHub) es el identificador que GitHub asigna automáticamente a cada encabezado en un archivo markdown. Te permite enlazar directamente a una sección específica dentro de un documento.
 
-## Highlighting
+## Resaltado de Sintaxis de Código
 
-Markdown code syntax highlighting is a feature offered by many text editors, markdown viewers, and websites like GitHub. It enhances the readability of code snippets embedded in markdown documents by applying color and style differentiation. When you enclose code within markdown's code blocks (using backticks), and specify the language, the system recognizes the syntax of that particular language and applies appropriate color-coding. This makes elements such as keywords, variables, strings, or comments in the code easily distinguishable, aiding in comprehending the code snippet's structure and logic. This becomes particularly valuable when sharing code, discussing solutions, or documenting code behavior within markdown files.
+El resaltado de sintaxis de código en Markdown es una característica ofrecida por muchos editores de texto, visores de markdown y sitios web como GitHub. Mejora la legibilidad de los fragmentos de código incrustados en documentos markdown aplicando diferenciación de color y estilo. Cuando encierras el código dentro de los bloques de código de markdown (usando acentos graves) y especificas el lenguaje, el sistema reconoce la sintaxis de ese lenguaje en particular y aplica una codificación de colores apropiada. Esto hace que elementos como palabras clave, variables, cadenas o comentarios en el código sean fácilmente distinguibles, ayudando a comprender la estructura y lógica del fragmento de código. Esto se vuelve particularmente valioso al compartir código, discutir soluciones o documentar el comportamiento del código dentro de archivos markdown.
 
-With that information and based on the documentation and the message, 2 new packages were needed that were replacing that functionality.
+Con esa información y basándome en la documentación y el mensaje, se necesitaban 2 nuevos paquetes que reemplazaran esa funcionalidad.
 
-**marked-gfm-heading-id** and **marked-highlight**
+**marked-gfm-heading-id** y **marked-highlight**
 
-So, I proceeded to add them to the repo by using:
+Así que, procedí a añadirlos al repositorio usando:
 
 ```shell
 pnpm add marked-highlight marked-gfm-heading-id -w
 ```
 
-After adding the dependencies, I proceeded to use them as the documentation was recommending and ended up with something like this:
+Después de agregar las dependencias, procedí a utilizarlas como recomendaba la documentación y terminé con algo así:
 
 ```ts
 /**
@@ -309,17 +309,17 @@ export function provideContent(...features: Provider[]) {
 }
 ```
 
-At first glance, it seemed straightforward. I replaced `marked.setOptions` with `marked.use` and made the necessary changes to incorporate the new extensions. Additionally, I removed the highlight function from the renderer, as it was also deprecated. Ultimately, the only process we needed was one to format the code properly for PrismJS (the library used for adding colorful highlights) based on the provided language.
+A primera vista, parecía sencillo. Reemplacé `marked.setOptions` con `marked.use` e hice los cambios necesarios para incorporar las nuevas extensiones. Además, eliminé la función de resaltado del renderizador, ya que también estaba obsoleta. Al final, el único proceso que necesitábamos era uno para formatear correctamente el código para **PrismJS** (la biblioteca utilizada para agregar colores) según el lenguaje proporcionado.
 
-Everything seemed to be in order, and I even added a unit test to facilitate the process. However, due to my limited understanding of the code at that time, I didn't fully utilize the tools that the project already provided for testing. After an initial PR, the project's main maintainer, [Brandon Roberts](https://github.com/brandonroberts), informed me that it wasn't functioning properly and that there was an actual app inside the project for more comprehensive testing (in conjunction with the unit tests).
+Todo parecía estar en orden, e incluso agregué una prueba unitaria para facilitar el proceso. Sin embargo, debido a mi limitado entendimiento del código en ese momento, no utilicé completamente las herramientas que el proyecto ya proporcionaba para las pruebas. Después de un PR inicial, el mantenedor principal del proyecto, [Brandon Roberts](https://github.com/brandonroberts), me informó que no estaba funcionando correctamente y que había una aplicación real dentro del proyecto para pruebas más exhaustivas (en conjunto con las pruebas unitarias).
 
-Upon examining the app and noticing that the highlight feature wasn't working correctly and required a page refresh to display the code with the correct format, I started investigating potential issues.
+Al examinar la aplicación y notar que la función de resaltado no funcionaba correctamente y requería una actualización de página para mostrar el código con el formato correcto, comencé a investigar problemas potenciales.
 
-The first problem I encountered was that after some time of clicking on the app's links, they would simply freeze, causing Chrome to crash. Clearly, this issue didn't exist before, so it was most likely related to my implementation and the supposed "fix".
+El primer problema que encontré fue que después de cierto tiempo de hacer clic en los enlaces de la aplicación, simplemente se congelaban, provocando que Chrome se bloqueara. Claramente, este problema no existía antes, por lo que era muy probable que estuviera relacionado con mi implementación y la supuesta "solución".
 
-After numerous attempts at troubleshooting, online searches, and even consulting with ChatGPT, I decided to start a discussion on Marked's GitHub ([link](https://github.com/markedjs/marked/discussions/2861) if you're interested). I received a prompt response from one of the maintainers, who directed me towards what seemed to be the right solution at that time.
+Después de numerosos intentos de solucionar el problema, búsquedas en línea, e incluso consultas con ChatGPT, decidí comenzar una discusión en el GitHub de Marked ([enlace](https://github.com/markedjs/marked/discussions/2861) si estás interesado). Recibí una respuesta rápida de uno de los mantenedores, quien me dirigió hacia lo que parecía ser la solución adecuada en ese momento.
 
-It appeared that each call to `marked.use` created a new instance of the extension, which could potentially cause significant problems depending on the usage. After some research into how the issue was addressed, I came up with this solution (credits to icebaker for the [original solution](https://github.com/markedjs/marked-highlight/issues/26#issuecomment-1570188027)).
+Parecía que cada llamada a `marked.use` creaba una nueva instancia de la extensión, lo que podría causar problemas significativos dependiendo del uso. Después de investigar cómo se abordó el problema, llegué a esta solución (créditos a icebaker por la [solución original](https://github.com/markedjs/marked-highlight/issues/26#issuecomment-1570188027)).
 
 ```ts
 /**
@@ -403,11 +403,11 @@ export class MarkdownContentRendererService implements ContentRenderer {
 }
 ```
 
-Simple, isn't it? The quick explanation for this approach is that, now, if the process calls for another instance of `marked.use`, the `Marked.instantiated` variable indicates that an instance is already available and will provide that one.
+¿Simple, verdad?, La explicación rápida para este enfoque es que, ahora, si el proceso requiere otra instancia de `marked.use`, la variable `Marked.instantiated` indica que ya hay una instancia disponible y proporcionará esa.
 
-However, as Brandon pointed out during the PR review, this method isn't in line with Angular's practices. He suggested creating an Angular service that could fully utilize the benefits of Angular's [Dependency Injection](https://angular.io/guide/dependency-injection). After implementing some changes, we arrived at the final solution:
+Sin embargo, como Brandon señaló durante la revisión del PR, este método no está en línea con las prácticas de Angular. Sugirió crear un servicio Angular que pudiera aprovechar al máximo los beneficios de la [Inyección de Dependencias](https://angular.io/guide/dependency-injection) de Angular. Después de implementar algunos cambios, llegamos a la solución final:
 
-I created a service named `marked-setup.service.ts` to manage the setup for Marked and PrismJS. Here's what it looks like:
+Creé un servicio llamado `marked-setup.service.ts` para gestionar la configuración de Marked y PrismJS. Así es como se ve:
 
 ```ts
 /**
@@ -492,9 +492,9 @@ export class MarkedSetupService {
 }
 ```
 
-To break it down simply, we generate an instance of the marked library within the constructor. This instance is equipped with all the necessary extensions and options to offer the same functionality as it did previously. Then, this instance can be accessed via the getMarkedInstance() method.
+Para simplificarlo, generamos una instancia de la biblioteca marked dentro del constructor. Esta instancia está equipada con todas las extensiones y opciones necesarias para ofrecer la misma funcionalidad que tenía anteriormente. Luego, se puede acceder a esta instancia a través del método getMarkedInstance().
 
-The journey doesn't end there. Now, the service needed to be consumed within another service. After some refactoring, we ended up with the following implementation:
+El viaje no termina ahí. Ahora, el servicio necesitaba ser consumido dentro de otro servicio. Después de algunas refactorizaciones, terminamos con la siguiente implementación:
 
 ```ts
 import { inject, Injectable, PLATFORM_ID, Provider } from '@angular/core';
@@ -528,7 +528,7 @@ export function provideContent(...features: Provider[]) {
 }
 ```
 
-A crucial detail to remember is that we employ `inject(MarkedSetupService)` to incorporate the dependency into the consuming service. You can disregard the `{ self: true }` segment, as it doesn't have a role in this context and is most likely a typing error. The core operation happens here:
+Un detalle crucial para recordar es que empleamos `inject(MarkedSetupService)` para incorporar la dependencia en el servicio que la consume. Puedes ignorar la parte `{ self: true }`, ya que no tiene un papel en este contexto y es probablemente un error de tipografía. La operación principal ocurre aquí:
 
 ```ts
 export function provideContent(...features: Provider[]) {
@@ -536,8 +536,8 @@ export function provideContent(...features: Provider[]) {
 }
 ```
 
-In this section, we instruct Angular to supply an instance of MarkedSetupService. If a service is provisioned in another service, Angular will generate a new instance of the provided service for each new instance of the consuming service. If the consuming service is a singleton, the provided service will also be a singleton.
+En esta sección, instruimos a Angular para que proporcione una instancia de MarkedSetupService. Si un servicio es suministrado en otro servicio, Angular generará una nueva instancia del servicio proporcionado para cada nueva instancia del servicio consumidor. Si el servicio consumidor es un singleton, el servicio proporcionado también será un singleton.
 
-Upon re-running the unit tests and resubmitting the PR, the response was favorable, and the PR was successfully merged.
+Al volver a ejecutar las pruebas unitarias y reenviar el PR, la respuesta fue favorable, y el PR se fusionó exitosamente.
 
-Thank you for reading. I hope this journey has been informative and enjoyable!
+¡Gracias por leer! Espero que este recorrido haya sido informativo y agradable.

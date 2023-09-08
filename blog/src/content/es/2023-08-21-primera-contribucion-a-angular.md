@@ -1,35 +1,35 @@
 ---
-title: I Achieved My First Angular Contribution!
+title: ¡Logré mi primera contribución a Angular!
 slug: primera-contribucion-a-angular
 otherSlug: first-angular-contribution
-description: A recount of my exploration into Angular, from my first simple contributions to understanding the intricacies of its documentation process.
+description: Un recuento de mi exploración de Angular, desde mi primera contribución simple hasta la comprensión de la complejidad de su proceso de documentación.
 author: Luis Castro
 coverImage: v1692660417/my-first-angular-contribution.png
 date: 08-21-2023
 ---
 
-## Introduction
+## Introducción
 
-The world of open-source can often feel like a vast, intimidating ocean, especially when you're standing at the shores of a giant like Angular. But as with every journey, the first step is often the most crucial. My journey into Angular began with a simple one-liner, but it soon evolved into a deep dive into the framework's meticulous documentation process. Along the way, I learned not just about Angular, but also about the value of persistence, community, and self-belief.
+El mundo del código abierto puede sentirse como un vasto e intimidante océano, especialmente cuando te encuentras en las orillas de un gigante como Angular. Pero, como en cada viaje, el primer paso es a menudo el más crucial. Mi travesía con Angular comenzó con una simple línea de código, pero pronto se convirtió en una inmersión profunda en el meticuloso proceso de documentación del framework. A lo largo del camino, aprendí no solo sobre Angular, sino también sobre el valor de la persistencia, la comunidad y la autoconfianza.
 
-> **Side Note**: Life has its twists and turns. Recently, I found myself at a career crossroad, having been let go from my job. I'm currently exploring new opportunities, especially as a Senior Software Engineer. If Angular roles are on the table, even better! If you or someone you know is hiring, I'd be grateful for the connection.
+> **Nota al margen**: La vida tiene sus giros y vueltas. Recientemente, me encontré en una encrucijada profesional, habiendo sido despedido de mi trabajo. Actualmente estoy explorando nuevas oportunidades, especialmente como Ingeniero de Software Senior. ¡Si hay roles relacionados con Angular disponibles, aún mejor! Si tú o alguien que conoces está contratando, agradecería la conexión.
 
-## 🌱 **The @AnalogJS Confidence Boost**
+## 🌱 **El impulso de confianza de @AnalogJS**
 
-Before I could tackle the behemoth that is Angular, I needed a confidence booster. My contributions to @AnalogJS served as that initial push. Every contribution, no matter how small, made a difference. It was a reminder that in the vast world of coding, every line counts. With each successful contribution to @AnalogJS, my belief in my capabilities grew, preparing me for the challenges ahead.
+Antes de poder enfrentarme al coloso que es Angular, necesitaba un impulso de confianza. Mis contribuciones a @AnalogJS sirvieron para eso. Cada contribución, por pequeña que fuera, hizo una diferencia. Fue un recordatorio de que en el vasto mundo de la programación, cada línea cuenta. Con cada contribución exitosa a @AnalogJS, mi fe en mis habilidades crecía, preparándome para los desafíos que se avecinaban.
 
-## 🎉 **Finding My Footing in Angular**
+## 🎉 **Encontrando mi lugar en Angular**
 
-With renewed confidence, I returned to Angular. This time, however, I had an ace up my sleeve. By following some of the best engineers in the Angular community, I chanced upon the tag "first good issue." It was like a beacon in the vast sea of issues. Using this tag, I found a task that felt approachable, especially since I was navigating unfamiliar waters and wasn't quite sure where to start.
+Con la confianza renovada, regresé a Angular. Sin embargo, esta vez tenía un as bajo la manga. Siguiendo a algunos de los mejores ingenieros de la comunidad de Angular, encontré la etiqueta "good first problem" o en español "burn primer problema". Era como un faro en el vasto mar de problemas. Usando esta etiqueta, encontré una tarea que parecía asequible, especialmente porque estaba navegando por aguas desconocidas y no estaba seguro de por dónde empezar.
 
-The joy of submitting that first piece of code, no matter how small, was unparalleled. It was a testament to the fact that with the right guidance and a bit of determination, even the most daunting tasks become achievable.
+La alegría de enviar ese primer fragmento de código, por pequeño que fuera, fue incomparable. Fue un testimonio del hecho de que con la orientación adecuada y un poco de determinación, incluso las tareas más desalentadoras se vuelven alcanzables.
 
-## 🕵️‍♂️ **The Documentation Deep Dive**
+## 🕵️‍♂️ **Inmersión profunda en la documentación**
 
-My next challenge was something I had initially perceived as simple: tweaking an example in Angular's documentation. But as I delved deeper, I realized the immense organization and structure behind what seemed straightforward. The task wasn't just about changing an example; it was about understanding the intricate layers of Angular's documentation. This experience was enlightening, teaching me about the meticulous planning and organization that goes into crafting clear and concise documentation.
+Mi siguiente desafío fue algo que inicialmente había percibido como simple: modificar un ejemplo en la documentación de Angular. Pero, al profundizar, me di cuenta de la inmensa organización y estructura detrás de lo que parecía sencillo. La tarea no se trataba solo de cambiar un ejemplo; se trataba de comprender las intrincadas capas de la documentación de Angular. Esta experiencia fue reveladora, enseñándome sobre la meticulosa planificación y organización que se requiere para elaborar una documentación clara y concisa.
 
-## 🎈 **Conclusion**
+## 🎈 **Conclusión**
 
-My journey into Angular was filled with learning, challenges, and growth. It taught me the importance of community, persistence, and self-belief. To all aspiring contributors out there: Dive in, learn, grow, and remember that every contribution, big or small, makes a difference. 🎉🚀🎈
+Mi travesía en Angular estuvo llena de aprendizajes, desafíos y crecimiento. Me enseñó la importancia de la comunidad, la persistencia y la autoconfianza. A todos los contribuyentes en ciernes: Sumérgete, aprende, crece y recuerda que cada contribución, grande o pequeña, marca la diferencia. 🎉🚀🎈
 
-While I don’t have a comment section, I always value feedback and interaction. Feel free to follow or connect with me on [Twitter](https://twitter.com/LuisHCCDev), [Threads](https://www.threads.net/@luishccdev), or [LinkedIn](https://www.linkedin.com/in/luis-castro-cabrera/). Looking forward to our digital crossings!
+Aunque no tengo una sección de comentarios, siempre valoro la retroalimentación y la interacción. No dudes en seguirme o conectarte conmigo en [Twitter](https://twitter.com/LuisHCCDev), [Threads](https://www.threads.net/@luishccdev), o [LinkedIn](https://www.linkedin.com/in/luis-castro-cabrera/). ¡Espero nuestros encuentros digitales!

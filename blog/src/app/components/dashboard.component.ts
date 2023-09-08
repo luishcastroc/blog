@@ -1,8 +1,8 @@
-import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from './navbar.component';
 import { FooterComponent } from './footer.component';
+import { NavbarComponent } from './navbar.component';
+import { NgFor } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'mr-dashboard',

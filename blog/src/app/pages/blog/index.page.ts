@@ -1,6 +1,6 @@
+import { BlogListComponent } from '../../components/blog-list.component';
 import { Component } from '@angular/core';
 import { RouteMeta } from '@analogjs/router';
-import { BlogListComponent } from '../../components/blog-list.component';
 
 export const routeMeta: RouteMeta = {
   title: 'Luis Castro - Blog',
