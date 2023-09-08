@@ -1,8 +1,4 @@
 {
-  "meta": {
-    "description": "Luis H. Castro Dev - Sumérgete en artículos interesantes sobre ingeniería de software, con un enfoque especial en Angular. Escrito por Luis H. Castro, un ingeniero de software profesional apasionado por compartir conocimientos y crear soluciones innovadoras.",
-    "twitter-description": "Sumérgete en artículos interesantes sobre ingeniería de software, con un enfoque especial en Angular. Escrito por Luis H. Castro, un ingeniero de software profesional apasionado por compartir conocimientos y crear soluciones innovadoras."
-  },
   "navigation": {
     "home": "Inicio",
     "blog": "Blog",

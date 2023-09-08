@@ -1,8 +1,4 @@
 {
-  "meta": {
-    "description": "Luis H. Castro Dev - Dive into insightful articles on software engineering, with a special focus on Angular. Authored by Luis H. Castro, a professional software engineer passionate about sharing knowledge and creating innovative solutions.",
-    "twitter-description": "Dive into insightful articles on software engineering, with a special focus on Angular. Authored by Luis H. Castro, a professional software engineer passionate about sharing knowledge and creating innovative solutions."
-  },
   "navigation": {
     "home": "Home",
     "blog": "Blog",
