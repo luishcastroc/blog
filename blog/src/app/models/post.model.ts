@@ -5,6 +5,8 @@ export interface PostAttributes {
   author: string;
   coverImage: string;
   date: string;
+  otherSlug?: string;
   previousPost?: string;
   nextPost?: string;
+  language?: string;
 }

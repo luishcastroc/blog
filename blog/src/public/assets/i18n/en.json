@@ -1,0 +1,60 @@
+{
+  "navigation": {
+    "home": "Home",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact",
+    "aria-label": "Chage theme to dark/light",
+    "aria-label-translate": "Change language to english/spanish"
+  },
+  "home": {
+    "header": "Welcome! I'm Luis Castro",
+    "subheader": {
+      "first": "I'm a",
+      "second": "dedicated",
+      "third": "software engineer with over a decade of experience."
+    },
+    "more": {
+      "first": "Originally from",
+      "second": "México",
+      "third": ", now residing in the United States, I thrive on new technologies, particularly",
+      "fourth": "Angular",
+      "fifth": "and JavaScript."
+    },
+    "mission": "My mission is to create efficient, scalable, and user-friendly web applications, transforming visions into reality.",
+    "conclusion": "When I'm not deep in code or keeping up with the latest tech trends, you might catch me in a heated soccer (fútbol!) match or masterfully playing a video game (if my kids and wife allow me)."
+  },
+  "about": {
+    "header": "About Me!!",
+    "subheader": "Professional Background",
+    "general-one": "Hello there! My name is",
+    "general-two": "(long name right?) and I'm a passionate software engineer, with a diverse experience span of over 12 years, now proudly residing in the sunny Tampa, Florida. Originally from Mexico, I've bridged borders not only geographically but also within the world of programming languages.",
+    "general-three": "I specialize in JavaScript, Angular and React, as they resonate with my quest for creating seamless user experiences and dynamic software solutions. Yet, my expertise doesn't stop there. I have a rich background in SQL and PL/SQL, making my skillset broad and versatile.",
+    "general-fourth": "I've been incredibly fortunate to work extensively in the healthcare and finance industries. This has given me the opportunity to understand the unique challenges and constraints these sectors face, thereby enabling me to design effective and efficient solutions. It's been an enriching journey to develop software that has a real-world impact, helping businesses to optimize their operations and customers to enjoy better services.",
+    "personal": {
+      "header": "Personal Interests",
+      "content": "While I'm not architecting software systems or troubleshooting code, you'll probably find me deeply engrossed in a thrilling soccer match or immersed in an exciting video game. The same passion I bring to my professional work is reflected in my love for these activities.",
+      "content-two": "I believe in lifelong learning and continuously challenge myself to improve. I strive to be better every day."
+    },
+    "family": {
+      "header": "Family Life",
+      "content": "When it comes to my personal life, I am blessed with a beautiful family - my loving wife Helly, our two wonderful children, and not to forget, our playful puppy Porkchop. They are the source of my daily inspiration and the cheerleaders behind my professional success."
+    }
+  },
+  "contact": {
+    "header": "Contact Me",
+    "subheader": "Have any question?, project? debate about Futbol, game you want me to try?... shoot me a mail!",
+    "name": "What is your name?",
+    "name-error": "The name is required.",
+    "type-here": "type here",
+    "email": "What is your email?",
+    "email-placeholder": "greatusername@something.com",
+    "email-error-one": "The email is required.",
+    "email-error-two": "The email is not valid.",
+    "message": "Your message",
+    "message-error": "The message is required.",
+    "say-hi": "Say hi!",
+    "send": "Send",
+    "clear": "Clear"
+  }
+}

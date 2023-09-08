@@ -2,13 +2,21 @@ import { ActivatedRouteSnapshot, ResolveFn } from '@angular/router';
 import { injectContentFiles } from '@analogjs/content';
 import { MetaTag } from '@analogjs/router';
 import { PostAttributes } from './post.model';
+import { TranslocoService } from '@ngneat/transloco';
+import { inject } from '@angular/core';
+
+function removeDateFromFile(filename: string): string {
+  return filename.replace(/(\d{4}-\d{2}-\d{2}-)/, '');
+}
 
 function injectActivePostAttributes(
   route: ActivatedRouteSnapshot
 ): PostAttributes {
+  const activeLang = inject(TranslocoService).getActiveLang();
   const file = injectContentFiles<PostAttributes>().find(contentFile => {
     return (
-      contentFile.filename === `/src/content/${route.params['slug']}.md` ||
+      removeDateFromFile(contentFile.filename) ===
+        `/src/content/${activeLang}/${route.params['slug']}.md` ||
       contentFile.slug === route.params['slug']
     );
   });

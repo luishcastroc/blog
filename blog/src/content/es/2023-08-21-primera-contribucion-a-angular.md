@@ -1,6 +1,7 @@
 ---
 title: I Achieved My First Angular Contribution!
-slug: first-angular-contribution
+slug: primera-contribucion-a-angular
+otherSlug: first-angular-contribution
 description: A recount of my exploration into Angular, from my first simple contributions to understanding the intricacies of its documentation process.
 author: Luis Castro
 coverImage: v1692660417/my-first-angular-contribution.png

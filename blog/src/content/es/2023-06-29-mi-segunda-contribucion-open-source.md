@@ -1,13 +1,14 @@
 ---
-title: My Second Open Source Contribution, The AnalogJS Journey
-slug: my-second-open-source-contribution
-description: Venturing into the realm of open source contributions.
+title: Mi Segunda Contribución Open Source, AnalogJS
+slug: mi-segunda-contribucion-open-source
+otherSlug: my-second-open-source-contribution
+description: Aventurandome en el reino de las contribuciones a código abierto.
 author: Luis Castro
 coverImage: v1691372382/oss-cover.webp
 date: 06-29-2023
 ---
 
-Venturing into the realm of open source contributions can be daunting, especially for newcomers. This is the story of my maiden voyage into this exciting world, where I aimed to contribute to [AnalogJS](https://analogjs.org), an Angular meta-framework.
+Aventurarse en el ámbito de las contribuciones de código abierto puede resultar desalentador, especialmente para los recién llegados. Esta es la historia de mi viaje inaugural a este apasionante mundo, en el que pretendía contribuir a [AnalogJS](https://analogjs.org), un meta-framework de Angular.
 
 ## Finding a Good First Issue
 

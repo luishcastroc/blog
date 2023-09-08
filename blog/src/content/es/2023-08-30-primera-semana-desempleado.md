@@ -1,6 +1,7 @@
 ---
 title: Chronicles of the Unemployed, Week One After 12 Continuous Years of Employment
-slug: first-week-unemployed
+slug: primera-semana-desempleado
+otherSlug: first-week-unemployed
 description: A recount of my unexpected journey through unemployment in a foreign land, navigating the challenges and complexities of the modern job market.
 author: Luis Castro
 coverImage: v1693417117/unemployment-journey.png

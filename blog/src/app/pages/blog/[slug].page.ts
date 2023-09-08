@@ -1,18 +1,35 @@
+import { AsyncPipe, NgIf } from '@angular/common';
+import {
+  Subject,
+  combineLatest,
+  map,
+  of,
+  skip,
+  switchMap,
+  take,
+  takeUntil,
+} from 'rxjs';
+import { DateTime } from 'luxon';
+import { PostAttributes } from '../../models/post.model';
+import { postMetaResolver, postTitleResolver } from '../../models/resolvers';
+import { RouteMeta } from '@analogjs/router';
+import { Router, RouterLinkWithHref } from '@angular/router';
+import { TranslocoService } from '@ngneat/transloco';
+import 'prismjs/components/prism-go';
+import 'prismjs/components/prism-sql';
 import {
   injectContent,
   injectContentFiles,
   MarkdownComponent,
 } from '@analogjs/content';
-import { RouteMeta } from '@analogjs/router';
-import { AsyncPipe, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
-import { postMetaResolver, postTitleResolver } from '../../models/resolvers';
-import { PostAttributes } from '../../models/post.model';
-import { RouterLinkWithHref } from '@angular/router';
-import { combineLatest, map, of } from 'rxjs';
-import { DateTime } from 'luxon';
-import 'prismjs/components/prism-go';
-import 'prismjs/components/prism-sql';
+import {
+  Component,
+  inject,
+  Injector,
+  OnDestroy,
+  OnInit,
+  runInInjectionContext,
+} from '@angular/core';
 
 export const routeMeta: RouteMeta = {
   title: postTitleResolver,
@@ -55,43 +72,79 @@ export const routeMeta: RouteMeta = {
     </article>
   `,
 })
-export default class BlogPostComponent {
-  readonly post$ = combineLatest([
-    of(injectContentFiles<PostAttributes>()),
-    injectContent<PostAttributes>(),
-  ]).pipe(
-    map(([files, post]) => {
-      const sortedFiles = files
-        .map(file => {
-          const date = DateTime.fromFormat(file.attributes.date, 'MM-dd-yyyy');
-          const dateString = date.toISODate();
+export default class BlogPostComponent implements OnInit, OnDestroy {
+  #transloco = inject(TranslocoService);
+  #router = inject(Router);
+  #injector = inject(Injector);
+  destroy$ = new Subject<boolean>();
+
+  readonly allFiles = injectContentFiles<PostAttributes>();
+  readonly post$ = this.#transloco.langChanges$.pipe(
+    switchMap(lang => {
+      return combineLatest([
+        of(this.allFiles.filter(file => file.filename.split('/')[3] === lang)),
+        runInInjectionContext(this.#injector, () => {
+          return injectContent<PostAttributes>({
+            param: 'slug',
+            subdirectory: lang,
+          });
+        }),
+      ]).pipe(
+        map(([files, post]) => {
+          const sortedFiles = files
+            .map(file => ({
+              ...file,
+              attributes: {
+                ...file.attributes,
+                date: DateTime.fromFormat(
+                  file.attributes.date,
+                  'MM-dd-yyyy'
+                ).toISODate()!,
+              },
+            }))
+            .sort(
+              (a, b) =>
+                DateTime.fromISO(b.attributes.date).toMillis() -
+                DateTime.fromISO(a.attributes.date).toMillis()
+            );
+          const index = sortedFiles.findIndex(
+            file => file.attributes.slug === post.attributes.slug
+          );
           return {
-            ...file,
-            attributes: {
-              ...file.attributes,
-              date: dateString as string,
-            },
+            ...post,
+            nextPost: sortedFiles[index - 1]?.slug,
+            previousPost: sortedFiles[index + 1]?.slug,
           };
         })
-        .sort((a, b) => {
-          return (
-            DateTime.fromISO(b.attributes.date).toMillis() -
-            DateTime.fromISO(a.attributes.date).toMillis()
-          );
-        });
-      return { sortedFiles, post };
-    }),
-    map(({ sortedFiles, post }) => {
-      const index = sortedFiles.findIndex(
-        file => file.attributes.slug === post.attributes.slug
       );
-      const nextPost = sortedFiles[index - 1]?.slug;
-      const previousPost = sortedFiles[index + 1]?.slug;
-      return {
-        ...post,
-        nextPost,
-        previousPost,
-      };
     })
   );
+
+  ngOnInit(): void {
+    this.#transloco.langChanges$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(lang => {
+        const currentRoute = this.#router.url;
+        // Update the route based on the new language
+        const newRoute = this.updateRouteBasedOnLanguage(currentRoute, lang);
+        this.#router.navigate([newRoute]);
+      });
+  }
+
+  updateRouteBasedOnLanguage(route: string, lang: string): string {
+    const segments = route.split('/');
+    const file = this.allFiles.find(file => file.slug === segments[2]);
+    const fileLang = file?.filename.split('/')[3];
+    if (fileLang === lang) {
+      return route;
+    }
+    const otherSlug = file?.attributes.otherSlug;
+    segments[2] = otherSlug || segments[2];
+    return segments.join('/');
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
+    this.destroy$.complete();
+  }
 }

@@ -1,0 +1,60 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "blog": "Blog",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "aria-label": "Cambiar tema a oscuro/claro",
+    "aria-label-translate": "Cambiar idioma a inglés/español"
+  },
+  "home": {
+    "header": "Bienvenido! Mi Nombre es Luis Castro",
+    "subheader": {
+      "first": "Soy un Ingeniero en Software",
+      "second": "dedicado",
+      "third": "con más de una década de experiencia."
+    },
+    "more": {
+      "first": "Originario de",
+      "second": "México",
+      "third": ", Ahora con residencia en Estados Unidos, me apasionan las nuevas tecnologías, en especial",
+      "fourth": "Angular",
+      "fifth": "y JavaScript."
+    },
+    "mission": "Mi misión es crear aplicaciones eficientes, escalables y amigables al usuario, transformando visión en realidad.",
+    "conclusion": "Cuando no estoy codificando o tratando de estar actualizado en las tendencias tecnológicas, podrás encontrarme jugando Fútbol o jugando videojuegos (Si mis hijos me lo permiten)."
+  },
+  "about": {
+    "header": "Acerca de mi!!",
+    "subheader": "Antecedentes Profesionales",
+    "general-one": "Hola! mi nombre es",
+    "general-two": "(Nombre largo verdad?) soy un apasionado ingeniero en software, con una experiencia diversa de más de 12 años, que ahora reside con orgullo en la soleada Tampa, Florida. Originario de México, he saltado fronteras no sólo geográficamente sino también dentro del mundo de la programación.",
+    "general-three": "Me especializo en JavaScript, Angular y React, ya que resuenan con mi búsqueda por crear experiencias de usuario perfectas y soluciones de software dinámicas. Sin embargo, mi experiencia no termina ahí. Tengo una amplia experiencia en SQL y PL/SQL, lo que hace que mis habilidades sean amplias y versátiles.",
+    "general-fourth": "He sido increíblemente afortunado de trabajar extensamente en las industrias de salud y finanzas. Esto me ha dado la oportunidad de comprender los desafíos y limitaciones únicos que enfrentan estos sectores, lo que me permite diseñar soluciones efectivas y eficientes. Ha sido un viaje enriquecedor para desarrollar software que tenga un impacto en el mundo real, ayudando a las empresas a optimizar sus operaciones y a los clientes a disfrutar de mejores servicios.",
+    "personal": {
+      "header": "Intereses Personales",
+      "content": "Si no estoy diseñando sistemas de software o solucionando problemas de código, probablemente me encontrarás viendo un emocionante partido de fútbol o inmerso en un videojuego. La misma pasión que aporto a mi trabajo profesional se refleja en mi amor por estas actividades.",
+      "content-two": "Creo en el aprendizaje permanente y me desafío continuamente a mejorar. Me esfuerzo por ser mejor cada día."
+    },
+    "family": {
+      "header": "Vida Familiar",
+      "content": "En lo que respecta a mi vida personal, tengo la suerte de contar con una hermosa familia: mi amada esposa Helly, nuestros dos maravillosos hijos y, sin olvidar, nuestro cachorro Porkchop. Son la fuente de mi inspiración diaria y los artífices de mi éxito profesional."
+    }
+  },
+  "contact": {
+    "header": "Contactame",
+    "subheader": "¿Tiene alguna pregunta?, ¿proyecto? debate sobre Futbol, ​​juego que quieres que pruebe?... envíame un mail!",
+    "name": "Cual es tu nombre?",
+    "name-error": "El nombre es requerido.",
+    "type-here": "Escribe aquí",
+    "email": "Cual es tu correo?",
+    "email-placeholder": "superusuario@algo.com",
+    "email-error-one": "El correo es requerido.",
+    "email-error-two": "El correo no es válido.",
+    "message": "Tu mensaje",
+    "message-error": "El mensaje es requerido.",
+    "say-hi": "Di Hola!",
+    "send": "Enviar",
+    "clear": "Limpiar"
+  }
+}

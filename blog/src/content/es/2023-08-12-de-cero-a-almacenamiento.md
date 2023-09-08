@@ -1,6 +1,7 @@
 ---
 title: From Scratch to Storage, Note App with AnalogJs, tRPC, Prisma and CockroachDB
-slug: from-scratch-to-storage
+slug: de-cero-a-almacenamiento
+otherSlug: from-scratch-to-storage
 description: Explore the basics of AnalogJs, tRPC, Prisma ORM, and CockroachDB Cloud by building a straightforward note-taking application.
 author: Luis Castro
 coverImage: v1691372359/analog-trpc-roach-prisma.png

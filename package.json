@@ -40,6 +40,7 @@
     "@ngneat/hot-toast": "^5.0.2",
     "@ngneat/overview": "^5.1.1",
     "@ngneat/svg-icon": "^7.1.0",
+    "@ngneat/transloco": "^5.0.7",
     "dotenv": "^16.3.1",
     "front-matter": "^4.0.2",
     "luxon": "^3.4.0",
@@ -92,4 +93,3 @@
   },
   "packageManager": "pnpm@8.0.0"
 }
-
