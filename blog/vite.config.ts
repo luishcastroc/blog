@@ -5,16 +5,20 @@ import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import * as fs from 'fs';
 
-const postsEn = fs.readdirSync('./blog/src/content/en');
-const postsEs = fs.readdirSync('./blog/src/content/es');
-const postEnRoutes = postsEn.map(
-  post =>
-    `/blog/en/${post.replace('.md', '').replace(/^\d{4}-\d{2}-\d{2}-/, '')}`
-);
-const postEsRoutes = postsEs.map(
-  post =>
-    `/blog/es/${post.replace('.md', '').replace(/^\d{4}-\d{2}-\d{2}-/, '')}`
-);
+const getPostRoutes = (language: string) => {
+  const posts = fs.readdirSync(`./blog/src/content/${language}`);
+  return posts.map(
+    post =>
+      `/blog/${language}/${post
+        .replace('.md', '')
+        .replace(/^\d{4}-\d{2}-\d{2}-/, '')}`
+  );
+};
+
+const postRoutes = {
+  en: getPostRoutes('en'),
+  es: getPostRoutes('es'),
+};
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
@@ -31,8 +35,8 @@ export default defineConfig(({ mode }) => {
             '/blog',
             '/about',
             '/contact',
-            ...postEnRoutes,
-            ...postEsRoutes,
+            ...postRoutes.en,
+            ...postRoutes.es,
           ],
           sitemap: {
             host: 'https://mrrobot.dev',
