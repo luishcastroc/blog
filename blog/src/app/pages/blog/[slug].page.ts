@@ -8,6 +8,7 @@ import { Router, RouterLinkWithHref } from '@angular/router';
 import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
 import 'prismjs/components/prism-go';
 import 'prismjs/components/prism-sql';
+import 'prismjs/components/prism-markdown';
 import {
   injectContent,
   injectContentFiles,

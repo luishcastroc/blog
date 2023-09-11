@@ -34,7 +34,7 @@ import { TranslocoModule } from '@ngneat/transloco';
           alt="{{ t('alt') }}" />
       </figure>
       <div class="card-body p-4">
-        <h2 class="card-title">{{ post.attributes.title }}</h2>
+        <h2 class="card-title basis-2/6">{{ post.attributes.title }}</h2>
         <p>{{ post.attributes.description }}</p>
         <div class="card-actions jus items-center justify-between">
           <div class="badge badge-outline">
