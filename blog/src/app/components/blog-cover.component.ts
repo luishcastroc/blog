@@ -21,7 +21,7 @@ import { TranslocoModule } from '@ngneat/transloco';
   },
   template: ` <ng-container *transloco="let t; read: 'blog'"
     ><div
-      class="bg-primary absolute z-50 flex h-10 w-16 animate-bounce items-center justify-center rounded-lg font-bold"
+      class="bg-primary absolute z-50 flex h-10 w-20 animate-bounce items-center justify-center rounded-lg font-bold"
       *ngIf="isNew(post.attributes.date)">
       {{ t('new') }}
     </div>

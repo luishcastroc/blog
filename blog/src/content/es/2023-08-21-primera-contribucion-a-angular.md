@@ -33,3 +33,5 @@ Mi siguiente desafío fue algo que inicialmente había percibido como simple: mo
 Mi travesía en Angular estuvo llena de aprendizajes, desafíos y crecimiento. Me enseñó la importancia de la comunidad, la persistencia y la autoconfianza. A todos los contribuyentes en ciernes: Sumérgete, aprende, crece y recuerda que cada contribución, grande o pequeña, marca la diferencia. 🎉🚀🎈
 
 Aunque no tengo una sección de comentarios, siempre valoro la retroalimentación y la interacción. No dudes en seguirme o conectarte conmigo en [Twitter](https://twitter.com/LuisHCCDev), [Threads](https://www.threads.net/@luishccdev), o [LinkedIn](https://www.linkedin.com/in/luis-castro-cabrera/). ¡Espero nuestros encuentros digitales!
+
+Si te gustó el articulo, puedes apoyarme (comprandome un café)[https://www.buymeacoffee.com/luishcastrv] ☕️. Te lo agradecería mucho!

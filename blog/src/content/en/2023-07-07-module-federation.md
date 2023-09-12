@@ -139,3 +139,5 @@ The transition from monolithic frontends to micro-frontends represents a paradig
 As we conclude this exploration into the world of micro-frontends, we recognize the significance of this architectural pattern in shaping the future of web development. It opens up new possibilities for building modular, maintainable, and scalable applications.
 
 1. Peltonen, S., Mezzalira, L., & Taibi, D. (2021). Micro-Frontends: A Multivocal Literature Review. Information and Software Technology, 136, 106571. [Link to the original article](https://www.sciencedirect.com/science/article/pii/S0950584921000549)
+
+If you like my content and want to support me, you can do so by [buying me a coffee](https://www.buymeacoffee.com/luishcastrv) ☕️. I would really appreciate it!

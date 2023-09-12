@@ -126,3 +126,5 @@ Every project comes with its own set of challenges, and this was no exception. S
 Building my website with AnalogJs was a great journey of discovery, and collaboration. Along the way, I've been reminded of the significance of community and the endless opportunities it provides. Whether you're a veteran developer or just starting out in the tech world, I hope my story serves as a beacon of inspiration.
 
 While I don’t have a comment section, I always value feedback and interaction. Feel free to follow or connect with me on [Twitter](https://twitter.com/LuisHCCDev), [Threads](https://www.threads.net/@luishccdev), or [LinkedIn](https://www.linkedin.com/in/luis-castro-cabrera/). For those interested in diving deeper into the technical details, you're welcome to explore the project's code on my [GitHub](https://github.com/luishcastroc). Looking forward to our digital crossings!
+
+If you like my content and want to support me, you can do so by [buying me a coffee](https://www.buymeacoffee.com/luishcastrv) ☕️. I would really appreciate it!

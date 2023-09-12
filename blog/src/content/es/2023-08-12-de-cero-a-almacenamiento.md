@@ -466,3 +466,5 @@ Esta guía te llevó a través del proceso de integrar Analog con Prisma, tRPC y
 ¡Te deseo sesiones de código fructíferas y siempre mantente atento a más oportunidades para refinar y mejorar tus aplicaciones!
 
 Si bien no tengo una sección de comentarios, siempre valoro los comentarios y la interacción. No dudes en seguirme o conectarte conmigo en [Twitter](https://twitter.com/LuisHCCDev), [Threads](https://www.threads.net/@luishccdev) o [LinkedIn](https://www.linkedin.com/in/luis-castro-cabrera/). Para aquellos interesados en profundizar en los detalles técnicos, están invitados a explorar el código del proyecto en mi [GitHub](https://github.com/luishcastroc/analog-prisma). ¡Espero con interés nuestros encuentros digitales!
+
+Si te gustó el articulo, puedes apoyarme (comprandome un café)[https://www.buymeacoffee.com/luishcastrv] ☕️. Te lo agradecería mucho!

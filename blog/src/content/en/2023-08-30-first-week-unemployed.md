@@ -44,3 +44,5 @@ One week. A small fraction of time, yet filled with profound revelations. Beyond
 This is merely the onset of my chronicles. Though the journey is peppered with uncertainties, I'm fortified by hope and unwavering resolve. To all navigating similar waters: setbacks often precede great comebacks.
 
 While I don’t have a comment section, I always value feedback and interaction. Feel free to [follow me on Twitter](https://twitter.com/LuisHCCDev), [engage with my Threads](https://www.threads.net/@luishccdev), or [connect with me on LinkedIn](https://www.linkedin.com/in/luis-castro-cabrera/). Eagerly awaiting our digital crossings!
+
+If you like my content and want to support me, you can do so by [buying me a coffee](https://www.buymeacoffee.com/luishcastrv) ☕️. I would really appreciate it!

@@ -541,3 +541,5 @@ En esta sección, instruimos a Angular para que proporcione una instancia de Mar
 Al volver a ejecutar las pruebas unitarias y reenviar el PR, la respuesta fue favorable, y el PR se fusionó exitosamente.
 
 ¡Gracias por leer! Espero que este recorrido haya sido informativo y agradable.
+
+Si te gustó el articulo, puedes apoyarme (comprandome un café)[https://www.buymeacoffee.com/luishcastrv] ☕️. Te lo agradecería mucho!

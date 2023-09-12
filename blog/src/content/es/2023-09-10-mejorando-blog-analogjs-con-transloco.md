@@ -478,3 +478,5 @@ Si quieres verlo en acción puedes hacer click en la bandera en la barra de nave
 Integrar Transloco en mi blog AnalogJs fue una decisión impulsada por el deseo de conectarme con una audiencia más amplia. No se trata solo de compartir contenido; se trata de compartir experiencias, historias y culturas. Con Transloco, he dado un paso significativo hacia la mejora de la experiencia de usuario de mi blog.
 
 Si tienes alguna pregunta o comentario, puedes conectar conmigo en[Twitter](https://twitter.com/LuisHCCDev), [Threads](https://www.threads.net/@luishccdev), o [LinkedIn](https://www.linkedin.com/in/luis-castro-cabrera/). ¡Sigamos conectando culturas y compartiendo historias! 🌍🌉📖
+
+Si te gustó el articulo, puedes apoyarme (comprandome un café)[https://www.buymeacoffee.com/luishcastrv] ☕️. Te lo agradecería mucho!

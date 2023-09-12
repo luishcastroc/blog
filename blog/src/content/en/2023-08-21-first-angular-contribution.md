@@ -33,3 +33,5 @@ My next challenge was something I had initially perceived as simple: tweaking an
 My journey into Angular was filled with learning, challenges, and growth. It taught me the importance of community, persistence, and self-belief. To all aspiring contributors out there: Dive in, learn, grow, and remember that every contribution, big or small, makes a difference. 🎉🚀🎈
 
 While I don’t have a comment section, I always value feedback and interaction. Feel free to follow or connect with me on [Twitter](https://twitter.com/LuisHCCDev), [Threads](https://www.threads.net/@luishccdev), or [LinkedIn](https://www.linkedin.com/in/luis-castro-cabrera/). Looking forward to our digital crossings!
+
+If you like my content and want to support me, you can do so by [buying me a coffee](https://www.buymeacoffee.com/luishcastrv) ☕️. I would really appreciate it!

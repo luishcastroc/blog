@@ -541,3 +541,5 @@ In this section, we instruct Angular to supply an instance of MarkedSetupService
 Upon re-running the unit tests and resubmitting the PR, the response was favorable, and the PR was successfully merged.
 
 Thank you for reading. I hope this journey has been informative and enjoyable!
+
+If you like my content and want to support me, you can do so by [buying me a coffee](https://www.buymeacoffee.com/luishcastrv) ☕️. I would really appreciate it!

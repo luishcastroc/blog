@@ -472,3 +472,5 @@ This guide walked you through the process of integrating Analog with Prisma, tRP
 Wishing you fruitful coding sessions, and always keep an eye out for more opportunities to refine and enhance your applications!
 
 While I don’t have a comment section, I always value feedback and interaction. Feel free to follow or connect with me on [Twitter](https://twitter.com/LuisHCCDev), [Threads](https://www.threads.net/@luishccdev), or [LinkedIn](https://www.linkedin.com/in/luis-castro-cabrera/). For those interested in diving deeper into the technical details, you're welcome to explore the project's code on my [GitHub](https://github.com/luishcastroc/analog-prisma). Looking forward to our digital crossings!
+
+If you like my content and want to support me, you can do so by [buying me a coffee](https://www.buymeacoffee.com/luishcastrv) ☕️. I would really appreciate it!

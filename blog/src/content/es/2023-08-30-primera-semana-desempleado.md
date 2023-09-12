@@ -44,3 +44,5 @@ Una semana. Una pequeña fracción de tiempo, pero llena de revelaciones profund
 Este es simplemente el comienzo de mis crónicas. Aunque el viaje está salpicado de incertidumbres, estoy fortalecido por la esperanza y una resolución inquebrantable. A todos los que navegan por aguas similares: los retrocesos a menudo preceden a grandes regresos.
 
 Aunque no tengo una sección de comentarios, siempre valoro la retroalimentación y la interacción. No dudes en [seguirme en Twitter](https://twitter.com/LuisHCCDev), [interactuar con mis Threads](https://www.threads.net/@luishccdev), o [conectarte conmigo en LinkedIn](https://www.linkedin.com/in/luis-castro-cabrera/). ¡Esperando ansiosamente nuestros encuentros digitales!
+
+Si te gustó el articulo, puedes apoyarme (comprandome un café)[https://www.buymeacoffee.com/luishcastrv] ☕️. Te lo agradecería mucho!
