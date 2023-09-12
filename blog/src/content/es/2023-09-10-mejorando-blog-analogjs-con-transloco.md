@@ -471,7 +471,7 @@ Lo que está sucediendo aquí es que, cada vez que cambia el idioma, este códig
 
 Esto permite una buena experiencia para los lectores, ya que pueden cambiar el idioma y el slug cambiará en consecuencia.
 
-Si quieres verlo en acción puedes checar mi [blog](https://mrrobot.dev/blog) and try it out.
+Si quieres verlo en acción puedes hacer click en la bandera en la barra de navegación 🤣.
 
 ## Conclusion
 

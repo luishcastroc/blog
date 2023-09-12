@@ -471,7 +471,7 @@ What is happening here? Well, whenever the language changes, this code will:
 
 This allows a good experience for the readers since they can change the language and the slug will change accordingly.
 
-if you want to see it in action you can check my [blog](https://mrrobot.dev/blog) and try it out.
+if you want to see it in action hit the flag at the top right 🤣.
 
 ## Conclusion
 
