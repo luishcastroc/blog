@@ -6,10 +6,10 @@ settings:
 
 dependencies:
   '@analogjs/content':
-    specifier: ^0.2.0
+    specifier: ^0.2.6
     version: 0.2.6(@angular/common@16.2.1)(@angular/core@16.2.1)(@angular/platform-browser@16.2.1)(@angular/router@16.2.1)(front-matter@4.0.2)(marked-gfm-heading-id@3.0.8)(marked-highlight@2.0.6)(marked@5.1.2)(mermaid@10.4.0)(prismjs@1.29.0)(rxjs@7.8.1)
   '@analogjs/router':
-    specifier: ^0.2.0
+    specifier: ^0.2.6
     version: 0.2.6(@angular/common@16.2.1)(@angular/core@16.2.1)(@angular/platform-browser@16.2.1)(@angular/router@16.2.1)(front-matter@4.0.2)(marked-gfm-heading-id@3.0.8)(marked-highlight@2.0.6)(marked@5.1.2)(mermaid@10.4.0)(prismjs@1.29.0)(rxjs@7.8.1)
   '@angular/animations':
     specifier: 16.2.1
@@ -86,10 +86,10 @@ dependencies:
 
 devDependencies:
   '@analogjs/platform':
-    specifier: ^0.2.0
+    specifier: ^0.2.6
     version: 0.2.6(@angular-devkit/build-angular@16.2.0)(nx@16.8.1)
   '@analogjs/vite-plugin-angular':
-    specifier: ^0.2.0
+    specifier: ^0.2.6
     version: 0.2.6(@angular-devkit/build-angular@16.2.0)
   '@angular-devkit/build-angular':
     specifier: 16.2.0
