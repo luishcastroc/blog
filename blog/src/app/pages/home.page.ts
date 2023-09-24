@@ -7,6 +7,7 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
+  selector: 'mr-home-page',
   standalone: true,
   imports: [TranslocoModule],
   template: `

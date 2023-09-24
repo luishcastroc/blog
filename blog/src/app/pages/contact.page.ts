@@ -9,6 +9,7 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
+  selector: 'mr-contact-page',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, ContactFormComponent],
   template: `<mr-contact />`,

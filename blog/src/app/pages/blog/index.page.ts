@@ -8,6 +8,7 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
+  selector: 'mr-blog-index-page',
   standalone: true,
   imports: [BlogListComponent],
   template: ` <mr-blog-list /> `,

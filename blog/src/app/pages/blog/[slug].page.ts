@@ -29,6 +29,7 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
+  selector: 'mr-blog-post-page',
   standalone: true,
   imports: [
     MarkdownComponent,

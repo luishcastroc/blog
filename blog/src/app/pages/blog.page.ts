@@ -9,6 +9,7 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
+  selector: 'mr-blog-page',
   standalone: true,
   imports: [RouterLink, NgFor, JsonPipe, RouterOutlet],
   template: `

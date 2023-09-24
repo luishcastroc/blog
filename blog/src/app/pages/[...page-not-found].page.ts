@@ -9,6 +9,7 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
+  selector: 'mr-page-not-found-page',
   standalone: true,
   imports: [RouterLink, NgOptimizedImage, TranslocoModule],
   template: `<ng-container *transloco="let t">

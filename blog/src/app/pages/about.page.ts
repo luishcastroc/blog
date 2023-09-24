@@ -7,6 +7,7 @@ export const routeMeta: RouteMeta = {
 };
 
 @Component({
+  selector: 'mr-about-page',
   standalone: true,
   imports: [TranslocoModule],
   host: { class: 'justify-center' },
