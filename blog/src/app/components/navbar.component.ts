@@ -96,7 +96,7 @@ import {
       </div>
     </div>
     <div class="navbar-end">
-      <ul class="menu menu-horizontal px-1 text-base xl:gap-8">
+      <ul class="menu menu-horizontal gap-4 px-1 text-base md:gap-0 xl:gap-8">
         <mr-translate-button />
         <mr-theme-button />
       </ul>

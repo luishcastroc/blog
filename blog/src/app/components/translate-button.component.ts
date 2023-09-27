@@ -8,7 +8,7 @@ import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
   standalone: true,
   imports: [NgClass, TranslocoModule],
   template: `<ng-container *transloco="let t; read: 'navigation'">
-    <li class="w-16">
+    <li class="w-10 md:w-16">
       <button
         class="btn btn-square btn-ghost relative h-[46px] w-full overflow-hidden"
         [attr.aria-label]="t('aria-label-translate')"

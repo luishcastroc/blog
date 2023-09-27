@@ -49,7 +49,7 @@ div {
       width: 100%;
       min-height: 100dvh;
       z-index: 99;
-      @apply px-8 py-6 sm:px-16 md:px-20 lg:p-6;
+      @apply px-[0.5rem] py-6 sm:px-12 md:px-20 lg:p-6;
     }
   }
 }
