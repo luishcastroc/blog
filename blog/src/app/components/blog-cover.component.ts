@@ -28,6 +28,7 @@ import { TranslocoModule } from '@ngneat/transloco';
     <div class="card bg-base-100 relative h-[490px] shadow-xl lg:w-96">
       <figure class="flex-none">
         <img
+          class="w-full"
           [ngSrc]="post.attributes.coverImage"
           width="500"
           height="210"
