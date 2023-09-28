@@ -9,9 +9,7 @@ const getPostRoutes = (language: string) => {
   const posts = fs.readdirSync(`./blog/src/content/${language}`);
   return posts.map(
     post =>
-      `/blog/${language}/${post
-        .replace('.md', '')
-        .replace(/^\d{4}-\d{2}-\d{2}-/, '')}`
+      `/blog/${post.replace('.md', '').replace(/^\d{4}-\d{2}-\d{2}-/, '')}`
   );
 };
 
@@ -43,9 +41,9 @@ export default defineConfig(({ mode }) => {
           },
         },
         nitro: {
-          preset: 'vercel',
-          serveStatic: false,
-          externals: { inline: ['zone.js/node', 'tslib'] },
+          // preset: 'vercel',
+          // serveStatic: false,
+          // externals: { inline: ['zone.js/node', 'tslib'] },
         },
       }),
       tsconfigPaths(),
