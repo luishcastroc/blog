@@ -41,9 +41,9 @@ export default defineConfig(({ mode }) => {
           },
         },
         nitro: {
-          // preset: 'vercel',
-          // serveStatic: false,
-          // externals: { inline: ['zone.js/node', 'tslib'] },
+          preset: 'vercel',
+          serveStatic: false,
+          externals: { inline: ['zone.js/node', 'tslib'] },
         },
       }),
       tsconfigPaths(),

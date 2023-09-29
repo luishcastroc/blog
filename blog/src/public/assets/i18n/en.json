@@ -5,7 +5,9 @@
     "about": "About",
     "contact": "Contact",
     "aria-label": "Chage theme to dark/light",
-    "aria-label-translate": "Change language to english/spanish"
+    "aria-label-translate": "Change language to english/spanish",
+    "alt-mex": "Mexican Flag",
+    "alt-usa": "USA Flag"
   },
   "home": {
     "header": "Welcome! I'm Luis Castro",

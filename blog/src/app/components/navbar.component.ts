@@ -96,9 +96,9 @@ import {
       </div>
     </div>
     <div class="navbar-end">
-      <ul class="menu menu-horizontal gap-4 px-1 text-base md:gap-0 xl:gap-8">
-        <mr-translate-button />
-        <mr-theme-button />
+      <ul class="menu menu-horizontal px-1 text-base">
+        <li><mr-translate-button class="hover:bg-transparent" /></li>
+        <li><mr-theme-button class="hover:bg-transparent" /></li>
       </ul>
     </div>
   </nav>`,

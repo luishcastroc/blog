@@ -5,7 +5,9 @@
     "about": "Acerca de",
     "contact": "Contacto",
     "aria-label": "Cambiar tema a oscuro/claro",
-    "aria-label-translate": "Cambiar idioma a inglés/español"
+    "aria-label-translate": "Cambiar idioma a inglés/español",
+    "alt-mex": "Bandera de México",
+    "alt-usa": "Bandera de Estados Unidos"
   },
   "home": {
     "header": "Bienvenido! Mi Nombre es Luis Castro",

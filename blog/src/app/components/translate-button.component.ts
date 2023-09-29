@@ -8,33 +8,33 @@ import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
   standalone: true,
   imports: [NgClass, TranslocoModule],
   template: `<ng-container *transloco="let t; read: 'navigation'">
-    <li class="w-10 md:w-16">
-      <button
-        class="btn btn-square btn-ghost relative h-[46px] w-full overflow-hidden"
-        [attr.aria-label]="t('aria-label-translate')"
-        (click)="changeLanguage()">
-        <img
-          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
-          [ngClass]="{
-            'translate-y-[20%] rotate-[50deg] opacity-0 transition-all':
-              !toggleLang,
-            'opacity-[1] transition-all duration-1000 ease-out': toggleLang
-          }"
-          src="assets/mexico.png"
-          height="40"
-          width="40" />
-        <img
-          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
-          [ngClass]="{
-            'opacity-[1] transition-all duration-1000 ease-out': !toggleLang,
-            'translate-y-[20%] rotate-[100deg] opacity-0 transition-all':
-              toggleLang
-          }"
-          src="assets/usa.png"
-          height="40"
-          width="40" />
-      </button>
-    </li>
+    <button
+      class="btn btn-square btn-ghost relative h-[46px] w-10 overflow-hidden md:w-16"
+      [attr.aria-label]="t('aria-label-translate')"
+      (click)="changeLanguage()">
+      <img
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
+        [ngClass]="{
+          'translate-y-[20%] rotate-[50deg] opacity-0 transition-all':
+            !toggleLang,
+          'opacity-[1] transition-all duration-1000 ease-out': toggleLang
+        }"
+        src="assets/mexico.png"
+        [alt]="t('alt-mex')"
+        height="40"
+        width="40" />
+      <img
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
+        [ngClass]="{
+          'opacity-[1] transition-all duration-1000 ease-out': !toggleLang,
+          'translate-y-[20%] rotate-[100deg] opacity-0 transition-all':
+            toggleLang
+        }"
+        src="assets/usa.png"
+        [alt]="t('alt-usa')"
+        height="40"
+        width="40" />
+    </button>
   </ng-container> `,
 })
 export class TranslateButtonComponent {
