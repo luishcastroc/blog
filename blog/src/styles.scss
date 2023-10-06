@@ -275,6 +275,10 @@ div {
         opacity: 0.7;
       }
     }
+
+    table {
+      @apply table-zebra table;
+    }
   }
 }
 
