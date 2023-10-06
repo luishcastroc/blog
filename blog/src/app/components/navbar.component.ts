@@ -96,11 +96,11 @@ import {
       </div>
     </div>
     <div class="navbar-end">
-      <ul class="menu menu-horizontal px-1 text-base">
+      <ul class="menu menu-horizontal gap-2 px-1 text-base">
         <li>
-          <mr-translate-button class="pl-0 hover:bg-transparent" />
+          <mr-translate-button class="px-0 hover:bg-transparent" />
         </li>
-        <li><mr-theme-button class="pl-0 hover:bg-transparent" /></li>
+        <li><mr-theme-button class="px-0 hover:bg-transparent" /></li>
       </ul>
     </div>
   </nav>`,

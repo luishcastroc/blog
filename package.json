@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "pnpm run svg && nx serve blog",
+    "start:host": "pnpm run svg && nx serve blog --host",
     "start:prod": "pnpm run svg && pnpm nx serve blog --configuration=production",
     "build": "pnpm run svg && pnpm nx build blog",
     "svg": "svg-generator"
