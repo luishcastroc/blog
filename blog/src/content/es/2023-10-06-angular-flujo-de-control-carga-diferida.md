@@ -163,7 +163,7 @@ Ejemplos de esto son:
 }
 ```
 
-We can also combine them:
+También podemos usar `on` y `when` juntos:
 
 ```html
 <button #deferButton>
