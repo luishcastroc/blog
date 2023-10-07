@@ -43,7 +43,8 @@ So, now let's get into the new stuff, for the new control flow syntax, we have t
 } @else if (user.type === 'secondary') {
 <user-profile [data]="user" [type]="secondary" />
 } @else {
-<p>The profile doesn't exist! }</p>
+<p>The profile doesn't exist!</p>
+}
 ```
 
 Looking good, right? But wait, there's more! 🤩
@@ -56,7 +57,30 @@ Looking good, right? But wait, there's more! 🤩
 }
 ```
 
+You can also track the index of the current item:
+
+```html
+@for (user of users; track $index) {
+<user-profile [data]="user" />
+}
+```
+
 A couple of things to notice here (besides the syntax) we now have a `track` that is mandatory and replaces the use of the `trackBy` function. It determines the row key which `@for` will use to associate array items with the views it creates, moving them around as needed.
+
+### @empty block
+
+As well Angular is introducing the `@empty` block, which is a block that will be displayed when the array is empty.
+
+```html
+@for (something of []; track $index) {
+<span class="square">{{ something }}!</span>
+} @empty {
+<span class="square"
+  >This is empty so this will be shown!! if you use &#64;for with an &#64;empty
+  block</span
+>
+}
+```
 
 ### $index and other variables
 
@@ -143,7 +167,49 @@ Examples of this are:
 We can also combine them:
 
 ```html
+<button #deferButton>
+  Show Defered Component using &#64;defer on interaction
+</button>
+
 @defer (when cond; on interaction(deferButton)){
+<some-cmp />
+}
+```
+
+### Triggering Deferred Blocks
+
+So, we know how to use the `@defer` block, but how do we trigger it? Well, we have some options:
+
+| Trigger     | Description                                                                 |
+| ----------- | --------------------------------------------------------------------------- |
+| idle        | Triggers the deferred loading once the browser has reached an idle state.   |
+| interaction | Triggers the deferred loading on click, focus, touch, and input events.     |
+| immediate   | Triggers the deferred load immediately, once the client has finished        |
+|             | rendering.                                                                  |
+| timer(x)    | Triggers after a specified duration.                                        |
+| hover       | Triggers deferred loading when the mouse has hovered over a trigger area.   |
+| viewport    | Triggers the deferred block when the specified content enters the viewport. |
+
+Let's put together a couple of examples:
+
+#### viewport:
+
+In this case the deferred block will be loaded once the greeting element enters the viewport.
+
+```html
+<div #greeting>Hello!</div>
+
+@defer (on viewport(greeting)){
+<greetings-cmp />
+}
+```
+
+#### timer:
+
+In this case the deferred block will be loaded after 5 seconds.
+
+```html
+@defer (on timer(5s)){
 <some-cmp />
 }
 ```
@@ -160,8 +226,6 @@ We can also combine them:
 }
 ```
 
-**Note**: Content within `@placeholder` loads immediately, not on defer.
-
 ### @loading Blocks
 
 The `@loading` block indicates the content to be shown while the `@defer` block is gathering its required dependencies to display its main content. If omitted, the `@defer` block will keep displaying the `@placeholder` content (if available) until its primary content is ready.
@@ -173,8 +237,6 @@ The `@loading` block indicates the content to be shown while the `@defer` block 
 <div class="loading">Loading the component...</div>
 }
 ```
-
-**Note**: Content within `@loading` loads immediately, not on defer.
 
 ### @error Blocks
 
@@ -189,7 +251,19 @@ The `@error` block displays a UI for instances when deferred loading does not su
 }
 ```
 
-**Note**: Content within `@error` loads immediately, not on defer.
+> **Note**: The `@loading` , `@placeholder` , and `@error` blocks eagerly load their content. This means that they will be loaded as soon as the `@defer` block is rendered, regardless of whether the `@defer` block is activated or not.
+
+## Resource Prefetching
+
+Another feature for deferred loading is the ability to prefetch dependencies ahead of a user's interaction. This is especially useful to reduce the delay when a deferred block becomes active. The `prefetch` syntax works alongside the main `defer` condition and uses triggers (`when` and/or `on`) similar to `defer`.
+
+The distinction is that `when` and `on` control rendering while `prefetch` determines when to fetch resources. This allows you to prefetch resources even before a user sees or interacts with a deferred block, ensuring faster availability. Note: turning `prefetch when` to false won't hide content. To hide content, use it in conjunction with `if`.
+
+```html
+@defer (when cond; prefetch when cond){
+<some-cmp />
+}
+```
 
 ## Migration
 

@@ -42,7 +42,8 @@ Ahora, hablemos de lo nuevo, para la nueva sintaxis de flujo de control, tenemos
 } @else if (user.type === 'secondary') {
 <user-profile [data]="user" [type]="secondary" />
 } @else {
-<p>The profile doesn't exist! }</p>
+<p>The profile doesn't exist!</p>
+}
 ```
 
 Se ve bien verdad? Pero espera, hay más! 🤩
@@ -52,6 +53,29 @@ Se ve bien verdad? Pero espera, hay más! 🤩
 ```html
 @for (user of users; track user.id) {
 <user-profile [data]="user" />
+}
+```
+
+Tambien puedes hace `track` por indice usando la variable `$index`:
+
+```html
+@for (user of users; track $index) {
+<user-profile [data]="user" />
+}
+```
+
+### Bloque @empty
+
+Además, la nueva sintaxis de `@for` tiene un nuevo bloque `@empty` que se puede usar para mostrar un mensaje cuando el iterable está vacío.
+
+```html
+@for (something of []; track $index) {
+<span class="square">{{ something }}!</span>
+} @empty {
+<span class="square">
+  Este arreglo está vacío así que esto se mostrará al usar &#64;for con un
+  bloque &#64;empty block</span
+>
 }
 ```
 
@@ -142,7 +166,49 @@ Ejemplos de esto son:
 We can also combine them:
 
 ```html
+<button #deferButton>
+  Muestra el Componente usando &#64;defer al interactuar
+</button>
+
 @defer (when cond; on interaction(deferButton)){
+<some-cmp />
+}
+```
+
+### Activando Bloques Diferidos
+
+Entonces, sabemos cómo usar el bloque `@defer`, ¿pero cómo lo activamos? Bueno, tenemos algunas opciones:
+
+| Disparador  | Descripción                                                                        |
+| ----------- | ---------------------------------------------------------------------------------- |
+| idle        | Activa la carga diferida una vez que el navegador ha alcanzado un estado inactivo. |
+| interaction | Activa la carga diferida en eventos como clic, enfoque, toque e ingreso.           |
+| immediate   | Activa la carga diferida inmediatamente, una vez que el cliente ha terminado       |
+|             | de renderizar.                                                                     |
+| timer(x)    | Activa después de una duración especificada.                                       |
+| hover       | Activa la carga diferida cuando el mouse pasa por encima de un área de activación. |
+| viewport    | Activa el bloque diferido cuando el contenido especificado entra en el viewport.   |
+
+Veamos un par de ejemplos:
+
+#### viewport:
+
+En este caso, el bloque diferido se cargará una vez que el elemento de saludo entre en el viewport.
+
+```html
+<div #greeting>Hello!</div>
+
+@defer (on viewport(greeting)){
+<greetings-cmp />
+}
+```
+
+#### timer:
+
+En este caso, el bloque diferido se cargará después de 5 segundos.
+
+```html
+@defer (on timer(5s)){
 <some-cmp />
 }
 ```
@@ -159,8 +225,6 @@ Los bloques `@defer`, por defecto, están vacíos hasta que se activan. Sin emba
 }
 ```
 
-**Nota**: El contenido dentro del bloque `@placeholder` carga de inmediato, no en diferido.
-
 ### Bloque @loading
 
 El bloque `@loading` indica el contenido que se mostrará mientras el bloque `@defer` recopila sus dependencias requeridas para mostrar su contenido principal. Si se omite, el bloque `@defer` seguirá mostrando el contenido del bloque `@placeholder` (si está disponible) hasta que su contenido principal esté listo.
@@ -172,8 +236,6 @@ El bloque `@loading` indica el contenido que se mostrará mientras el bloque `@d
 <div class="loading">Loading the component...</div>
 }
 ```
-
-**Nota**: El contenido dentro del bloque `@loading` carga de inmediato, no en diferido.
 
 ### Bloque @error
 
@@ -188,7 +250,19 @@ El bloque `@error` muestra una interfaz de usuario para instancias en las que la
 }
 ```
 
-**Nota**: El contenido dentro del bloque `@error` carga de inmediato, no en diferido.
+> **Nota**: Los bloques `@loading` , `@placeholder` y `@error` cargan su contenido de forma anticipada. Esto significa que se cargarán tan pronto como se renderice el bloque `@defer`, independientemente de si el bloque `@defer` está activado o no.
+
+## Precarga de Recursos
+
+Otra característica para la carga diferida es la capacidad de precargar dependencias antes de la interacción de un usuario. Esto es especialmente útil para reducir el retraso cuando un bloque diferido se vuelve activo. La sintaxis `prefetch` funciona junto con la condición principal `defer` y utiliza disparadores (`when` y/o `on`) similares a `defer`.
+
+La distinción es que `when` y `on` controlan la representación mientras que `prefetch` determina cuándo buscar recursos. Esto le permite precargar recursos incluso antes de que un usuario vea o interactúe con un bloque diferido, asegurando una disponibilidad más rápida. Nota: convertir `prefetch when` en falso no ocultará el contenido. Para ocultar el contenido, úselo en conjunto con `if`.
+
+```html
+@defer (when cond; prefetch when cond){
+<some-cmp />
+}
+```
 
 ## Migración
 
