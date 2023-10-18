@@ -1,4 +1,4 @@
-import { ActivatedRouteSnapshot, ResolveFn } from '@angular/router';
+import { ActivatedRouteSnapshot, ResolveFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
 import { injectContentFiles } from '@analogjs/content';
 import { MetaTag } from '@analogjs/router';
@@ -12,6 +12,7 @@ function removeDateFromFile(filename: string): string {
 function injectActivePostAttributes(
   route: ActivatedRouteSnapshot
 ): PostAttributes {
+  const router = inject(Router);
   const activeLang = inject(TranslocoService).getActiveLang();
   const file = injectContentFiles<PostAttributes>().find(contentFile => {
     return (
@@ -20,6 +21,10 @@ function injectActivePostAttributes(
       contentFile.slug === route.params['slug']
     );
   });
+
+  if (!file) {
+    router.navigate(['/404']);
+  }
 
   return file!.attributes;
 }
