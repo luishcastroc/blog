@@ -42,3 +42,5 @@ Thumbs.db
 .vercel
 /blog/src/app/svg/
 .env
+
+.nx/cache
