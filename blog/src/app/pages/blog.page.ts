@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {  NgFor } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { RouteMeta } from '@analogjs/router';
 import { RouterLink, RouterOutlet } from '@angular/router';
 

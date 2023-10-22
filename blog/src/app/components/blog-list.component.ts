@@ -1,4 +1,4 @@
-import { AsyncPipe, JsonPipe, NgFor } from '@angular/common';
+import { AsyncPipe, NgFor } from '@angular/common';
 import { BlogCoverComponent } from './blog-cover.component';
 import { Component, inject } from '@angular/core';
 import { ContentFile, injectContentFiles } from '@analogjs/content';
@@ -10,7 +10,7 @@ import { TranslocoService } from '@ngneat/transloco';
 @Component({
   selector: 'mr-blog-list',
   standalone: true,
-  imports: [NgFor, JsonPipe, BlogCoverComponent, AsyncPipe],
+  imports: [NgFor, BlogCoverComponent, AsyncPipe],
   template: `
     <div
       class="flex flex-col flex-wrap justify-center gap-8 overflow-auto pb-4 pt-4 lg:flex-row lg:gap-6 ">
