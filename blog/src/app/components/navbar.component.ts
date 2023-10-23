@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { filter } from 'rxjs';
-import { NgClass, NgFor } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { SvgIconComponent } from '@ngneat/svg-icon';
 import { ThemeButtonComponent } from './theme-button.component';
 import { TranslateButtonComponent } from './translate-button.component';
@@ -20,7 +20,6 @@ import {
     RouterLinkWithHref,
     SvgIconComponent,
     NgClass,
-    NgFor,
     TranslocoModule,
     ThemeButtonComponent,
     TranslateButtonComponent,
@@ -53,7 +52,8 @@ import {
             tabindex="0"
             class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[99] mt-3 w-52 p-2 shadow"
             role="menu">
-            <li *ngFor="let link of links">
+            @for(link of links; track link){
+            <li>
               <a
                 href="{{ link.path }}"
                 [class.active]="activeLink === link.path"
@@ -61,13 +61,14 @@ import {
                 >{{ t(link.name) }}</a
               >
             </li>
+            }
           </ul>
         </ng-container>
       </div>
       <ul class="menu menu-horizontal hidden px-1 text-base lg:flex xl:gap-8">
         <ng-container *transloco="let t; read: 'navigation'">
+          @for(link of links; track link){
           <li
-            *ngFor="let link of links"
             class="relative block w-fit text-xl after:absolute after:block after:h-[3px] after:w-full after:origin-center after:scale-x-0 after:bg-black after:transition after:duration-300 after:content-[''] after:hover:[&:not(&:has(a.active))]:scale-x-100">
             <a
               routerLink="{{ link.path }}"
@@ -77,6 +78,7 @@ import {
               >{{ t(link.name) }}</a
             >
           </li>
+          }
         </ng-container>
       </ul>
     </div>

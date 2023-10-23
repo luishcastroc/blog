@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ContentFile } from '@analogjs/content';
-import { DatePipe, NgIf, NgOptimizedImage } from '@angular/common';
+import { DatePipe, NgOptimizedImage } from '@angular/common';
 import { DateTime } from 'luxon';
 import { PostAttributes } from '../models/post.model';
 import { RouterLinkWithHref } from '@angular/router';
@@ -10,7 +10,6 @@ import { TranslocoModule } from '@ngneat/transloco';
   selector: 'mr-cover',
   standalone: true,
   imports: [
-    NgIf,
     NgOptimizedImage,
     RouterLinkWithHref,
     DatePipe,
@@ -20,11 +19,13 @@ import { TranslocoModule } from '@ngneat/transloco';
     class: 'p-0',
   },
   template: ` <ng-container *transloco="let t; read: 'blog'"
-    ><div
-      class="bg-primary absolute z-50 flex h-10 w-20 animate-bounce items-center justify-center rounded-lg font-bold"
-      *ngIf="isNew(post.attributes.date)">
+    >
+    @if(isNew(post.attributes.date)){
+      <div
+      class="bg-primary absolute z-50 flex h-10 w-20 animate-bounce items-center justify-center rounded-lg font-bold">
       {{ t('new') }}
     </div>
+    }
     <div class="card bg-base-100 relative h-[490px] shadow-xl lg:w-96">
       <figure class="flex-none">
         <img

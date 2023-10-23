@@ -1,4 +1,4 @@
-import { AsyncPipe, NgFor } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { BlogCoverComponent } from './blog-cover.component';
 import { Component, inject } from '@angular/core';
 import { ContentFile, injectContentFiles } from '@analogjs/content';
@@ -10,13 +10,13 @@ import { TranslocoService } from '@ngneat/transloco';
 @Component({
   selector: 'mr-blog-list',
   standalone: true,
-  imports: [NgFor, BlogCoverComponent, AsyncPipe],
+  imports: [BlogCoverComponent, AsyncPipe],
   template: `
     <div
       class="flex flex-col flex-wrap justify-center gap-8 overflow-auto pb-4 pt-4 lg:flex-row lg:gap-6 ">
-      <ng-container *ngFor="let post of posts$ | async">
-        <mr-cover [post]="post" />
-      </ng-container>
+      @for(post of posts$ | async; track post){
+      <mr-cover [post]="post" />
+      }
     </div>
   `,
 })

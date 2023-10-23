@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { FooterComponent } from './footer.component';
 import { NavbarComponent } from './navbar.component';
-import { NgFor } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'mr-dashboard',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, FooterComponent, NgFor],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent],
   host: {
     class: 'flex min-h-[100dvh] flex-col',
   },
@@ -19,7 +18,9 @@ import { RouterOutlet } from '@angular/router';
         <!-- Animated circles container -->
         <div class="circle-container fixed">
           <ul class="circles">
-            <li *ngFor="let number of numbers"></li>
+            @for(number of numbers; track $index){
+            <li></li>
+            }
           </ul>
         </div>
       </div>
