@@ -8,8 +8,6 @@ coverImage: v1696602521/angular-17-new.png
 date: 11-08-2023
 ---
 
-# Presentando Angular 17: El Renacimiento de Angular
-
 El mes pasado fue el 13° aniversario de Angular 🎉, y el framework muestra que no tiene intenciones de desacelerarse.
 
 Angular continúa su avance en la arena del desarrollo web con el lanzamiento de Angular 17. Basándose en la sólida fundación de las versiones anteriores, Angular 17 introduce características que están destinadas a redefinir la experiencia de desarrollo y el rendimiento de las aplicaciones. En este artículo, exploraremos las adiciones innovadoras que **Angular 17** trae a la mesa.

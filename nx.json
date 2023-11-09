@@ -7,15 +7,12 @@
       "inputs": ["production", "^production"],
       "cache": true
     },
-    "e2e": {
-      "inputs": ["default", "^production"],
-      "cache": true
-    },
     "lint": {
       "cache": true
     },
-    "test": {
-      "cache": true
+    "@nx/vite:test": {
+      "cache": true,
+      "inputs": ["default", "^production"]
     }
   },
   "namedInputs": {
