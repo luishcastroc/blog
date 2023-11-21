@@ -53,8 +53,12 @@ export class ThemeButtonComponent {
           map((list: MediaQueryList) => list.matches)
         )
         .subscribe(isDarkMode => {
+          console.log('isDarkMode', isDarkMode);
           this.changeTheme(isDarkMode);
         });
+
+      // Set the initial theme based on the system preference
+      this.changeTheme(darkThemeQuery.matches);
     }
   }
 

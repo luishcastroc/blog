@@ -1,27 +1,24 @@
-import { HotToastModule } from '@ngneat/hot-toast';
+import { ApplicationConfig, isDevMode } from '@angular/core';
+import { getBrowserLang, provideTransloco } from '@ngneat/transloco';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideCloudinaryLoader } from '@angular/common';
 import { provideContent, withMarkdownRenderer } from '@analogjs/content';
 import { provideFileRouter } from '@analogjs/router';
+import { provideHotToastConfig } from '@ngneat/hot-toast';
 import { provideHttpClient } from '@angular/common/http';
 import { provideSvgIcons } from '@ngneat/svg-icon';
-import { getBrowserLang, provideTransloco } from '@ngneat/transloco';
 import { svgIcons } from './svg-icons';
 import { TranslocoHttpLoader } from './transloco-loader';
-import {
-  ApplicationConfig,
-  importProvidersFrom,
-  isDevMode,
-} from '@angular/core';
+import { withViewTransitions } from '@angular/router';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideClientHydration(),
     provideContent(withMarkdownRenderer()),
     provideHttpClient(),
-    provideFileRouter(),
+    provideFileRouter(withViewTransitions()),
     provideSvgIcons([...svgIcons]),
-    importProvidersFrom(HotToastModule.forRoot()),
+    provideHotToastConfig(),
     provideCloudinaryLoader('https://res.cloudinary.com/lhcc0134'),
     provideTransloco({
       config: {
