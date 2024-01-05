@@ -152,7 +152,7 @@ devDependencies:
     specifier: ^13.0.0
     version: 13.5.0
   daisyui:
-    specifier: ^3.5.1
+    specifier: ^3.9.4
     version: 3.9.4
   destr:
     specifier: ^2.0.1
