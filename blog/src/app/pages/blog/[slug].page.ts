@@ -22,6 +22,7 @@ import {
   OnInit,
   runInInjectionContext,
 } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop'
 
 export const routeMeta: RouteMeta = {
   title: postTitleResolver,
@@ -34,21 +35,21 @@ export const routeMeta: RouteMeta = {
   imports: [MarkdownComponent, AsyncPipe, RouterLinkWithHref, TranslocoModule],
   host: { class: 'px-0' },
   template: `<ng-container *transloco="let t; read: 'blog'">
-    @if(post$ | async; as post){
+    @if(post()){
     <article
       class="text-primary-content flex w-full flex-auto flex-col items-center gap-4 overflow-auto">
       <section
         class="mb-4 flex w-full flex-auto flex-row justify-between gap-4 lg:w-3/5">
         <button
-          [routerLink]="['/blog', post.previousPost]"
-          [disabled]="!post.previousPost"
+          [routerLink]="['/blog', post()?.previousPost]"
+          [disabled]="!post()?.previousPost"
           class="btn btn-accent w-28"
           type="button"
           attr.aria-label="{{ t('aria-previous') }}">
           {{ t('previous') }}</button
         ><button
-          [routerLink]="['/blog', post.nextPost]"
-          [disabled]="!post.nextPost"
+          [routerLink]="['/blog', post()?.nextPost]"
+          [disabled]="!post()?.nextPost"
           class="btn btn-accent w-28"
           type="button"
           attr.aria-label="{{ t('aria-next') }}">
@@ -56,11 +57,11 @@ export const routeMeta: RouteMeta = {
         </button>
       </section>
       <h1 class="self-center text-center text-3xl font-extrabold lg:w-3/5">
-        {{ post.attributes.title }}
+        {{ post()?.attributes?.title }}
       </h1>
       <div
         class="line-numbers blog-post container w-full pb-8 pt-4 md:w-11/12 md:px-0 lg:w-3/5">
-        <analog-markdown [content]="post.content"></analog-markdown>
+        <analog-markdown [content]="post()?.content"></analog-markdown>
       </div>
     </article>
     }
@@ -73,7 +74,7 @@ export default class BlogPostComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<boolean>();
 
   readonly allFiles = injectContentFiles<PostAttributes>();
-  readonly post$ = this.#transloco.langChanges$.pipe(
+  readonly post = toSignal(this.#transloco.langChanges$.pipe(
     switchMap(lang => {
       return combineLatest([
         of(this.allFiles.filter(file => file.filename.split('/')[3] === lang)),
@@ -112,7 +113,7 @@ export default class BlogPostComponent implements OnInit, OnDestroy {
         })
       );
     })
-  );
+  ),{initialValue: null});
 
   ngOnInit(): void {
     this.#transloco.langChanges$

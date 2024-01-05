@@ -6,6 +6,7 @@ import { DateTime } from 'luxon';
 import { map, Observable } from 'rxjs';
 import { PostAttributes } from '../models/post.model';
 import { TranslocoService } from '@ngneat/transloco';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'mr-blog-list',
@@ -14,7 +15,7 @@ import { TranslocoService } from '@ngneat/transloco';
   template: `
     <div
       class="flex flex-col flex-wrap justify-center gap-8 overflow-auto pb-4 pt-4 lg:flex-row lg:gap-6 ">
-      @for(post of posts$ | async; track post){
+      @for(post of posts(); track post){
       <mr-cover [post]="post" />
       }
     </div>
@@ -22,7 +23,7 @@ import { TranslocoService } from '@ngneat/transloco';
 })
 export class BlogListComponent {
   readonly files = injectContentFiles<PostAttributes>();
-  readonly posts$: Observable<ContentFile<PostAttributes>[]> = inject(
+  readonly posts = toSignal(inject(
     TranslocoService
   ).langChanges$.pipe(
     map(lang => {
@@ -51,5 +52,5 @@ export class BlogListComponent {
           );
         });
     })
-  );
+  ),{initialValue:[]});
 }
