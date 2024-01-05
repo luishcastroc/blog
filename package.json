@@ -64,12 +64,12 @@
     "@angular/compiler-cli": "17.0.1",
     "@angular/language-service": "17.0.1",
     "@ngneat/svg-generator": "^7.0.2",
-    "@nx/angular": "17.1.2",
-    "@nx/cypress": "17.1.2",
-    "@nx/devkit": "17.1.2",
-    "@nx/js": "17.1.2",
-    "@nx/vite": "17.1.2",
-    "@nx/workspace": "17.1.2",
+    "@nx/angular": "17.2.8",
+    "@nx/cypress": "17.2.8",
+    "@nx/devkit": "17.2.8",
+    "@nx/js": "17.2.8",
+    "@nx/vite": "17.2.8",
+    "@nx/workspace": "17.2.8",
     "@schematics/angular": "17.0.0",
     "@tailwindcss/typography": "^0.5.10",
     "@types/luxon": "^3.3.4",
@@ -77,10 +77,10 @@
     "@vercel/node": "^2.15.9",
     "autoprefixer": "^10.4.14",
     "cypress": "^13.0.0",
-    "daisyui": "^3.5.1",
+    "daisyui": "^3.9.4",
     "destr": "^2.0.1",
     "jsdom": "^22.1.0",
-    "nx": "17.1.2",
+    "nx": "17.2.8",
     "postcss": "^8.4.27",
     "postcss-nesting": "^12.0.1",
     "prettier": "^3.0.1",
@@ -90,7 +90,5 @@
     "vite": "^4.4.9",
     "vite-tsconfig-paths": "^4.2.0",
     "vitest": "^0.34.1"
-  },
-  "packageManager": "pnpm@8.0.0"
+  }
 }
-
