@@ -5,7 +5,7 @@ import { provideCloudinaryLoader } from '@angular/common';
 import { provideContent, withMarkdownRenderer } from '@analogjs/content';
 import { provideFileRouter } from '@analogjs/router';
 import { provideHotToastConfig } from '@ngneat/hot-toast';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideSvgIcons } from '@ngneat/svg-icon';
 import { svgIcons } from './svg-icons';
 import { TranslocoHttpLoader } from './transloco-loader';
@@ -15,7 +15,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideClientHydration(),
     provideContent(withMarkdownRenderer()),
-    provideHttpClient(),
+    provideHttpClient(withFetch()),
     provideFileRouter(withViewTransitions()),
     provideSvgIcons([...svgIcons]),
     provideHotToastConfig(),

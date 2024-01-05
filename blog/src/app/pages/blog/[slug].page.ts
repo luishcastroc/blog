@@ -22,6 +22,7 @@ import {
   OnInit,
   runInInjectionContext,
 } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 export const routeMeta: RouteMeta = {
   title: postTitleResolver,
@@ -34,35 +35,35 @@ export const routeMeta: RouteMeta = {
   imports: [MarkdownComponent, AsyncPipe, RouterLinkWithHref, TranslocoModule],
   host: { class: 'px-0' },
   template: `<ng-container *transloco="let t; read: 'blog'">
-    @if(post$ | async; as post){
-    <article
-      class="text-primary-content flex w-full flex-auto flex-col items-center gap-4 overflow-auto">
-      <section
-        class="mb-4 flex w-full flex-auto flex-row justify-between gap-4 lg:w-3/5">
-        <button
-          [routerLink]="['/blog', post.previousPost]"
-          [disabled]="!post.previousPost"
-          class="btn btn-accent w-28"
-          type="button"
-          attr.aria-label="{{ t('aria-previous') }}">
-          {{ t('previous') }}</button
-        ><button
-          [routerLink]="['/blog', post.nextPost]"
-          [disabled]="!post.nextPost"
-          class="btn btn-accent w-28"
-          type="button"
-          attr.aria-label="{{ t('aria-next') }}">
-          {{ t('next') }}
-        </button>
-      </section>
-      <h1 class="self-center text-center text-3xl font-extrabold lg:w-3/5">
-        {{ post.attributes.title }}
-      </h1>
-      <div
-        class="line-numbers blog-post container w-full pb-8 pt-4 md:w-11/12 md:px-0 lg:w-3/5">
-        <analog-markdown [content]="post.content"></analog-markdown>
-      </div>
-    </article>
+    @if (post()) {
+      <article
+        class="text-primary-content flex w-full flex-auto flex-col items-center gap-4 overflow-auto">
+        <section
+          class="mb-4 flex w-full flex-auto flex-row justify-between gap-4 lg:w-3/5">
+          <button
+            [routerLink]="['/blog', post()?.previousPost]"
+            [disabled]="!post()?.previousPost"
+            class="btn btn-accent w-28"
+            type="button"
+            attr.aria-label="{{ t('aria-previous') }}">
+            {{ t('previous') }}</button
+          ><button
+            [routerLink]="['/blog', post()?.nextPost]"
+            [disabled]="!post()?.nextPost"
+            class="btn btn-accent w-28"
+            type="button"
+            attr.aria-label="{{ t('aria-next') }}">
+            {{ t('next') }}
+          </button>
+        </section>
+        <h1 class="self-center text-center text-3xl font-extrabold lg:w-3/5">
+          {{ post()?.attributes?.title }}
+        </h1>
+        <div
+          class="line-numbers blog-post container w-full pb-8 pt-4 md:w-11/12 md:px-0 lg:w-3/5">
+          <analog-markdown [content]="post()?.content"></analog-markdown>
+        </div>
+      </article>
     }
   </ng-container> `,
 })
@@ -73,45 +74,50 @@ export default class BlogPostComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<boolean>();
 
   readonly allFiles = injectContentFiles<PostAttributes>();
-  readonly post$ = this.#transloco.langChanges$.pipe(
-    switchMap(lang => {
-      return combineLatest([
-        of(this.allFiles.filter(file => file.filename.split('/')[3] === lang)),
-        runInInjectionContext(this.#injector, () => {
-          return injectContent<PostAttributes>({
-            param: 'slug',
-            subdirectory: lang,
-          });
-        }),
-      ]).pipe(
-        map(([files, post]) => {
-          const sortedFiles = files
-            .map(file => ({
-              ...file,
-              attributes: {
-                ...file.attributes,
-                date: DateTime.fromFormat(
-                  file.attributes.date,
-                  'MM-dd-yyyy'
-                ).toISODate()!,
-              },
-            }))
-            .sort(
-              (a, b) =>
-                DateTime.fromISO(b.attributes.date).toMillis() -
-                DateTime.fromISO(a.attributes.date).toMillis()
+  readonly post = toSignal(
+    this.#transloco.langChanges$.pipe(
+      switchMap(lang => {
+        return combineLatest([
+          of(
+            this.allFiles.filter(file => file.filename.split('/')[3] === lang)
+          ),
+          runInInjectionContext(this.#injector, () => {
+            return injectContent<PostAttributes>({
+              param: 'slug',
+              subdirectory: lang,
+            });
+          }),
+        ]).pipe(
+          map(([files, post]) => {
+            const sortedFiles = files
+              .map(file => ({
+                ...file,
+                attributes: {
+                  ...file.attributes,
+                  date: DateTime.fromFormat(
+                    file.attributes.date,
+                    'MM-dd-yyyy'
+                  ).toISODate()!,
+                },
+              }))
+              .sort(
+                (a, b) =>
+                  DateTime.fromISO(b.attributes.date).toMillis() -
+                  DateTime.fromISO(a.attributes.date).toMillis()
+              );
+            const index = sortedFiles.findIndex(
+              file => file.attributes.slug === post?.attributes.slug
             );
-          const index = sortedFiles.findIndex(
-            file => file.attributes.slug === post.attributes.slug
-          );
-          return {
-            ...post,
-            nextPost: sortedFiles[index - 1]?.slug,
-            previousPost: sortedFiles[index + 1]?.slug,
-          };
-        })
-      );
-    })
+            return {
+              ...post,
+              nextPost: sortedFiles[index - 1]?.slug,
+              previousPost: sortedFiles[index + 1]?.slug,
+            };
+          })
+        );
+      })
+    ),
+    { initialValue: null }
   );
 
   ngOnInit(): void {
