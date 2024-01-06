@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouteMeta } from '@analogjs/router';
-import { TranslocoModule } from '@ngneat/transloco';
+import { TranslocoDirective } from '@ngneat/transloco';
 
 export const routeMeta: RouteMeta = {
   title: 'Luis Castro - About',
@@ -9,7 +9,7 @@ export const routeMeta: RouteMeta = {
 @Component({
   selector: 'mr-about-page',
   standalone: true,
-  imports: [TranslocoModule],
+  imports: [TranslocoDirective],
   host: { class: 'justify-center' },
   template: `
     <ng-container *transloco="let t; read: 'about'">

@@ -1,12 +1,17 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { SvgIconComponent } from '@ngneat/svg-icon';
-import { TranslocoModule } from '@ngneat/transloco';
+import { TranslocoDirective, TranslocoModule } from '@ngneat/transloco';
 
 @Component({
   selector: 'mr-footer',
   standalone: true,
-  imports: [CommonModule, SvgIconComponent, NgOptimizedImage, TranslocoModule],
+  imports: [
+    CommonModule,
+    SvgIconComponent,
+    NgOptimizedImage,
+    TranslocoDirective,
+  ],
   host: {
     class: 'z-[99]',
   },

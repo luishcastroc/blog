@@ -1,12 +1,16 @@
 import { Component, inject } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { Subscription, take } from 'rxjs';
-import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
+import {
+  TranslocoModule,
+  TranslocoService,
+  TranslocoDirective,
+} from '@ngneat/transloco';
 
 @Component({
   selector: 'mr-translate-button',
   standalone: true,
-  imports: [NgClass, TranslocoModule],
+  imports: [NgClass, TranslocoModule, TranslocoDirective],
   template: `<ng-container *transloco="let t; read: 'navigation'">
     <button
       class="btn btn-square btn-ghost relative h-[46px] w-10 overflow-hidden md:w-16"

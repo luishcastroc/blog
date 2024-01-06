@@ -32,8 +32,8 @@ export default defineConfig(({ mode }) => {
             '/home',
             '/about',
             '/contact',
-             ...postRoutes.en,
-             ...postRoutes.es,
+            ...postRoutes.en,
+            ...postRoutes.es,
           ],
           sitemap: {
             host: 'https://mrrobot.dev',

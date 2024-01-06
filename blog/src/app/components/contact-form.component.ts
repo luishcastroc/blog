@@ -3,12 +3,12 @@ import { environment } from '../../environments/environment';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HotToastService } from '@ngneat/hot-toast';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { TranslocoModule } from '@ngneat/transloco';
+import { TranslocoDirective } from '@ngneat/transloco';
 
 @Component({
   selector: 'mr-contact',
   standalone: true,
-  imports: [ReactiveFormsModule, TranslocoModule],
+  imports: [ReactiveFormsModule, TranslocoDirective],
   host: { class: 'w-full' },
   template: `<ng-container *transloco="let t; read: 'contact'">
     <div class="flex flex-auto flex-col items-center gap-3 pt-20">
@@ -40,12 +40,12 @@ import { TranslocoModule } from '@ngneat/transloco';
             formControlName="name"
             type="text"
             class="input input-bordered w-full" />
-          @if(name?.errors && name?.touched){
-          <label class="label">
-            <span class="label-text-alt text-error font-bold">{{
-              t('name-error')
-            }}</span>
-          </label>
+          @if (name?.errors && name?.touched) {
+            <label class="label">
+              <span class="label-text-alt text-error font-bold">{{
+                t('name-error')
+              }}</span>
+            </label>
           }
         </div>
         <div class="w-full">
@@ -58,18 +58,19 @@ import { TranslocoModule } from '@ngneat/transloco';
             formControlName="email"
             type="email"
             class="input input-bordered w-full" />
-          @if(email?.errors && email?.touched){
-          <label class="label">
-            @if(email?.errors?.['required']){
-            <span class="label-text-alt text-error font-bold">{{
-              t('email-error-one')
-            }}</span>
-            } @if(email?.errors?.['email']){
-            <span class="label-text-alt text-error font-bold">{{
-              t('email-error-two')
-            }}</span>
-            }
-          </label>
+          @if (email?.errors && email?.touched) {
+            <label class="label">
+              @if (email?.errors?.['required']) {
+                <span class="label-text-alt text-error font-bold">{{
+                  t('email-error-one')
+                }}</span>
+              }
+              @if (email?.errors?.['email']) {
+                <span class="label-text-alt text-error font-bold">{{
+                  t('email-error-two')
+                }}</span>
+              }
+            </label>
           }
         </div>
         <div class="w-full">
@@ -81,12 +82,12 @@ import { TranslocoModule } from '@ngneat/transloco';
               class="textarea textarea-bordered h-24 text-base"
               formControlName="message"
               placeholder="{{ t('say-hi') }}"></textarea>
-            @if(message?.errors && message?.touched){
-            <label class="label">
-              <span class="label-text-alt text-error font-bold">{{
-                t('message-error')
-              }}</span>
-            </label>
+            @if (message?.errors && message?.touched) {
+              <label class="label">
+                <span class="label-text-alt text-error font-bold">{{
+                  t('message-error')
+                }}</span>
+              </label>
             }
           </div>
         </div>
