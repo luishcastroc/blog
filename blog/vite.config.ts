@@ -26,11 +26,6 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       analog({
-        vite: {
-          experimental: {
-            dangerouslySupportNgFormat: true,
-          },
-        },
         prerender: {
           routes: [
             '/',
