@@ -2,12 +2,12 @@ import { Component, inject, Renderer2 } from '@angular/core';
 import { fromEvent, map, startWith } from 'rxjs';
 import { NgClass } from '@angular/common';
 import { SvgIconComponent } from '@ngneat/svg-icon';
-import { TranslocoModule } from '@ngneat/transloco';
+import { TranslocoDirective, TranslocoModule } from '@ngneat/transloco';
 
 @Component({
   selector: 'mr-theme-button',
   standalone: true,
-  imports: [SvgIconComponent, NgClass, TranslocoModule],
+  imports: [SvgIconComponent, NgClass, TranslocoDirective],
   template: `<ng-container *transloco="let t; read: 'navigation'">
     <button
       class="btn btn-square btn-ghost relative h-[46px]  w-10 overflow-hidden md:w-16"

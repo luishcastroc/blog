@@ -5,7 +5,7 @@ import { PostAttributes } from '../../models/post.model';
 import { postMetaResolver, postTitleResolver } from '../../models/resolvers';
 import { RouteMeta } from '@analogjs/router';
 import { Router, RouterLinkWithHref } from '@angular/router';
-import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
+import { TranslocoDirective, TranslocoService } from '@ngneat/transloco';
 import 'prismjs/components/prism-go';
 import 'prismjs/components/prism-sql';
 import 'prismjs/components/prism-markdown';
@@ -32,7 +32,12 @@ export const routeMeta: RouteMeta = {
 @Component({
   selector: 'mr-blog-post-page',
   standalone: true,
-  imports: [MarkdownComponent, AsyncPipe, RouterLinkWithHref, TranslocoModule],
+  imports: [
+    MarkdownComponent,
+    AsyncPipe,
+    RouterLinkWithHref,
+    TranslocoDirective,
+  ],
   host: { class: 'px-0' },
   template: `<ng-container *transloco="let t; read: 'blog'">
     @if (post()) {

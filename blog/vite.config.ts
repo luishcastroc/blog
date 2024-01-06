@@ -26,14 +26,19 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       analog({
+        vite: {
+          experimental: {
+            dangerouslySupportNgFormat: true,
+          },
+        },
         prerender: {
           routes: [
             '/',
             '/home',
             '/about',
             '/contact',
-             ...postRoutes.en,
-             ...postRoutes.es,
+            ...postRoutes.en,
+            ...postRoutes.es,
           ],
           sitemap: {
             host: 'https://mrrobot.dev',

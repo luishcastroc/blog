@@ -4,27 +4,21 @@ import { DatePipe, NgOptimizedImage } from '@angular/common';
 import { DateTime } from 'luxon';
 import { PostAttributes } from '../models/post.model';
 import { RouterLinkWithHref } from '@angular/router';
-import { TranslocoModule } from '@ngneat/transloco';
+import { TranslocoDirective } from '@ngneat/transloco';
 
 @Component({
   selector: 'mr-cover',
   standalone: true,
-  imports: [
-    NgOptimizedImage,
-    RouterLinkWithHref,
-    DatePipe,
-    TranslocoModule,
-  ],
+  imports: [NgOptimizedImage, RouterLinkWithHref, DatePipe, TranslocoDirective],
   host: {
     class: 'p-0',
   },
-  template: ` <ng-container *transloco="let t; read: 'blog'"
-    >
-    @if(isNew(post.attributes.date)){
+  template: ` <ng-container *transloco="let t; read: 'blog'">
+    @if (isNew(post.attributes.date)) {
       <div
-      class="bg-primary absolute z-50 flex h-10 w-20 animate-bounce items-center justify-center rounded-lg font-bold">
-      {{ t('new') }}
-    </div>
+        class="bg-primary absolute z-50 flex h-10 w-20 animate-bounce items-center justify-center rounded-lg font-bold">
+        {{ t('new') }}
+      </div>
     }
     <div class="card bg-base-100 relative h-[490px] shadow-xl lg:w-96">
       <figure class="flex-none">
