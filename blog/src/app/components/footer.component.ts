@@ -29,7 +29,7 @@ import { TranslocoDirective, TranslocoModule } from '@ngneat/transloco';
           </div>
         </div>
         <p class="font-bold">Luis H. Castro. <br />{{ t('slogan') }}</p>
-        <p>{{ t('copyright') }}</p>
+        <p>Copyright © {{ year }} - {{ t('copyright') }}</p>
       </div>
       <div>
         <ul class="grid grid-flow-col text-base xl:gap-8">
@@ -86,4 +86,6 @@ import { TranslocoDirective, TranslocoModule } from '@ngneat/transloco';
     </footer>
   </ng-container>`,
 })
-export class FooterComponent {}
+export class FooterComponent {
+  year = new Date().getFullYear();
+}
