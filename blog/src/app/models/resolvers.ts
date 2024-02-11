@@ -55,5 +55,26 @@ export const postMetaResolver: ResolveFn<MetaTag[]> = route => {
       property: 'og:image',
       content: `https://res.cloudinary.com/lhcc0134/${postAttributes.coverImage}`,
     },
+    { property: 'twitter:card', content: 'summary_large_image' },
+    {
+      property: 'twitter:title',
+      content: postAttributes.title,
+    },
+    {
+      property: 'twitter:description',
+      content: postAttributes.description,
+    },
+    {
+      property: 'twitter:image',
+      content: `https://res.cloudinary.com/lhcc0134/${postAttributes.coverImage}`,
+    },
+    {
+      property: 'twitter:domain',
+      content: 'mrrobot.dev',
+    },
+    {
+      property: 'twitter:url',
+      content: `https://mrrobot.dev/blog/${route.params['slug']}`,
+    },
   ];
 };
