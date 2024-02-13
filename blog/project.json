@@ -15,7 +15,7 @@
       "options": {
         "main": "./blog/src/main.ts",
         "configFile": "./blog/vite.config.ts",
-        "outputPath": "dist/./blog/client",
+        "outputPath": "dist/blog/client",
         "assets": [
           {
             "glob": "**/*",

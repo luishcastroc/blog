@@ -1,66 +1,84 @@
 {
   "migrations": [
     {
-      "version": "17.1.0-beta.2",
-      "description": "Move target defaults",
-      "implementation": "./src/migrations/update-17-1-0/move-target-defaults",
+      "cli": "nx",
+      "version": "17.3.0-beta.6",
+      "description": "Updates the nx wrapper.",
+      "implementation": "./src/migrations/update-17-3-0/update-nxw",
+      "package": "nx",
+      "name": "17.3.0-update-nx-wrapper"
+    },
+    {
+      "cli": "nx",
+      "version": "18.0.0-beta.2",
+      "description": "Updates .env to disabled adding plugins when generating projects in an existing Nx workspace",
+      "implementation": "./src/migrations/update-18-0-0/disable-crystal-for-existing-workspaces",
+      "x-repair-skip": true,
+      "package": "nx",
+      "name": "18.0.0-disable-adding-plugins-for-existing-workspaces"
+    },
+    {
+      "version": "17.2.0-beta.10",
+      "description": "Update vite config.",
+      "implementation": "./src/migrations/update-17-2-0/update-vite-config",
       "package": "@nx/vite",
-      "name": "move-target-defaults"
+      "name": "update-vite-config"
+    },
+    {
+      "version": "17.3.0-beta.0",
+      "description": "Move the vitest coverage thresholds in their own object if exists and add reporters.",
+      "implementation": "./src/migrations/update-17-3-0/vitest-coverage-and-reporters",
+      "package": "@nx/vite",
+      "name": "vitest-coverage-and-reporters"
     },
     {
       "cli": "nx",
-      "version": "17.1.0-beta.5",
-      "requires": {
-        "@angular/core": ">=17.0.0"
-      },
-      "description": "Update the @angular/cli package version to ~17.0.0.",
-      "factory": "./src/migrations/update-17-1-0/update-angular-cli",
+      "version": "17.2.0-beta.2",
+      "description": "Rename '@nx/angular:webpack-dev-server' executor to '@nx/angular:dev-server'",
+      "factory": "./src/migrations/update-17-2-0/rename-webpack-dev-server",
       "package": "@nx/angular",
-      "name": "update-angular-cli-version-17-0-0"
+      "name": "rename-webpack-dev-server-executor"
     },
     {
       "cli": "nx",
-      "version": "17.1.0-beta.5",
+      "version": "17.3.0-beta.10",
       "requires": {
-        "@angular/core": ">=17.0.0"
+        "@angular/core": ">=17.1.0"
       },
-      "description": "Rename 'browserTarget' to 'buildTarget'.",
-      "factory": "./src/migrations/update-17-1-0/browser-target-to-build-target",
+      "description": "Update the @angular/cli package version to ~17.1.0.",
+      "factory": "./src/migrations/update-17-3-0/update-angular-cli",
       "package": "@nx/angular",
-      "name": "rename-browser-target-to-build-target"
+      "name": "update-angular-cli-version-17-1-0"
     },
     {
       "cli": "nx",
-      "version": "17.1.0-beta.5",
+      "version": "17.3.0-beta.10",
       "requires": {
-        "@angular/core": ">=17.0.0"
+        "@angular/core": ">=17.1.0"
       },
-      "description": "Replace usages of '@nguniversal/builders' with '@angular-devkit/build-angular'.",
-      "factory": "./src/migrations/update-17-1-0/replace-nguniversal-builders",
+      "description": "Add 'browser-sync' as dev dependency when '@angular-devkit/build-angular:ssr-dev-server' or '@nx/angular:module-federation-dev-ssr' is used.",
+      "factory": "./src/migrations/update-17-3-0/add-browser-sync-dependency",
       "package": "@nx/angular",
-      "name": "replace-nguniversal-builders"
+      "name": "add-browser-sync-dependency"
     },
     {
       "cli": "nx",
-      "version": "17.1.0-beta.5",
+      "version": "17.3.0-beta.10",
       "requires": {
-        "@angular/core": ">=17.0.0"
+        "@angular/core": ">=17.1.0"
       },
-      "description": "Replace usages of '@nguniversal/' packages with '@angular/ssr'.",
-      "factory": "./src/migrations/update-17-1-0/replace-nguniversal-engines",
+      "description": "Add 'autoprefixer' as dev dependency when '@nx/angular:ng-packagr-lite' or '@nx/angular:package` is used.",
+      "factory": "./src/migrations/update-17-3-0/add-autoprefixer-dependency",
       "package": "@nx/angular",
-      "name": "replace-nguniversal-engines"
+      "name": "add-autoprefixer-dependency"
     },
     {
       "cli": "nx",
-      "version": "17.1.0-beta.5",
-      "requires": {
-        "@angular/core": ">=17.0.0"
-      },
-      "description": "Replace the deep imports from 'zone.js/dist/zone' and 'zone.js/dist/zone-testing' with 'zone.js' and 'zone.js/testing'.",
-      "factory": "./src/migrations/update-17-1-0/update-zone-js-deep-import",
+      "version": "18.0.0-beta.0",
+      "description": "Add NX_MF_DEV_SERVER_STATIC_REMOTES to inputs for task hashing when '@nx/angular:webpack-browser' is used for Module Federation.",
+      "factory": "./src/migrations/update-18-0-0/add-mf-env-var-to-target-defaults",
       "package": "@nx/angular",
-      "name": "update-zone-js-deep-import"
+      "name": "add-module-federation-env-var-to-target-defaults"
     }
   ]
 }

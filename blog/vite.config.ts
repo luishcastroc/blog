@@ -1,5 +1,6 @@
 /// <reference types="vitest" />
 
+import { replaceFiles } from '@nx/vite/plugins/rollup-replace-files.plugin';
 import analog from '@analogjs/platform';
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
@@ -20,11 +21,21 @@ const postRoutes = {
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
+    root: __dirname,
     publicDir: 'src/public',
     build: {
+      outDir: '../dist/blog/client',
+      reportCompressedSize: true,
+      commonjsOptions: { transformMixedEsModules: true },
       target: ['es2020'],
     },
     plugins: [
+      replaceFiles([
+        {
+          replace: 'blog/src/environments/environment.ts',
+          with: 'blog/src/environments/environment.prod.ts',
+        },
+      ]),
       analog({
         prerender: {
           routes: [
@@ -49,6 +60,11 @@ export default defineConfig(({ mode }) => {
       splitVendorChunkPlugin(),
     ],
     test: {
+      reporters: ['default'],
+      coverage: {
+        reportsDirectory: '../coverage/blog',
+        provider: 'v8',
+      },
       globals: true,
       environment: 'jsdom',
       setupFiles: ['src/test-setup.ts'],
