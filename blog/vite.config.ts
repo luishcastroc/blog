@@ -1,7 +1,7 @@
 /// <reference types="vitest" />
 import analog from '@analogjs/platform';
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
-import tsconfigPaths from 'vite-tsconfig-paths';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import * as fs from 'fs';
 
 const getPostRoutes = (language: string) => {
@@ -48,7 +48,7 @@ export default defineConfig(({ mode }) => {
           externals: { inline: ['zone.js/node', 'tslib'] },
         },
       }),
-      tsconfigPaths(),
+      nxViteTsPaths(),
       splitVendorChunkPlugin(),
     ],
     test: {

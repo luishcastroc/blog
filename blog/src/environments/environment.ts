@@ -1,6 +1,6 @@
 export const environment = {
-  baseUrl: 'http://localhost:4200',
-  production: false,
-  apiUrl: 'http://localhost:4200/api/v1',
-  websiteUrl: 'http://localhost:4200',
+  baseUrl: import.meta.env['VITE_BASE_URL'],
+  production: import.meta.env['VITE_PRODUCTION'] === 'true',
+  apiUrl: import.meta.env['VITE_API_URL'],
+  websiteUrl: import.meta.env['VITE_WEBSITE_URL'],
 };
