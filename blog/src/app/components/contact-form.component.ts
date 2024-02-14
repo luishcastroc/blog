@@ -141,7 +141,7 @@ export class ContactFormComponent {
     this.contactForm.disable();
     const { name, email, message } = this.contactForm.value;
     this.#http
-      .post(`${this.#environment.apiUrl}/send-email`, {
+      .post(`${import.meta.env['VITE_API_URL']}/send-email`, {
         name,
         email,
         message,

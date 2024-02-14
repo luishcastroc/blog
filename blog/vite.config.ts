@@ -1,6 +1,4 @@
 /// <reference types="vitest" />
-
-import { replaceFiles } from '@nx/vite/plugins/rollup-replace-files.plugin';
 import analog from '@analogjs/platform';
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
@@ -30,12 +28,6 @@ export default defineConfig(({ mode }) => {
       target: ['es2020'],
     },
     plugins: [
-      replaceFiles([
-        {
-          replace: 'blog/src/environments/environment.ts',
-          with: 'blog/src/environments/environment.prod.ts',
-        },
-      ]),
       analog({
         prerender: {
           routes: [

@@ -39,13 +39,7 @@
         },
         "production": {
           "sourcemap": false,
-          "mode": "production",
-          "fileReplacements": [
-            {
-              "replace": "blog/src/environments/environment.ts",
-              "with": "blog/src/environments/environment.prod.ts"
-            }
-          ]
+          "mode": "production"
         }
       }
     },
@@ -62,13 +56,7 @@
           "hmr": true
         },
         "production": {
-          "buildTarget": "blog:build:production",
-          "fileReplacements": [
-            {
-              "replace": "blog/src/environments/environment.ts",
-              "with": "blog/src/environments/environment.prod.ts"
-            }
-          ]
+          "buildTarget": "blog:build:production"
         }
       }
     },
