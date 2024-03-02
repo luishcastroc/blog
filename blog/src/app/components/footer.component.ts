@@ -1,7 +1,7 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { SvgIconComponent } from '@ngneat/svg-icon';
-import { TranslocoDirective, TranslocoModule } from '@ngneat/transloco';
+import { TranslocoDirective } from '@ngneat/transloco';
 
 @Component({
   selector: 'mr-footer',

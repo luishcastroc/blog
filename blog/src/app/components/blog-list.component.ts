@@ -1,4 +1,3 @@
-import { AsyncPipe } from '@angular/common';
 import { BlogCoverComponent } from './blog-cover.component';
 import { Component, inject } from '@angular/core';
 import { injectContentFiles } from '@analogjs/content';
@@ -11,7 +10,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'mr-blog-list',
   standalone: true,
-  imports: [BlogCoverComponent, AsyncPipe],
+  imports: [BlogCoverComponent],
   template: `
     <div
       class="flex flex-col flex-wrap justify-center gap-8 overflow-auto pb-4 pt-4 lg:flex-row lg:gap-6 ">

@@ -1,4 +1,3 @@
-import { AsyncPipe } from '@angular/common';
 import { combineLatest, map, of, Subject, switchMap, takeUntil } from 'rxjs';
 import { DateTime } from 'luxon';
 import { PostAttributes } from '../../models/post.model';
@@ -32,12 +31,7 @@ export const routeMeta: RouteMeta = {
 @Component({
   selector: 'mr-blog-post-page',
   standalone: true,
-  imports: [
-    MarkdownComponent,
-    AsyncPipe,
-    RouterLinkWithHref,
-    TranslocoDirective,
-  ],
+  imports: [MarkdownComponent, RouterLinkWithHref, TranslocoDirective],
   host: { class: 'px-0' },
   template: `<ng-container *transloco="let t; read: 'blog'">
     @if (post()) {
