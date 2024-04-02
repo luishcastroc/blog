@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { computed, inject, signal } from '@angular/core';
+  import { inject, signal } from '@angular/core';
   import { HttpClient, HttpErrorResponse } from '@angular/common/http';
   import { HotToastService } from '@ngneat/hot-toast';
   import { environment } from '../../environments/environment';
@@ -23,9 +23,9 @@
     { updateOn: 'blur' },
   );
 
-  const name = computed(() => contactForm.get('name'));
-  const email = computed(() => contactForm.get('email'));
-  const message = computed(() => contactForm.get('message'));
+  const name = () => contactForm.get('name');
+  const email = () => contactForm.get('email');
+  const message = () => contactForm.get('message');
 
   function submitForm() {
     loading.set(true);
