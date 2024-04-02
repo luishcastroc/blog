@@ -1,30 +1,63 @@
-import { Component } from '@angular/core';
-import { filter } from 'rxjs';
-import { NgClass } from '@angular/common';
-import { SvgIconComponent } from '@ngneat/svg-icon';
-import { ThemeButtonComponent } from './theme-button.component';
-import { TranslateButtonComponent } from './translate-button.component';
-import { TranslocoDirective } from '@ngneat/transloco';
-import {
-  NavigationEnd,
-  Router,
-  RouterLinkActive,
-  RouterLinkWithHref,
-} from '@angular/router';
+<script lang="ts">
+  import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
+  import { SvgIconComponent } from '@ngneat/svg-icon';
+  import { NgClass } from '@angular/common';
+  import { TranslocoDirective } from '@ngneat/transloco';
+  import TranslateButton from './translate-button.analog' with { analog: 'imports' };
+  import ThemeButton from './theme-button.analog' with { analog: 'imports' };
+  import { filter } from 'rxjs';
+  import { afterNextRender, inject } from '@angular/core';
 
-@Component({
-  selector: 'mr-navbar',
-  standalone: true,
-  imports: [
-    RouterLinkActive,
-    RouterLinkWithHref,
-    SvgIconComponent,
-    NgClass,
-    TranslocoDirective,
-    ThemeButtonComponent,
-    TranslateButtonComponent,
-  ],
-  template: ` <nav class="navbar bg-primary text-primary-content max-h-20">
+  defineMetadata({
+    imports: [
+      RouterLinkActive,
+      RouterLink,
+      SvgIconComponent,
+      NgClass,
+      TranslocoDirective,
+    ], host: {
+      class: 'z-[100]',
+    },
+  });
+
+  const links = [
+    { name: 'home', path: '/home' },
+    { name: 'blog', path: '/blog' },
+    { name: 'about', path: '/about' },
+    { name: 'contact', path: '/contact' },
+  ];
+
+  let activeLink = '';
+  const router = inject(Router);
+
+  afterNextRender(() => {
+    router.events
+      .pipe(
+        filter(
+          (event): event is NavigationEnd => event instanceof NavigationEnd,
+        ),
+      )
+      .subscribe((event: NavigationEnd) => {
+        activeLink = event.urlAfterRedirects;
+      });
+  });
+
+  function toggleDropdown(button: HTMLDivElement) {
+    button.classList.toggle('dropdown-open');
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
+  }
+
+  function linkClick(event: Event, parent: HTMLDivElement, route: string) {
+    event.preventDefault();
+    toggleDropdown(parent);
+    router.navigate([route]);
+  }
+</script>
+
+<template>
+  <nav class="navbar bg-primary text-primary-content max-h-20">
     <div class="navbar-start mr-3 lg:justify-end">
       <div #dropdownButton class="dropdown lg:hidden">
         <label
@@ -58,7 +91,7 @@ import {
                   href="{{ link.path }}"
                   [class.active]="activeLink === link.path"
                   (click)="linkClick($event, dropdownButton, link.path)"
-                  >{{ t(link.name) }}</a
+                >{{ t(link.name) }}</a
                 >
               </li>
             }
@@ -75,7 +108,7 @@ import {
                 routerLinkActive="active"
                 [routerLinkActiveOptions]="{ exact: true }"
                 class="hover:outline-none hover:[&:not(.active)]:bg-transparent"
-                >{{ t(link.name) }}</a
+              >{{ t(link.name) }}</a
               >
             </li>
           }
@@ -87,12 +120,12 @@ import {
         <div
           class="ring-primary ring-offset-base-100 hover:ring-secondary-focus w-24 rounded-full ring ring-offset-2 hover:h-auto hover:w-28 hover:transition-all">
           <a routerLink="/home"
-            ><img
-              src="assets/logo.svg"
-              width="80"
-              height="80"
-              alt="Luis H. Castro Dev logo"
-              aria-label="Luis H. Castro Dev logo"
+          ><img
+            src="assets/logo.svg"
+            width="80"
+            height="80"
+            alt="Luis H. Castro Dev logo"
+            aria-label="Luis H. Castro Dev logo"
           /></a>
         </div>
       </div>
@@ -100,48 +133,12 @@ import {
     <div class="navbar-end">
       <ul class="menu menu-horizontal gap-2 px-1 text-base">
         <li>
-          <mr-translate-button class="px-0 hover:bg-transparent" />
+          <TranslateButton class="px-0 hover:bg-transparent" />
         </li>
-        <li><mr-theme-button class="px-0 hover:bg-transparent" /></li>
+        <li>
+          <ThemeButton class="px-0 hover:bg-transparent" />
+        </li>
       </ul>
     </div>
-  </nav>`,
-  host: {
-    class: 'z-[100]',
-  },
-})
-export class NavbarComponent {
-  links = [
-    { name: 'home', path: '/home' },
-    { name: 'blog', path: '/blog' },
-    { name: 'about', path: '/about' },
-    { name: 'contact', path: '/contact' },
-  ];
-
-  activeLink = '';
-
-  constructor(private router: Router) {
-    this.router.events
-      .pipe(
-        filter(
-          (event): event is NavigationEnd => event instanceof NavigationEnd
-        )
-      )
-      .subscribe((event: NavigationEnd) => {
-        this.activeLink = event.urlAfterRedirects;
-      });
-  }
-
-  toggleDropdown(button: HTMLDivElement) {
-    button.classList.toggle('dropdown-open');
-    if (document.activeElement instanceof HTMLElement) {
-      document.activeElement.blur();
-    }
-  }
-
-  linkClick(event: Event, parent: HTMLDivElement, route: string) {
-    event.preventDefault();
-    this.toggleDropdown(parent);
-    this.router.navigate([route]);
-  }
-}
+  </nav>
+</template>

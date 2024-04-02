@@ -1,0 +1,19 @@
+<script lang="ts">
+  import { RouterLink, RouterOutlet } from '@angular/router';
+  import { RouteMeta } from '@analogjs/router';
+
+  export const routeMeta: RouteMeta = {
+    title: 'Luis Castro - Blog',
+    meta: [{ name: 'description', content: 'Blog Posts' }],
+  };
+
+  defineMetadata({
+    imports: [RouterLink, RouterOutlet],
+  });
+</script>
+
+<template>
+  <div class="flex flex-auto flex-col overflow-auto lg:flex-row ">
+    <router-outlet />
+  </div>
+</template>

@@ -8,7 +8,7 @@ const getPostRoutes = (language: string) => {
   const posts = fs.readdirSync(`./blog/src/content/${language}`);
   return posts.map(
     post =>
-      `/blog/${post.replace('.md', '').replace(/^\d{4}-\d{2}-\d{2}-/, '')}`
+      `/blog/${post.replace('.md', '').replace(/^\d{4}-\d{2}-\d{2}-/, '')}`,
   );
 };
 
@@ -29,6 +29,7 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       analog({
+        vite: { experimental: { supportAnalogFormat: true } },
         prerender: {
           routes: [
             '/',

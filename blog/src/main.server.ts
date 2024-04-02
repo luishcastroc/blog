@@ -1,4 +1,4 @@
-import { AppComponent } from './app/app.component';
+import AppComponent from './app/app.component.analog';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { config } from './app/app.config.server';
 import { enableProdMode } from '@angular/core';

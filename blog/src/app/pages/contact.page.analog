@@ -1,0 +1,16 @@
+<script lang="ts">
+  import { CommonModule } from '@angular/common';
+  import { ReactiveFormsModule } from '@angular/forms';
+  import ContactForm from '../components/contact-form.analog' with { analog: 'imports' };
+  import { RouteMeta } from '@analogjs/router';
+
+  export const routeMeta: RouteMeta = {
+    title: 'Luis Castro - Contact',
+  };
+  defineMetadata({ imports: [CommonModule, ReactiveFormsModule] });
+</script>
+
+<template>
+  <ContactForm />
+</template>
+

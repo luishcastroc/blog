@@ -1,21 +1,23 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Component } from '@angular/core';
-import { SvgIconComponent } from '@ngneat/svg-icon';
-import { TranslocoDirective } from '@ngneat/transloco';
+<script lang="ts">
+  import { NgOptimizedImage } from '@angular/common';
+  import { SvgIconComponent } from '@ngneat/svg-icon';
+  import { TranslocoDirective } from '@ngneat/transloco';
 
-@Component({
-  selector: 'mr-footer',
-  standalone: true,
-  imports: [
-    CommonModule,
-    SvgIconComponent,
-    NgOptimizedImage,
-    TranslocoDirective,
-  ],
-  host: {
-    class: 'z-[99]',
-  },
-  template: `<ng-container *transloco="let t; read: 'footer'">
+  defineMetadata({
+    imports: [
+      SvgIconComponent,
+      NgOptimizedImage,
+      TranslocoDirective,
+    ],
+    host: {
+      class: 'z-[99]',
+    },
+  });
+  const year = new Date().getFullYear();
+</script>
+
+<template>
+  <ng-container *transloco="let t; read: 'footer'">
     <footer class="footer footer-center bg-primary text-primary-content p-10">
       <div>
         <div class="avatar">
@@ -39,8 +41,10 @@ import { TranslocoDirective } from '@ngneat/transloco';
               target="_blank"
               rel="noreferrer noopener"
               attr.aria-label="{{ t('aria-label-twitter') }}"
-              ><svg-icon key="twitter" fontSize="30px" height="30px"
-            /></a>
+            >
+              <svg-icon key="twitter" fontSize="30px" height="30px"
+              />
+            </a>
           </li>
           <li class="hover:text-base-100 w-16 hover:transition-all">
             <a
@@ -48,8 +52,10 @@ import { TranslocoDirective } from '@ngneat/transloco';
               target="_blank"
               rel="noreferrer noopener"
               attr.aria-label="{{ t('aria-label-github') }}"
-              ><svg-icon key="github" fontSize="30px" height="30px"
-            /></a>
+            >
+              <svg-icon key="github" fontSize="30px" height="30px"
+              />
+            </a>
           </li>
           <li class="hover:text-base-100 w-16 hover:transition-all">
             <a
@@ -57,8 +63,10 @@ import { TranslocoDirective } from '@ngneat/transloco';
               target="_blank"
               rel="noreferrer noopener"
               attr.aria-label="{{ t('aria-label-threads') }}"
-              ><svg-icon key="threads" fontSize="30px" height="30px"
-            /></a>
+            >
+              <svg-icon key="threads" fontSize="30px" height="30px"
+              />
+            </a>
           </li>
           <li class="hover:text-base-100 w-16 hover:transition-all">
             <a
@@ -66,8 +74,10 @@ import { TranslocoDirective } from '@ngneat/transloco';
               target="_blank"
               rel="noreferrer noopener"
               attr.aria-label="{{ t('aria-label-linkedin') }}"
-              ><svg-icon key="linkedin" fontSize="30px" height="30px"
-            /></a>
+            >
+              <svg-icon key="linkedin" fontSize="30px" height="30px"
+              />
+            </a>
           </li>
         </ul>
       </div>
@@ -76,16 +86,13 @@ import { TranslocoDirective } from '@ngneat/transloco';
           href="https://analogjs.org/"
           target="_blank"
           rel="noreferrer noopener"
-          ><img
-            ngSrc="v1691434864/powered_by_analog.png"
-            width="119"
-            height="34.5"
-            alt="{{ t('alt-powered-by-analog') }}"
+        ><img
+          ngSrc="v1691434864/powered_by_analog.png"
+          width="119"
+          height="34.5"
+          alt="{{ t('alt-powered-by-analog') }}"
         /></a>
       </div>
     </footer>
-  </ng-container>`,
-})
-export class FooterComponent {
-  year = new Date().getFullYear();
-}
+  </ng-container>
+</template>

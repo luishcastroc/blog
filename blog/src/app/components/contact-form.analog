@@ -1,16 +1,69 @@
-import { Component, inject, signal } from '@angular/core';
-import { environment } from '../../environments/environment';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { HotToastService } from '@ngneat/hot-toast';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { TranslocoDirective } from '@ngneat/transloco';
+<script lang="ts">
+  import { computed, inject, signal } from '@angular/core';
+  import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+  import { HotToastService } from '@ngneat/hot-toast';
+  import { environment } from '../../environments/environment';
+  import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+  import { TranslocoDirective } from '@ngneat/transloco';
 
-@Component({
-  selector: 'mr-contact',
-  standalone: true,
-  imports: [ReactiveFormsModule, TranslocoDirective],
-  host: { class: 'w-full' },
-  template: `<ng-container *transloco="let t; read: 'contact'">
+  defineMetadata({
+    imports: [ReactiveFormsModule, TranslocoDirective],
+    host: { class: 'w-full' },
+  });
+
+  const http = inject(HttpClient);
+  const toast = inject(HotToastService);
+  const loading = signal(false);
+  const contactForm = inject(FormBuilder).group(
+    {
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      message: ['', Validators.required],
+    },
+    { updateOn: 'blur' },
+  );
+
+  const name = computed(() => contactForm.get('name'));
+  const email = computed(() => contactForm.get('email'));
+  const message = computed(() => contactForm.get('message'));
+
+  function submitForm() {
+    loading.set(true);
+    contactForm.disable();
+    const { name, email, message } = contactForm.value;
+    http
+      .post(`${environment.apiUrl}/send-email`, {
+        name,
+        email,
+        message,
+      })
+      .subscribe({
+        next: () => {
+          loading.set(false);
+          toast.success('Email sent successfully', {
+            duration: 3500,
+            position: 'bottom-center',
+          });
+          contactForm.enable();
+          contactForm.reset();
+        },
+        error: (error: HttpErrorResponse) => {
+          loading.set(false);
+          toast.error(
+            `Error ${error.status} sending email: ${error.statusText}`,
+            {
+              duration: 3500,
+              position: 'bottom-center',
+            },
+          );
+          contactForm.enable();
+        },
+      });
+  }
+</script>
+
+<template>
+  <ng-container *transloco="let t; read: 'contact'">
     <div class="flex flex-auto flex-col items-center gap-3 pt-20">
       <div
         class="flex w-full flex-col justify-start gap-4 align-baseline md:max-w-md">
@@ -35,16 +88,15 @@ import { TranslocoDirective } from '@ngneat/transloco';
             <span class="label-text font-extrabold">{{ t('name') }}</span>
           </label>
           <input
-            type="text"
             placeholder="{{ t('type-here') }}"
             formControlName="name"
             type="text"
             class="input input-bordered w-full" />
-          @if (name?.errors && name?.touched) {
+          @if (name()?.errors && name()?.touched) {
             <label class="label">
               <span class="label-text-alt text-error font-bold">{{
-                t('name-error')
-              }}</span>
+                  t('name-error')
+                }}</span>
             </label>
           }
         </div>
@@ -53,22 +105,21 @@ import { TranslocoDirective } from '@ngneat/transloco';
             <span class="label-text font-extrabold">{{ t('email') }}</span>
           </label>
           <input
-            type="text"
             placeholder="{{ t('email-placeholder') }}"
             formControlName="email"
             type="email"
             class="input input-bordered w-full" />
-          @if (email?.errors && email?.touched) {
+          @if (email()?.errors && email()?.touched) {
             <label class="label">
-              @if (email?.errors?.['required']) {
+              @if (email()?.errors?.['required']) {
                 <span class="label-text-alt text-error font-bold">{{
-                  t('email-error-one')
-                }}</span>
+                    t('email-error-one')
+                  }}</span>
               }
-              @if (email?.errors?.['email']) {
+              @if (email()?.errors?.['email']) {
                 <span class="label-text-alt text-error font-bold">{{
-                  t('email-error-two')
-                }}</span>
+                    t('email-error-two')
+                  }}</span>
               }
             </label>
           }
@@ -82,11 +133,11 @@ import { TranslocoDirective } from '@ngneat/transloco';
               class="textarea textarea-bordered h-24 text-base"
               formControlName="message"
               placeholder="{{ t('say-hi') }}"></textarea>
-            @if (message?.errors && message?.touched) {
+            @if (message()?.errors && message()?.touched) {
               <label class="label">
                 <span class="label-text-alt text-error font-bold">{{
-                  t('message-error')
-                }}</span>
+                    t('message-error')
+                  }}</span>
               </label>
             }
           </div>
@@ -107,66 +158,11 @@ import { TranslocoDirective } from '@ngneat/transloco';
           </button>
         </div>
       </form>
-    </div></ng-container
-  > `,
-})
-export class ContactFormComponent {
-  #http = inject(HttpClient);
-  #toast = inject(HotToastService);
-  loading = signal(false);
-  readonly #environment = environment;
-  contactForm = inject(FormBuilder).group(
-    {
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      message: ['', Validators.required],
-    },
-    { updateOn: 'blur' }
-  );
+    </div>
+  </ng-container
+  >
+</template>
 
-  get name() {
-    return this.contactForm.get('name');
-  }
+<style>
 
-  get email() {
-    return this.contactForm.get('email');
-  }
-
-  get message() {
-    return this.contactForm.get('message');
-  }
-
-  submitForm() {
-    this.loading.set(true);
-    this.contactForm.disable();
-    const { name, email, message } = this.contactForm.value;
-    this.#http
-      .post(`${this.#environment.apiUrl}/send-email`, {
-        name,
-        email,
-        message,
-      })
-      .subscribe({
-        next: () => {
-          this.loading.set(false);
-          this.#toast.success('Email sent successfully', {
-            duration: 3500,
-            position: 'bottom-center',
-          });
-          this.contactForm.enable();
-          this.contactForm.reset();
-        },
-        error: (error: HttpErrorResponse) => {
-          this.loading.set(false);
-          this.#toast.error(
-            `Error ${error.status} sending email: ${error.statusText}`,
-            {
-              duration: 3500,
-              position: 'bottom-center',
-            }
-          );
-          this.contactForm.enable();
-        },
-      });
-  }
-}
+</style>
