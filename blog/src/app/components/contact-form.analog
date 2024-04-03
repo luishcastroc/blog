@@ -6,6 +6,7 @@
   import { ReactiveFormsModule } from '@angular/forms';
   import { TranslocoDirective } from '@ngneat/transloco';
   import { FieldValidateFn, injectForm, injectStore, TanStackField } from '@tanstack/angular-form';
+  import { environment } from '../../environments/environment';
 
   defineMetadata({
     imports: [ReactiveFormsModule, TranslocoDirective, TanStackField],
