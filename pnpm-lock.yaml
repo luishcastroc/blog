@@ -50,6 +50,9 @@ dependencies:
   '@ngneat/transloco':
     specifier: ^6.0.0
     version: 6.0.4(@angular/core@17.3.2)(typescript@5.4.3)
+  '@tanstack/angular-form':
+    specifier: ^0.19.0
+    version: 0.19.0(@angular/common@17.3.2)(@angular/core@17.3.2)
   dotenv:
     specifier: ^16.3.1
     version: 16.4.5
@@ -141,7 +144,7 @@ devDependencies:
     version: 18.2.1(@types/node@18.19.15)(nx@18.2.1)(typescript@5.4.3)
   '@nx/vite':
     specifier: 18.2.1
-    version: 18.2.1(@types/node@18.19.15)(nx@18.2.1)(typescript@5.4.3)(vite@5.0.0)(vitest@1.4.0)
+    version: 18.2.1(@types/node@18.19.15)(nx@18.2.1)(typescript@5.4.3)(vite@5.2.7)(vitest@1.4.0)
   '@nx/workspace':
     specifier: 18.2.1
     version: 18.2.1
@@ -203,8 +206,8 @@ devDependencies:
     specifier: 5.4.3
     version: 5.4.3
   vite:
-    specifier: 5.0.0
-    version: 5.0.0(@types/node@18.19.15)(less@4.1.3)(stylus@0.59.0)
+    specifier: 5.2.7
+    version: 5.2.7(@types/node@18.19.15)(less@4.1.3)(stylus@0.59.0)
   vitest:
     specifier: 1.4.0
     version: 1.4.0(@types/node@18.19.15)(jsdom@22.1.0)(less@4.1.3)(stylus@0.59.0)
@@ -271,7 +274,7 @@ packages:
       '@analogjs/vite-plugin-angular': 1.0.2(@angular-devkit/build-angular@17.3.2)
       '@analogjs/vite-plugin-nitro': 1.0.0
       '@nx/devkit': 18.2.1(nx@18.2.1)
-      '@nx/vite': 18.2.1(@types/node@18.19.15)(nx@18.2.1)(typescript@5.4.3)(vite@5.0.0)(vitest@1.4.0)
+      '@nx/vite': 18.2.1(@types/node@18.19.15)(nx@18.2.1)(typescript@5.4.3)(vite@5.2.7)(vitest@1.4.0)
       nitropack: 2.9.4
     transitivePeerDependencies:
       - '@angular-devkit/build-angular'
@@ -3379,10 +3382,10 @@ packages:
       - debug
     dev: true
 
-  /@nrwl/vite@18.2.1(@types/node@18.19.15)(nx@18.2.1)(typescript@5.4.3)(vite@5.0.0)(vitest@1.4.0):
+  /@nrwl/vite@18.2.1(@types/node@18.19.15)(nx@18.2.1)(typescript@5.4.3)(vite@5.2.7)(vitest@1.4.0):
     resolution: {integrity: sha512-/Q8NifquTPwN2+6bQqj8ZhDM3SDOEC5wtcpCa1++6tleHKwkrFx+5qHMRH7YoFJFdAARW2awyTwOhSKHkU6YpQ==}
     dependencies:
-      '@nx/vite': 18.2.1(@types/node@18.19.15)(nx@18.2.1)(typescript@5.4.3)(vite@5.0.0)(vitest@1.4.0)
+      '@nx/vite': 18.2.1(@types/node@18.19.15)(nx@18.2.1)(typescript@5.4.3)(vite@5.2.7)(vitest@1.4.0)
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -3789,20 +3792,20 @@ packages:
     dev: true
     optional: true
 
-  /@nx/vite@18.2.1(@types/node@18.19.15)(nx@18.2.1)(typescript@5.4.3)(vite@5.0.0)(vitest@1.4.0):
+  /@nx/vite@18.2.1(@types/node@18.19.15)(nx@18.2.1)(typescript@5.4.3)(vite@5.2.7)(vitest@1.4.0):
     resolution: {integrity: sha512-ZgCsT3mYJjaKOsLccG/IYGwoxi/4etd9BrjxEqNLYaLhtaxKsSb/urxXtfOIt2qXzIqkjeUkC+kw3xgOa29GUQ==}
     peerDependencies:
       vite: ^5.0.0
       vitest: ^1.3.1
     dependencies:
-      '@nrwl/vite': 18.2.1(@types/node@18.19.15)(nx@18.2.1)(typescript@5.4.3)(vite@5.0.0)(vitest@1.4.0)
+      '@nrwl/vite': 18.2.1(@types/node@18.19.15)(nx@18.2.1)(typescript@5.4.3)(vite@5.2.7)(vitest@1.4.0)
       '@nx/devkit': 18.2.1(nx@18.2.1)
       '@nx/js': 18.2.1(@types/node@18.19.15)(nx@18.2.1)(typescript@5.4.3)
       '@phenomnomnominal/tsquery': 5.0.1(typescript@5.4.3)
       '@swc/helpers': 0.5.6
       enquirer: 2.3.6
       tsconfig-paths: 4.2.0
-      vite: 5.0.0(@types/node@18.19.15)(less@4.1.3)(stylus@0.59.0)
+      vite: 5.2.7(@types/node@18.19.15)(less@4.1.3)(stylus@0.59.0)
       vitest: 1.4.0(@types/node@18.19.15)(jsdom@22.1.0)(less@4.1.3)(stylus@0.59.0)
     transitivePeerDependencies:
       - '@babel/traverse'
@@ -4041,6 +4044,7 @@ packages:
     dependencies:
       is-glob: 4.0.3
       micromatch: 4.0.5
+      napi-wasm: 1.1.0
     dev: true
     bundledDependencies:
       - napi-wasm
@@ -4439,6 +4443,40 @@ packages:
       postcss-selector-parser: 6.0.10
       tailwindcss: 3.4.1
     dev: true
+
+  /@tanstack/angular-form@0.19.0(@angular/common@17.3.2)(@angular/core@17.3.2):
+    resolution: {integrity: sha512-4Z1pEuJge8kjpPbvHd5/1Y8bDt6WHCdA3s3QV5Eme0Ffu8K822tdmt+ZB+7r4rGg6CIDfb86qBtDyPKg5ynBCg==}
+    peerDependencies:
+      '@angular/core': '>=17.3.0'
+    dependencies:
+      '@angular/core': 17.3.2(rxjs@7.8.1)(zone.js@0.14.3)
+      '@tanstack/angular-store': 0.4.0(@angular/common@17.3.2)(@angular/core@17.3.2)
+      '@tanstack/form-core': 0.19.0
+      tslib: 2.6.2
+    transitivePeerDependencies:
+      - '@angular/common'
+    dev: false
+
+  /@tanstack/angular-store@0.4.0(@angular/common@17.3.2)(@angular/core@17.3.2):
+    resolution: {integrity: sha512-C0Xj1di6qzq4EF8H1W6zrpfX9d37mpZzVXwlZkHG8M9p7A9rw/1PS6RdI2hy7zBRNNxFqVVB5ez+uVq2lVE8ew==}
+    peerDependencies:
+      '@angular/common': '>=16 < 18'
+      '@angular/core': '>=16 < 18'
+    dependencies:
+      '@angular/common': 17.3.2(@angular/core@17.3.2)(rxjs@7.8.1)
+      '@angular/core': 17.3.2(rxjs@7.8.1)(zone.js@0.14.3)
+      '@tanstack/store': 0.3.1
+    dev: false
+
+  /@tanstack/form-core@0.19.0:
+    resolution: {integrity: sha512-W0U6dd5S0YLBp2kulN+F7yQFHUOBaw0Li6iqgkRN3vd42Wef+XseRlY6V+8xyJ4dVkbIaXv7S39CxTBkEjeiPg==}
+    dependencies:
+      '@tanstack/store': 0.3.1
+    dev: false
+
+  /@tanstack/store@0.3.1:
+    resolution: {integrity: sha512-A49KN8SpLMWaNmZGPa9K982RQ81W+m7W6iStcQVeKeVS70JZRqkF0fDwKByREPq6qz9/kS0aQFOPQ0W6wIeU5g==}
+    dev: false
 
   /@tootallnate/once@2.0.0:
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
@@ -10488,6 +10526,10 @@ packages:
     hasBin: true
     dev: true
 
+  /napi-wasm@1.1.0:
+    resolution: {integrity: sha512-lHwIAJbmLSjF9VDRm9GoVOy9AGp3aIvkjv+Kvz9h16QR3uSVYH78PNQUnT2U4X53mhlnV2M7wrhibQ3GHicDmg==}
+    dev: true
+
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
@@ -11805,6 +11847,15 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
+  /postcss@8.4.38:
+    resolution: {integrity: sha512-Wglpdk03BSfXkHoQa3b/oulrotAkwrlLDRSOb9D0bN86FdRyE9lppSp33aHNPgBa0JKCoB+drFLZkQoRRYae5A==}
+    engines: {node: ^10 || ^12 || >=14}
+    dependencies:
+      nanoid: 3.3.7
+      picocolors: 1.0.0
+      source-map-js: 1.2.0
+    dev: true
+
   /prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
@@ -12708,6 +12759,11 @@ packages:
 
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
+    engines: {node: '>=0.10.0'}
+    dev: true
+
+  /source-map-js@1.2.0:
+    resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
     engines: {node: '>=0.10.0'}
     dev: true
 
@@ -13864,7 +13920,7 @@ packages:
       debug: 4.3.4(supports-color@8.1.1)
       pathe: 1.1.2
       picocolors: 1.0.0
-      vite: 5.0.0(@types/node@18.19.15)(less@4.1.3)(stylus@0.59.0)
+      vite: 5.2.7(@types/node@18.19.15)(less@4.1.3)(stylus@0.59.0)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -13874,44 +13930,6 @@ packages:
       - sugarss
       - supports-color
       - terser
-    dev: true
-
-  /vite@5.0.0(@types/node@18.19.15)(less@4.1.3)(stylus@0.59.0):
-    resolution: {integrity: sha512-ESJVM59mdyGpsiNAeHQOR/0fqNoOyWPYesFto8FFZugfmhdHx8Fzd8sF3Q/xkVhZsyOxHfdM7ieiVAorI9RjFw==}
-    engines: {node: ^18.0.0 || >=20.0.0}
-    hasBin: true
-    peerDependencies:
-      '@types/node': ^18.0.0 || >=20.0.0
-      less: '*'
-      lightningcss: ^1.21.0
-      sass: '*'
-      stylus: '*'
-      sugarss: '*'
-      terser: ^5.4.0
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      less:
-        optional: true
-      lightningcss:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
-        optional: true
-    dependencies:
-      '@types/node': 18.19.15
-      esbuild: 0.19.12
-      less: 4.1.3
-      postcss: 8.4.35
-      rollup: 4.13.0
-      stylus: 0.59.0
-    optionalDependencies:
-      fsevents: 2.3.3
     dev: true
 
   /vite@5.1.5(@types/node@18.19.15)(less@4.2.0)(sass@1.71.1)(stylus@0.59.0)(terser@5.29.1):
@@ -13950,6 +13968,44 @@ packages:
       sass: 1.71.1
       stylus: 0.59.0
       terser: 5.29.1
+    optionalDependencies:
+      fsevents: 2.3.3
+    dev: true
+
+  /vite@5.2.7(@types/node@18.19.15)(less@4.1.3)(stylus@0.59.0):
+    resolution: {integrity: sha512-k14PWOKLI6pMaSzAuGtT+Cf0YmIx12z9YGon39onaJNy8DLBfBJrzg9FQEmkAM5lpHBZs9wksWAsyF/HkpEwJA==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^18.0.0 || >=20.0.0
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      '@types/node': 18.19.15
+      esbuild: 0.20.2
+      less: 4.1.3
+      postcss: 8.4.38
+      rollup: 4.13.0
+      stylus: 0.59.0
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
@@ -13998,7 +14054,7 @@ packages:
       strip-literal: 2.0.0
       tinybench: 2.6.0
       tinypool: 0.8.2
-      vite: 5.0.0(@types/node@18.19.15)(less@4.1.3)(stylus@0.59.0)
+      vite: 5.2.7(@types/node@18.19.15)(less@4.1.3)(stylus@0.59.0)
       vite-node: 1.4.0(@types/node@18.19.15)(less@4.1.3)(stylus@0.59.0)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:

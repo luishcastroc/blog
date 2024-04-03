@@ -8,7 +8,7 @@ const getPostRoutes = (language: string) => {
   const posts = fs.readdirSync(`./blog/src/content/${language}`);
   return posts.map(
     post =>
-      `/blog/${post.replace('.md', '').replace(/^\d{4}-\d{2}-\d{2}-/, '')}`,
+      `/blog/${post.replace('.md', '').replace(/^\d{4}-\d{2}-\d{2}-/, '')}`
   );
 };
 
@@ -19,6 +19,9 @@ const postRoutes = {
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
+    ssr: {
+      noExternal: ['@tanstack/**'],
+    },
     root: __dirname,
     publicDir: 'src/public',
     build: {
