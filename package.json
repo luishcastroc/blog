@@ -28,8 +28,8 @@
   },
   "private": false,
   "dependencies": {
-    "@analogjs/content": "1.0.2",
-    "@analogjs/router": "1.0.2",
+    "@analogjs/content": "1.2.0",
+    "@analogjs/router": "1.2.0",
     "@angular/animations": "17.3.2",
     "@angular/common": "17.3.2",
     "@angular/compiler": "17.3.2",
@@ -43,7 +43,7 @@
     "@ngneat/overview": "^5.1.1",
     "@ngneat/svg-icon": "^7.1.0",
     "@ngneat/transloco": "^6.0.0",
-    "@tanstack/angular-form": "^0.19.0",
+    "@tanstack/angular-form": "^0.19.1",
     "dotenv": "^16.3.1",
     "front-matter": "^4.0.2",
     "luxon": "^3.4.0",
@@ -57,8 +57,8 @@
     "zone.js": "0.14.3"
   },
   "devDependencies": {
-    "@analogjs/platform": "1.0.2",
-    "@analogjs/vite-plugin-angular": "1.0.2",
+    "@analogjs/platform": "1.2.0",
+    "@analogjs/vite-plugin-angular": "1.2.0",
     "@angular-devkit/build-angular": "17.3.2",
     "@angular-devkit/core": "17.3.2",
     "@angular-devkit/schematics": "17.3.2",
@@ -69,14 +69,14 @@
     "@angular/compiler-cli": "17.3.2",
     "@angular/language-service": "17.3.2",
     "@ngneat/svg-generator": "^7.0.2",
-    "@nx/angular": "18.2.1",
-    "@nx/cypress": "18.2.1",
-    "@nx/devkit": "18.2.1",
-    "@nx/eslint": "^18.2.1",
-    "@nx/eslint-plugin": "^18.2.1",
-    "@nx/js": "18.2.1",
-    "@nx/vite": "18.2.1",
-    "@nx/workspace": "18.2.1",
+    "@nx/angular": "18.2.4",
+    "@nx/cypress": "18.2.4",
+    "@nx/devkit": "18.2.4",
+    "@nx/eslint": "18.2.4",
+    "@nx/eslint-plugin": "18.2.4",
+    "@nx/js": "18.2.4",
+    "@nx/vite": "18.2.4",
+    "@nx/workspace": "18.2.4",
     "@schematics/angular": "17.3.2",
     "@tailwindcss/typography": "^0.5.10",
     "@types/luxon": "^3.3.4",
@@ -89,7 +89,7 @@
     "daisyui": "^3.5.1",
     "destr": "^2.0.1",
     "jsdom": "^22.1.0",
-    "nx": "18.2.1",
+    "nx": "18.2.4",
     "postcss": "^8.4.27",
     "postcss-nesting": "^12.0.1",
     "prettier": "^3.0.1",
@@ -100,3 +100,4 @@
     "vitest": "1.4.0"
   }
 }
+
