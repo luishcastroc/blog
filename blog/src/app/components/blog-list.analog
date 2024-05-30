@@ -6,13 +6,13 @@
   import { PostAttributes } from '../models/post.model';
   import { TranslocoService } from '@ngneat/transloco';
   import { toSignal } from '@angular/core/rxjs-interop';
-  import BlogCover from './blog-cover.analog' with { analog: 'imports'};
+  import BlogCover from './blog-cover.analog' with { analog: 'imports' };
 
   const files = injectContentFiles<PostAttributes>();
   const posts = toSignal(
     inject(TranslocoService).langChanges$.pipe(
       map(lang => {
-        return this.files
+        return files
           .filter(post => {
             const language = post.filename.split('/')[3];
             return lang === language;
@@ -20,7 +20,7 @@
           .map(post => {
             const date = DateTime.fromFormat(
               post.attributes.date,
-              'MM-dd-yyyy'
+              'MM-dd-yyyy',
             );
             const dateString = date.toISODate();
             const language = post.filename.split('/')[3];
@@ -39,9 +39,9 @@
               DateTime.fromISO(a.attributes.date).toMillis()
             );
           });
-      })
+      }),
     ),
-    { initialValue: [] }
+    { initialValue: [] },
   );
 </script>
 
@@ -49,7 +49,7 @@
   <div
     class="flex flex-col flex-wrap justify-center gap-8 overflow-auto pb-4 pt-4 lg:flex-row lg:gap-6 ">
     @for (post of posts(); track post) {
-      <BlogCover [post]="post"  />
+      <BlogCover [post]="post" />
     }
   </div>
 </template>
