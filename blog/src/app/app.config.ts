@@ -10,11 +10,12 @@ import { provideSvgIcons } from '@ngneat/svg-icon';
 import { svgIcons } from './svg-icons';
 import { TranslocoHttpLoader } from './transloco-loader';
 import { withViewTransitions } from '@angular/router';
+import { withPrismHighlighter } from '@analogjs/content/prism-highlighter';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideClientHydration(),
-    provideContent(withMarkdownRenderer()),
+    provideContent(withMarkdownRenderer(), withPrismHighlighter()),
     provideHttpClient(withFetch()),
     provideFileRouter(withViewTransitions()),
     provideSvgIcons([...svgIcons]),
