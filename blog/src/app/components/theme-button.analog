@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { afterNextRender, inject, Renderer2 } from '@angular/core';
+  import { inject, Renderer2 } from '@angular/core';
   import { fromEvent, map, startWith } from 'rxjs';
   import { SvgIconComponent } from '@ngneat/svg-icon';
   import { NgClass } from '@angular/common';
@@ -10,7 +10,7 @@
   const renderer = inject(Renderer2);
   let isDarkMode = false;
 
-  afterNextRender(() => {
+  onInit(() => {
     const isBrowser = typeof window !== 'undefined';
     if (isBrowser) {
       //check the system theme
