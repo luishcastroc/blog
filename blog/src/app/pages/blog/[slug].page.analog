@@ -9,6 +9,7 @@
   import { PostAttributes } from '../../models/post.model';
   import { toSignal } from '@angular/core/rxjs-interop';
   import { DateTime } from 'luxon';
+  import { NgOptimizedImage } from '@angular/common';
 
   export const routeMeta: RouteMeta = {
     title: postTitleResolver,
@@ -16,7 +17,7 @@
   };
 
   defineMetadata({
-    imports: [MarkdownComponent, RouterLink, TranslocoDirective],
+    imports: [MarkdownComponent, RouterLink, TranslocoDirective, NgOptimizedImage],
     host: { class: 'px-0' },
   });
 
@@ -122,12 +123,14 @@
             {{ t('next') }}
           </button>
         </section>
+        <img [ngSrc]="post()?.attributes?.coverImage" width="1000"
+             height="420" priority>
         <h1 class="self-center text-center text-3xl font-extrabold lg:w-3/5">
           {{ post()?.attributes?.title }}
         </h1>
         <div
           class="line-numbers blog-post container w-full pb-8 pt-4 md:w-11/12 md:px-0 lg:w-3/5">
-          <analog-markdown [content]="post()?.content"></analog-markdown>
+          <analog-markdown [content]="post()?.content" />
         </div>
       </article>
     }
