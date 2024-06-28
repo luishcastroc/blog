@@ -2,9 +2,9 @@
 <script lang="ts">
   import { inject } from '@angular/core';
   import { HttpClient } from '@angular/common/http';
-  import { HotToastService } from '@ngneat/hot-toast';
+  import { HotToastService } from '@ngxpert/hot-toast';
   import { ReactiveFormsModule } from '@angular/forms';
-  import { TranslocoDirective } from '@ngneat/transloco';
+  import { TranslocoDirective } from '@jsverse/transloco';
   import { FieldValidateFn, injectForm, injectStore, TanStackField } from '@tanstack/angular-form';
   import { environment } from '../../environments/environment';
 

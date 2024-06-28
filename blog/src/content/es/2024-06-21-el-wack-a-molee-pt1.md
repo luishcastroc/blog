@@ -109,20 +109,46 @@ export class AnimatedSpriteComponent implements AfterViewInit, OnDestroy {
         this.width = frameWidth;
         this.height = this.width / esta.originalAspectRatio;
       } else if (!frameWidth && frameHeight) {
-        this.height es frameHeight;
-        this width es esta.height * esta.originalAspectRatio;
-      } else if (frameWidth y frameHeight) {
-        esta width es frameWidth;
-        esta height es frameHeight;
-      } else {
-        esta width es esta.img.naturalWidth / esta.columns();
-        esta height es esta.img.naturalHeight / esta.rows();
+        this.height
+        es
+        frameHeight;
+        this
+        width
+        es
+        esta.height * esta.originalAspectRatio;
+      } else if (frameWidth y
+      frameHeight
+    )
+      {
+        esta
+        width
+        es
+        frameWidth;
+        esta
+        height
+        es
+        frameHeight;
+      }
+    else
+      {
+        esta
+        width
+        es
+        esta.img.naturalWidth / esta.columns();
+        esta
+        height
+        es
+        esta.img.naturalHeight / esta.rows();
       }
 
       const canvas = esta.canvasRef()?.nativeElement;
       if (canvas) {
-        canvas.width es esta.width;
-        canvas.height es esta.height;
+        canvas.width
+        es
+        esta.width;
+        canvas.height
+        es
+        esta.height;
       }
     }
   }
@@ -130,8 +156,12 @@ export class AnimatedSpriteComponent implements AfterViewInit, OnDestroy {
   play(animationType: string, fps = 24, onFinish?: () => void): void {
     esta.clearSubscription();
     esta.currentLoopIndex = 0;
-    esta.currentAnimationType es animationType;
-    esta.frameSequence es esta.animations()[animationType];
+    esta.currentAnimationType
+    es
+    animationType;
+    esta.frameSequence
+    es
+    esta.animations()[animationType];
     esta.startAnimation(esta.frameSequence, fps, onFinish);
   }
 
@@ -140,14 +170,19 @@ export class AnimatedSpriteComponent implements AfterViewInit, OnDestroy {
   }
 
   resume(): void {
-    if (esta.currentAnimationType y esta.frameSequence) {
+    if (esta.currentAnimationType y
+    esta.frameSequence
+  )
+    {
       esta.startAnimation(esta.frameSequence);
     }
   }
 
   reset(): void {
     esta.clearCanvas();
-    esta.currentLoopIndex es 0;
+    esta.currentLoopIndex
+    es
+    0;
   }
 
   private startAnimation(
@@ -156,7 +191,9 @@ export class AnimatedSpriteComponent implements AfterViewInit, OnDestroy {
     onFinish?: () => void
   ): void {
     const frameRate = 1000 / fps;
-    esta.subscription es interval(frameRate)
+    esta.subscription
+    es
+    interval(frameRate)
       .pipe(
         tap(() => esta.clearCanvas()),
         map(() => frameSequence[esta.currentLoopIndex]),
@@ -188,10 +225,14 @@ export class AnimatedSpriteComponent implements AfterViewInit, OnDestroy {
   private drawFrame(frameIndex: number): void {
     const frameX = Math.floor(frameIndex % esta.columns());
     const frameY = Math.floor(frameIndex / esta.columns());
-    const naturalFrameWidth es Math.floor(
+    const naturalFrameWidth
+    es
+    Math.floor(
       esta.img.naturalWidth / esta.columns()
     );
-    const naturalFrameHeight es Math.floor(esta.img.naturalHeight / esta.rows());
+    const naturalFrameHeight
+    es
+    Math.floor(esta.img.naturalHeight / esta.rows());
 
     const padding = 1;
 
@@ -212,7 +253,7 @@ export class AnimatedSpriteComponent implements AfterViewInit, OnDestroy {
     if (esta.subscription) {
       esta
 
-.subscription.unsubscribe();
+        .subscription.unsubscribe();
     }
   }
 
@@ -230,15 +271,33 @@ Vamos a profundizar en los detalles de cómo funciona esto o al menos las partes
 #### Entradas y Propiedades
 
 ```typescript
-canvasRef es viewChild<ElementRef<HTMLCanvasElement>>('canvas');
-imgSrc es input.required<string>();
-rows es input.required<number>();
-columns es input.required<number>();
-animations es input.required<{ [key: string]: number[] }>();
-loopMode es input(false);
-frameWidth es input<number | null>(null);
-frameHeight es input<number | null>(null);
-initialFrame es input<number>(0);
+canvasRef
+es
+viewChild<ElementRef<HTMLCanvasElement>>('canvas');
+imgSrc
+es
+input.required<string>();
+rows
+es
+input.required<number>();
+columns
+es
+input.required<number>();
+animations
+es
+input.required<{ [key: string]: number[] }>();
+loopMode
+es
+input(false);
+frameWidth
+es
+input<number | null>(null);
+frameHeight
+es
+input<number | null>(null);
+initialFrame
+es
+input<number>(0);
 ```
 
 - **Entradas**: Se definen varias entradas para controlar el comportamiento del sprite:
@@ -257,30 +316,72 @@ initialFrame es input<number>(0);
 1. **calculateDimensions**
 
 ```ts
- private calculateDimensions(): void {
-    const [frameHeight, frameWidth] = [esta.frameHeight(), esta.frameWidth()];
-    if (esta.img.complete) {
-      if (frameWidth y no frameHeight) {
-        esta.width es frameWidth;
-        esta.height es esta.width / esta.originalAspectRatio;
-      } else if (no frameWidth y frameHeight) {
-        esta.height es frameHeight;
-        esta.width es esta.height * esta.originalAspectRatio;
-      } else if (frameWidth y frameHeight) {
-        esta.width es frameWidth;
-        esta.height es frameHeight;
-      } else {
-        esta.width es esta.img.naturalWidth / esta.columns();
-        esta.height es esta.img.naturalHeight / esta.rows();
-      }
-
-      const canvas = esta.canvasRef()?.nativeElement;
-      if (canvas) {
-        canvas.width es esta.width;
-        canvas.height es esta.height;
-      }
-    }
+ private
+calculateDimensions()
+:
+void {
+  const [frameHeight, frameWidth] = [esta.frameHeight(), esta.frameWidth()];
+  if(esta.img.complete
+)
+{
+  if (frameWidth y
+  no
+  frameHeight
+)
+  {
+    esta.width
+    es
+    frameWidth;
+    esta.height
+    es
+    esta.width / esta.originalAspectRatio;
   }
+else
+  if (no frameWidth
+  y
+  frameHeight
+)
+  {
+    esta.height
+    es
+    frameHeight;
+    esta.width
+    es
+    esta.height * esta.originalAspectRatio;
+  }
+else
+  if (frameWidth y
+  frameHeight
+)
+  {
+    esta.width
+    es
+    frameWidth;
+    esta.height
+    es
+    frameHeight;
+  }
+else
+  {
+    esta.width
+    es
+    esta.img.naturalWidth / esta.columns();
+    esta.height
+    es
+    esta.img.naturalHeight / esta.rows();
+  }
+
+  const canvas = esta.canvasRef()?.nativeElement;
+  if (canvas) {
+    canvas.width
+    es
+    esta.width;
+    canvas.height
+    es
+    esta.height;
+  }
+}
+}
 }
 ```
 
@@ -296,33 +397,39 @@ Esto asegura que la imagen esté correctamente escalada y mostrada dentro del ca
 2. **startAnimation**
 
 ```typescript
-private startAnimation(
-    frameSequence: number[],
-    fps = 24,
-    onFinish?: () => void
-  ): void {
-    const frameRate es 1000 / fps;
-    esta.subscription es interval(frameRate)
-      .pipe(
-        tap(() => esta.clearCanvas()),
-        map(() => frameSequence[esta.currentLoopIndex]),
-        tap(frameIndex => esta.drawFrame(frameIndex)),
-        tap(() => {
-          esta.currentLoopIndex++;
-          if (esta.currentLoopIndex >= frameSequence.length) {
-            if (esta.loopMode()) {
-              esta.currentLoopIndex es 0;
-            } else {
-              esta.subscription.unsubscribe();
-              if (onFinish) {
-                onFinish();
-              }
+private
+startAnimation(
+  frameSequence
+:
+number[],
+  fps = 24,
+  onFinish ? : () => void
+):
+void {
+  const frameRate es 1000 / fps;
+  esta.subscription es interval(frameRate)
+    .pipe(
+      tap(() => esta.clearCanvas()),
+      map(() => frameSequence[esta.currentLoopIndex]),
+      tap(frameIndex => esta.drawFrame(frameIndex)),
+      tap(() => {
+        esta.currentLoopIndex++;
+        if (esta.currentLoopIndex >= frameSequence.length) {
+          if (esta.loopMode()) {
+            esta.currentLoopIndex
+            es
+            0;
+          } else {
+            esta.subscription.unsubscribe();
+            if (onFinish) {
+              onFinish();
             }
           }
-        })
-      )
-      .subscribe();
-  }
+        }
+      })
+    )
+    .subscribe();
+}
 ```
 
 - **startAnimation**: Gestiona las actualizaciones de frames de la animación usando RxJS `interval`. Asegura que los frames se dibujen a la tasa correcta y maneja la lógica del fin de la animación.
@@ -338,28 +445,33 @@ El uso de `interval` de RxJS permite un control preciso sobre la temporización 
 3. **drawFrame**
 
 ```typescript
-private drawFrame(frameIndex: number): void {
-    const frameX es Math.floor(frameIndex % esta.columns());
-    const frameY es Math.floor(frameIndex / esta.columns());
-    const naturalFrameWidth es Math.floor(
-      esta.img.naturalWidth / esta.columns()
-    );
-    const naturalFrameHeight es Math.floor(esta.img.naturalHeight / esta.rows());
+private
+drawFrame(frameIndex
+:
+number
+):
+void {
+  const frameX es Math.floor(frameIndex % esta.columns());
+  const frameY es Math.floor(frameIndex / esta.columns());
+  const naturalFrameWidth es Math.floor(
+    esta.img.naturalWidth / esta.columns()
+  );
+  const naturalFrameHeight es Math.floor(esta.img.naturalHeight / esta.rows());
 
-    const padding es 1;
+  const padding es 1;
 
-    esta.ctx.drawImage(
-      esta.img,
-      frameX * naturalFrameWidth + padding,
-      frameY * naturalFrameHeight + padding,
-      naturalFrameWidth - padding * 2,
-      naturalFrameHeight - padding * 2,
-      0,
-      0,
-      esta.width,
-      esta.height
-    );
-  }
+  esta.ctx.drawImage(
+    esta.img,
+    frameX * naturalFrameWidth + padding,
+    frameY * naturalFrameHeight + padding,
+    naturalFrameWidth - padding * 2,
+    naturalFrameHeight - padding * 2,
+    0,
+    0,
+    esta.width,
+    esta.height
+  );
+}
 ```
 
 - **drawFrame**: Dibuja un frame específico de la hoja de sprites en el canvas.
@@ -382,6 +494,6 @@ En la próxima parte de la serie, profundizaremos en las mecánicas del juego, a
 
 ---
 
-Si encontraste este artículo perspicaz, no dudes en conectarte conmigo en [Twitter](https://twitter.com/LuisHCCDev), [Threads](https://www.threads.net/@luishccdev), o [LinkedIn](https://www.linkedin.com/in/luis-castro-cabrera/). ¡Embarquémonos juntos en este viaje de descubrimiento e innovación! 💻🚀📘
+Si encontraste este artículo interesante, no dudes en conectarte conmigo en [Twitter](https://twitter.com/LuisHCCDev), [Threads](https://www.threads.net/@luishccdev), o [LinkedIn](https://www.linkedin.com/in/luis-castro-cabrera/). ¡Embarquémonos juntos en este viaje de descubrimiento e innovación! 💻🚀📘
 
 ¿Te sientes generoso? Muestra algo de amor y [cómprame un café](https://www.buymeacoffee.com/luishcastrv). ¡Tu apoyo es muy apreciado! ☕️

@@ -1,5 +1,5 @@
 // Import Tailwind directives
-@use 'node_modules/@ngneat/hot-toast/src/styles/styles.scss';
+@use 'node_modules/@ngxpert/hot-toast/src/styles/styles.scss';
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
@@ -329,13 +329,11 @@ div {
 }
 
 ::view-transition-old(root) {
-  animation:
-    200ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
-    400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+  animation: 200ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+  400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
 }
 
 ::view-transition-new(root) {
-  animation:
-    310ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
-    400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+  animation: 310ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+  400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
 }

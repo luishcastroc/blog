@@ -3,7 +3,7 @@
   import { postMetaResolver, postTitleResolver } from '../../models/resolvers';
   import { injectContent, injectContentFiles, MarkdownComponent } from '@analogjs/content';
   import { Router, RouterLink } from '@angular/router';
-  import { TranslocoDirective, TranslocoService } from '@ngneat/transloco';
+  import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
   import { inject, Injector, runInInjectionContext } from '@angular/core';
   import { combineLatest, map, of, Subject, switchMap, takeUntil } from 'rxjs';
   import { PostAttributes } from '../../models/post.model';
@@ -79,14 +79,14 @@
       .subscribe(lang => {
         const currentRoute = router.url;
         // Update the route based on the new language
-        const newRoute = this.updateRouteBasedOnLanguage(currentRoute, lang);
+        const newRoute = updateRouteBasedOnLanguage(currentRoute, lang);
         router.navigate([newRoute]);
       });
   });
 
   function updateRouteBasedOnLanguage(route: string, lang: string): string {
     const segments = route.split('/');
-    const file = this.allFiles.find(file => file.slug === segments[2]);
+    const file = allFiles.find(file => file.slug === segments[2]);
     const fileLang = file?.filename.split('/')[3];
     if (fileLang === lang) {
       return route;

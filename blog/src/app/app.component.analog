@@ -2,7 +2,7 @@
   import Dashboard from './components/dashboard.analog' with { analog: 'imports' };
   import { inject } from '@angular/core';
   import { DOCUMENT } from '@angular/common';
-  import { TranslocoService } from '@ngneat/transloco';
+  import { TranslocoService } from '@jsverse/transloco';
 
   defineMetadata({ selector: 'app-root' });
 

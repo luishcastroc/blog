@@ -1,10 +1,10 @@
 import { ApplicationConfig, isDevMode } from '@angular/core';
-import { getBrowserLang, provideTransloco } from '@ngneat/transloco';
+import { getBrowserLang, provideTransloco } from '@jsverse/transloco';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideCloudinaryLoader } from '@angular/common';
 import { provideContent, withMarkdownRenderer } from '@analogjs/content';
 import { provideFileRouter } from '@analogjs/router';
-import { provideHotToastConfig } from '@ngneat/hot-toast';
+import { provideHotToastConfig } from '@ngxpert/hot-toast';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideSvgIcons } from '@ngneat/svg-icon';
 import { svgIcons } from './svg-icons';

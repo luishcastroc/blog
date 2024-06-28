@@ -1,6 +1,6 @@
 <script lang="ts">
   import { NgClass } from '@angular/common';
-  import { TranslocoDirective, TranslocoModule, TranslocoService } from '@ngneat/transloco';
+  import { TranslocoDirective, TranslocoModule, TranslocoService } from '@jsverse/transloco';
   import { inject } from '@angular/core';
   import { Subscription, take } from 'rxjs';
 

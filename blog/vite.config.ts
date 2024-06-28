@@ -20,7 +20,8 @@ const postRoutes = {
 export default defineConfig(({ mode }) => {
   return {
     ssr: {
-      noExternal: ['@tanstack/**'],
+      noExternal: ['@tanstack/**', '@jsverse/**', '@ngxpert/**'],
+      optimizeDeps: { include: ['@ngxpert/hot-toast'] },
     },
     root: __dirname,
     publicDir: 'src/public',

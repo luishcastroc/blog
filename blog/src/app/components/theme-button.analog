@@ -3,7 +3,7 @@
   import { fromEvent, map, startWith } from 'rxjs';
   import { SvgIconComponent } from '@ngneat/svg-icon';
   import { NgClass } from '@angular/common';
-  import { TranslocoDirective } from '@ngneat/transloco';
+  import { TranslocoDirective } from '@jsverse/transloco';
 
   defineMetadata({ imports: [SvgIconComponent, NgClass, TranslocoDirective] });
 

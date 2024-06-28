@@ -1,7 +1,7 @@
 <script lang="ts">
   import { NgOptimizedImage } from '@angular/common';
   import { SvgIconComponent } from '@ngneat/svg-icon';
-  import { TranslocoDirective } from '@ngneat/transloco';
+  import { TranslocoDirective } from '@jsverse/transloco';
 
   defineMetadata({
     imports: [

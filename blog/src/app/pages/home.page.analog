@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { TranslocoDirective } from '@ngneat/transloco';
+  import { TranslocoDirective } from '@jsverse/transloco';
   import { RouteMeta } from '@analogjs/router';
 
   export const routeMeta: RouteMeta = {

@@ -2,7 +2,7 @@
   import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
   import { SvgIconComponent } from '@ngneat/svg-icon';
   import { NgClass } from '@angular/common';
-  import { TranslocoDirective } from '@ngneat/transloco';
+  import { TranslocoDirective } from '@jsverse/transloco';
   import TranslateButton from './translate-button.analog' with { analog: 'imports' };
   import ThemeButton from './theme-button.analog' with { analog: 'imports' };
   import { filter } from 'rxjs';
