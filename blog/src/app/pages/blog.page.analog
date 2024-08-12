@@ -4,6 +4,8 @@
   import 'prismjs/components/prism-go';
   import 'prismjs/components/prism-markdown';
   import 'prismjs/components/prism-sql';
+  import 'prismjs/components/prism-clike';
+  import 'prismjs/components/prism-csharp';
 
   export const routeMeta: RouteMeta = {
     title: 'Luis Castro - Blog',
