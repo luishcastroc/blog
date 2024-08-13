@@ -323,6 +323,8 @@ Ejecuta el servidor usando `nx serve api` y luego ejecuta el frontend usando `nx
 
 Pequeño pero poderoso, este ejemplo demuestra la fortaleza de estas tres herramientas trabajando juntas: un backend **.NET**, las herramientas increíblemente útiles de **Nx** para mantener todo organizado y darle un impulso a nuestro proceso de desarrollo, y **Angular** mejorado por **AnalogJS**. Completamos nuestra aplicación básica de notas, pero lo más importante, mostramos lo que este stack puede hacer a gran escala. Las posibilidades son infinitas.
 
+Si quieres checar el proyecto funcional, checa [aquí](https://github.com/luishcastroc/analog-dotnet)
+
 ---
 
 Si encontraste útil este artículo, no dudes en conectarte conmigo en [Twitter](https://twitter.com/LuisHCCDev), [Threads](https://www.threads.net/@luishccdev), o [LinkedIn](https://www.linkedin.com/in/luis-castro-cabrera/). ¡Sigamos construyendo cosas geniales juntos! 💻🚀📘
