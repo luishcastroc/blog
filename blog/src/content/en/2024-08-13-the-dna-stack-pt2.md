@@ -2,7 +2,7 @@
 title: The Dotnet, Nx, AnalogJs (Angular) Stack is here - Part 2
 slug: the-dna-stack-pt2
 otherSlug: el-dna-stack-pt2
-description: A stack is born—Building a fullstack app with .NET Core, NX, and AnalogJS (Angular). The Front End
+description: A stack is born, Building a fullstack app with .NET Core, NX, and AnalogJS (Angular). The Front End
 author: Luis Castro
 coverImage: v1712246484/dna-stack-2.png
 date: 08-13-2024
