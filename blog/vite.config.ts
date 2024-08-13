@@ -51,6 +51,11 @@ export default defineConfig(({ mode }) => {
           serveStatic: false,
           externals: { inline: ['zone.js/node', 'tslib'] },
         },
+        content: {
+          prismOptions: {
+            additionalLangs: ['go', 'markdown', 'sql', 'clike', 'csharp'],
+          },
+        },
       }),
       nxViteTsPaths(),
       splitVendorChunkPlugin(),
