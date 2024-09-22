@@ -1,7 +1,7 @@
 <!--suppress ALL -->
 <script lang="ts">
   import { inject } from '@angular/core';
-  import { HttpClient } from '@angular/common/http';
+  import { HttpClient, HttpErrorResponse } from '@angular/common/http';
   import { HotToastService } from '@ngxpert/hot-toast';
   import { ReactiveFormsModule } from '@angular/forms';
   import { TranslocoDirective } from '@jsverse/transloco';

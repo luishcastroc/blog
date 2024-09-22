@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@analogjs/content':
-        specifier: 1.7.3
-        version: 1.7.3(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(@angular/platform-browser@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/router@18.2.1(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(@angular/platform-browser@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(rxjs@7.8.1))(@nx/devkit@19.6.5(nx@19.6.5))(front-matter@4.0.2)(prismjs@1.29.0)(rxjs@7.8.1)
+        specifier: 1.8.0-beta.6
+        version: 1.8.0-beta.6(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(@angular/platform-browser@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/router@18.2.1(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(@angular/platform-browser@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(rxjs@7.8.1))(@nx/devkit@19.6.5(nx@19.6.5))(front-matter@4.0.2)(prismjs@1.29.0)(rxjs@7.8.1)
       '@analogjs/router':
-        specifier: 1.7.3
-        version: 1.7.3(tyuaaeqdk7t5jc2tdxq43sphb4)
+        specifier: 1.8.0-beta.6
+        version: 1.8.0-beta.6(jfqau6uyanssnzk6giqfmgf5iy)
       '@angular/animations':
         specifier: 18.2.1
         version: 18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))
@@ -97,11 +97,11 @@ importers:
         version: 0.14.3
     devDependencies:
       '@analogjs/platform':
-        specifier: 1.7.3
-        version: 1.7.3(tq2qh2h5biixncg5ldbmq6zmhy)
+        specifier: 1.8.0-beta.6
+        version: 1.8.0-beta.6(tq2qh2h5biixncg5ldbmq6zmhy)
       '@analogjs/vite-plugin-angular':
-        specifier: 1.7.3
-        version: 1.7.3(vo64r3mvnuycopkdinb5vhdiim)
+        specifier: 1.8.0-beta.6
+        version: 1.8.0-beta.6(vo64r3mvnuycopkdinb5vhdiim)
       '@angular-devkit/build-angular':
         specifier: 18.2.1
         version: 18.2.1(@angular/compiler-cli@18.2.1(@angular/compiler@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(typescript@5.5.4))(@angular/platform-server@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/compiler@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(@angular/platform-browser@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))))(@types/node@18.19.15)(chokidar@3.6.0)(stylus@0.59.0)(tailwindcss@3.4.4(ts-node@10.9.1(@types/node@18.19.15)(typescript@5.5.4)))(typescript@5.5.4)
@@ -236,8 +236,8 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@analogjs/content@1.7.3':
-    resolution: {integrity: sha512-4vqJWgZZCR4LCVhtbl8Fr1B1zfu70DzGcWstiMzO4BSljIOLPgnCBSlWim6emWO3sMIRYOVRMMKTC6Bz/DWOwA==}
+  '@analogjs/content@1.8.0-beta.6':
+    resolution: {integrity: sha512-IM95t3MuiNOOBStvqmz+x/Ad+UZlkmDrsJsxyJIUXpoWqs3iVJX72ceQAQuW0YIv+FW90K1oncWthyZ+QuAj3Q==}
     peerDependencies:
       '@angular/common': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
       '@angular/core': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
@@ -247,9 +247,19 @@ packages:
       front-matter: ^4.0.2
       prismjs: ^1.29.0
       rxjs: ^6.5.0 || ^7.5.0
+      satori: ^0.10.14
+      satori-html: ^0.3.2
+      sharp: ^0.33.5
+    peerDependenciesMeta:
+      satori:
+        optional: true
+      satori-html:
+        optional: true
+      sharp:
+        optional: true
 
-  '@analogjs/platform@1.7.3':
-    resolution: {integrity: sha512-iVx0sgA8e/UuNMmKQOvyOEwMgpQFK9nBaCPOqQbH+MGT1DxvCA1KnD3nPZl+8gK15zU/UktSLO27Uemv3UrL5g==}
+  '@analogjs/platform@1.8.0-beta.6':
+    resolution: {integrity: sha512-F6x+YMQX2w2bsEZXgmWfKQcjYqxqxhHgZ13FDacSlsK1ZfWsB/+lqnMLyZAYAToUMJOHCmJtnwbs+O/78M87tQ==}
     peerDependencies:
       '@nx/angular': ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       '@nx/devkit': ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -271,15 +281,15 @@ packages:
       shiki:
         optional: true
 
-  '@analogjs/router@1.7.3':
-    resolution: {integrity: sha512-9aV5k9plKL6JBL9Qa0tpNhzg9HsRuBWVMnG3kAkHmeCF+6EdhqWU8KTrm4niLEr1pv6KhSSTIrsE62YQVVTYCQ==}
+  '@analogjs/router@1.8.0-beta.6':
+    resolution: {integrity: sha512-2v4KXm6KjrDXDah7Tw9YyXM/iIWtv/Z8dr3VGM0nsG3pNQtS65jNzsoXcOZDHvTyu0KtQUWRRoVC1Q8g9tr16Q==}
     peerDependencies:
-      '@analogjs/content': ^1.7.3
+      '@analogjs/content': ^1.8.0-beta.6
       '@angular/core': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
       '@angular/router': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
 
-  '@analogjs/vite-plugin-angular@1.7.3':
-    resolution: {integrity: sha512-+WdFazHVQHPCRFjMj4P6p6WGAT7Jmk82M9mqWs0U6EJmvQbV/DNXizB32/4r6zoP/FEaMKhnFnN4RNQ7BpKYJA==}
+  '@analogjs/vite-plugin-angular@1.8.0-beta.6':
+    resolution: {integrity: sha512-Ga203QlkFCfTBax+acQatziO2gWx41djeX2WqlrMgN22fS9MxHOkFlwOaNHofY3CCKbu2w4pKuMsveP7o79PAQ==}
     peerDependencies:
       '@angular-devkit/build-angular': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
       '@angular/build': ^18.0.0
@@ -289,8 +299,8 @@ packages:
       '@angular/build':
         optional: true
 
-  '@analogjs/vite-plugin-nitro@1.7.3':
-    resolution: {integrity: sha512-WFTSviWQVE5dPs4NIZR7KyWwfwHfl/OANOPSHFqKICZJ0GvK/lRR/1GZorXpTf1wh700/YqxgcshnAUiy8vU6Q==}
+  '@analogjs/vite-plugin-nitro@1.8.0-beta.6':
+    resolution: {integrity: sha512-IHIN54zyQWrwVMuljTBQja+ubUZQVbRlv01dHclDu1D+h/pFweWEJbpCbThFM0qs2X8lha4mXoQpjhVvF0S+EA==}
 
   '@angular-devkit/architect@0.1802.1':
     resolution: {integrity: sha512-XTnJfCBMDQl3xF4w/eNrq821gbj2Ig1cqbzpRflhz4pqrANTAfHfPoIC7piWEZ60FNlHapzb6fvh6tJUGXG9og==}
@@ -8209,7 +8219,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@analogjs/content@1.7.3(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(@angular/platform-browser@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/router@18.2.1(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(@angular/platform-browser@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(rxjs@7.8.1))(@nx/devkit@19.6.5(nx@19.6.5))(front-matter@4.0.2)(prismjs@1.29.0)(rxjs@7.8.1)':
+  '@analogjs/content@1.8.0-beta.6(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(@angular/platform-browser@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/router@18.2.1(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(@angular/platform-browser@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(rxjs@7.8.1))(@nx/devkit@19.6.5(nx@19.6.5))(front-matter@4.0.2)(prismjs@1.29.0)(rxjs@7.8.1)':
     dependencies:
       '@angular/common': 18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1)
       '@angular/core': 18.2.1(rxjs@7.8.1)(zone.js@0.14.3)
@@ -8221,10 +8231,10 @@ snapshots:
       rxjs: 7.8.1
       tslib: 2.6.3
 
-  '@analogjs/platform@1.7.3(tq2qh2h5biixncg5ldbmq6zmhy)':
+  '@analogjs/platform@1.8.0-beta.6(tq2qh2h5biixncg5ldbmq6zmhy)':
     dependencies:
-      '@analogjs/vite-plugin-angular': 1.7.3(vo64r3mvnuycopkdinb5vhdiim)
-      '@analogjs/vite-plugin-nitro': 1.7.3(@opentelemetry/api@1.9.0)(encoding@0.1.13)
+      '@analogjs/vite-plugin-angular': 1.8.0-beta.6(vo64r3mvnuycopkdinb5vhdiim)
+      '@analogjs/vite-plugin-nitro': 1.8.0-beta.6(@opentelemetry/api@1.9.0)(encoding@0.1.13)
       '@nx/angular': 19.6.5(qh4j3dq7ler6sf5jf2ilwsbknm)
       '@nx/devkit': 19.6.5(nx@19.6.5)
       '@nx/vite': 19.6.5(@babel/traverse@7.25.4)(@types/node@18.19.15)(nx@19.6.5)(typescript@5.5.4)(vite@5.2.7(@types/node@18.19.15)(less@4.1.3)(sass@1.77.6)(stylus@0.59.0)(terser@5.31.6))(vitest@1.4.0(@edge-runtime/vm@3.0.3)(@types/node@18.19.15)(jsdom@22.1.0)(less@4.1.3)(sass@1.77.6)(stylus@0.59.0)(terser@5.31.6))
@@ -8262,21 +8272,21 @@ snapshots:
       - vite
       - xml2js
 
-  '@analogjs/router@1.7.3(tyuaaeqdk7t5jc2tdxq43sphb4)':
+  '@analogjs/router@1.8.0-beta.6(jfqau6uyanssnzk6giqfmgf5iy)':
     dependencies:
-      '@analogjs/content': 1.7.3(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(@angular/platform-browser@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/router@18.2.1(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(@angular/platform-browser@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(rxjs@7.8.1))(@nx/devkit@19.6.5(nx@19.6.5))(front-matter@4.0.2)(prismjs@1.29.0)(rxjs@7.8.1)
+      '@analogjs/content': 1.8.0-beta.6(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(@angular/platform-browser@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/router@18.2.1(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(@angular/platform-browser@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(rxjs@7.8.1))(@nx/devkit@19.6.5(nx@19.6.5))(front-matter@4.0.2)(prismjs@1.29.0)(rxjs@7.8.1)
       '@angular/core': 18.2.1(rxjs@7.8.1)(zone.js@0.14.3)
       '@angular/router': 18.2.1(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(@angular/platform-browser@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(rxjs@7.8.1)
       tslib: 2.6.3
 
-  '@analogjs/vite-plugin-angular@1.7.3(vo64r3mvnuycopkdinb5vhdiim)':
+  '@analogjs/vite-plugin-angular@1.8.0-beta.6(vo64r3mvnuycopkdinb5vhdiim)':
     dependencies:
       ts-morph: 21.0.1
     optionalDependencies:
       '@angular-devkit/build-angular': 18.2.1(@angular/compiler-cli@18.2.1(@angular/compiler@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(typescript@5.5.4))(@angular/platform-server@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/compiler@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(@angular/platform-browser@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))))(@types/node@18.19.15)(chokidar@3.6.0)(stylus@0.59.0)(tailwindcss@3.4.4(ts-node@10.9.1(@types/node@18.19.15)(typescript@5.5.4)))(typescript@5.5.4)
       '@angular/build': 18.2.1(@angular/compiler-cli@18.2.1(@angular/compiler@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(typescript@5.5.4))(@angular/platform-server@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/compiler@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(@angular/platform-browser@18.2.1(@angular/animations@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3)))(@angular/common@18.2.1(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))(rxjs@7.8.1))(@angular/core@18.2.1(rxjs@7.8.1)(zone.js@0.14.3))))(@types/node@18.19.15)(chokidar@3.6.0)(less@4.1.3)(postcss@8.4.38)(stylus@0.59.0)(tailwindcss@3.4.4(ts-node@10.9.1(@types/node@18.19.15)(typescript@5.5.4)))(terser@5.31.6)(typescript@5.5.4)
 
-  '@analogjs/vite-plugin-nitro@1.7.3(@opentelemetry/api@1.9.0)(encoding@0.1.13)':
+  '@analogjs/vite-plugin-nitro@1.8.0-beta.6(@opentelemetry/api@1.9.0)(encoding@0.1.13)':
     dependencies:
       esbuild: 0.20.2
       nitropack: 2.9.6(@opentelemetry/api@1.9.0)(encoding@0.1.13)
