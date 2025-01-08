@@ -32,9 +32,9 @@
       switchMap(lang => {
         return combineLatest([
           of(
-            allFiles.filter(file => file.filename.split('/')[3] === lang),
+            this.allFiles.filter(file => file.filename.split('/')[3] === lang),
           ),
-          runInInjectionContext(injector, () => {
+          runInInjectionContext(this.injector, () => {
             return injectContent<PostAttributes>({
               param: 'slug',
               subdirectory: lang,
