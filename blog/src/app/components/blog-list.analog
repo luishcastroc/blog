@@ -12,7 +12,7 @@
   const posts = toSignal(
     inject(TranslocoService).langChanges$.pipe(
       map(lang => {
-        return files
+        return this.files
           .filter(post => {
             const language = post.filename.split('/')[3];
             return lang === language;
