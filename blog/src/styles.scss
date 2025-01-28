@@ -1,10 +1,12 @@
 // Import Tailwind directives
+@use 'sass:map';
+@use 'sass:list';
 @use 'node_modules/@ngxpert/hot-toast/src/styles/styles.scss';
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-@import 'prismjs/plugins/toolbar/prism-toolbar.css';
-@import 'prismjs/themes/prism-tomorrow';
+@use 'tailwindcss/base';
+@use 'tailwindcss/components';
+@use 'tailwindcss/utilities';
+@use 'prismjs/plugins/toolbar/prism-toolbar.css';
+@use 'prismjs/themes/prism-tomorrow';
 
 :root {
   --scrollbar-bg: white;
@@ -183,14 +185,14 @@ div {
       )
     );
 
-    @for $i from 1 through length($circles) {
-      $circle: nth($circles, $i);
+    @for $i from 1 through list.length($circles) {
+      $circle: list.nth($circles, $i);
       &:nth-child(#{$i}) {
-        left: map-get($circle, left);
-        width: map-get($circle, width);
-        height: map-get($circle, height);
-        animation-delay: map-get($circle, delay);
-        $duration: map-get($circle, duration);
+        left: map.get($circle, left);
+        width: map.get($circle, width);
+        height: map.get($circle, height);
+        animation-delay: map.get($circle, delay);
+        $duration: map.get($circle, duration);
         @if $duration != null {
           animation-duration: $duration;
         }
@@ -329,11 +331,13 @@ div {
 }
 
 ::view-transition-old(root) {
-  animation: 200ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
-  400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+  animation:
+    200ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+    400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
 }
 
 ::view-transition-new(root) {
-  animation: 310ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
-  400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+  animation:
+    310ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+    400ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
 }
