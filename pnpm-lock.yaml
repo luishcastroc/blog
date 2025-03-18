@@ -9,56 +9,56 @@ importers:
   .:
     dependencies:
       '@analogjs/content':
-        specifier: 1.13.0
-        version: 1.13.0(@angular/common@19.1.3)(@angular/core@19.1.3)(@angular/platform-browser@19.1.3)(@angular/router@19.1.3)(@nx/devkit@20.4.0)(front-matter@4.0.2)(marked-gfm-heading-id@3.2.0)(marked-highlight@2.2.1)(marked-mangle@1.1.10)(marked@5.1.2)(prismjs@1.29.0)(rxjs@7.8.1)
+        specifier: 1.14.0
+        version: 1.14.0(b8c8fcd16d6f70cb48312ec8fcdcbf12)
       '@analogjs/router':
-        specifier: 1.13.0
-        version: 1.13.0(@analogjs/content@1.13.0)(@angular/core@19.1.3)(@angular/router@19.1.3)
+        specifier: 1.14.0
+        version: 1.14.0(@analogjs/content@1.14.0(b8c8fcd16d6f70cb48312ec8fcdcbf12))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/router@19.1.3(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(rxjs@7.8.1))
       '@angular/animations':
         specifier: 19.1.3
-        version: 19.1.3(@angular/core@19.1.3)
+        version: 19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))
       '@angular/common':
         specifier: 19.1.3
-        version: 19.1.3(@angular/core@19.1.3)(rxjs@7.8.1)
+        version: 19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
       '@angular/compiler':
         specifier: 19.1.3
-        version: 19.1.3(@angular/core@19.1.3)
+        version: 19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))
       '@angular/core':
         specifier: 19.1.3
         version: 19.1.3(rxjs@7.8.1)(zone.js@0.15.0)
       '@angular/forms':
         specifier: 19.1.3
-        version: 19.1.3(@angular/common@19.1.3)(@angular/core@19.1.3)(@angular/platform-browser@19.1.3)(rxjs@7.8.1)
+        version: 19.1.3(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(rxjs@7.8.1)
       '@angular/platform-browser':
         specifier: 19.1.3
-        version: 19.1.3(@angular/animations@19.1.3)(@angular/common@19.1.3)(@angular/core@19.1.3)
+        version: 19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))
       '@angular/platform-browser-dynamic':
         specifier: 19.1.3
-        version: 19.1.3(@angular/common@19.1.3)(@angular/compiler@19.1.3)(@angular/core@19.1.3)(@angular/platform-browser@19.1.3)
+        version: 19.1.3(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))
       '@angular/platform-server':
         specifier: 19.1.3
-        version: 19.1.3(@angular/animations@19.1.3)(@angular/common@19.1.3)(@angular/compiler@19.1.3)(@angular/core@19.1.3)(@angular/platform-browser@19.1.3)
+        version: 19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))
       '@angular/router':
         specifier: 19.1.3
-        version: 19.1.3(@angular/common@19.1.3)(@angular/core@19.1.3)(@angular/platform-browser@19.1.3)(rxjs@7.8.1)
+        version: 19.1.3(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(rxjs@7.8.1)
       '@jsverse/transloco':
         specifier: ^7.4.2
-        version: 7.5.1(@angular/core@19.1.3)(typescript@5.7.3)
+        version: 7.5.1(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(typescript@5.7.3)
       '@ngneat/overview':
         specifier: ^6.0.0
-        version: 6.1.1(@angular/core@19.1.3)
+        version: 6.1.1(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))
       '@ngneat/svg-icon':
         specifier: ^7.1.6
-        version: 7.1.6(@angular/common@19.1.3)
+        version: 7.1.6(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))
       '@ngxpert/hot-toast':
         specifier: ^3.0.0
-        version: 3.1.1(@angular/core@19.1.3)(@ngneat/overview@6.1.1)
+        version: 3.1.1(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@ngneat/overview@6.1.1(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))
       '@senior-robot/source':
         specifier: 'link:'
         version: 'link:'
       '@tanstack/angular-form':
         specifier: 0.23.3
-        version: 0.23.3(@angular/common@19.1.3)(@angular/core@19.1.3)
+        version: 0.23.3(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))
       dotenv:
         specifier: ^16.4.5
         version: 16.4.7
@@ -97,35 +97,35 @@ importers:
         version: 0.15.0
     devDependencies:
       '@analogjs/platform':
-        specifier: 1.13.0
-        version: 1.13.0(@angular-devkit/build-angular@19.1.4)(@nx/angular@20.4.0)(@nx/devkit@20.4.0)(@nx/vite@20.4.0)(marked-gfm-heading-id@3.2.0)(marked-highlight@2.2.1)(marked-mangle@1.1.10)(marked@5.1.2)(prismjs@1.29.0)(typescript@5.7.3)(vite@5.2.7)
+        specifier: 1.14.0
+        version: 1.14.0(798dc6180d62769960d5e91e10a7b46b)
       '@analogjs/vite-plugin-angular':
-        specifier: 1.13.0
-        version: 1.13.0(@angular-devkit/build-angular@19.1.4)
+        specifier: 1.14.0
+        version: 1.14.0(daf611d149e65451812c8f9cf227b301)
       '@angular-devkit/build-angular':
         specifier: 19.1.4
-        version: 19.1.4(@angular/compiler-cli@19.1.3)(@angular/compiler@19.1.3)(@angular/platform-server@19.1.3)(@rspack/core@1.2.2)(@types/node@18.19.15)(stylus@0.64.0)(tailwindcss@3.4.17)(typescript@5.7.3)(vite@5.2.7)
+        version: 19.1.4(786741d6be16f32196741d41699d5293)
       '@angular-devkit/core':
         specifier: 19.1.4
-        version: 19.1.4
+        version: 19.1.4(chokidar@4.0.3)
       '@angular-devkit/schematics':
         specifier: 19.1.4
-        version: 19.1.4
+        version: 19.1.4(chokidar@4.0.3)
       '@angular-eslint/eslint-plugin':
         specifier: 19.0.2
-        version: 19.0.2(@typescript-eslint/utils@7.18.0)(eslint@8.57.1)(typescript@5.7.3)
+        version: 19.0.2(@typescript-eslint/utils@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3)
       '@angular-eslint/eslint-plugin-template':
         specifier: 19.0.2
-        version: 19.0.2(@typescript-eslint/types@8.22.0)(@typescript-eslint/utils@7.18.0)(eslint@8.57.1)(typescript@5.7.3)
+        version: 19.0.2(@typescript-eslint/types@8.22.0)(@typescript-eslint/utils@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3)
       '@angular-eslint/template-parser':
         specifier: 19.0.2
         version: 19.0.2(eslint@8.57.1)(typescript@5.7.3)
       '@angular/cli':
         specifier: ~19.1.0
-        version: 19.1.4(@types/node@18.19.15)
+        version: 19.1.4(@types/node@18.19.15)(chokidar@4.0.3)
       '@angular/compiler-cli':
         specifier: 19.1.3
-        version: 19.1.3(@angular/compiler@19.1.3)(typescript@5.7.3)
+        version: 19.1.3(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.7.3)
       '@angular/language-service':
         specifier: 19.1.3
         version: 19.1.3
@@ -134,34 +134,34 @@ importers:
         version: 7.0.3(svgo@3.3.2)
       '@nx/angular':
         specifier: 20.4.0
-        version: 20.4.0(@angular-devkit/build-angular@19.1.4)(@angular-devkit/core@19.1.4)(@angular-devkit/schematics@19.1.4)(@rspack/core@1.2.2)(@schematics/angular@19.1.4)(@types/node@18.19.15)(eslint@8.57.1)(nx@20.4.0)(react-dom@19.0.0)(react@19.0.0)(rxjs@7.8.1)(typescript@5.7.3)
+        version: 20.4.0(@angular-devkit/build-angular@19.1.4(786741d6be16f32196741d41699d5293))(@angular-devkit/core@19.1.4(chokidar@4.0.3))(@angular-devkit/schematics@19.1.4(chokidar@4.0.3))(@babel/traverse@7.26.7)(@rspack/core@1.2.2(@swc/helpers@0.5.15))(@schematics/angular@19.1.4(chokidar@4.0.3))(@swc/helpers@0.5.15)(@types/node@18.19.15)(@zkochan/js-yaml@0.0.7)(eslint@8.57.1)(nx@20.4.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rxjs@7.8.1)(typescript@5.7.3)
       '@nx/cypress':
         specifier: 20.4.0
-        version: 20.4.0(@types/node@18.19.15)(cypress@13.13.1)(eslint@8.57.1)(nx@20.4.0)(typescript@5.7.3)
+        version: 20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(@zkochan/js-yaml@0.0.7)(cypress@13.13.1)(eslint@8.57.1)(nx@20.4.0)(typescript@5.7.3)
       '@nx/devkit':
         specifier: 20.4.0
         version: 20.4.0(nx@20.4.0)
       '@nx/eslint':
         specifier: 20.4.0
-        version: 20.4.0(@types/node@18.19.15)(eslint@8.57.1)(nx@20.4.0)
+        version: 20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(@zkochan/js-yaml@0.0.7)(eslint@8.57.1)(nx@20.4.0)
       '@nx/eslint-plugin':
         specifier: 20.4.0
-        version: 20.4.0(@types/node@18.19.15)(@typescript-eslint/parser@7.18.0)(eslint@8.57.1)(nx@20.4.0)(typescript@5.7.3)
+        version: 20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(nx@20.4.0)(typescript@5.7.3)
       '@nx/js':
         specifier: 20.4.0
-        version: 20.4.0(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
+        version: 20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
       '@nx/vite':
         specifier: 20.4.0
-        version: 20.4.0(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)(vite@5.2.7)(vitest@1.4.0)
+        version: 20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)(vite@5.2.7(@types/node@18.19.15)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0))(vitest@1.4.0(@edge-runtime/vm@3.0.3)(@types/node@18.19.15)(jsdom@22.1.0)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0))
       '@nx/workspace':
         specifier: 20.4.0
         version: 20.4.0
       '@schematics/angular':
         specifier: 19.1.4
-        version: 19.1.4
+        version: 19.1.4(chokidar@4.0.3)
       '@tailwindcss/typography':
         specifier: ^0.5.10
-        version: 0.5.16(tailwindcss@3.4.17)
+        version: 0.5.16(tailwindcss@3.4.17(ts-node@10.9.1(@types/node@18.19.15)(typescript@5.7.3)))
       '@types/luxon':
         specifier: ^3.3.4
         version: 3.4.2
@@ -170,7 +170,7 @@ importers:
         version: 18.19.15
       '@typescript-eslint/eslint-plugin':
         specifier: 7.18.0
-        version: 7.18.0(@typescript-eslint/parser@7.18.0)(eslint@8.57.1)(typescript@5.7.3)
+        version: 7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3)
       '@typescript-eslint/parser':
         specifier: 7.18.0
         version: 7.18.0(eslint@8.57.1)(typescript@5.7.3)
@@ -179,7 +179,7 @@ importers:
         version: 7.18.0(eslint@8.57.1)(typescript@5.7.3)
       '@vercel/node':
         specifier: ^2.15.9
-        version: 2.15.10
+        version: 2.15.10(encoding@0.1.13)
       autoprefixer:
         specifier: ^10.4.14
         version: 10.4.20(postcss@8.5.1)
@@ -188,7 +188,7 @@ importers:
         version: 13.13.1
       daisyui:
         specifier: ^3.5.1
-        version: 3.9.4
+        version: 3.9.4(ts-node@10.9.1(@types/node@18.19.15)(typescript@5.7.3))
       destr:
         specifier: ^2.0.1
         version: 2.0.3
@@ -212,16 +212,16 @@ importers:
         version: 0.5.14(prettier@3.4.2)
       tailwindcss:
         specifier: ^3.3.3
-        version: 3.4.17
+        version: 3.4.17(ts-node@10.9.1(@types/node@18.19.15)(typescript@5.7.3))
       typescript:
         specifier: 5.7.3
         version: 5.7.3
       vite:
         specifier: 5.2.7
-        version: 5.2.7(@types/node@18.19.15)(less@4.1.3)(stylus@0.64.0)
+        version: 5.2.7(@types/node@18.19.15)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0)
       vitest:
         specifier: 1.4.0
-        version: 1.4.0(@types/node@18.19.15)(jsdom@22.1.0)(less@4.1.3)(stylus@0.64.0)
+        version: 1.4.0(@edge-runtime/vm@3.0.3)(@types/node@18.19.15)(jsdom@22.1.0)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0)
 
 packages:
 
@@ -236,8 +236,8 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@analogjs/content@1.13.0':
-    resolution: {integrity: sha512-3uoicAYnh6XBUDNAsQpn5nzJAVRvPlxVLrB76Hmk2YCVLQMvLGSqui+s7mX9WLCpHMLNTmX0j5L637qpcMXtnQ==}
+  '@analogjs/content@1.14.0':
+    resolution: {integrity: sha512-4IB9lEtnMS38WjdpVCkUhVGFot5RlrcR85SvJnvVOJAWQrjfwIkaH6glkVc8WrLNFcizTkyDZoK3Ukml9rEaSA==}
     peerDependencies:
       '@angular/common': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       '@angular/core': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -262,8 +262,8 @@ packages:
       sharp:
         optional: true
 
-  '@analogjs/platform@1.13.0':
-    resolution: {integrity: sha512-dgLigWA/1NVVrJJSk9jrxkZfNmAcnpvMiSwcHy3KL7r/51rAe96cT3UNv/Swtwrm0xgR3Mj1bd+MENmk30DTpw==}
+  '@analogjs/platform@1.14.0':
+    resolution: {integrity: sha512-uJ7cEyVvAgOqMyY8mG0QSnAzE37NM+i1OxjaWpuUVsuUb5BwgcA96PzLVn0sU4tIuzJQ5IWIZ5Aj5YgmQG7zsw==}
     peerDependencies:
       '@nx/angular': ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^20.0.0
       '@nx/devkit': ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^20.0.0
@@ -285,15 +285,15 @@ packages:
       shiki:
         optional: true
 
-  '@analogjs/router@1.13.0':
-    resolution: {integrity: sha512-ad7JzKN3WsEFWqzjF7kEV68pE2ayBlRmEf0NbzZwoz+C+tSWPluXkOYm2lRserwtBWD/e1P8LXuNz/dwV+yeCg==}
+  '@analogjs/router@1.14.0':
+    resolution: {integrity: sha512-dNXBHMDB9nhYj+mEdGjZ3kKBg0F7ScCriwbQ/7PkeXzgUXSZiEpGN/AWyqfi3eX6VadOR52f1R3RQllUXhurNw==}
     peerDependencies:
-      '@analogjs/content': ^1.13.0
+      '@analogjs/content': ^1.14.0
       '@angular/core': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       '@angular/router': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@analogjs/vite-plugin-angular@1.13.0':
-    resolution: {integrity: sha512-h9XTXtbOKXyjrjFdy5qy40wam3vTttujWCpnoqygnopWaKS9T86LVnBFAW1p2yaBa7Wzz/BKDs2MtBBPWht8Sw==}
+  '@analogjs/vite-plugin-angular@1.14.0':
+    resolution: {integrity: sha512-SNoDN3zjOlDtknfXqKX7RxR1kcnwJ0QI0Q6wzgMdCbP6re8przInF2i/2axmtYBmInPYorGwI5MmtoJeJZCg0A==}
     peerDependencies:
       '@angular-devkit/build-angular': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       '@angular/build': ^18.0.0 || ^19.0.0
@@ -303,8 +303,8 @@ packages:
       '@angular/build':
         optional: true
 
-  '@analogjs/vite-plugin-nitro@1.13.0':
-    resolution: {integrity: sha512-C60hGQwmoEr2fWT/uc62fKCHJHUAB0F0hQMemdpborxq8XekHk+FT1jS4bRhkFuQk1ZV2BNwH3biHBBs/M+3fQ==}
+  '@analogjs/vite-plugin-nitro@1.14.0':
+    resolution: {integrity: sha512-p4xf1rq+m+LPrjD9FZJ7ETz27MydcgFBTSzOcxyQVsszELXUMA2Ct4jKY3QZvaVdQ4Z6zD9ePSiCTh7Ribvj2Q==}
 
   '@angular-devkit/architect@0.1901.4':
     resolution: {integrity: sha512-EoRTN8p7z0YnqOEIJKKu/NwSsCJxFkyGuZOobz7btnUWwlDqG8CNAhJgtlsOXPihwEkHEkzRIm1feDkWEjCYsA==}
@@ -5388,8 +5388,6 @@ packages:
     peerDependenciesMeta:
       webpack:
         optional: true
-      webpack-sources:
-        optional: true
 
   lilconfig@3.1.3:
     resolution: {integrity: sha512-/vlFKAoH5Cgt3Ie+JLhRbwOsCQePABiU3tJ1egGvyQ+33R/vcwM2Zl2QR/LzjsBeItPt3oSVXapn+m4nQDvpzw==}
@@ -8113,12 +8111,12 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@analogjs/content@1.13.0(@angular/common@19.1.3)(@angular/core@19.1.3)(@angular/platform-browser@19.1.3)(@angular/router@19.1.3)(@nx/devkit@20.4.0)(front-matter@4.0.2)(marked-gfm-heading-id@3.2.0)(marked-highlight@2.2.1)(marked-mangle@1.1.10)(marked@5.1.2)(prismjs@1.29.0)(rxjs@7.8.1)':
+  '@analogjs/content@1.14.0(b8c8fcd16d6f70cb48312ec8fcdcbf12)':
     dependencies:
-      '@angular/common': 19.1.3(@angular/core@19.1.3)(rxjs@7.8.1)
+      '@angular/common': 19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
       '@angular/core': 19.1.3(rxjs@7.8.1)(zone.js@0.15.0)
-      '@angular/platform-browser': 19.1.3(@angular/animations@19.1.3)(@angular/common@19.1.3)(@angular/core@19.1.3)
-      '@angular/router': 19.1.3(@angular/common@19.1.3)(@angular/core@19.1.3)(@angular/platform-browser@19.1.3)(rxjs@7.8.1)
+      '@angular/platform-browser': 19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))
+      '@angular/router': 19.1.3(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(rxjs@7.8.1)
       '@nx/devkit': 20.4.0(nx@20.4.0)
       front-matter: 4.0.2
       marked: 5.1.2
@@ -8129,20 +8127,21 @@ snapshots:
       rxjs: 7.8.1
       tslib: 2.8.1
 
-  '@analogjs/platform@1.13.0(@angular-devkit/build-angular@19.1.4)(@nx/angular@20.4.0)(@nx/devkit@20.4.0)(@nx/vite@20.4.0)(marked-gfm-heading-id@3.2.0)(marked-highlight@2.2.1)(marked-mangle@1.1.10)(marked@5.1.2)(prismjs@1.29.0)(typescript@5.7.3)(vite@5.2.7)':
+  '@analogjs/platform@1.14.0(798dc6180d62769960d5e91e10a7b46b)':
     dependencies:
-      '@analogjs/vite-plugin-angular': 1.13.0(@angular-devkit/build-angular@19.1.4)
-      '@analogjs/vite-plugin-nitro': 1.13.0(typescript@5.7.3)
-      '@nx/angular': 20.4.0(@angular-devkit/build-angular@19.1.4)(@angular-devkit/core@19.1.4)(@angular-devkit/schematics@19.1.4)(@rspack/core@1.2.2)(@schematics/angular@19.1.4)(@types/node@18.19.15)(eslint@8.57.1)(nx@20.4.0)(react-dom@19.0.0)(react@19.0.0)(rxjs@7.8.1)(typescript@5.7.3)
+      '@analogjs/vite-plugin-angular': 1.14.0(daf611d149e65451812c8f9cf227b301)
+      '@analogjs/vite-plugin-nitro': 1.14.0(encoding@0.1.13)(typescript@5.7.3)
+      '@nx/angular': 20.4.0(@angular-devkit/build-angular@19.1.4(786741d6be16f32196741d41699d5293))(@angular-devkit/core@19.1.4(chokidar@4.0.3))(@angular-devkit/schematics@19.1.4(chokidar@4.0.3))(@babel/traverse@7.26.7)(@rspack/core@1.2.2(@swc/helpers@0.5.15))(@schematics/angular@19.1.4(chokidar@4.0.3))(@swc/helpers@0.5.15)(@types/node@18.19.15)(@zkochan/js-yaml@0.0.7)(eslint@8.57.1)(nx@20.4.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rxjs@7.8.1)(typescript@5.7.3)
       '@nx/devkit': 20.4.0(nx@20.4.0)
-      '@nx/vite': 20.4.0(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)(vite@5.2.7)(vitest@1.4.0)
+      '@nx/vite': 20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)(vite@5.2.7(@types/node@18.19.15)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0))(vitest@1.4.0(@edge-runtime/vm@3.0.3)(@types/node@18.19.15)(jsdom@22.1.0)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0))
       marked: 5.1.2
       marked-gfm-heading-id: 3.2.0(marked@5.1.2)
-      marked-highlight: 2.2.1(marked@5.1.2)
       marked-mangle: 1.1.10(marked@5.1.2)
-      nitropack: 2.10.4(typescript@5.7.3)
+      nitropack: 2.10.4(encoding@0.1.13)(typescript@5.7.3)
+      vitefu: 0.2.5(vite@5.2.7(@types/node@18.19.15)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0))
+    optionalDependencies:
+      marked-highlight: 2.2.1(marked@5.1.2)
       prismjs: 1.29.0
-      vitefu: 0.2.5(vite@5.2.7)
     transitivePeerDependencies:
       - '@angular-devkit/build-angular'
       - '@angular/build'
@@ -8175,23 +8174,27 @@ snapshots:
       - vite
       - xml2js
 
-  '@analogjs/router@1.13.0(@analogjs/content@1.13.0)(@angular/core@19.1.3)(@angular/router@19.1.3)':
+  '@analogjs/router@1.14.0(@analogjs/content@1.14.0(b8c8fcd16d6f70cb48312ec8fcdcbf12))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/router@19.1.3(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(rxjs@7.8.1))':
     dependencies:
-      '@analogjs/content': 1.13.0(@angular/common@19.1.3)(@angular/core@19.1.3)(@angular/platform-browser@19.1.3)(@angular/router@19.1.3)(@nx/devkit@20.4.0)(front-matter@4.0.2)(marked-gfm-heading-id@3.2.0)(marked-highlight@2.2.1)(marked-mangle@1.1.10)(marked@5.1.2)(prismjs@1.29.0)(rxjs@7.8.1)
+      '@analogjs/content': 1.14.0(b8c8fcd16d6f70cb48312ec8fcdcbf12)
       '@angular/core': 19.1.3(rxjs@7.8.1)(zone.js@0.15.0)
-      '@angular/router': 19.1.3(@angular/common@19.1.3)(@angular/core@19.1.3)(@angular/platform-browser@19.1.3)(rxjs@7.8.1)
+      '@angular/router': 19.1.3(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(rxjs@7.8.1)
       tslib: 2.8.1
 
-  '@analogjs/vite-plugin-angular@1.13.0(@angular-devkit/build-angular@19.1.4)':
+  '@analogjs/vite-plugin-angular@1.14.0(daf611d149e65451812c8f9cf227b301)':
     dependencies:
-      '@angular-devkit/build-angular': 19.1.4(@angular/compiler-cli@19.1.3)(@angular/compiler@19.1.3)(@angular/platform-server@19.1.3)(@rspack/core@1.2.2)(@types/node@18.19.15)(stylus@0.64.0)(tailwindcss@3.4.17)(typescript@5.7.3)(vite@5.2.7)
       ts-morph: 21.0.1
       vfile: 6.0.3
+    optionalDependencies:
+      '@angular-devkit/build-angular': 19.1.4(786741d6be16f32196741d41699d5293)
+      '@angular/build': 19.1.4(@angular/compiler-cli@19.1.3(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.7.3))(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/platform-server@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))))(@types/node@18.19.15)(chokidar@4.0.3)(jiti@2.4.2)(less@4.1.3)(postcss@8.5.1)(stylus@0.64.0)(tailwindcss@3.4.17(ts-node@10.9.1(@types/node@18.19.15)(typescript@5.7.3)))(terser@5.37.0)(typescript@5.7.3)(yaml@2.7.0)
 
-  '@analogjs/vite-plugin-nitro@1.13.0(typescript@5.7.3)':
+  '@analogjs/vite-plugin-nitro@1.14.0(encoding@0.1.13)(typescript@5.7.3)':
     dependencies:
+      defu: 6.1.4
       esbuild: 0.20.2
-      nitropack: 2.10.4(typescript@5.7.3)
+      nitropack: 2.10.4(encoding@0.1.13)(typescript@5.7.3)
+      radix3: 1.1.2
       xmlbuilder2: 3.1.1
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -8222,22 +8225,21 @@ snapshots:
       - uploadthing
       - xml2js
 
-  '@angular-devkit/architect@0.1901.4':
+  '@angular-devkit/architect@0.1901.4(chokidar@4.0.3)':
     dependencies:
-      '@angular-devkit/core': 19.1.4
+      '@angular-devkit/core': 19.1.4(chokidar@4.0.3)
       rxjs: 7.8.1
     transitivePeerDependencies:
       - chokidar
 
-  '@angular-devkit/build-angular@19.1.4(@angular/compiler-cli@19.1.3)(@angular/compiler@19.1.3)(@angular/platform-server@19.1.3)(@rspack/core@1.2.2)(@types/node@18.19.15)(stylus@0.64.0)(tailwindcss@3.4.17)(typescript@5.7.3)(vite@5.2.7)':
+  '@angular-devkit/build-angular@19.1.4(786741d6be16f32196741d41699d5293)':
     dependencies:
       '@ampproject/remapping': 2.3.0
-      '@angular-devkit/architect': 0.1901.4
-      '@angular-devkit/build-webpack': 0.1901.4(webpack-dev-server@5.2.0)(webpack@5.97.1)
-      '@angular-devkit/core': 19.1.4
-      '@angular/build': 19.1.4(@angular/compiler-cli@19.1.3)(@angular/compiler@19.1.3)(@angular/platform-server@19.1.3)(@types/node@18.19.15)(less@4.2.1)(postcss@8.4.49)(stylus@0.64.0)(tailwindcss@3.4.17)(terser@5.37.0)(typescript@5.7.3)
-      '@angular/compiler-cli': 19.1.3(@angular/compiler@19.1.3)(typescript@5.7.3)
-      '@angular/platform-server': 19.1.3(@angular/animations@19.1.3)(@angular/common@19.1.3)(@angular/compiler@19.1.3)(@angular/core@19.1.3)(@angular/platform-browser@19.1.3)
+      '@angular-devkit/architect': 0.1901.4(chokidar@4.0.3)
+      '@angular-devkit/build-webpack': 0.1901.4(chokidar@4.0.3)(webpack-dev-server@5.2.0(webpack@5.97.1(esbuild@0.24.2)))(webpack@5.97.1(esbuild@0.24.2))
+      '@angular-devkit/core': 19.1.4(chokidar@4.0.3)
+      '@angular/build': 19.1.4(@angular/compiler-cli@19.1.3(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.7.3))(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/platform-server@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))))(@types/node@18.19.15)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.1)(postcss@8.4.49)(stylus@0.64.0)(tailwindcss@3.4.17(ts-node@10.9.1(@types/node@18.19.15)(typescript@5.7.3)))(terser@5.37.0)(typescript@5.7.3)(yaml@2.7.0)
+      '@angular/compiler-cli': 19.1.3(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.7.3)
       '@babel/core': 7.26.0
       '@babel/generator': 7.26.3
       '@babel/helper-annotate-as-pure': 7.25.9
@@ -8248,14 +8250,14 @@ snapshots:
       '@babel/preset-env': 7.26.0(@babel/core@7.26.0)
       '@babel/runtime': 7.26.0
       '@discoveryjs/json-ext': 0.6.3
-      '@ngtools/webpack': 19.1.4(@angular/compiler-cli@19.1.3)(typescript@5.7.3)(webpack@5.97.1)
-      '@vitejs/plugin-basic-ssl': 1.2.0(vite@5.2.7)
+      '@ngtools/webpack': 19.1.4(@angular/compiler-cli@19.1.3(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.7.3))(typescript@5.7.3)(webpack@5.97.1(esbuild@0.24.2))
+      '@vitejs/plugin-basic-ssl': 1.2.0(vite@5.2.7(@types/node@18.19.15)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0))
       ansi-colors: 4.1.3
       autoprefixer: 10.4.20(postcss@8.4.49)
-      babel-loader: 9.2.1(@babel/core@7.26.0)(webpack@5.97.1)
+      babel-loader: 9.2.1(@babel/core@7.26.0)(webpack@5.97.1(esbuild@0.24.2))
       browserslist: 4.24.4
-      copy-webpack-plugin: 12.0.2(webpack@5.97.1)
-      css-loader: 7.1.2(@rspack/core@1.2.2)(webpack@5.97.1)
+      copy-webpack-plugin: 12.0.2(webpack@5.97.1(esbuild@0.24.2))
+      css-loader: 7.1.2(@rspack/core@1.2.2(@swc/helpers@0.5.15))(webpack@5.97.1(esbuild@0.24.2))
       esbuild-wasm: 0.24.2
       fast-glob: 3.3.3
       http-proxy-middleware: 3.0.3
@@ -8263,35 +8265,36 @@ snapshots:
       jsonc-parser: 3.3.1
       karma-source-map-support: 1.4.0
       less: 4.2.1
-      less-loader: 12.2.0(@rspack/core@1.2.2)(less@4.2.1)(webpack@5.97.1)
-      license-webpack-plugin: 4.0.2(webpack@5.97.1)
+      less-loader: 12.2.0(@rspack/core@1.2.2(@swc/helpers@0.5.15))(less@4.2.1)(webpack@5.97.1(esbuild@0.24.2))
+      license-webpack-plugin: 4.0.2(webpack@5.97.1(esbuild@0.24.2))
       loader-utils: 3.3.1
-      mini-css-extract-plugin: 2.9.2(webpack@5.97.1)
+      mini-css-extract-plugin: 2.9.2(webpack@5.97.1(esbuild@0.24.2))
       open: 10.1.0
       ora: 5.4.1
       picomatch: 4.0.2
       piscina: 4.8.0
       postcss: 8.4.49
-      postcss-loader: 8.1.1(@rspack/core@1.2.2)(postcss@8.4.49)(typescript@5.7.3)(webpack@5.97.1)
+      postcss-loader: 8.1.1(@rspack/core@1.2.2(@swc/helpers@0.5.15))(postcss@8.4.49)(typescript@5.7.3)(webpack@5.97.1(esbuild@0.24.2))
       resolve-url-loader: 5.0.0
       rxjs: 7.8.1
       sass: 1.83.1
-      sass-loader: 16.0.4(@rspack/core@1.2.2)(sass@1.83.1)(webpack@5.97.1)
+      sass-loader: 16.0.4(@rspack/core@1.2.2(@swc/helpers@0.5.15))(sass@1.83.1)(webpack@5.97.1(esbuild@0.24.2))
       semver: 7.6.3
-      source-map-loader: 5.0.0(webpack@5.97.1)
+      source-map-loader: 5.0.0(webpack@5.97.1(esbuild@0.24.2))
       source-map-support: 0.5.21
-      tailwindcss: 3.4.17
       terser: 5.37.0
       tree-kill: 1.2.2
       tslib: 2.8.1
       typescript: 5.7.3
       webpack: 5.97.1(esbuild@0.24.2)
-      webpack-dev-middleware: 7.4.2(webpack@5.97.1)
+      webpack-dev-middleware: 7.4.2(webpack@5.97.1(esbuild@0.24.2))
       webpack-dev-server: 5.2.0(webpack@5.88.0)
       webpack-merge: 6.0.1
-      webpack-subresource-integrity: 5.1.0(webpack@5.97.1)
+      webpack-subresource-integrity: 5.1.0(webpack@5.97.1(esbuild@0.24.2))
     optionalDependencies:
+      '@angular/platform-server': 19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))
       esbuild: 0.24.2
+      tailwindcss: 3.4.17(ts-node@10.9.1(@types/node@18.19.15)(typescript@5.7.3))
     transitivePeerDependencies:
       - '@angular/compiler'
       - '@rspack/core'
@@ -8315,16 +8318,16 @@ snapshots:
       - webpack-cli
       - yaml
 
-  '@angular-devkit/build-webpack@0.1901.4(webpack-dev-server@5.2.0)(webpack@5.97.1)':
+  '@angular-devkit/build-webpack@0.1901.4(chokidar@4.0.3)(webpack-dev-server@5.2.0(webpack@5.97.1(esbuild@0.24.2)))(webpack@5.97.1(esbuild@0.24.2))':
     dependencies:
-      '@angular-devkit/architect': 0.1901.4
+      '@angular-devkit/architect': 0.1901.4(chokidar@4.0.3)
       rxjs: 7.8.1
       webpack: 5.97.1(esbuild@0.24.2)
       webpack-dev-server: 5.2.0(webpack@5.88.0)
     transitivePeerDependencies:
       - chokidar
 
-  '@angular-devkit/core@19.1.4':
+  '@angular-devkit/core@19.1.4(chokidar@4.0.3)':
     dependencies:
       ajv: 8.17.1
       ajv-formats: 3.0.1(ajv@8.17.1)
@@ -8332,10 +8335,12 @@ snapshots:
       picomatch: 4.0.2
       rxjs: 7.8.1
       source-map: 0.7.4
+    optionalDependencies:
+      chokidar: 4.0.3
 
-  '@angular-devkit/schematics@19.1.4':
+  '@angular-devkit/schematics@19.1.4(chokidar@4.0.3)':
     dependencies:
-      '@angular-devkit/core': 19.1.4
+      '@angular-devkit/core': 19.1.4(chokidar@4.0.3)
       jsonc-parser: 3.3.1
       magic-string: 0.30.17
       ora: 5.4.1
@@ -8345,10 +8350,10 @@ snapshots:
 
   '@angular-eslint/bundled-angular-compiler@19.0.2': {}
 
-  '@angular-eslint/eslint-plugin-template@19.0.2(@typescript-eslint/types@8.22.0)(@typescript-eslint/utils@7.18.0)(eslint@8.57.1)(typescript@5.7.3)':
+  '@angular-eslint/eslint-plugin-template@19.0.2(@typescript-eslint/types@8.22.0)(@typescript-eslint/utils@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3)':
     dependencies:
       '@angular-eslint/bundled-angular-compiler': 19.0.2
-      '@angular-eslint/utils': 19.0.2(@typescript-eslint/utils@7.18.0)(eslint@8.57.1)(typescript@5.7.3)
+      '@angular-eslint/utils': 19.0.2(@typescript-eslint/utils@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3)
       '@typescript-eslint/types': 8.22.0
       '@typescript-eslint/utils': 7.18.0(eslint@8.57.1)(typescript@5.7.3)
       aria-query: 5.3.2
@@ -8356,10 +8361,10 @@ snapshots:
       eslint: 8.57.1
       typescript: 5.7.3
 
-  '@angular-eslint/eslint-plugin@19.0.2(@typescript-eslint/utils@7.18.0)(eslint@8.57.1)(typescript@5.7.3)':
+  '@angular-eslint/eslint-plugin@19.0.2(@typescript-eslint/utils@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3)':
     dependencies:
       '@angular-eslint/bundled-angular-compiler': 19.0.2
-      '@angular-eslint/utils': 19.0.2(@typescript-eslint/utils@7.18.0)(eslint@8.57.1)(typescript@5.7.3)
+      '@angular-eslint/utils': 19.0.2(@typescript-eslint/utils@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3)
       '@typescript-eslint/utils': 7.18.0(eslint@8.57.1)(typescript@5.7.3)
       eslint: 8.57.1
       typescript: 5.7.3
@@ -8371,54 +8376,104 @@ snapshots:
       eslint-scope: 8.2.0
       typescript: 5.7.3
 
-  '@angular-eslint/utils@19.0.2(@typescript-eslint/utils@7.18.0)(eslint@8.57.1)(typescript@5.7.3)':
+  '@angular-eslint/utils@19.0.2(@typescript-eslint/utils@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3)':
     dependencies:
       '@angular-eslint/bundled-angular-compiler': 19.0.2
       '@typescript-eslint/utils': 7.18.0(eslint@8.57.1)(typescript@5.7.3)
       eslint: 8.57.1
       typescript: 5.7.3
 
-  '@angular/animations@19.1.3(@angular/core@19.1.3)':
+  '@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))':
     dependencies:
       '@angular/core': 19.1.3(rxjs@7.8.1)(zone.js@0.15.0)
       tslib: 2.8.1
 
-  '@angular/build@19.1.4(@angular/compiler-cli@19.1.3)(@angular/compiler@19.1.3)(@angular/platform-server@19.1.3)(@types/node@18.19.15)(less@4.2.1)(postcss@8.4.49)(stylus@0.64.0)(tailwindcss@3.4.17)(terser@5.37.0)(typescript@5.7.3)':
+  '@angular/build@19.1.4(@angular/compiler-cli@19.1.3(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.7.3))(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/platform-server@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))))(@types/node@18.19.15)(chokidar@4.0.3)(jiti@2.4.2)(less@4.1.3)(postcss@8.5.1)(stylus@0.64.0)(tailwindcss@3.4.17(ts-node@10.9.1(@types/node@18.19.15)(typescript@5.7.3)))(terser@5.37.0)(typescript@5.7.3)(yaml@2.7.0)':
     dependencies:
       '@ampproject/remapping': 2.3.0
-      '@angular-devkit/architect': 0.1901.4
-      '@angular/compiler': 19.1.3(@angular/core@19.1.3)
-      '@angular/compiler-cli': 19.1.3(@angular/compiler@19.1.3)(typescript@5.7.3)
-      '@angular/platform-server': 19.1.3(@angular/animations@19.1.3)(@angular/common@19.1.3)(@angular/compiler@19.1.3)(@angular/core@19.1.3)(@angular/platform-browser@19.1.3)
+      '@angular-devkit/architect': 0.1901.4(chokidar@4.0.3)
+      '@angular/compiler': 19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))
+      '@angular/compiler-cli': 19.1.3(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.7.3)
       '@babel/core': 7.26.0
       '@babel/helper-annotate-as-pure': 7.25.9
       '@babel/helper-split-export-declaration': 7.24.7
       '@babel/plugin-syntax-import-attributes': 7.26.0(@babel/core@7.26.0)
       '@inquirer/confirm': 5.1.1(@types/node@18.19.15)
-      '@vitejs/plugin-basic-ssl': 1.2.0(vite@6.0.7)
+      '@vitejs/plugin-basic-ssl': 1.2.0(vite@6.0.7(@types/node@18.19.15)(jiti@2.4.2)(less@4.1.3)(sass@1.83.1)(stylus@0.64.0)(terser@5.37.0)(yaml@2.7.0))
       beasties: 0.2.0
       browserslist: 4.24.4
       esbuild: 0.24.2
       fast-glob: 3.3.3
-      https-proxy-agent: 7.0.6
+      https-proxy-agent: 7.0.6(supports-color@9.4.0)
       istanbul-lib-instrument: 6.0.3
-      less: 4.2.1
       listr2: 8.2.5
       magic-string: 0.30.17
       mrmime: 2.0.0
       parse5-html-rewriting-stream: 7.0.0
       picomatch: 4.0.2
       piscina: 4.8.0
-      postcss: 8.4.49
       rollup: 4.30.1
       sass: 1.83.1
       semver: 7.6.3
-      tailwindcss: 3.4.17
       typescript: 5.7.3
-      vite: 6.0.7(@types/node@18.19.15)(less@4.2.1)(sass@1.83.1)(stylus@0.64.0)(terser@5.37.0)
+      vite: 6.0.7(@types/node@18.19.15)(jiti@2.4.2)(less@4.1.3)(sass@1.83.1)(stylus@0.64.0)(terser@5.37.0)(yaml@2.7.0)
       watchpack: 2.4.2
     optionalDependencies:
+      '@angular/platform-server': 19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))
+      less: 4.1.3
       lmdb: 3.2.2
+      postcss: 8.5.1
+      tailwindcss: 3.4.17(ts-node@10.9.1(@types/node@18.19.15)(typescript@5.7.3))
+    transitivePeerDependencies:
+      - '@types/node'
+      - chokidar
+      - jiti
+      - lightningcss
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - yaml
+    optional: true
+
+  '@angular/build@19.1.4(@angular/compiler-cli@19.1.3(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.7.3))(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/platform-server@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))))(@types/node@18.19.15)(chokidar@4.0.3)(jiti@2.4.2)(less@4.2.1)(postcss@8.4.49)(stylus@0.64.0)(tailwindcss@3.4.17(ts-node@10.9.1(@types/node@18.19.15)(typescript@5.7.3)))(terser@5.37.0)(typescript@5.7.3)(yaml@2.7.0)':
+    dependencies:
+      '@ampproject/remapping': 2.3.0
+      '@angular-devkit/architect': 0.1901.4(chokidar@4.0.3)
+      '@angular/compiler': 19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))
+      '@angular/compiler-cli': 19.1.3(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.7.3)
+      '@babel/core': 7.26.0
+      '@babel/helper-annotate-as-pure': 7.25.9
+      '@babel/helper-split-export-declaration': 7.24.7
+      '@babel/plugin-syntax-import-attributes': 7.26.0(@babel/core@7.26.0)
+      '@inquirer/confirm': 5.1.1(@types/node@18.19.15)
+      '@vitejs/plugin-basic-ssl': 1.2.0(vite@6.0.7(@types/node@18.19.15)(jiti@2.4.2)(less@4.2.1)(sass@1.83.1)(stylus@0.64.0)(terser@5.37.0)(yaml@2.7.0))
+      beasties: 0.2.0
+      browserslist: 4.24.4
+      esbuild: 0.24.2
+      fast-glob: 3.3.3
+      https-proxy-agent: 7.0.6(supports-color@9.4.0)
+      istanbul-lib-instrument: 6.0.3
+      listr2: 8.2.5
+      magic-string: 0.30.17
+      mrmime: 2.0.0
+      parse5-html-rewriting-stream: 7.0.0
+      picomatch: 4.0.2
+      piscina: 4.8.0
+      rollup: 4.30.1
+      sass: 1.83.1
+      semver: 7.6.3
+      typescript: 5.7.3
+      vite: 6.0.7(@types/node@18.19.15)(jiti@2.4.2)(less@4.2.1)(sass@1.83.1)(stylus@0.64.0)(terser@5.37.0)(yaml@2.7.0)
+      watchpack: 2.4.2
+    optionalDependencies:
+      '@angular/platform-server': 19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))
+      less: 4.2.1
+      lmdb: 3.2.2
+      postcss: 8.4.49
+      tailwindcss: 3.4.17(ts-node@10.9.1(@types/node@18.19.15)(typescript@5.7.3))
     transitivePeerDependencies:
       - '@types/node'
       - chokidar
@@ -8432,14 +8487,14 @@ snapshots:
       - tsx
       - yaml
 
-  '@angular/cli@19.1.4(@types/node@18.19.15)':
+  '@angular/cli@19.1.4(@types/node@18.19.15)(chokidar@4.0.3)':
     dependencies:
-      '@angular-devkit/architect': 0.1901.4
-      '@angular-devkit/core': 19.1.4
-      '@angular-devkit/schematics': 19.1.4
+      '@angular-devkit/architect': 0.1901.4(chokidar@4.0.3)
+      '@angular-devkit/core': 19.1.4(chokidar@4.0.3)
+      '@angular-devkit/schematics': 19.1.4(chokidar@4.0.3)
       '@inquirer/prompts': 7.2.1(@types/node@18.19.15)
-      '@listr2/prompt-adapter-inquirer': 2.0.18(@inquirer/prompts@7.2.1)
-      '@schematics/angular': 19.1.4
+      '@listr2/prompt-adapter-inquirer': 2.0.18(@inquirer/prompts@7.2.1(@types/node@18.19.15))
+      '@schematics/angular': 19.1.4(chokidar@4.0.3)
       '@yarnpkg/lockfile': 1.1.0
       ini: 5.0.0
       jsonc-parser: 3.3.1
@@ -8457,15 +8512,15 @@ snapshots:
       - chokidar
       - supports-color
 
-  '@angular/common@19.1.3(@angular/core@19.1.3)(rxjs@7.8.1)':
+  '@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)':
     dependencies:
       '@angular/core': 19.1.3(rxjs@7.8.1)(zone.js@0.15.0)
       rxjs: 7.8.1
       tslib: 2.8.1
 
-  '@angular/compiler-cli@19.1.3(@angular/compiler@19.1.3)(typescript@5.7.3)':
+  '@angular/compiler-cli@19.1.3(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.7.3)':
     dependencies:
-      '@angular/compiler': 19.1.3(@angular/core@19.1.3)
+      '@angular/compiler': 19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))
       '@babel/core': 7.26.0
       '@jridgewell/sourcemap-codec': 1.5.0
       chokidar: 4.0.3
@@ -8478,10 +8533,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@angular/compiler@19.1.3(@angular/core@19.1.3)':
+  '@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))':
     dependencies:
-      '@angular/core': 19.1.3(rxjs@7.8.1)(zone.js@0.15.0)
       tslib: 2.8.1
+    optionalDependencies:
+      '@angular/core': 19.1.3(rxjs@7.8.1)(zone.js@0.15.0)
 
   '@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)':
     dependencies:
@@ -8489,46 +8545,47 @@ snapshots:
       tslib: 2.8.1
       zone.js: 0.15.0
 
-  '@angular/forms@19.1.3(@angular/common@19.1.3)(@angular/core@19.1.3)(@angular/platform-browser@19.1.3)(rxjs@7.8.1)':
+  '@angular/forms@19.1.3(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(rxjs@7.8.1)':
     dependencies:
-      '@angular/common': 19.1.3(@angular/core@19.1.3)(rxjs@7.8.1)
+      '@angular/common': 19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
       '@angular/core': 19.1.3(rxjs@7.8.1)(zone.js@0.15.0)
-      '@angular/platform-browser': 19.1.3(@angular/animations@19.1.3)(@angular/common@19.1.3)(@angular/core@19.1.3)
+      '@angular/platform-browser': 19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))
       rxjs: 7.8.1
       tslib: 2.8.1
 
   '@angular/language-service@19.1.3': {}
 
-  '@angular/platform-browser-dynamic@19.1.3(@angular/common@19.1.3)(@angular/compiler@19.1.3)(@angular/core@19.1.3)(@angular/platform-browser@19.1.3)':
+  '@angular/platform-browser-dynamic@19.1.3(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))':
     dependencies:
-      '@angular/common': 19.1.3(@angular/core@19.1.3)(rxjs@7.8.1)
-      '@angular/compiler': 19.1.3(@angular/core@19.1.3)
+      '@angular/common': 19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
+      '@angular/compiler': 19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))
       '@angular/core': 19.1.3(rxjs@7.8.1)(zone.js@0.15.0)
-      '@angular/platform-browser': 19.1.3(@angular/animations@19.1.3)(@angular/common@19.1.3)(@angular/core@19.1.3)
+      '@angular/platform-browser': 19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))
       tslib: 2.8.1
 
-  '@angular/platform-browser@19.1.3(@angular/animations@19.1.3)(@angular/common@19.1.3)(@angular/core@19.1.3)':
+  '@angular/platform-browser@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))':
     dependencies:
-      '@angular/animations': 19.1.3(@angular/core@19.1.3)
-      '@angular/common': 19.1.3(@angular/core@19.1.3)(rxjs@7.8.1)
+      '@angular/common': 19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
       '@angular/core': 19.1.3(rxjs@7.8.1)(zone.js@0.15.0)
       tslib: 2.8.1
+    optionalDependencies:
+      '@angular/animations': 19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))
 
-  '@angular/platform-server@19.1.3(@angular/animations@19.1.3)(@angular/common@19.1.3)(@angular/compiler@19.1.3)(@angular/core@19.1.3)(@angular/platform-browser@19.1.3)':
+  '@angular/platform-server@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))':
     dependencies:
-      '@angular/animations': 19.1.3(@angular/core@19.1.3)
-      '@angular/common': 19.1.3(@angular/core@19.1.3)(rxjs@7.8.1)
-      '@angular/compiler': 19.1.3(@angular/core@19.1.3)
+      '@angular/animations': 19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))
+      '@angular/common': 19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
+      '@angular/compiler': 19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))
       '@angular/core': 19.1.3(rxjs@7.8.1)(zone.js@0.15.0)
-      '@angular/platform-browser': 19.1.3(@angular/animations@19.1.3)(@angular/common@19.1.3)(@angular/core@19.1.3)
+      '@angular/platform-browser': 19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))
       tslib: 2.8.1
       xhr2: 0.2.1
 
-  '@angular/router@19.1.3(@angular/common@19.1.3)(@angular/core@19.1.3)(@angular/platform-browser@19.1.3)(rxjs@7.8.1)':
+  '@angular/router@19.1.3(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(rxjs@7.8.1)':
     dependencies:
-      '@angular/common': 19.1.3(@angular/core@19.1.3)(rxjs@7.8.1)
+      '@angular/common': 19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
       '@angular/core': 19.1.3(rxjs@7.8.1)(zone.js@0.15.0)
-      '@angular/platform-browser': 19.1.3(@angular/animations@19.1.3)(@angular/common@19.1.3)(@angular/core@19.1.3)
+      '@angular/platform-browser': 19.1.3(@angular/animations@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))
       rxjs: 7.8.1
       tslib: 2.8.1
 
@@ -8553,7 +8610,7 @@ snapshots:
       '@babel/traverse': 7.26.7
       '@babel/types': 7.26.7
       convert-source-map: 2.0.0
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -8573,7 +8630,7 @@ snapshots:
       '@babel/traverse': 7.26.7
       '@babel/types': 7.26.7
       convert-source-map: 2.0.0
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -8653,7 +8710,7 @@ snapshots:
       '@babel/core': 7.26.0
       '@babel/helper-compilation-targets': 7.26.5
       '@babel/helper-plugin-utils': 7.26.5
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       lodash.debounce: 4.0.8
       resolve: 1.22.10
     transitivePeerDependencies:
@@ -8664,7 +8721,7 @@ snapshots:
       '@babel/core': 7.26.7
       '@babel/helper-compilation-targets': 7.26.5
       '@babel/helper-plugin-utils': 7.26.5
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       lodash.debounce: 4.0.8
       resolve: 1.22.10
     transitivePeerDependencies:
@@ -9783,7 +9840,7 @@ snapshots:
       '@babel/parser': 7.26.7
       '@babel/template': 7.25.9
       '@babel/types': 7.26.7
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -10027,7 +10084,7 @@ snapshots:
   '@eslint/eslintrc@2.1.4':
     dependencies:
       ajv: 6.12.6
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       espree: 9.6.1
       globals: 13.24.0
       ignore: 5.3.2
@@ -10043,7 +10100,7 @@ snapshots:
   '@humanwhocodes/config-array@0.13.0':
     dependencies:
       '@humanwhocodes/object-schema': 2.0.3
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       minimatch: 3.1.2
     transitivePeerDependencies:
       - supports-color
@@ -10247,7 +10304,7 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@jsverse/transloco@7.5.1(@angular/core@19.1.3)(typescript@5.7.3)':
+  '@jsverse/transloco@7.5.1(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(typescript@5.7.3)':
     dependencies:
       '@angular/core': 19.1.3(rxjs@7.8.1)(zone.js@0.15.0)
       '@jsverse/transloco-utils': 7.0.2(typescript@5.7.3)
@@ -10262,7 +10319,7 @@ snapshots:
 
   '@leichtgewicht/ip-codec@2.0.5': {}
 
-  '@listr2/prompt-adapter-inquirer@2.0.18(@inquirer/prompts@7.2.1)':
+  '@listr2/prompt-adapter-inquirer@2.0.18(@inquirer/prompts@7.2.1(@types/node@18.19.15))':
     dependencies:
       '@inquirer/prompts': 7.2.1(@types/node@18.19.15)
       '@inquirer/type': 1.5.5
@@ -10285,11 +10342,11 @@ snapshots:
   '@lmdb/lmdb-win32-x64@3.2.2':
     optional: true
 
-  '@mapbox/node-pre-gyp@2.0.0':
+  '@mapbox/node-pre-gyp@2.0.0(encoding@0.1.13)':
     dependencies:
       consola: 3.4.0
       detect-libc: 2.0.3
-      https-proxy-agent: 7.0.6
+      https-proxy-agent: 7.0.6(supports-color@9.4.0)
       node-fetch: 2.7.0(encoding@0.1.13)
       nopt: 8.1.0
       semver: 7.6.3
@@ -10304,7 +10361,7 @@ snapshots:
       '@types/semver': 7.5.8
       semver: 7.6.3
 
-  '@module-federation/data-prefetch@0.8.9(react-dom@19.0.0)(react@19.0.0)':
+  '@module-federation/data-prefetch@0.8.9(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@module-federation/runtime': 0.8.9
       '@module-federation/sdk': 0.8.9
@@ -10337,21 +10394,22 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@module-federation/enhanced@0.8.9(@rspack/core@1.2.2)(react-dom@19.0.0)(react@19.0.0)(typescript@5.7.3)(webpack@5.88.0)':
+  '@module-federation/enhanced@0.8.9(@rspack/core@1.2.2(@swc/helpers@0.5.15))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)(webpack@5.88.0)':
     dependencies:
       '@module-federation/bridge-react-webpack-plugin': 0.8.9
-      '@module-federation/data-prefetch': 0.8.9(react-dom@19.0.0)(react@19.0.0)
+      '@module-federation/data-prefetch': 0.8.9(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@module-federation/dts-plugin': 0.8.9(typescript@5.7.3)
       '@module-federation/error-codes': 0.8.9
       '@module-federation/inject-external-runtime-core-plugin': 0.8.9(@module-federation/runtime-tools@0.8.9)
       '@module-federation/managers': 0.8.9
       '@module-federation/manifest': 0.8.9(typescript@5.7.3)
-      '@module-federation/rspack': 0.8.9(@rspack/core@1.2.2)(typescript@5.7.3)
+      '@module-federation/rspack': 0.8.9(@rspack/core@1.2.2(@swc/helpers@0.5.15))(typescript@5.7.3)
       '@module-federation/runtime-tools': 0.8.9
       '@module-federation/sdk': 0.8.9
       btoa: 1.2.1
-      typescript: 5.7.3
       upath: 2.0.1
+    optionalDependencies:
+      typescript: 5.7.3
       webpack: 5.88.0
     transitivePeerDependencies:
       - '@rspack/core'
@@ -10391,18 +10449,19 @@ snapshots:
       - utf-8-validate
       - vue-tsc
 
-  '@module-federation/node@2.6.22(@rspack/core@1.2.2)(react-dom@19.0.0)(react@19.0.0)(typescript@5.7.3)(webpack@5.88.0)':
+  '@module-federation/node@2.6.22(@rspack/core@1.2.2(@swc/helpers@0.5.15))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)(webpack@5.88.0)':
     dependencies:
-      '@module-federation/enhanced': 0.8.9(@rspack/core@1.2.2)(react-dom@19.0.0)(react@19.0.0)(typescript@5.7.3)(webpack@5.88.0)
+      '@module-federation/enhanced': 0.8.9(@rspack/core@1.2.2(@swc/helpers@0.5.15))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)(webpack@5.88.0)
       '@module-federation/runtime': 0.8.9
       '@module-federation/sdk': 0.8.9
-      '@module-federation/utilities': 3.1.40(react-dom@19.0.0)(react@19.0.0)(webpack@5.88.0)
+      '@module-federation/utilities': 3.1.40(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(webpack@5.88.0)
       btoa: 1.2.1
       encoding: 0.1.13
       node-fetch: 2.7.0(encoding@0.1.13)
+      webpack: 5.88.0
+    optionalDependencies:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
-      webpack: 5.88.0
     transitivePeerDependencies:
       - '@rspack/core'
       - bufferutil
@@ -10412,7 +10471,7 @@ snapshots:
       - utf-8-validate
       - vue-tsc
 
-  '@module-federation/rspack@0.8.9(@rspack/core@1.2.2)(typescript@5.7.3)':
+  '@module-federation/rspack@0.8.9(@rspack/core@1.2.2(@swc/helpers@0.5.15))(typescript@5.7.3)':
     dependencies:
       '@module-federation/bridge-react-webpack-plugin': 0.8.9
       '@module-federation/dts-plugin': 0.8.9(typescript@5.7.3)
@@ -10421,7 +10480,8 @@ snapshots:
       '@module-federation/manifest': 0.8.9(typescript@5.7.3)
       '@module-federation/runtime-tools': 0.8.9
       '@module-federation/sdk': 0.8.9
-      '@rspack/core': 1.2.2
+      '@rspack/core': 1.2.2(@swc/helpers@0.5.15)
+    optionalDependencies:
       typescript: 5.7.3
     transitivePeerDependencies:
       - bufferutil
@@ -10469,12 +10529,13 @@ snapshots:
       fs-extra: 9.1.0
       resolve: 1.22.8
 
-  '@module-federation/utilities@3.1.40(react-dom@19.0.0)(react@19.0.0)(webpack@5.88.0)':
+  '@module-federation/utilities@3.1.40(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(webpack@5.88.0)':
     dependencies:
       '@module-federation/sdk': 0.8.9
+      webpack: 5.88.0
+    optionalDependencies:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
-      webpack: 5.88.0
 
   '@module-federation/webpack-bundler-runtime@0.8.4':
     dependencies:
@@ -10589,7 +10650,7 @@ snapshots:
       '@netlify/node-cookies': 0.1.0
       urlpattern-polyfill: 8.0.2
 
-  '@ngneat/overview@6.1.1(@angular/core@19.1.3)':
+  '@ngneat/overview@6.1.1(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))':
     dependencies:
       '@angular/core': 19.1.3(rxjs@7.8.1)(zone.js@0.15.0)
       tslib: 2.8.1
@@ -10606,21 +10667,21 @@ snapshots:
       svgo: 3.3.2
       typescript: 4.8.4
 
-  '@ngneat/svg-icon@7.1.6(@angular/common@19.1.3)':
+  '@ngneat/svg-icon@7.1.6(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))':
     dependencies:
-      '@angular/common': 19.1.3(@angular/core@19.1.3)(rxjs@7.8.1)
+      '@angular/common': 19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
       tslib: 2.8.1
 
-  '@ngtools/webpack@19.1.4(@angular/compiler-cli@19.1.3)(typescript@5.7.3)(webpack@5.97.1)':
+  '@ngtools/webpack@19.1.4(@angular/compiler-cli@19.1.3(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.7.3))(typescript@5.7.3)(webpack@5.97.1(esbuild@0.24.2))':
     dependencies:
-      '@angular/compiler-cli': 19.1.3(@angular/compiler@19.1.3)(typescript@5.7.3)
+      '@angular/compiler-cli': 19.1.3(@angular/compiler@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.7.3)
       typescript: 5.7.3
       webpack: 5.97.1(esbuild@0.24.2)
 
-  '@ngxpert/hot-toast@3.1.1(@angular/core@19.1.3)(@ngneat/overview@6.1.1)':
+  '@ngxpert/hot-toast@3.1.1(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(@ngneat/overview@6.1.1(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0)))':
     dependencies:
       '@angular/core': 19.1.3(rxjs@7.8.1)(zone.js@0.15.0)
-      '@ngneat/overview': 6.1.1(@angular/core@19.1.3)
+      '@ngneat/overview': 6.1.1(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))
       tslib: 2.8.1
 
   '@nodelib/fs.scandir@2.1.5':
@@ -10639,7 +10700,7 @@ snapshots:
     dependencies:
       agent-base: 7.1.3
       http-proxy-agent: 7.0.2
-      https-proxy-agent: 7.0.6
+      https-proxy-agent: 7.0.6(supports-color@9.4.0)
       lru-cache: 10.4.3
       socks-proxy-agent: 8.0.5
     transitivePeerDependencies:
@@ -10700,20 +10761,20 @@ snapshots:
       - bluebird
       - supports-color
 
-  '@nx/angular@20.4.0(@angular-devkit/build-angular@19.1.4)(@angular-devkit/core@19.1.4)(@angular-devkit/schematics@19.1.4)(@rspack/core@1.2.2)(@schematics/angular@19.1.4)(@types/node@18.19.15)(eslint@8.57.1)(nx@20.4.0)(react-dom@19.0.0)(react@19.0.0)(rxjs@7.8.1)(typescript@5.7.3)':
+  '@nx/angular@20.4.0(@angular-devkit/build-angular@19.1.4(786741d6be16f32196741d41699d5293))(@angular-devkit/core@19.1.4(chokidar@4.0.3))(@angular-devkit/schematics@19.1.4(chokidar@4.0.3))(@babel/traverse@7.26.7)(@rspack/core@1.2.2(@swc/helpers@0.5.15))(@schematics/angular@19.1.4(chokidar@4.0.3))(@swc/helpers@0.5.15)(@types/node@18.19.15)(@zkochan/js-yaml@0.0.7)(eslint@8.57.1)(nx@20.4.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rxjs@7.8.1)(typescript@5.7.3)':
     dependencies:
-      '@angular-devkit/build-angular': 19.1.4(@angular/compiler-cli@19.1.3)(@angular/compiler@19.1.3)(@angular/platform-server@19.1.3)(@rspack/core@1.2.2)(@types/node@18.19.15)(stylus@0.64.0)(tailwindcss@3.4.17)(typescript@5.7.3)(vite@5.2.7)
-      '@angular-devkit/core': 19.1.4
-      '@angular-devkit/schematics': 19.1.4
+      '@angular-devkit/build-angular': 19.1.4(786741d6be16f32196741d41699d5293)
+      '@angular-devkit/core': 19.1.4(chokidar@4.0.3)
+      '@angular-devkit/schematics': 19.1.4(chokidar@4.0.3)
       '@nx/devkit': 20.4.0(nx@20.4.0)
-      '@nx/eslint': 20.4.0(@types/node@18.19.15)(eslint@8.57.1)(nx@20.4.0)
-      '@nx/js': 20.4.0(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
-      '@nx/module-federation': 20.4.0(@types/node@18.19.15)(nx@20.4.0)(react-dom@19.0.0)(react@19.0.0)(typescript@5.7.3)
-      '@nx/web': 20.4.0(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
-      '@nx/webpack': 20.4.0(@rspack/core@1.2.2)(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
+      '@nx/eslint': 20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(@zkochan/js-yaml@0.0.7)(eslint@8.57.1)(nx@20.4.0)
+      '@nx/js': 20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
+      '@nx/module-federation': 20.4.0(@babel/traverse@7.26.7)(@swc/helpers@0.5.15)(@types/node@18.19.15)(nx@20.4.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
+      '@nx/web': 20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
+      '@nx/webpack': 20.4.0(@babel/traverse@7.26.7)(@rspack/core@1.2.2(@swc/helpers@0.5.15))(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
       '@nx/workspace': 20.4.0
       '@phenomnomnominal/tsquery': 5.0.1(typescript@5.7.3)
-      '@schematics/angular': 19.1.4
+      '@schematics/angular': 19.1.4(chokidar@4.0.3)
       '@typescript-eslint/type-utils': 8.22.0(eslint@8.57.1)(typescript@5.7.3)
       magic-string: 0.30.17
       minimatch: 9.0.3
@@ -10759,15 +10820,16 @@ snapshots:
       - vue-tsc
       - webpack-cli
 
-  '@nx/cypress@20.4.0(@types/node@18.19.15)(cypress@13.13.1)(eslint@8.57.1)(nx@20.4.0)(typescript@5.7.3)':
+  '@nx/cypress@20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(@zkochan/js-yaml@0.0.7)(cypress@13.13.1)(eslint@8.57.1)(nx@20.4.0)(typescript@5.7.3)':
     dependencies:
       '@nx/devkit': 20.4.0(nx@20.4.0)
-      '@nx/eslint': 20.4.0(@types/node@18.19.15)(eslint@8.57.1)(nx@20.4.0)
-      '@nx/js': 20.4.0(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
+      '@nx/eslint': 20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(@zkochan/js-yaml@0.0.7)(eslint@8.57.1)(nx@20.4.0)
+      '@nx/js': 20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
       '@phenomnomnominal/tsquery': 5.0.1(typescript@5.7.3)
-      cypress: 13.13.1
       detect-port: 1.6.1
       tslib: 2.8.1
+    optionalDependencies:
+      cypress: 13.13.1
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -10794,10 +10856,10 @@ snapshots:
       tslib: 2.8.1
       yargs-parser: 21.1.1
 
-  '@nx/eslint-plugin@20.4.0(@types/node@18.19.15)(@typescript-eslint/parser@7.18.0)(eslint@8.57.1)(nx@20.4.0)(typescript@5.7.3)':
+  '@nx/eslint-plugin@20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(nx@20.4.0)(typescript@5.7.3)':
     dependencies:
       '@nx/devkit': 20.4.0(nx@20.4.0)
-      '@nx/js': 20.4.0(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
+      '@nx/js': 20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
       '@typescript-eslint/parser': 7.18.0(eslint@8.57.1)(typescript@5.7.3)
       '@typescript-eslint/type-utils': 8.22.0(eslint@8.57.1)(typescript@5.7.3)
       '@typescript-eslint/utils': 8.22.0(eslint@8.57.1)(typescript@5.7.3)
@@ -10820,14 +10882,16 @@ snapshots:
       - typescript
       - verdaccio
 
-  '@nx/eslint@20.4.0(@types/node@18.19.15)(eslint@8.57.1)(nx@20.4.0)':
+  '@nx/eslint@20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(@zkochan/js-yaml@0.0.7)(eslint@8.57.1)(nx@20.4.0)':
     dependencies:
       '@nx/devkit': 20.4.0(nx@20.4.0)
-      '@nx/js': 20.4.0(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
+      '@nx/js': 20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
       eslint: 8.57.1
       semver: 7.6.3
       tslib: 2.8.1
       typescript: 5.7.3
+    optionalDependencies:
+      '@zkochan/js-yaml': 0.0.7
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -10839,7 +10903,7 @@ snapshots:
       - supports-color
       - verdaccio
 
-  '@nx/js@20.4.0(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)':
+  '@nx/js@20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)':
     dependencies:
       '@babel/core': 7.26.7
       '@babel/plugin-proposal-decorators': 7.25.9(@babel/core@7.26.7)
@@ -10853,7 +10917,7 @@ snapshots:
       '@zkochan/js-yaml': 0.0.7
       babel-plugin-const-enum: 1.2.0(@babel/core@7.26.7)
       babel-plugin-macros: 3.1.0
-      babel-plugin-transform-typescript-metadata: 0.3.2(@babel/core@7.26.7)
+      babel-plugin-transform-typescript-metadata: 0.3.2(@babel/core@7.26.7)(@babel/traverse@7.26.7)
       chalk: 4.1.2
       columnify: 1.6.0
       detect-port: 1.6.1
@@ -10882,15 +10946,15 @@ snapshots:
       - supports-color
       - typescript
 
-  '@nx/module-federation@20.4.0(@types/node@18.19.15)(nx@20.4.0)(react-dom@19.0.0)(react@19.0.0)(typescript@5.7.3)':
+  '@nx/module-federation@20.4.0(@babel/traverse@7.26.7)(@swc/helpers@0.5.15)(@types/node@18.19.15)(nx@20.4.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)':
     dependencies:
-      '@module-federation/enhanced': 0.8.9(@rspack/core@1.2.2)(react-dom@19.0.0)(react@19.0.0)(typescript@5.7.3)(webpack@5.88.0)
-      '@module-federation/node': 2.6.22(@rspack/core@1.2.2)(react-dom@19.0.0)(react@19.0.0)(typescript@5.7.3)(webpack@5.88.0)
+      '@module-federation/enhanced': 0.8.9(@rspack/core@1.2.2(@swc/helpers@0.5.15))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)(webpack@5.88.0)
+      '@module-federation/node': 2.6.22(@rspack/core@1.2.2(@swc/helpers@0.5.15))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)(webpack@5.88.0)
       '@module-federation/sdk': 0.8.9
       '@nx/devkit': 20.4.0(nx@20.4.0)
-      '@nx/js': 20.4.0(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
-      '@nx/web': 20.4.0(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
-      '@rspack/core': 1.2.2
+      '@nx/js': 20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
+      '@nx/web': 20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
+      '@rspack/core': 1.2.2(@swc/helpers@0.5.15)
       express: 4.21.2
       http-proxy-middleware: 3.0.3
       picocolors: 1.1.1
@@ -10949,17 +11013,17 @@ snapshots:
   '@nx/nx-win32-x64-msvc@20.4.0':
     optional: true
 
-  '@nx/vite@20.4.0(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)(vite@5.2.7)(vitest@1.4.0)':
+  '@nx/vite@20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)(vite@5.2.7(@types/node@18.19.15)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0))(vitest@1.4.0(@edge-runtime/vm@3.0.3)(@types/node@18.19.15)(jsdom@22.1.0)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0))':
     dependencies:
       '@nx/devkit': 20.4.0(nx@20.4.0)
-      '@nx/js': 20.4.0(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
+      '@nx/js': 20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
       '@phenomnomnominal/tsquery': 5.0.1(typescript@5.7.3)
       '@swc/helpers': 0.5.15
       enquirer: 2.3.6
       minimatch: 9.0.3
       tsconfig-paths: 4.2.0
-      vite: 5.2.7(@types/node@18.19.15)(less@4.1.3)(stylus@0.64.0)
-      vitest: 1.4.0(@types/node@18.19.15)(jsdom@22.1.0)(less@4.1.3)(stylus@0.64.0)
+      vite: 5.2.7(@types/node@18.19.15)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0)
+      vitest: 1.4.0(@edge-runtime/vm@3.0.3)(@types/node@18.19.15)(jsdom@22.1.0)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0)
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -10972,10 +11036,10 @@ snapshots:
       - typescript
       - verdaccio
 
-  '@nx/web@20.4.0(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)':
+  '@nx/web@20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)':
     dependencies:
       '@nx/devkit': 20.4.0(nx@20.4.0)
-      '@nx/js': 20.4.0(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
+      '@nx/js': 20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
       detect-port: 1.6.1
       http-server: 14.1.1
       picocolors: 1.1.1
@@ -10992,18 +11056,18 @@ snapshots:
       - typescript
       - verdaccio
 
-  '@nx/webpack@20.4.0(@rspack/core@1.2.2)(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)':
+  '@nx/webpack@20.4.0(@babel/traverse@7.26.7)(@rspack/core@1.2.2(@swc/helpers@0.5.15))(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)':
     dependencies:
       '@babel/core': 7.26.7
       '@nx/devkit': 20.4.0(nx@20.4.0)
-      '@nx/js': 20.4.0(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
+      '@nx/js': 20.4.0(@babel/traverse@7.26.7)(@types/node@18.19.15)(nx@20.4.0)(typescript@5.7.3)
       '@phenomnomnominal/tsquery': 5.0.1(typescript@5.7.3)
       ajv: 8.17.1
       autoprefixer: 10.4.20(postcss@8.5.1)
       babel-loader: 9.2.1(@babel/core@7.26.7)(webpack@5.97.1)
       browserslist: 4.24.4
       copy-webpack-plugin: 10.2.4(webpack@5.97.1)
-      css-loader: 6.11.0(@rspack/core@1.2.2)(webpack@5.97.1)
+      css-loader: 6.11.0(@rspack/core@1.2.2(@swc/helpers@0.5.15))(webpack@5.97.1)
       css-minimizer-webpack-plugin: 5.0.1(webpack@5.97.1)
       fork-ts-checker-webpack-plugin: 7.2.13(typescript@5.7.3)(webpack@5.97.1)
       less: 4.1.3
@@ -11171,7 +11235,7 @@ snapshots:
 
   '@redocly/config@0.20.3': {}
 
-  '@redocly/openapi-core@1.27.2(supports-color@9.4.0)':
+  '@redocly/openapi-core@1.27.2(encoding@0.1.13)(supports-color@9.4.0)':
     dependencies:
       '@redocly/ajv': 8.11.2
       '@redocly/config': 0.20.3
@@ -11188,7 +11252,7 @@ snapshots:
       - supports-color
 
   '@rollup/plugin-alias@5.1.1(rollup@4.32.1)':
-    dependencies:
+    optionalDependencies:
       rollup: 4.32.1
 
   '@rollup/plugin-commonjs@28.0.2(rollup@4.32.1)':
@@ -11200,6 +11264,7 @@ snapshots:
       is-reference: 1.2.1
       magic-string: 0.30.17
       picomatch: 4.0.2
+    optionalDependencies:
       rollup: 4.32.1
 
   '@rollup/plugin-inject@5.0.5(rollup@4.32.1)':
@@ -11207,11 +11272,13 @@ snapshots:
       '@rollup/pluginutils': 5.1.4(rollup@4.32.1)
       estree-walker: 2.0.2
       magic-string: 0.30.17
+    optionalDependencies:
       rollup: 4.32.1
 
   '@rollup/plugin-json@6.1.0(rollup@4.32.1)':
     dependencies:
       '@rollup/pluginutils': 5.1.4(rollup@4.32.1)
+    optionalDependencies:
       rollup: 4.32.1
 
   '@rollup/plugin-node-resolve@15.3.1(rollup@4.32.1)':
@@ -11221,26 +11288,30 @@ snapshots:
       deepmerge: 4.3.1
       is-module: 1.0.0
       resolve: 1.22.10
+    optionalDependencies:
       rollup: 4.32.1
 
   '@rollup/plugin-replace@6.0.2(rollup@4.32.1)':
     dependencies:
       '@rollup/pluginutils': 5.1.4(rollup@4.32.1)
       magic-string: 0.30.17
+    optionalDependencies:
       rollup: 4.32.1
 
   '@rollup/plugin-terser@0.4.4(rollup@4.32.1)':
     dependencies:
-      rollup: 4.32.1
       serialize-javascript: 6.0.2
       smob: 1.5.0
       terser: 5.37.0
+    optionalDependencies:
+      rollup: 4.32.1
 
   '@rollup/pluginutils@5.1.4(rollup@4.32.1)':
     dependencies:
       '@types/estree': 1.0.6
       estree-walker: 2.0.2
       picomatch: 4.0.2
+    optionalDependencies:
       rollup: 4.32.1
 
   '@rollup/rollup-android-arm-eabi@4.30.1':
@@ -11396,19 +11467,21 @@ snapshots:
       '@rspack/binding-win32-ia32-msvc': 1.2.2
       '@rspack/binding-win32-x64-msvc': 1.2.2
 
-  '@rspack/core@1.2.2':
+  '@rspack/core@1.2.2(@swc/helpers@0.5.15)':
     dependencies:
       '@module-federation/runtime-tools': 0.8.4
       '@rspack/binding': 1.2.2
       '@rspack/lite-tapable': 1.0.1
       caniuse-lite: 1.0.30001695
+    optionalDependencies:
+      '@swc/helpers': 0.5.15
 
   '@rspack/lite-tapable@1.0.1': {}
 
-  '@schematics/angular@19.1.4':
+  '@schematics/angular@19.1.4(chokidar@4.0.3)':
     dependencies:
-      '@angular-devkit/core': 19.1.4
-      '@angular-devkit/schematics': 19.1.4
+      '@angular-devkit/core': 19.1.4(chokidar@4.0.3)
+      '@angular-devkit/schematics': 19.1.4(chokidar@4.0.3)
       jsonc-parser: 3.3.1
     transitivePeerDependencies:
       - chokidar
@@ -11453,26 +11526,26 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@tailwindcss/typography@0.5.16(tailwindcss@3.4.17)':
+  '@tailwindcss/typography@0.5.16(tailwindcss@3.4.17(ts-node@10.9.1(@types/node@18.19.15)(typescript@5.7.3)))':
     dependencies:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 3.4.17
+      tailwindcss: 3.4.17(ts-node@10.9.1(@types/node@18.19.15)(typescript@5.7.3))
 
-  '@tanstack/angular-form@0.23.3(@angular/common@19.1.3)(@angular/core@19.1.3)':
+  '@tanstack/angular-form@0.23.3(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))':
     dependencies:
       '@angular/core': 19.1.3(rxjs@7.8.1)(zone.js@0.15.0)
-      '@tanstack/angular-store': 0.5.8(@angular/common@19.1.3)(@angular/core@19.1.3)
+      '@tanstack/angular-store': 0.5.8(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))
       '@tanstack/form-core': 0.23.3
       tslib: 2.8.1
     transitivePeerDependencies:
       - '@angular/common'
 
-  '@tanstack/angular-store@0.5.8(@angular/common@19.1.3)(@angular/core@19.1.3)':
+  '@tanstack/angular-store@0.5.8(@angular/common@19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))':
     dependencies:
-      '@angular/common': 19.1.3(@angular/core@19.1.3)(rxjs@7.8.1)
+      '@angular/common': 19.1.3(@angular/core@19.1.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
       '@angular/core': 19.1.3(rxjs@7.8.1)(zone.js@0.15.0)
       '@tanstack/store': 0.5.5
       tslib: 2.8.1
@@ -11660,7 +11733,7 @@ snapshots:
       '@types/node': 18.19.15
     optional: true
 
-  '@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0)(eslint@8.57.1)(typescript@5.7.3)':
+  '@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3)':
     dependencies:
       '@eslint-community/regexpp': 4.12.1
       '@typescript-eslint/parser': 7.18.0(eslint@8.57.1)(typescript@5.7.3)
@@ -11673,6 +11746,7 @@ snapshots:
       ignore: 5.3.2
       natural-compare: 1.4.0
       ts-api-utils: 1.4.3(typescript@5.7.3)
+    optionalDependencies:
       typescript: 5.7.3
     transitivePeerDependencies:
       - supports-color
@@ -11683,8 +11757,9 @@ snapshots:
       '@typescript-eslint/types': 7.18.0
       '@typescript-eslint/typescript-estree': 7.18.0(typescript@5.7.3)
       '@typescript-eslint/visitor-keys': 7.18.0
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       eslint: 8.57.1
+    optionalDependencies:
       typescript: 5.7.3
     transitivePeerDependencies:
       - supports-color
@@ -11703,9 +11778,10 @@ snapshots:
     dependencies:
       '@typescript-eslint/typescript-estree': 7.18.0(typescript@5.7.3)
       '@typescript-eslint/utils': 7.18.0(eslint@8.57.1)(typescript@5.7.3)
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       eslint: 8.57.1
       ts-api-utils: 1.4.3(typescript@5.7.3)
+    optionalDependencies:
       typescript: 5.7.3
     transitivePeerDependencies:
       - supports-color
@@ -11714,7 +11790,7 @@ snapshots:
     dependencies:
       '@typescript-eslint/typescript-estree': 8.22.0(typescript@5.7.3)
       '@typescript-eslint/utils': 8.22.0(eslint@8.57.1)(typescript@5.7.3)
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       eslint: 8.57.1
       ts-api-utils: 2.0.0(typescript@5.7.3)
       typescript: 5.7.3
@@ -11729,12 +11805,13 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 7.18.0
       '@typescript-eslint/visitor-keys': 7.18.0
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       globby: 11.1.0
       is-glob: 4.0.3
       minimatch: 9.0.5
       semver: 7.6.3
       ts-api-utils: 1.4.3(typescript@5.7.3)
+    optionalDependencies:
       typescript: 5.7.3
     transitivePeerDependencies:
       - supports-color
@@ -11743,7 +11820,7 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 8.22.0
       '@typescript-eslint/visitor-keys': 8.22.0
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       fast-glob: 3.3.3
       is-glob: 4.0.3
       minimatch: 9.0.5
@@ -11791,9 +11868,9 @@ snapshots:
 
   '@vercel/error-utils@1.0.10': {}
 
-  '@vercel/nft@0.27.10(rollup@4.32.1)':
+  '@vercel/nft@0.27.10(encoding@0.1.13)(rollup@4.32.1)':
     dependencies:
-      '@mapbox/node-pre-gyp': 2.0.0
+      '@mapbox/node-pre-gyp': 2.0.0(encoding@0.1.13)
       '@rollup/pluginutils': 5.1.4(rollup@4.32.1)
       acorn: 8.14.0
       acorn-import-attributes: 1.9.5(acorn@8.14.0)
@@ -11810,7 +11887,7 @@ snapshots:
       - rollup
       - supports-color
 
-  '@vercel/node@2.15.10':
+  '@vercel/node@2.15.10(encoding@0.1.13)':
     dependencies:
       '@edge-runtime/node-utils': 2.0.3
       '@edge-runtime/primitives': 2.1.2
@@ -11825,7 +11902,7 @@ snapshots:
       edge-runtime: 2.4.4
       esbuild: 0.14.47
       exit-hook: 2.2.1
-      node-fetch: 2.6.9
+      node-fetch: 2.6.9(encoding@0.1.13)
       path-to-regexp: 6.2.1
       ts-morph: 12.0.0
       ts-node: 10.9.1(@types/node@14.18.33)(typescript@4.9.5)
@@ -11841,13 +11918,18 @@ snapshots:
       json-schema-to-ts: 1.6.4
       ts-morph: 12.0.0
 
-  '@vitejs/plugin-basic-ssl@1.2.0(vite@5.2.7)':
+  '@vitejs/plugin-basic-ssl@1.2.0(vite@5.2.7(@types/node@18.19.15)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0))':
     dependencies:
-      vite: 5.2.7(@types/node@18.19.15)(less@4.1.3)(stylus@0.64.0)
+      vite: 5.2.7(@types/node@18.19.15)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0)
 
-  '@vitejs/plugin-basic-ssl@1.2.0(vite@6.0.7)':
+  '@vitejs/plugin-basic-ssl@1.2.0(vite@6.0.7(@types/node@18.19.15)(jiti@2.4.2)(less@4.1.3)(sass@1.83.1)(stylus@0.64.0)(terser@5.37.0)(yaml@2.7.0))':
     dependencies:
-      vite: 6.0.7(@types/node@18.19.15)(less@4.2.1)(sass@1.83.1)(stylus@0.64.0)(terser@5.37.0)
+      vite: 6.0.7(@types/node@18.19.15)(jiti@2.4.2)(less@4.1.3)(sass@1.83.1)(stylus@0.64.0)(terser@5.37.0)(yaml@2.7.0)
+    optional: true
+
+  '@vitejs/plugin-basic-ssl@1.2.0(vite@6.0.7(@types/node@18.19.15)(jiti@2.4.2)(less@4.2.1)(sass@1.83.1)(stylus@0.64.0)(terser@5.37.0)(yaml@2.7.0))':
+    dependencies:
+      vite: 6.0.7(@types/node@18.19.15)(jiti@2.4.2)(less@4.2.1)(sass@1.83.1)(stylus@0.64.0)(terser@5.37.0)(yaml@2.7.0)
 
   '@vitest/expect@1.4.0':
     dependencies:
@@ -12011,7 +12093,7 @@ snapshots:
 
   agent-base@6.0.2:
     dependencies:
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -12023,11 +12105,11 @@ snapshots:
       indent-string: 4.0.0
 
   ajv-formats@2.1.1(ajv@8.17.1):
-    dependencies:
+    optionalDependencies:
       ajv: 8.17.1
 
   ajv-formats@3.0.1(ajv@8.17.1):
-    dependencies:
+    optionalDependencies:
       ajv: 8.17.1
 
   ajv-keywords@3.5.2(ajv@6.12.6):
@@ -12191,7 +12273,7 @@ snapshots:
 
   b4a@1.6.7: {}
 
-  babel-loader@9.2.1(@babel/core@7.26.0)(webpack@5.97.1):
+  babel-loader@9.2.1(@babel/core@7.26.0)(webpack@5.97.1(esbuild@0.24.2)):
     dependencies:
       '@babel/core': 7.26.0
       find-cache-dir: 4.0.0
@@ -12268,10 +12350,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  babel-plugin-transform-typescript-metadata@0.3.2(@babel/core@7.26.7):
+  babel-plugin-transform-typescript-metadata@0.3.2(@babel/core@7.26.7)(@babel/traverse@7.26.7):
     dependencies:
       '@babel/core': 7.26.7
       '@babel/helper-plugin-utils': 7.26.5
+    optionalDependencies:
+      '@babel/traverse': 7.26.7
 
   balanced-match@1.0.2: {}
 
@@ -12395,13 +12479,14 @@ snapshots:
       dotenv: 16.4.7
       giget: 1.2.4
       jiti: 2.4.2
-      magicast: 0.3.5
       mlly: 1.7.4
       ohash: 1.1.4
       pathe: 1.1.2
       perfect-debounce: 1.0.0
       pkg-types: 1.3.1
       rc9: 2.1.2
+    optionalDependencies:
+      magicast: 0.3.5
 
   cac@6.7.14: {}
 
@@ -12694,7 +12779,7 @@ snapshots:
       serialize-javascript: 6.0.2
       webpack: 5.97.1
 
-  copy-webpack-plugin@12.0.2(webpack@5.97.1):
+  copy-webpack-plugin@12.0.2(webpack@5.97.1(esbuild@0.24.2)):
     dependencies:
       fast-glob: 3.3.3
       glob-parent: 6.0.2
@@ -12736,6 +12821,7 @@ snapshots:
       js-yaml: 4.1.0
       parse-json: 5.2.0
       path-type: 4.0.0
+    optionalDependencies:
       typescript: 5.7.3
 
   cosmiconfig@9.0.0(typescript@5.7.3):
@@ -12744,6 +12830,7 @@ snapshots:
       import-fresh: 3.3.0
       js-yaml: 4.1.0
       parse-json: 5.2.0
+    optionalDependencies:
       typescript: 5.7.3
 
   crc-32@1.2.2: {}
@@ -12775,9 +12862,8 @@ snapshots:
     dependencies:
       postcss: 8.5.1
 
-  css-loader@6.11.0(@rspack/core@1.2.2)(webpack@5.97.1):
+  css-loader@6.11.0(@rspack/core@1.2.2(@swc/helpers@0.5.15))(webpack@5.97.1):
     dependencies:
-      '@rspack/core': 1.2.2
       icss-utils: 5.1.0(postcss@8.5.1)
       postcss: 8.5.1
       postcss-modules-extract-imports: 3.1.0(postcss@8.5.1)
@@ -12786,11 +12872,12 @@ snapshots:
       postcss-modules-values: 4.0.0(postcss@8.5.1)
       postcss-value-parser: 4.2.0
       semver: 7.6.3
+    optionalDependencies:
+      '@rspack/core': 1.2.2(@swc/helpers@0.5.15)
       webpack: 5.97.1
 
-  css-loader@7.1.2(@rspack/core@1.2.2)(webpack@5.97.1):
+  css-loader@7.1.2(@rspack/core@1.2.2(@swc/helpers@0.5.15))(webpack@5.97.1(esbuild@0.24.2)):
     dependencies:
-      '@rspack/core': 1.2.2
       icss-utils: 5.1.0(postcss@8.5.1)
       postcss: 8.5.1
       postcss-modules-extract-imports: 3.1.0(postcss@8.5.1)
@@ -12799,6 +12886,8 @@ snapshots:
       postcss-modules-values: 4.0.0(postcss@8.5.1)
       postcss-value-parser: 4.2.0
       semver: 7.6.3
+    optionalDependencies:
+      '@rspack/core': 1.2.2(@swc/helpers@0.5.15)
       webpack: 5.97.1(esbuild@0.24.2)
 
   css-minimizer-webpack-plugin@5.0.1(webpack@5.97.1):
@@ -12935,13 +13024,13 @@ snapshots:
       untildify: 4.0.0
       yauzl: 2.10.0
 
-  daisyui@3.9.4:
+  daisyui@3.9.4(ts-node@10.9.1(@types/node@18.19.15)(typescript@5.7.3)):
     dependencies:
       colord: 2.9.3
       css-selector-tokenizer: 0.8.0
       postcss: 8.5.1
       postcss-js: 4.0.1(postcss@8.5.1)
-      tailwindcss: 3.4.17
+      tailwindcss: 3.4.17(ts-node@10.9.1(@types/node@18.19.15)(typescript@5.7.3))
     transitivePeerDependencies:
       - ts-node
 
@@ -12968,16 +13057,19 @@ snapshots:
   debug@3.2.7(supports-color@8.1.1):
     dependencies:
       ms: 2.1.3
+    optionalDependencies:
       supports-color: 8.1.1
 
   debug@4.4.0(supports-color@8.1.1):
     dependencies:
       ms: 2.1.3
+    optionalDependencies:
       supports-color: 8.1.1
 
   debug@4.4.0(supports-color@9.4.0):
     dependencies:
       ms: 2.1.3
+    optionalDependencies:
       supports-color: 9.4.0
 
   decimal.js@10.5.0: {}
@@ -13032,7 +13124,7 @@ snapshots:
   detect-port@1.6.1:
     dependencies:
       address: 1.2.2
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -13365,7 +13457,7 @@ snapshots:
       ajv: 6.12.6
       chalk: 4.1.2
       cross-spawn: 7.0.6
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       doctrine: 3.0.0
       escape-string-regexp: 4.0.0
       eslint-scope: 7.2.2
@@ -13560,7 +13652,7 @@ snapshots:
       pend: 1.2.0
 
   fdir@6.4.3(picomatch@4.0.2):
-    dependencies:
+    optionalDependencies:
       picomatch: 4.0.2
 
   figures@3.2.0:
@@ -13627,8 +13719,8 @@ snapshots:
   flatted@3.3.2: {}
 
   follow-redirects@1.15.9(debug@4.4.0):
-    dependencies:
-      debug: 4.4.0(supports-color@8.1.1)
+    optionalDependencies:
+      debug: 4.4.0(supports-color@9.4.0)
 
   foreground-child@3.3.0:
     dependencies:
@@ -13981,32 +14073,33 @@ snapshots:
     dependencies:
       '@tootallnate/once': 2.0.0
       agent-base: 6.0.2
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
     transitivePeerDependencies:
       - supports-color
 
   http-proxy-agent@7.0.2:
     dependencies:
       agent-base: 7.1.3
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
     transitivePeerDependencies:
       - supports-color
 
   http-proxy-middleware@2.0.7(@types/express@4.17.21):
     dependencies:
-      '@types/express': 4.17.21
       '@types/http-proxy': 1.17.15
       http-proxy: 1.18.1(debug@4.4.0)
       is-glob: 4.0.3
       is-plain-obj: 3.0.0
       micromatch: 4.0.8
+    optionalDependencies:
+      '@types/express': 4.17.21
     transitivePeerDependencies:
       - debug
 
   http-proxy-middleware@3.0.3:
     dependencies:
       '@types/http-proxy': 1.17.15
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       http-proxy: 1.18.1(debug@4.4.0)
       is-glob: 4.0.3
       is-plain-object: 5.0.0
@@ -14052,14 +14145,7 @@ snapshots:
   https-proxy-agent@5.0.1:
     dependencies:
       agent-base: 6.0.2
-      debug: 4.4.0(supports-color@8.1.1)
-    transitivePeerDependencies:
-      - supports-color
-
-  https-proxy-agent@7.0.6:
-    dependencies:
-      agent-base: 7.1.3
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -14133,7 +14219,7 @@ snapshots:
     dependencies:
       '@ioredis/commands': 1.2.0
       cluster-key-slot: 1.1.2
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       denque: 2.1.0
       lodash.defaults: 4.2.0
       lodash.isarguments: 3.1.0
@@ -14473,7 +14559,7 @@ snapshots:
       content-disposition: 0.5.4
       content-type: 1.0.5
       cookies: 0.9.1
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       delegates: 1.0.0
       depd: 2.0.0
       destroy: 1.2.0
@@ -14511,10 +14597,11 @@ snapshots:
       less: 4.1.3
       webpack: 5.97.1
 
-  less-loader@12.2.0(@rspack/core@1.2.2)(less@4.2.1)(webpack@5.97.1):
+  less-loader@12.2.0(@rspack/core@1.2.2(@swc/helpers@0.5.15))(less@4.2.1)(webpack@5.97.1(esbuild@0.24.2)):
     dependencies:
-      '@rspack/core': 1.2.2
       less: 4.2.1
+    optionalDependencies:
+      '@rspack/core': 1.2.2(@swc/helpers@0.5.15)
       webpack: 5.97.1(esbuild@0.24.2)
 
   less@4.1.3:
@@ -14550,10 +14637,17 @@ snapshots:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
+  license-webpack-plugin@4.0.2(webpack@5.97.1(esbuild@0.24.2)):
+    dependencies:
+      webpack-sources: 3.2.3
+    optionalDependencies:
+      webpack: 5.97.1(esbuild@0.24.2)
+
   license-webpack-plugin@4.0.2(webpack@5.97.1):
     dependencies:
-      webpack: 5.97.1(esbuild@0.24.2)
       webpack-sources: 3.2.3
+    optionalDependencies:
+      webpack: 5.97.1
 
   lilconfig@3.1.3: {}
 
@@ -14586,13 +14680,14 @@ snapshots:
     dependencies:
       cli-truncate: 2.1.0
       colorette: 2.0.20
-      enquirer: 2.4.1
       log-update: 4.0.0
       p-map: 4.0.0
       rfdc: 1.4.1
       rxjs: 7.8.1
       through: 2.3.8
       wrap-ansi: 7.0.0
+    optionalDependencies:
+      enquirer: 2.4.1
 
   listr2@8.2.5:
     dependencies:
@@ -14694,7 +14789,7 @@ snapshots:
   log4js@6.9.1:
     dependencies:
       date-format: 4.0.14
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       flatted: 3.3.2
       rfdc: 1.4.1
       streamroller: 3.1.5
@@ -14827,7 +14922,7 @@ snapshots:
       schema-utils: 4.3.0
       webpack: 5.97.1
 
-  mini-css-extract-plugin@2.9.2(webpack@5.97.1):
+  mini-css-extract-plugin@2.9.2(webpack@5.97.1(esbuild@0.24.2)):
     dependencies:
       schema-utils: 4.3.0
       tapable: 2.2.1
@@ -14968,7 +15063,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  nitropack@2.10.4(typescript@5.7.3):
+  nitropack@2.10.4(encoding@0.1.13)(typescript@5.7.3):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@netlify/functions': 2.8.2
@@ -14981,7 +15076,7 @@ snapshots:
       '@rollup/plugin-terser': 0.4.4(rollup@4.32.1)
       '@rollup/pluginutils': 5.1.4(rollup@4.32.1)
       '@types/http-proxy': 1.17.15
-      '@vercel/nft': 0.27.10(rollup@4.32.1)
+      '@vercel/nft': 0.27.10(encoding@0.1.13)(rollup@4.32.1)
       archiver: 7.0.1
       c12: 2.0.1(magicast@0.3.5)
       chokidar: 3.6.0
@@ -15017,7 +15112,7 @@ snapshots:
       node-fetch-native: 1.6.6
       ofetch: 1.4.1
       ohash: 1.1.4
-      openapi-typescript: 7.6.0(typescript@5.7.3)
+      openapi-typescript: 7.6.0(encoding@0.1.13)(typescript@5.7.3)
       pathe: 1.1.2
       perfect-debounce: 1.0.0
       pkg-types: 1.3.1
@@ -15075,14 +15170,17 @@ snapshots:
 
   node-fetch-native@1.6.6: {}
 
-  node-fetch@2.6.9:
+  node-fetch@2.6.9(encoding@0.1.13):
     dependencies:
       whatwg-url: 5.0.0
+    optionalDependencies:
+      encoding: 0.1.13
 
   node-fetch@2.7.0(encoding@0.1.13):
     dependencies:
-      encoding: 0.1.13
       whatwg-url: 5.0.0
+    optionalDependencies:
+      encoding: 0.1.13
 
   node-forge@1.3.1: {}
 
@@ -15300,9 +15398,9 @@ snapshots:
       is-docker: 2.2.1
       is-wsl: 2.2.0
 
-  openapi-typescript@7.6.0(typescript@5.7.3):
+  openapi-typescript@7.6.0(encoding@0.1.13)(typescript@5.7.3):
     dependencies:
-      '@redocly/openapi-core': 1.27.2(supports-color@9.4.0)
+      '@redocly/openapi-core': 1.27.2(encoding@0.1.13)(supports-color@9.4.0)
       ansi-colors: 4.1.3
       change-case: 5.4.4
       parse-json: 8.1.0
@@ -15584,11 +15682,13 @@ snapshots:
       camelcase-css: 2.0.1
       postcss: 8.5.1
 
-  postcss-load-config@4.0.2(postcss@8.5.1):
+  postcss-load-config@4.0.2(postcss@8.5.1)(ts-node@10.9.1(@types/node@18.19.15)(typescript@5.7.3)):
     dependencies:
       lilconfig: 3.1.3
-      postcss: 8.5.1
       yaml: 2.7.0
+    optionalDependencies:
+      postcss: 8.5.1
+      ts-node: 10.9.1(@types/node@18.19.15)(typescript@5.7.3)
 
   postcss-loader@6.2.1(postcss@8.5.1)(webpack@5.97.1):
     dependencies:
@@ -15598,13 +15698,14 @@ snapshots:
       semver: 7.6.3
       webpack: 5.97.1
 
-  postcss-loader@8.1.1(@rspack/core@1.2.2)(postcss@8.4.49)(typescript@5.7.3)(webpack@5.97.1):
+  postcss-loader@8.1.1(@rspack/core@1.2.2(@swc/helpers@0.5.15))(postcss@8.4.49)(typescript@5.7.3)(webpack@5.97.1(esbuild@0.24.2)):
     dependencies:
-      '@rspack/core': 1.2.2
       cosmiconfig: 9.0.0(typescript@5.7.3)
       jiti: 1.21.7
       postcss: 8.4.49
       semver: 7.6.3
+    optionalDependencies:
+      '@rspack/core': 1.2.2(@swc/helpers@0.5.15)
       webpack: 5.97.1(esbuild@0.24.2)
     transitivePeerDependencies:
       - typescript
@@ -16045,9 +16146,10 @@ snapshots:
     dependencies:
       open: 8.4.2
       picomatch: 4.0.2
-      rollup: 4.32.1
       source-map: 0.7.4
       yargs: 17.7.2
+    optionalDependencies:
+      rollup: 4.32.1
 
   rollup@4.30.1:
     dependencies:
@@ -16127,13 +16229,15 @@ snapshots:
     dependencies:
       klona: 2.0.6
       neo-async: 2.6.2
-      sass: 1.83.4
       webpack: 5.97.1
+    optionalDependencies:
+      sass: 1.83.4
 
-  sass-loader@16.0.4(@rspack/core@1.2.2)(sass@1.83.1)(webpack@5.97.1):
+  sass-loader@16.0.4(@rspack/core@1.2.2(@swc/helpers@0.5.15))(sass@1.83.1)(webpack@5.97.1(esbuild@0.24.2)):
     dependencies:
-      '@rspack/core': 1.2.2
       neo-async: 2.6.2
+    optionalDependencies:
+      '@rspack/core': 1.2.2(@swc/helpers@0.5.15)
       sass: 1.83.1
       webpack: 5.97.1(esbuild@0.24.2)
 
@@ -16343,7 +16447,7 @@ snapshots:
   socks-proxy-agent@8.0.5:
     dependencies:
       agent-base: 7.1.3
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       socks: 2.8.3
     transitivePeerDependencies:
       - supports-color
@@ -16357,11 +16461,17 @@ snapshots:
 
   source-map-js@1.2.1: {}
 
-  source-map-loader@5.0.0(webpack@5.97.1):
+  source-map-loader@5.0.0(webpack@5.97.1(esbuild@0.24.2)):
     dependencies:
       iconv-lite: 0.6.3
       source-map-js: 1.2.1
       webpack: 5.97.1(esbuild@0.24.2)
+
+  source-map-loader@5.0.0(webpack@5.97.1):
+    dependencies:
+      iconv-lite: 0.6.3
+      source-map-js: 1.2.1
+      webpack: 5.97.1
 
   source-map-support@0.5.19:
     dependencies:
@@ -16393,7 +16503,7 @@ snapshots:
 
   spdy-transport@3.0.0:
     dependencies:
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       detect-node: 2.1.0
       hpack.js: 2.1.6
       obuf: 1.1.2
@@ -16404,7 +16514,7 @@ snapshots:
 
   spdy@4.0.2:
     dependencies:
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       handle-thing: 2.0.1
       http-deceiver: 1.2.7
       select-hose: 2.0.0
@@ -16445,7 +16555,7 @@ snapshots:
   streamroller@3.1.5:
     dependencies:
       date-format: 4.0.14
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       fs-extra: 8.1.0
     transitivePeerDependencies:
       - supports-color
@@ -16523,7 +16633,7 @@ snapshots:
   stylus@0.64.0:
     dependencies:
       '@adobe/css-tools': 4.3.3
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       glob: 10.4.5
       sax: 1.4.1
       source-map: 0.7.4
@@ -16568,7 +16678,7 @@ snapshots:
 
   system-architecture@0.1.0: {}
 
-  tailwindcss@3.4.17:
+  tailwindcss@3.4.17(ts-node@10.9.1(@types/node@18.19.15)(typescript@5.7.3)):
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
@@ -16587,7 +16697,7 @@ snapshots:
       postcss: 8.5.1
       postcss-import: 15.1.0(postcss@8.5.1)
       postcss-js: 4.0.1(postcss@8.5.1)
-      postcss-load-config: 4.0.2(postcss@8.5.1)
+      postcss-load-config: 4.0.2(postcss@8.5.1)(ts-node@10.9.1(@types/node@18.19.15)(typescript@5.7.3))
       postcss-nested: 6.2.0(postcss@8.5.1)
       postcss-selector-parser: 6.1.2
       resolve: 1.22.10
@@ -16629,15 +16739,16 @@ snapshots:
       mkdirp: 3.0.1
       yallist: 5.0.0
 
-  terser-webpack-plugin@5.3.11(esbuild@0.24.2)(webpack@5.97.1):
+  terser-webpack-plugin@5.3.11(esbuild@0.24.2)(webpack@5.97.1(esbuild@0.24.2)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
-      esbuild: 0.24.2
       jest-worker: 27.5.1
       schema-utils: 4.3.0
       serialize-javascript: 6.0.2
       terser: 5.37.0
       webpack: 5.97.1(esbuild@0.24.2)
+    optionalDependencies:
+      esbuild: 0.24.2
 
   terser-webpack-plugin@5.3.11(webpack@5.88.0):
     dependencies:
@@ -16833,7 +16944,7 @@ snapshots:
   tuf-js@3.0.1:
     dependencies:
       '@tufjs/models': 3.0.1
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       make-fetch-happen: 14.0.3
     transitivePeerDependencies:
       - supports-color
@@ -16960,14 +17071,15 @@ snapshots:
     dependencies:
       anymatch: 3.1.3
       chokidar: 3.6.0
-      db0: 0.2.3
       destr: 2.0.3
       h3: 1.14.0
-      ioredis: 5.4.2
       lru-cache: 10.4.3
       node-fetch-native: 1.6.6
       ofetch: 1.4.1
       ufo: 1.5.4
+    optionalDependencies:
+      db0: 0.2.3
+      ioredis: 5.4.2
 
   untildify@4.0.0: {}
 
@@ -17059,13 +17171,13 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  vite-node@1.4.0(@types/node@18.19.15)(less@4.1.3)(stylus@0.64.0):
+  vite-node@1.4.0(@types/node@18.19.15)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0):
     dependencies:
       cac: 6.7.14
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       pathe: 1.1.2
       picocolors: 1.1.1
-      vite: 5.2.7(@types/node@18.19.15)(less@4.1.3)(stylus@0.64.0)
+      vite: 5.2.7(@types/node@18.19.15)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -17076,37 +17188,56 @@ snapshots:
       - supports-color
       - terser
 
-  vite@5.2.7(@types/node@18.19.15)(less@4.1.3)(stylus@0.64.0):
+  vite@5.2.7(@types/node@18.19.15)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0):
     dependencies:
-      '@types/node': 18.19.15
       esbuild: 0.20.2
-      less: 4.1.3
       postcss: 8.5.1
       rollup: 4.32.1
-      stylus: 0.64.0
     optionalDependencies:
-      fsevents: 2.3.3
-
-  vite@6.0.7(@types/node@18.19.15)(less@4.2.1)(sass@1.83.1)(stylus@0.64.0)(terser@5.37.0):
-    dependencies:
       '@types/node': 18.19.15
+      fsevents: 2.3.3
+      less: 4.1.3
+      sass: 1.83.4
+      stylus: 0.64.0
+      terser: 5.37.0
+
+  vite@6.0.7(@types/node@18.19.15)(jiti@2.4.2)(less@4.1.3)(sass@1.83.1)(stylus@0.64.0)(terser@5.37.0)(yaml@2.7.0):
+    dependencies:
       esbuild: 0.24.2
-      less: 4.2.1
       postcss: 8.5.1
       rollup: 4.30.1
+    optionalDependencies:
+      '@types/node': 18.19.15
+      fsevents: 2.3.3
+      jiti: 2.4.2
+      less: 4.1.3
       sass: 1.83.1
       stylus: 0.64.0
       terser: 5.37.0
+      yaml: 2.7.0
+    optional: true
+
+  vite@6.0.7(@types/node@18.19.15)(jiti@2.4.2)(less@4.2.1)(sass@1.83.1)(stylus@0.64.0)(terser@5.37.0)(yaml@2.7.0):
+    dependencies:
+      esbuild: 0.24.2
+      postcss: 8.5.1
+      rollup: 4.30.1
     optionalDependencies:
-      fsevents: 2.3.3
-
-  vitefu@0.2.5(vite@5.2.7):
-    dependencies:
-      vite: 5.2.7(@types/node@18.19.15)(less@4.1.3)(stylus@0.64.0)
-
-  vitest@1.4.0(@types/node@18.19.15)(jsdom@22.1.0)(less@4.1.3)(stylus@0.64.0):
-    dependencies:
       '@types/node': 18.19.15
+      fsevents: 2.3.3
+      jiti: 2.4.2
+      less: 4.2.1
+      sass: 1.83.1
+      stylus: 0.64.0
+      terser: 5.37.0
+      yaml: 2.7.0
+
+  vitefu@0.2.5(vite@5.2.7(@types/node@18.19.15)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0)):
+    optionalDependencies:
+      vite: 5.2.7(@types/node@18.19.15)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0)
+
+  vitest@1.4.0(@edge-runtime/vm@3.0.3)(@types/node@18.19.15)(jsdom@22.1.0)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0):
+    dependencies:
       '@vitest/expect': 1.4.0
       '@vitest/runner': 1.4.0
       '@vitest/snapshot': 1.4.0
@@ -17114,9 +17245,8 @@ snapshots:
       '@vitest/utils': 1.4.0
       acorn-walk: 8.3.4
       chai: 4.5.0
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0(supports-color@9.4.0)
       execa: 8.0.1
-      jsdom: 22.1.0
       local-pkg: 0.5.1
       magic-string: 0.30.17
       pathe: 1.1.2
@@ -17125,9 +17255,13 @@ snapshots:
       strip-literal: 2.1.1
       tinybench: 2.9.0
       tinypool: 0.8.4
-      vite: 5.2.7(@types/node@18.19.15)(less@4.1.3)(stylus@0.64.0)
-      vite-node: 1.4.0(@types/node@18.19.15)(less@4.1.3)(stylus@0.64.0)
+      vite: 5.2.7(@types/node@18.19.15)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0)
+      vite-node: 1.4.0(@types/node@18.19.15)(less@4.1.3)(sass@1.83.4)(stylus@0.64.0)(terser@5.37.0)
       why-is-node-running: 2.3.0
+    optionalDependencies:
+      '@edge-runtime/vm': 3.0.3
+      '@types/node': 18.19.15
+      jsdom: 22.1.0
     transitivePeerDependencies:
       - less
       - lightningcss
@@ -17169,7 +17303,19 @@ snapshots:
       on-finished: 2.4.1
       range-parser: 1.2.1
       schema-utils: 4.3.0
+    optionalDependencies:
       webpack: 5.88.0
+
+  webpack-dev-middleware@7.4.2(webpack@5.97.1(esbuild@0.24.2)):
+    dependencies:
+      colorette: 2.0.20
+      memfs: 4.17.0
+      mime-types: 2.1.35
+      on-finished: 2.4.1
+      range-parser: 1.2.1
+      schema-utils: 4.3.0
+    optionalDependencies:
+      webpack: 5.97.1(esbuild@0.24.2)
 
   webpack-dev-middleware@7.4.2(webpack@5.97.1):
     dependencies:
@@ -17179,7 +17325,8 @@ snapshots:
       on-finished: 2.4.1
       range-parser: 1.2.1
       schema-utils: 4.3.0
-      webpack: 5.97.1(esbuild@0.24.2)
+    optionalDependencies:
+      webpack: 5.97.1
 
   webpack-dev-server@5.2.0(webpack@5.88.0):
     dependencies:
@@ -17208,9 +17355,10 @@ snapshots:
       serve-index: 1.9.1
       sockjs: 0.3.24
       spdy: 4.0.2
-      webpack: 5.88.0
       webpack-dev-middleware: 7.4.2(webpack@5.88.0)
       ws: 8.18.0
+    optionalDependencies:
+      webpack: 5.88.0
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -17244,9 +17392,10 @@ snapshots:
       serve-index: 1.9.1
       sockjs: 0.3.24
       spdy: 4.0.2
-      webpack: 5.97.1(esbuild@0.24.2)
-      webpack-dev-middleware: 7.4.2(webpack@5.88.0)
+      webpack-dev-middleware: 7.4.2(webpack@5.97.1)
       ws: 8.18.0
+    optionalDependencies:
+      webpack: 5.97.1
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -17269,10 +17418,15 @@ snapshots:
 
   webpack-sources@3.2.3: {}
 
-  webpack-subresource-integrity@5.1.0(webpack@5.97.1):
+  webpack-subresource-integrity@5.1.0(webpack@5.97.1(esbuild@0.24.2)):
     dependencies:
       typed-assert: 1.0.9
       webpack: 5.97.1(esbuild@0.24.2)
+
+  webpack-subresource-integrity@5.1.0(webpack@5.97.1):
+    dependencies:
+      typed-assert: 1.0.9
+      webpack: 5.97.1
 
   webpack-virtual-modules@0.6.2: {}
 
@@ -17359,7 +17513,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 3.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.11(esbuild@0.24.2)(webpack@5.97.1)
+      terser-webpack-plugin: 5.3.11(esbuild@0.24.2)(webpack@5.97.1(esbuild@0.24.2))
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     transitivePeerDependencies:

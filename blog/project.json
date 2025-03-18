@@ -27,12 +27,7 @@
             "input": "src/",
             "output": "/"
           }
-        ],
-        "stylePreprocessorOptions": {
-          "includePaths": [
-            "node_modules/@ngxpert"
-          ]
-        }
+        ]
       },
       "defaultConfiguration": "production",
       "configurations": {
@@ -70,21 +65,14 @@
     },
     "lint": {
       "executor": "@nx/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "./blog/**/*.ts",
-          "./blog/**/*.html"
-        ]
+        "lintFilePatterns": ["./blog/**/*.ts", "./blog/**/*.html"]
       }
     },
     "test": {
       "executor": "@analogjs/platform:vitest",
-      "outputs": [
-        "{projectRoot}/blog/coverage"
-      ]
+      "outputs": ["{projectRoot}/blog/coverage"]
     }
   },
   "tags": []
