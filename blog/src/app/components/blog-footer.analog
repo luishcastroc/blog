@@ -79,6 +79,17 @@
               />
             </a>
           </li>
+          <li class="hover:text-base-100 w-16 hover:transition-all">
+            <a
+              href="https://bsky.app/profile/mrrobot.dev"
+              target="_blank"
+              rel="noreferrer noopener"
+              attr.aria-label="{{ t('aria-label-bsky') }}"
+            >
+              <svg-icon key="bluesky" fontSize="30px" height="30px"
+              />
+            </a>
+          </li>
         </ul>
       </div>
       <div>

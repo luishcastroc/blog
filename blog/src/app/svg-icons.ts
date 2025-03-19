@@ -4,6 +4,7 @@ import { lightIcon } from '@app/svg/light';
 import { linkedinIcon } from './svg/linkedin';
 import { threadsIcon } from '@app/svg/threads';
 import { twitterIcon } from '@app/svg/twitter';
+import { blueskyIcon } from './svg/bluesky';
 
 export const svgIcons = [
   darkModeIcon,
@@ -12,4 +13,5 @@ export const svgIcons = [
   linkedinIcon,
   threadsIcon,
   twitterIcon,
+  blueskyIcon,
 ];
