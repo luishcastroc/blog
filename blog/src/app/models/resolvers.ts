@@ -5,6 +5,10 @@ import { MetaTag } from '@analogjs/router';
 import { PostAttributes } from './post.model';
 import { TranslocoService } from '@jsverse/transloco';
 
+// Constants
+const DOMAIN = 'mrrobot.dev';
+const CLOUDINARY_BASE_URL = 'https://res.cloudinary.com/lhcc0134/';
+
 function removeDateFromFile(filename: string): string {
   return filename.replace(/(\d{4}-\d{2}-\d{2}-)/, '');
 }
@@ -34,47 +38,40 @@ export const postTitleResolver: ResolveFn<string> = route =>
 
 export const postMetaResolver: ResolveFn<MetaTag[]> = route => {
   const postAttributes = injectActivePostAttributes(route);
+  const slug = route.params['slug'];
+  const fullUrl = `https://${DOMAIN}/blog/${slug}`;
+  const imageUrl = `${CLOUDINARY_BASE_URL}${postAttributes.coverImage}`;
+
+  // Helper functions to create meta tags
+  const createMetaTag = (name: string, content: string): MetaTag => ({
+    name,
+    content,
+  });
+  const createOgTag = (property: string, content: string): MetaTag => ({
+    property: `og:${property}`,
+    content,
+  });
+  const createTwitterTag = (property: string, content: string): MetaTag => ({
+    property: `twitter:${property}`,
+    content,
+  });
+
   return [
-    {
-      name: 'description',
-      content: postAttributes.description,
-    },
-    {
-      name: 'author',
-      content: postAttributes.author,
-    },
-    {
-      property: 'og:title',
-      content: postAttributes.title,
-    },
-    {
-      property: 'og:description',
-      content: postAttributes.description,
-    },
-    {
-      property: 'og:image',
-      content: `https://res.cloudinary.com/lhcc0134/${postAttributes.coverImage}`,
-    },
-    { property: 'twitter:card', content: 'summary_large_image' },
-    {
-      property: 'twitter:title',
-      content: postAttributes.title,
-    },
-    {
-      property: 'twitter:description',
-      content: postAttributes.description,
-    },
-    {
-      property: 'twitter:image',
-      content: `https://res.cloudinary.com/lhcc0134/${postAttributes.coverImage}`,
-    },
-    {
-      property: 'twitter:domain',
-      content: 'mrrobot.dev',
-    },
-    {
-      property: 'twitter:url',
-      content: `https://mrrobot.dev/blog/${route.params['slug']}`,
-    },
+    // Standard meta tags
+    createMetaTag('description', postAttributes.description),
+    createMetaTag('author', postAttributes.author),
+
+    // Open Graph tags
+    createOgTag('title', postAttributes.title),
+    createOgTag('description', postAttributes.description),
+    createOgTag('image', imageUrl),
+
+    // Twitter tags
+    createTwitterTag('card', 'summary_large_image'),
+    createTwitterTag('title', postAttributes.title),
+    createTwitterTag('description', postAttributes.description),
+    createTwitterTag('image', imageUrl),
+    createTwitterTag('domain', DOMAIN),
+    createTwitterTag('url', fullUrl),
   ];
 };

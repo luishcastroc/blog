@@ -16,7 +16,7 @@ const postRoutes = {
   en: getPostRoutes('en'),
   es: getPostRoutes('es'),
 };
-// https://vitejs.dev/config/
+
 export default defineConfig(({ mode }) => {
   return {
     ssr: {
@@ -32,7 +32,6 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       analog({
-        vite: { experimental: { supportAnalogFormat: true } },
         prerender: {
           routes: [
             '/',
