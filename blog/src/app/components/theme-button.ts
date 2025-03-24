@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, inject } from '@angular/core';
+import { Component, OnInit, Renderer2, inject, signal } from '@angular/core';
 import { fromEvent, map, startWith } from 'rxjs';
 import { SvgIconComponent } from '@ngneat/svg-icon';
 import { NgClass } from '@angular/common';
@@ -18,8 +18,8 @@ import { TranslocoDirective } from '@jsverse/transloco';
           class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
           [ngClass]="{
             'translate-y-[20%] rotate-[50deg] opacity-0 transition-all':
-              isDarkMode,
-            'opacity-[1] transition-all duration-1000 ease-out': !isDarkMode,
+              isDarkMode(),
+            'opacity-[1] transition-all duration-1000 ease-out': !isDarkMode(),
           }"
           key="dark-mode"
           fontSize="30px"
@@ -27,9 +27,9 @@ import { TranslocoDirective } from '@jsverse/transloco';
         <svg-icon
           class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
           [ngClass]="{
-            'opacity-[1] transition-all duration-1000 ease-out': isDarkMode,
+            'opacity-[1] transition-all duration-1000 ease-out': isDarkMode(),
             'translate-y-[20%] rotate-[100deg] opacity-0 transition-all':
-              !isDarkMode,
+              !isDarkMode(),
           }"
           key="light"
           fontSize="30px"
@@ -40,7 +40,7 @@ import { TranslocoDirective } from '@jsverse/transloco';
 })
 export class ThemeButtonComponent implements OnInit {
   private renderer = inject(Renderer2);
-  isDarkMode = false;
+  isDarkMode = signal(false);
 
   ngOnInit() {
     const isBrowser = typeof window !== 'undefined';
@@ -72,10 +72,10 @@ export class ThemeButtonComponent implements OnInit {
 
     if (theme) {
       body.setAttribute('data-theme', 'dark');
-      this.isDarkMode = true;
+      this.isDarkMode.set(true);
     } else {
       body.setAttribute('data-theme', 'bumblebee');
-      this.isDarkMode = false;
+      this.isDarkMode.set(false);
     }
   }
 }
