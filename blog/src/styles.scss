@@ -1,7 +1,7 @@
 // Import Tailwind directives
 @use 'sass:map';
 @use 'sass:list';
-@use 'node_modules/@ngxpert/hot-toast/src/styles/styles.scss';
+@use '@ngxpert/hot-toast/styles' as hotToast;
 @use 'tailwindcss/base';
 @use 'tailwindcss/components';
 @use 'tailwindcss/utilities';
