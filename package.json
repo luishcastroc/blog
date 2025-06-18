@@ -49,14 +49,15 @@
     "front-matter": "^4.0.2",
     "luxon": "^3.4.0",
     "mailtrap": "^3.3.0",
-    "marked": "^5.1.2",
-    "marked-gfm-heading-id": "^3.1.0",
-    "marked-highlight": "^2.0.6",
-    "marked-mangle": "^1.1.7",
+     "marked": "^15.0.7",
+    "marked-gfm-heading-id": "^4.1.1",
+    "marked-highlight": "^2.2.1",
+    "marked-mangle": "^1.1.10",
     "prismjs": "^1.29.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "0.15.0"
+
   },
   "devDependencies": {
     "@analogjs/platform": "1.17.1",
