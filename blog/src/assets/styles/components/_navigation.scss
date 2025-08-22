@@ -4,14 +4,27 @@
 
   &.dropdown-open .dropdown-content {
     position: fixed !important;
+    top: 80px !important; // Account for navbar height
+    left: 1rem !important;
+    right: 1rem !important;
+    width: calc(100vw - 2rem) !important;
+    max-width: 20rem !important;
     z-index: 99999 !important;
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
     display: block;
-    top: auto !important;
-    left: auto !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+    @media (min-width: 1024px) {
+      position: absolute !important;
+      top: auto !important;
+      left: auto !important;
+      right: auto !important;
+      width: 16rem !important;
+      max-width: none !important;
+    }
   }
 
   .dropdown-content {
@@ -23,6 +36,21 @@
     transform: translateY(-10px);
     transition: all 0.2s ease-in-out;
     display: none;
+
+    // Ensure menu items are interactive
+    a {
+      display: block;
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+
+      &:hover,
+      &:focus,
+      &:active {
+        text-decoration: none;
+        outline: none;
+      }
+    }
   }
 }
 
@@ -52,5 +80,50 @@
       background: linear-gradient(90deg, transparent, #ff073a, transparent);
       animation: terminal-glow 2s ease-in-out infinite alternate;
     }
+  }
+}
+
+// Mobile navigation enhancements
+@media (max-width: 1023px) {
+  // Prevent body scroll when mobile menu is open
+  body.mobile-menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+
+  // Enhanced mobile menu styling
+  .dropdown-content {
+    backdrop-filter: blur(8px);
+
+    li a {
+      min-height: 3rem;
+      display: flex;
+      align-items: center;
+      font-size: 0.95rem;
+
+      // Better touch targets
+      @media (pointer: coarse) {
+        min-height: 3.5rem;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  // Mobile menu button enhancements
+  .dropdown label {
+    min-height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@keyframes terminal-glow {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
   }
 }

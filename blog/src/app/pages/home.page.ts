@@ -20,11 +20,11 @@ import { TranslocoDirective } from '@jsverse/transloco';
                   class="text-secondary font-terminal welcome-text relative
                            mb-3 text-4xl font-bold
                            sm:text-5xl md:text-6xl lg:text-7xl">
-                  WELCOME
+                  {{ t('header.welcome') }}
                 </h1>
                 <div
                   class="text-secondary font-terminal text-lg font-bold md:text-2xl lg:text-3xl">
-                  I'm Luis Castro
+                  {{ t('header.name') }}
                 </div>
               </div>
               <p

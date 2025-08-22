@@ -1,4 +1,10 @@
-import { afterNextRender, Component, inject } from '@angular/core';
+import {
+  afterNextRender,
+  Component,
+  HostListener,
+  inject,
+  OnDestroy,
+} from '@angular/core';
 import {
   NavigationEnd,
   Router,
@@ -50,7 +56,8 @@ interface NavigationLink {
           >
         </div>
         <div class="text-base-content/60 text-xs">
-          Connected to Evil Corp Network
+          <span class="hidden sm:inline">Connected to Evil Corp Network</span>
+          <span class="sm:hidden">Evil Corp</span>
         </div>
       </div>
 
@@ -82,10 +89,10 @@ interface NavigationLink {
                 @for (link of navigationLinks; track link.path) {
                   <li class="border-base-300 border-b last:border-b-0">
                     <a
-                      href="{{ link.path }}"
+                      routerLink="{{ link.path }}"
                       [class.active]="currentRoute === link.path"
-                      class="hover:bg-secondary hover:text-secondary-content before:text-secondary px-4 py-3 text-sm transition-all
-                             duration-300 before:mr-2 before:content-['$_']"
+                      class="hover:bg-secondary hover:text-secondary-content before:text-secondary cursor-pointer px-4 py-3 text-sm
+                             transition-all duration-300 before:mr-2 before:content-['$_']"
                       (click)="
                         handleMobileLinkClick($event, dropdownButton, link.path)
                       ">
@@ -203,7 +210,7 @@ interface NavigationLink {
     </nav>
   `,
 })
-export class BlogNavbarComponent {
+export class BlogNavbarComponent implements OnDestroy {
   navigationLinks: NavigationLink[] = [
     { name: 'home', path: '/home' },
     { name: 'blog', path: '/blog' },
@@ -213,11 +220,50 @@ export class BlogNavbarComponent {
 
   currentRoute = '';
   private router = inject(Router);
+  private currentMobileMenuElement: HTMLDivElement | null = null;
 
   constructor() {
     afterNextRender(() => {
       this.initializeRouteTracking();
     });
+  }
+
+  ngOnDestroy(): void {
+    // Restore body scroll when component is destroyed
+    document.body.classList.remove('mobile-menu-open');
+    document.body.style.overflow = '';
+  }
+
+  /**
+   * Listen for clicks outside the mobile menu to close it
+   */
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event): void {
+    if (
+      this.currentMobileMenuElement &&
+      this.currentMobileMenuElement.classList.contains('dropdown-open')
+    ) {
+      const target = event.target as Element;
+
+      // Check if click is outside the dropdown
+      if (!this.currentMobileMenuElement.contains(target)) {
+        this.closeMobileMenu(this.currentMobileMenuElement);
+      }
+    }
+  }
+
+  /**
+   * Listen for escape key to close the mobile menu
+   */
+  @HostListener('document:keydown.escape', ['$event'])
+  onEscapeKey(event: KeyboardEvent): void {
+    if (
+      this.currentMobileMenuElement &&
+      this.currentMobileMenuElement.classList.contains('dropdown-open')
+    ) {
+      this.closeMobileMenu(this.currentMobileMenuElement);
+      event.preventDefault();
+    }
   }
 
   /**
@@ -239,8 +285,37 @@ export class BlogNavbarComponent {
    * Toggles the mobile dropdown menu state
    */
   toggleMobileMenu(menuElement: HTMLDivElement): void {
-    menuElement.classList.toggle('dropdown-open');
+    const isOpen = menuElement.classList.contains('dropdown-open');
+
+    // Store reference to current menu element
+    this.currentMobileMenuElement = menuElement;
+
+    if (isOpen) {
+      this.closeMobileMenu(menuElement);
+    } else {
+      this.openMobileMenu(menuElement);
+    }
+
     this.blurActiveElement();
+  }
+
+  /**
+   * Opens the mobile menu and prevents body scroll
+   */
+  private openMobileMenu(menuElement: HTMLDivElement): void {
+    menuElement.classList.add('dropdown-open');
+    document.body.classList.add('mobile-menu-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  /**
+   * Closes the mobile menu and restores body scroll
+   */
+  private closeMobileMenu(menuElement: HTMLDivElement): void {
+    menuElement.classList.remove('dropdown-open');
+    document.body.classList.remove('mobile-menu-open');
+    document.body.style.overflow = '';
+    this.currentMobileMenuElement = null;
   }
 
   /**
@@ -252,7 +327,12 @@ export class BlogNavbarComponent {
     route: string
   ): void {
     event.preventDefault();
-    this.toggleMobileMenu(menuElement);
+    event.stopPropagation();
+
+    // Close the menu first
+    this.closeMobileMenu(menuElement);
+
+    // Navigate to the route
     this.router.navigate([route]);
   }
 

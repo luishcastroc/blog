@@ -10,7 +10,10 @@
     "alt-usa": "Bandera de Estados Unidos"
   },
   "home": {
-    "header": "Bienvenido! Mi Nombre es Luis Castro",
+    "header": {
+      "welcome": "BIENVENIDO",
+      "name": "Mi Nombre es Luis Castro"
+    },
     "subheader": {
       "first": "Soy un Ingeniero en Software",
       "second": "dedicado",

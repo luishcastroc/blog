@@ -10,7 +10,10 @@
     "alt-usa": "USA Flag"
   },
   "home": {
-    "header": "Welcome! I'm Luis Castro",
+    "header": {
+      "welcome": "WELCOME",
+      "name": "I'm Luis Castro"
+    },
     "subheader": {
       "first": "I'm a",
       "second": "dedicated",
