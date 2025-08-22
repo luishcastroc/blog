@@ -141,7 +141,7 @@ import { ValidationService } from '../services/validation.service';
             <button
               [class.spinner-loading]="isSubmitting()"
               [disabled]="!canSubmit() || isSubmitting()"
-              class="btn btn-secondary font-terminal border-secondary hover:bg-secondary hover:text-secondary-content w-1/3 border-2 transition-all duration-300"
+              class="btn btn-primary font-terminal border-primary hover:bg-primary hover:text-primary-content w-1/3 border-2 transition-all duration-300"
               type="submit">
               {{ t('send') }}
             </button>

@@ -1,0 +1,27 @@
+// Base HTML and body reset
+html,
+body {
+  @apply flex min-h-screen w-full flex-auto flex-col antialiased;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg) !important;
+}
+
+// Scrollbar styling
+html {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-bg);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-color);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}

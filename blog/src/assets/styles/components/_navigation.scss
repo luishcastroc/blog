@@ -1,0 +1,56 @@
+// Mobile dropdown menu fixes
+.dropdown {
+  position: relative;
+
+  &.dropdown-open .dropdown-content {
+    position: fixed !important;
+    z-index: 99999 !important;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    display: block;
+    top: auto !important;
+    left: auto !important;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    z-index: 99999 !important;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.2s ease-in-out;
+    display: none;
+  }
+}
+
+// Terminal command styling for navbar
+.terminal-command {
+  position: relative;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+
+  &.active {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 7, 58, 0.1),
+      transparent
+    );
+    border-color: #ff073a !important;
+    color: #ff073a;
+    text-shadow: 0 0 3px rgba(255, 7, 58, 0.6);
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ff073a, transparent);
+      animation: terminal-glow 2s ease-in-out infinite alternate;
+    }
+  }
+}

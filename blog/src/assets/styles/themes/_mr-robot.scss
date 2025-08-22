@@ -1,0 +1,68 @@
+// Mr. Robot theme colors and effects
+[data-theme='mr-robot-light'] {
+  --scrollbar-bg: #e8e8e8;
+  --scrollbar-color: #ff073a;
+  --bg: #ffffff;
+}
+
+[data-theme='mr-robot-dark'] {
+  --scrollbar-bg: #2a2a2a;
+  --scrollbar-color: #ff073a;
+  --bg: #1a1a1a;
+}
+
+// Cyberpunk text effects
+.cyberpunk-highlight {
+  position: relative;
+  background: linear-gradient(45deg, #ff073a, #ff073a, #00ff41);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: cyberpunk-gradient 3s ease infinite;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(255, 7, 58, 0.1),
+      transparent
+    );
+    animation: cyberpunk-scan 2s linear infinite;
+    z-index: -1;
+  }
+}
+
+.hacker-text {
+  position: relative;
+  background: linear-gradient(45deg, #00ff41, #ff073a, #00ff41);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: hacker-sweep 4s ease infinite;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 255, 65, 0.1);
+    animation: hacker-pulse 3s ease-in-out infinite;
+    z-index: -1;
+  }
+}

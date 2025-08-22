@@ -1,14 +1,8 @@
-// Import Tailwind directives
-@use 'sass:map';
-@use 'sass:list';
-@use '@ngxpert/hot-toast/styles' as hotToast;
-@use 'tailwindcss/base';
-@use 'tailwindcss/components';
-@use 'tailwindcss/utilities';
-@use 'prismjs/plugins/toolbar/prism-toolbar.css';
-@use 'prismjs/themes/prism-tomorrow';
+// Main styles - now using modular architecture
+// For better maintainability, styles have been split into logical modules
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Inter:wght@100..900&display=swap');
+// Import the main modular styles
+@use 'assets/styles/main';
 
 :root {
   --scrollbar-bg: white;

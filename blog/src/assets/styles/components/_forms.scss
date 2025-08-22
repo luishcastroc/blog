@@ -1,0 +1,26 @@
+// Form styling
+.form-control {
+  .input {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    border: 2px solid rgba(255, 7, 58, 0.3);
+    background: rgba(26, 26, 26, 0.8);
+    color: var(--fallback-sc, oklch(var(--sc) / 1));
+
+    &:focus {
+      border-color: #ff073a;
+      box-shadow: 0 0 10px rgba(255, 7, 58, 0.3);
+    }
+  }
+
+  .textarea {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    border: 2px solid rgba(255, 7, 58, 0.3);
+    background: rgba(26, 26, 26, 0.8);
+    color: var(--fallback-sc, oklch(var(--sc) / 1));
+
+    &:focus {
+      border-color: #ff073a;
+      box-shadow: 0 0 10px rgba(255, 7, 58, 0.3);
+    }
+  }
+}

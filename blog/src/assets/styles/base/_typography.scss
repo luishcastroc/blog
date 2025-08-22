@@ -1,0 +1,55 @@
+// Typography utilities and base styles
+.font-terminal {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+.terminal-cursor::after {
+  content: '_';
+  animation: cursor-blink 1s infinite;
+  color: currentColor;
+}
+
+// Welcome header styling - font-based terminal effect
+.welcome-header {
+  position: relative;
+}
+
+.welcome-text {
+  position: relative;
+  color: var(--fallback-sc, oklch(var(--sc) / 1));
+  text-shadow:
+    0 0 5px rgba(255, 7, 58, 0.5),
+    0 0 10px rgba(255, 7, 58, 0.3),
+    0 0 15px rgba(255, 7, 58, 0.1);
+  letter-spacing: 0.3rem;
+  font-weight: 900;
+
+  // Terminal-style border effect
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 2px solid rgba(255, 7, 58, 0.3);
+    border-style: dashed;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  // Subtle scan line effect
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 7, 58, 0.03) 2px,
+      rgba(255, 7, 58, 0.03) 4px
+    );
+    pointer-events: none;
+  }
+}

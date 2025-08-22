@@ -1,0 +1,11 @@
+// Blog-specific styling
+.blog-post {
+  // Blog post container styles
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+
+  .analog-markdown {
+    // Blog markdown content styles
+    line-height: 1.7;
+    color: var(--fallback-bc, oklch(var(--bc) / 1));
+  }
+}
