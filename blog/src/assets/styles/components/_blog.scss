@@ -1,11 +1,120 @@
 // Blog-specific styling
+@use '../base/variables' as vars;
+
 .blog-post {
   // Blog post container styles
-  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-family: vars.$font-terminal;
 
   .analog-markdown {
     // Blog markdown content styles
     line-height: 1.7;
     color: var(--fallback-bc, oklch(var(--bc) / 1));
   }
+}
+
+// Blog card terminal styling
+.terminal-card {
+  position: relative;
+  background: linear-gradient(145deg, oklch(var(--b1)), oklch(var(--b2)));
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 0 20px vars.$red-alpha-10;
+
+  &:hover {
+    box-shadow:
+      0 8px 25px rgba(0, 0, 0, 0.15),
+      0 0 30px vars.$red-alpha-20;
+  }
+
+  // Terminal-style border glow
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+      45deg,
+      vars.$red-alpha-20,
+      transparent,
+      vars.$red-alpha-20
+    );
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity vars.$transition-normal ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+// Terminal glow effect for elements
+.terminal-glow {
+  box-shadow: vars.$glow-green-normal;
+
+  &:hover {
+    box-shadow: vars.$glow-green-strong;
+  }
+}
+
+// Scanning line animation for images
+.scan-line {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      vars.$red-alpha-10,
+      transparent
+    );
+    transform: rotate(45deg);
+    animation: scan-sweep 3s ease-in-out infinite;
+    opacity: 0;
+  }
+}
+
+@keyframes scan-sweep {
+  0%,
+  100% {
+    transform: translateX(-100%) rotate(45deg);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(100%) rotate(45deg);
+    opacity: 1;
+  }
+}
+
+// Glow effect for buttons
+.glow-red {
+  box-shadow: vars.$glow-red-strong;
+}
+
+// Terminal prompt styling for badges
+.badge-secondary-border {
+  border-color: vars.$red-alpha-30;
+  background: linear-gradient(
+    145deg,
+    oklch(var(--b2) / 0.5),
+    oklch(var(--b3) / 0.5)
+  );
+
+  &:hover {
+    border-color: vars.$mr-robot-red;
+    background: linear-gradient(145deg, vars.$red-alpha-05, vars.$red-alpha-10);
+    box-shadow: vars.$glow-red-subtle;
+  }
+}
+
+// Enhanced card animations
+.card:hover .scan-line::after {
+  animation-duration: 2s;
 }

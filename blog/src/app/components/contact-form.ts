@@ -19,23 +19,24 @@ import { ValidationService } from '../services/validation.service';
       <div
         class="font-terminal flex flex-auto flex-col items-center gap-3 pt-20">
         <div
-          class="flex w-full flex-col justify-start gap-4 align-baseline md:max-w-md">
-          <h1
-            class="text-base-content font-terminal glitch-effect before:bg-secondary after:bg-secondary relative mb-5 w-fit text-3xl font-bold
-                  before:absolute before:left-[98%] before:top-[70%] before:-z-10 before:h-5
-                  before:w-5 before:translate-y-0 before:transition-all before:duration-500 after:absolute
-                  after:left-[-15px] after:top-[70%] after:-z-10 after:h-5 after:w-5 after:translate-y-0 after:transition-all
-                  after:duration-500 hover:before:translate-y-[-20px] hover:after:translate-y-[-20px] md:text-5xl"
-            [attr.data-text]="t('header')">
-            {{ t('header') }}
-          </h1>
+          class="flex w-full max-w-sm flex-col justify-start gap-4 align-baseline md:max-w-lg lg:max-w-2xl xl:max-w-3xl">
+          <!-- Stylized Contact Header like Welcome -->
+          <div class="welcome-header mb-5 text-center">
+            <h1
+              class="text-secondary font-terminal welcome-text relative
+                       mb-3 text-4xl font-bold
+                       sm:text-5xl md:text-6xl lg:text-7xl"
+              [attr.data-text]="t('header')">
+              {{ t('header') }}
+            </h1>
+          </div>
           <p class="text-base-content font-terminal text-lg font-bold">
             {{ t('subheader') }}
           </p>
         </div>
         <form
           (submit)="submitForm($event)"
-          class="form-control flex w-full flex-col items-center gap-3 md:max-w-md">
+          class="form-control flex w-full max-w-sm flex-col items-center gap-3 md:max-w-lg lg:max-w-2xl xl:max-w-3xl">
           <div class="w-full">
             <div class="form-control">
               <ng-container
