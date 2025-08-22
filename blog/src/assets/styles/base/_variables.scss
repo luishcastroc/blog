@@ -1,0 +1,196 @@
+// CSS Custom Properties and SCSS Variables
+:root {
+  --scrollbar-bg: white;
+  --scrollbar-color: #4e54c8;
+  --bg: white;
+}
+
+// =============================================================================
+// SCSS VARIABLES - Mr. Robot Design System
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Color Palette
+// -----------------------------------------------------------------------------
+
+// Primary Mr. Robot colors
+$mr-robot-green: #00ff41;
+$mr-robot-red: #ff073a;
+
+// Background colors
+$mr-robot-dark-bg: #1a1a1a;
+$mr-robot-light-bg: #ffffff;
+
+// -----------------------------------------------------------------------------
+// Typography
+// -----------------------------------------------------------------------------
+
+// Font families
+$font-terminal: 'JetBrains Mono', 'Courier New', monospace;
+$font-primary: 'Inter', sans-serif;
+
+// Font weights
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+$font-weight-black: 900;
+
+// Letter spacing
+$letter-spacing-tight: -0.025em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.025em;
+$letter-spacing-wider: 0.05em;
+$letter-spacing-widest: 0.1em;
+$letter-spacing-terminal: 0.3rem;
+
+// -----------------------------------------------------------------------------
+// Spacing & Sizing
+// -----------------------------------------------------------------------------
+
+// Border widths
+$border-thin: 1px;
+$border-normal: 2px;
+$border-thick: 3px;
+
+// Border radius
+$radius-sm: 2px;
+$radius-md: 4px;
+$radius-lg: 6px;
+$radius-xl: 8px;
+
+// Button sizing
+$btn-height: 2.5rem;
+$btn-min-width: 8rem;
+$btn-padding-x: 0.75rem;
+$btn-font-size: 0.75rem;
+
+// -----------------------------------------------------------------------------
+// Transitions & Animations
+// -----------------------------------------------------------------------------
+
+// Transition durations
+$transition-fast: 0.15s;
+$transition-normal: 0.3s;
+$transition-slow: 0.5s;
+$transition-slower: 0.7s;
+
+// Transition easing
+$ease-in: cubic-bezier(0.4, 0, 1, 1);
+$ease-out: cubic-bezier(0, 0, 0.2, 1);
+$ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+$ease-custom: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+// Common transition
+$transition-all: all $transition-normal ease;
+
+// -----------------------------------------------------------------------------
+// Shadows & Effects
+// -----------------------------------------------------------------------------
+
+// Glow effects for Mr. Robot theme
+$glow-green-subtle: 0 0 5px rgba(0, 255, 65, 0.2);
+$glow-green-normal: 0 0 10px rgba(0, 255, 65, 0.3);
+$glow-green-strong: 0 0 20px rgba(0, 255, 65, 0.6);
+$glow-green-intense: 0 0 30px rgba(0, 255, 65, 0.8);
+
+$glow-red-subtle: 0 0 5px rgba(255, 7, 58, 0.2);
+$glow-red-normal: 0 0 10px rgba(255, 7, 58, 0.3);
+$glow-red-strong: 0 0 20px rgba(255, 7, 58, 0.6);
+$glow-red-intense: 0 0 30px rgba(255, 7, 58, 0.8);
+
+// Text shadows for terminal effects
+$text-shadow-green-subtle: 0 0 5px rgba(0, 255, 65, 0.5);
+$text-shadow-green-normal: 0 0 5px rgba(0, 255, 65, 0.8);
+
+$text-shadow-red-subtle: 0 0 5px rgba(255, 7, 58, 0.5);
+$text-shadow-red-normal: 0 0 5px rgba(255, 7, 58, 0.8);
+
+// Multi-layer text shadows
+$text-shadow-red-layered:
+  0 0 5px rgba(255, 7, 58, 0.5),
+  0 0 10px rgba(255, 7, 58, 0.3),
+  0 0 15px rgba(255, 7, 58, 0.1);
+
+// Inset shadows
+$inset-light: inset 0 1px 0 oklch(var(--bc) / 0.1);
+$inset-dark: inset 0 2px 4px oklch(var(--b3) / 0.3);
+
+// -----------------------------------------------------------------------------
+// Alpha Variants for Theming
+// -----------------------------------------------------------------------------
+
+// Green alpha variants
+$green-alpha-05: rgba(0, 255, 65, 0.05);
+$green-alpha-10: rgba(0, 255, 65, 0.1);
+$green-alpha-20: rgba(0, 255, 65, 0.2);
+$green-alpha-30: rgba(0, 255, 65, 0.3);
+$green-alpha-40: rgba(0, 255, 65, 0.4);
+$green-alpha-60: rgba(0, 255, 65, 0.6);
+$green-alpha-70: rgba(0, 255, 65, 0.7);
+$green-alpha-80: rgba(0, 255, 65, 0.8);
+
+// Red alpha variants
+$red-alpha-03: rgba(255, 7, 58, 0.03);
+$red-alpha-05: rgba(255, 7, 58, 0.05);
+$red-alpha-10: rgba(255, 7, 58, 0.1);
+$red-alpha-20: rgba(255, 7, 58, 0.2);
+$red-alpha-30: rgba(255, 7, 58, 0.3);
+$red-alpha-40: rgba(255, 7, 58, 0.4);
+$red-alpha-60: rgba(255, 7, 58, 0.6);
+$red-alpha-70: rgba(255, 7, 58, 0.7);
+$red-alpha-80: rgba(255, 7, 58, 0.8);
+
+// -----------------------------------------------------------------------------
+// Gradients
+// -----------------------------------------------------------------------------
+
+// Theme-aware background gradients (using DaisyUI variables)
+$gradient-bg-subtle: linear-gradient(
+  145deg,
+  oklch(var(--b2) / 0.8),
+  oklch(var(--b3) / 0.8)
+);
+$gradient-bg-strong: linear-gradient(
+  145deg,
+  oklch(var(--b1)),
+  oklch(var(--b2))
+);
+
+// Disabled state gradients
+$gradient-disabled: linear-gradient(
+  145deg,
+  oklch(var(--n) / 0.6),
+  oklch(var(--nf) / 0.6)
+);
+
+// Scanning line gradients
+$gradient-scan-green: linear-gradient(
+  90deg,
+  transparent,
+  $green-alpha-40,
+  transparent
+);
+$gradient-scan-red: linear-gradient(
+  90deg,
+  transparent,
+  $red-alpha-40,
+  transparent
+);
+
+// Hover state gradients
+$gradient-hover-green: linear-gradient(
+  145deg,
+  $green-alpha-10,
+  $green-alpha-05
+);
+$gradient-hover-red: linear-gradient(145deg, $red-alpha-10, $red-alpha-05);
+
+// Legacy variable compatibility
+:root {
+  --mr-robot-primary: #{$mr-robot-green};
+  --mr-robot-secondary: #{$mr-robot-red};
+  --mr-robot-dark-bg: #{$mr-robot-dark-bg};
+  --mr-robot-light-bg: #{$mr-robot-light-bg};
+}

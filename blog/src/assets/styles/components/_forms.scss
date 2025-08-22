@@ -1,0 +1,28 @@
+// Form styling
+@use '../base/variables' as vars;
+
+.form-control {
+  .input {
+    font-family: vars.$font-terminal;
+    border: vars.$border-normal solid vars.$red-alpha-30;
+    background: vars.$gradient-bg-subtle;
+    color: var(--fallback-sc, oklch(var(--sc) / 1));
+
+    &:focus {
+      border-color: vars.$mr-robot-red;
+      box-shadow: vars.$glow-red-normal;
+    }
+  }
+
+  .textarea {
+    font-family: vars.$font-terminal;
+    border: vars.$border-normal solid vars.$red-alpha-30;
+    background: vars.$gradient-bg-subtle;
+    color: var(--fallback-sc, oklch(var(--sc) / 1));
+
+    &:focus {
+      border-color: vars.$mr-robot-red;
+      box-shadow: vars.$glow-red-normal;
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { TranslocoDirective } from '@jsverse/transloco';
 import { Title } from '@angular/platform-browser';
+
+import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   standalone: true,
@@ -11,44 +12,49 @@ import { Title } from '@angular/platform-browser';
       <section class="z-10 flex w-full flex-1 flex-col">
         <div class="hero flex-1">
           <div class="bg-opacity-60"></div>
-          <div class="hero-content text-primary-content">
+          <div class="hero-content text-base-content">
             <div class="max-w-md md:max-w-[80%]">
-              <h1
-                class="before:bg-primary after:bg-primary relative mb-5 w-fit text-3xl font-bold
-                       before:absolute before:left-[98%] before:top-[70%] before:-z-10 before:h-5
-                       before:w-5 before:translate-y-0 before:transition-all before:duration-500 after:absolute
-                       after:left-[-15px] after:top-[70%] after:-z-10 after:h-5 after:w-5 after:translate-y-0 after:transition-all
-                       after:duration-500 hover:before:translate-y-[-20px] hover:after:translate-y-[-20px] md:text-5xl">
-                {{ t('header') }}
-              </h1>
+              <!-- Stylized Welcome Header -->
+              <div class="welcome-header mb-6 text-center">
+                <h1
+                  class="text-secondary font-terminal welcome-text relative
+                           mb-3 text-4xl font-bold
+                           sm:text-5xl md:text-6xl lg:text-7xl">
+                  WELCOME
+                </h1>
+                <div
+                  class="text-secondary font-terminal text-lg font-bold md:text-2xl lg:text-3xl">
+                  I'm Luis Castro
+                </div>
+              </div>
               <p
-                class="mb-5 text-lg md:text-2xl md:leading-8 lg:leading-[3rem]">
+                class="text-base-content font-terminal mb-5 text-lg md:text-2xl md:leading-8 lg:leading-[3rem]">
                 {{ t('subheader.first') }}
                 <span
-                  class="bg-secondary text-secondary-content inline-block skew-y-3 border-none font-extrabold"
+                  class="cyberpunk-highlight inline-block skew-y-1 border-none px-2 font-extrabold"
                   >{{ t('subheader.second') }}</span
                 >
                 {{ t('subheader.third') }}
               </p>
               <p
-                class="mb-5 text-lg md:text-2xl md:leading-8 lg:leading-[3rem]">
+                class="text-base-content font-terminal mb-5 text-lg md:text-2xl md:leading-8 lg:leading-[3rem]">
                 {{ t('more.first') }}
                 <span
-                  class="inline-block skew-y-3 border-none bg-gradient-to-r from-green-600 via-white to-red-600 font-extrabold text-black"
+                  class="hacker-text inline-block skew-y-1 border-none px-2 font-extrabold"
                   >{{ t('more.second') }}</span
                 >{{ t('more.third') }}
                 <span
-                  class="bg-secondary text-secondary-content inline-block skew-y-3 border-none font-extrabold"
+                  class="cyberpunk-highlight inline-block skew-y-1 border-none px-2 font-extrabold"
                   >{{ t('more.fourth') }}</span
                 >
                 {{ t('more.fifth') }}
               </p>
               <p
-                class="mb-5 text-lg md:text-2xl md:leading-8 lg:leading-[3rem]">
+                class="text-base-content font-terminal mb-5 text-lg md:text-2xl md:leading-8 lg:leading-[3rem]">
                 {{ t('mission') }}
               </p>
               <p
-                class="mb-5 text-lg md:text-2xl md:leading-8 lg:leading-[3rem]">
+                class="text-base-content font-terminal mb-5 text-lg md:text-2xl md:leading-8 lg:leading-[3rem]">
                 {{ t('conclusion') }}
               </p>
             </div>

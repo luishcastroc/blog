@@ -1,0 +1,14 @@
+// Main content area layout styles
+div {
+  router-outlet {
+    + * {
+      position: relative;
+      display: flex;
+      flex: 1 1 auto;
+      width: 100%;
+      min-height: 100dvh;
+      z-index: 1;
+      @apply px-[0.5rem] py-6 sm:px-12 md:px-20 lg:p-6;
+    }
+  }
+}

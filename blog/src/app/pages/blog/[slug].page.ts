@@ -1,19 +1,28 @@
-import { Component, OnInit, OnDestroy, inject, Injector } from '@angular/core';
-import { RouteMeta } from '@analogjs/router';
-import { postMetaResolver, postTitleResolver } from '../../models/resolvers';
+import { NgOptimizedImage } from '@angular/common';
+import {
+  Component,
+  inject,
+  Injector,
+  OnDestroy,
+  OnInit,
+  runInInjectionContext,
+} from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { Router, RouterLink } from '@angular/router';
+
+import { DateTime } from 'luxon';
+import { combineLatest, map, of, Subject, switchMap, takeUntil } from 'rxjs';
+
 import {
   injectContent,
   injectContentFiles,
   MarkdownComponent,
 } from '@analogjs/content';
-import { Router, RouterLink } from '@angular/router';
+import { RouteMeta } from '@analogjs/router';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
-import { combineLatest, map, of, Subject, switchMap, takeUntil } from 'rxjs';
+
 import { PostAttributes } from '../../models/post.model';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { DateTime } from 'luxon';
-import { NgOptimizedImage } from '@angular/common';
-import { runInInjectionContext } from '@angular/core';
+import { postMetaResolver, postTitleResolver } from '../../models/resolvers';
 
 export const routeMeta: RouteMeta = {
   title: postTitleResolver,
@@ -35,13 +44,13 @@ export const routeMeta: RouteMeta = {
       @let postItem = post();
       @if (postItem) {
         <article
-          class="text-primary-content flex w-full flex-auto flex-col items-center gap-4 overflow-auto">
+          class="text-base-content font-terminal flex w-full flex-auto flex-col items-center gap-4 overflow-auto">
           <section
             class="mb-4 flex w-full flex-auto flex-row justify-between gap-4 lg:w-3/5">
             <button
               [routerLink]="['/blog', postItem.previousPost]"
               [disabled]="!postItem.previousPost"
-              class="btn btn-accent w-28"
+              class="btn btn-secondary font-terminal border-secondary hover:bg-secondary hover:text-secondary-content w-28 border-2 transition-all duration-300"
               type="button"
               attr.aria-label="{{ t('aria-previous') }}">
               {{ t('previous') }}
@@ -49,18 +58,41 @@ export const routeMeta: RouteMeta = {
             <button
               [routerLink]="['/blog', postItem.nextPost]"
               [disabled]="!postItem.nextPost"
-              class="btn btn-accent w-28"
+              class="btn btn-secondary font-terminal border-secondary hover:bg-secondary hover:text-secondary-content w-28 border-2 transition-all duration-300"
               type="button"
               attr.aria-label="{{ t('aria-next') }}">
               {{ t('next') }}
             </button>
           </section>
-          <img
-            [ngSrc]="postItem.attributes.coverImage"
-            width="1000"
-            height="420"
-            priority />
-          <h1 class="self-center text-center text-3xl font-extrabold lg:w-3/5">
+
+          <!-- Terminal-style image frame -->
+          <div
+            class="border-secondary bg-base-200 relative mb-4 w-full border-2 p-2 lg:w-3/5">
+            <div class="absolute left-2 top-1 flex gap-1">
+              <div class="bg-error h-2 w-2 rounded-full opacity-70"></div>
+              <div class="bg-warning h-2 w-2 rounded-full opacity-70"></div>
+              <div class="bg-success h-2 w-2 rounded-full opacity-70"></div>
+            </div>
+            <div
+              class="text-base-content/60 font-terminal absolute right-2 top-1 text-xs">
+              [IMG_VIEWER]
+            </div>
+            <div class="mt-6">
+              <img
+                [ngSrc]="postItem.attributes.coverImage"
+                width="1000"
+                height="420"
+                priority
+                class="contrast-110 w-full brightness-110 filter" />
+            </div>
+            <!-- Scanning line -->
+            <div
+              class="bg-secondary absolute bottom-0 left-0 right-0 h-0.5 animate-pulse opacity-50"></div>
+          </div>
+
+          <h1
+            class="font-terminal text-base-content glitch-effect relative self-center text-center text-3xl font-extrabold lg:w-3/5"
+            [attr.data-text]="postItem.attributes.title">
             {{ postItem.attributes.title }}
           </h1>
           <div

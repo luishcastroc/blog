@@ -1,9 +1,11 @@
-import { Component, inject } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { HotToastService } from '@ngxpert/hot-toast';
+import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { TranslocoDirective } from '@jsverse/transloco';
+import { HotToastService } from '@ngxpert/hot-toast';
 import { injectForm, injectStore, TanStackField } from '@tanstack/angular-form';
+
 import { ContactService } from '../services/contact.service';
 import { ValidationService } from '../services/validation.service';
 
@@ -14,24 +16,27 @@ import { ValidationService } from '../services/validation.service';
   host: { class: 'w-full' },
   template: `
     <ng-container *transloco="let t; read: 'contact'">
-      <div class="flex flex-auto flex-col items-center gap-3 pt-20">
+      <div
+        class="font-terminal flex flex-auto flex-col items-center gap-3 pt-20">
         <div
-          class="flex w-full flex-col justify-start gap-4 align-baseline md:max-w-md">
-          <h1
-            class=" before:bg-primary after:bg-primary relative mb-5 w-fit text-3xl font-bold
-                  before:absolute before:left-[98%] before:top-[70%] before:-z-10 before:h-5
-                  before:w-5 before:translate-y-0 before:transition-all before:duration-500 after:absolute
-                  after:left-[-15px] after:top-[70%] after:-z-10 after:h-5 after:w-5 after:translate-y-0 after:transition-all
-                  after:duration-500 hover:before:translate-y-[-20px] hover:after:translate-y-[-20px] md:text-5xl">
-            {{ t('header') }}
-          </h1>
-          <p class=" text-lg font-bold">
+          class="flex w-full max-w-sm flex-col justify-start gap-4 align-baseline md:max-w-lg lg:max-w-2xl xl:max-w-3xl">
+          <!-- Stylized Contact Header like Welcome -->
+          <div class="welcome-header mb-5 text-center">
+            <h1
+              class="text-secondary font-terminal welcome-text relative
+                       mb-3 text-4xl font-bold
+                       sm:text-5xl md:text-6xl lg:text-7xl"
+              [attr.data-text]="t('header')">
+              {{ t('header') }}
+            </h1>
+          </div>
+          <p class="text-base-content font-terminal text-lg font-bold">
             {{ t('subheader') }}
           </p>
         </div>
         <form
           (submit)="submitForm($event)"
-          class="form-control flex w-full flex-col items-center gap-3 md:max-w-md">
+          class="form-control flex w-full max-w-sm flex-col items-center gap-3 md:max-w-lg lg:max-w-2xl xl:max-w-3xl">
           <div class="w-full">
             <div class="form-control">
               <ng-container
@@ -40,7 +45,10 @@ import { ValidationService } from '../services/validation.service';
                 [validators]="{ onBlur: nameValidator }"
                 name="name">
                 <label [for]="name.api.name" class="label">
-                  <span class="label-text font-extrabold">{{ t('name') }}</span>
+                  <span
+                    class="label-text font-terminal text-base-content font-extrabold"
+                    >{{ t('name') }}</span
+                  >
                 </label>
                 <input
                   (blur)="name.api.handleBlur()"
@@ -48,7 +56,7 @@ import { ValidationService } from '../services/validation.service';
                   [id]="name.api.name"
                   [name]="name.api.name"
                   [value]="name.api.state.value"
-                  class="input input-bordered w-full"
+                  class="input input-bordered font-terminal w-full"
                   placeholder="{{ t('type-here') }}"
                   type="text" />
                 @if (name.api.state.meta.errors.length > 0) {
@@ -134,13 +142,13 @@ import { ValidationService } from '../services/validation.service';
             <button
               [class.spinner-loading]="isSubmitting()"
               [disabled]="!canSubmit() || isSubmitting()"
-              class="btn btn-outline btn-info relative w-1/3"
+              class="btn btn-primary font-terminal border-primary hover:bg-primary hover:text-primary-content w-1/3 border-2 transition-all duration-300"
               type="submit">
               {{ t('send') }}
             </button>
             <button
               (click)="contactForm.reset()"
-              class="btn btn-outline btn-secondary w-1/3"
+              class="btn btn-outline btn-secondary font-terminal border-secondary hover:bg-secondary hover:text-secondary-content w-1/3 border-2 transition-all duration-300"
               type="reset">
               {{ t('clear') }}
             </button>

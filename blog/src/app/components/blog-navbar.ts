@@ -1,14 +1,17 @@
-import { Component, afterNextRender, inject } from '@angular/core';
+import { afterNextRender, Component, inject } from '@angular/core';
 import {
   NavigationEnd,
   Router,
   RouterLink,
   RouterLinkActive,
 } from '@angular/router';
-import { TranslocoDirective } from '@jsverse/transloco';
+
 import { filter } from 'rxjs';
-import { TranslateButtonComponent } from './translate-button';
+
+import { TranslocoDirective } from '@jsverse/transloco';
+
 import { ThemeButtonComponent } from './theme-button';
+import { TranslateButtonComponent } from './translate-button';
 
 interface NavigationLink {
   name: string;
@@ -26,93 +29,176 @@ interface NavigationLink {
     ThemeButtonComponent,
   ],
   host: {
-    class: 'z-[100]',
+    class: 'z-[1000] relative',
   },
   template: `
-    <nav class="navbar bg-primary text-primary-content max-h-20">
-      <div class="navbar-start mr-3 lg:justify-end">
-        <div #dropdownButton class="dropdown lg:hidden">
-          <label
-            (click)="toggleMobileMenu(dropdownButton)"
-            tabindex="0"
-            class="btn btn-ghost btn-circle"
-            aria-haspopup="true"
-            aria-label="Open menu"
-            aria-expanded="false">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h7" />
-            </svg>
-          </label>
-          <ng-container *transloco="let t; read: 'navigation'">
-            <ul
+    <!-- Terminal-style navbar -->
+    <nav
+      class="bg-base-100 border-secondary font-terminal relative overflow-hidden border-b-2 shadow-xl">
+      <!-- Terminal header bar -->
+      <div
+        class="bg-base-200 border-base-300 flex items-center justify-between border-b px-4 py-1">
+        <div class="flex items-center gap-2">
+          <!-- Terminal window controls -->
+          <div class="flex gap-1">
+            <div class="bg-error h-3 w-3 rounded-full opacity-70"></div>
+            <div class="bg-warning h-3 w-3 rounded-full opacity-70"></div>
+            <div class="bg-success h-3 w-3 rounded-full opacity-70"></div>
+          </div>
+          <span class="text-base-content/60 ml-2 text-xs"
+            >fsociety&#64;terminal:~$</span
+          >
+        </div>
+        <div class="text-base-content/60 text-xs">
+          Connected to Evil Corp Network
+        </div>
+      </div>
+
+      <!-- Main navigation area -->
+      <!-- Main navigation area -->
+      <div class="relative flex min-h-[4rem] items-center px-4 py-4">
+        <!-- Terminal prompt and navigation -->
+        <div class="flex min-w-0 flex-1 items-center gap-3">
+          <!-- Mobile menu button (terminal style) -->
+          <div #dropdownButton class="dropdown flex-shrink-0 lg:hidden">
+            <label
+              (click)="toggleMobileMenu(dropdownButton)"
               tabindex="0"
-              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[99] mt-3 w-52 p-2 shadow"
-              role="menu">
-              @for (link of navigationLinks; track link.path) {
-                <li>
-                  <a
-                    href="{{ link.path }}"
-                    [class.active]="currentRoute === link.path"
-                    (click)="
-                      handleMobileLinkClick($event, dropdownButton, link.path)
-                    "
-                    >{{ t(link.name) }}</a
+              class="btn btn-sm btn-ghost font-terminal text-secondary hover:bg-secondary hover:text-secondary-content transition-all duration-300"
+              aria-haspopup="true"
+              aria-label="Open terminal menu">
+              <span class="text-sm">[MENU]</span>
+            </label>
+            <ng-container *transloco="let t; read: 'navigation'">
+              <ul
+                tabindex="0"
+                class="menu menu-sm dropdown-content bg-base-300 border-secondary font-terminal z-[99999] mt-2 w-64 border-2 p-0 shadow-2xl"
+                role="menu">
+                <li class="bg-base-200 border-base-300 border-b px-3 py-2">
+                  <span class="text-secondary text-xs font-bold"
+                    >NAVIGATION_MENU</span
                   >
                 </li>
-              }
+                @for (link of navigationLinks; track link.path) {
+                  <li class="border-base-300 border-b last:border-b-0">
+                    <a
+                      href="{{ link.path }}"
+                      [class.active]="currentRoute === link.path"
+                      class="hover:bg-secondary hover:text-secondary-content before:text-secondary px-4 py-3 text-sm transition-all
+                             duration-300 before:mr-2 before:content-['$_']"
+                      (click)="
+                        handleMobileLinkClick($event, dropdownButton, link.path)
+                      ">
+                      {{ t(link.name).toUpperCase() }}
+                    </a>
+                  </li>
+                }
+              </ul>
+            </ng-container>
+          </div>
+
+          <!-- Desktop navigation (terminal commands) -->
+          <div class="hidden min-w-0 flex-1 items-center gap-4 lg:flex">
+            <span class="text-secondary flex-shrink-0 text-sm font-bold"
+              >root&#64;fsociety:~$</span
+            >
+            <ul class="flex items-center gap-3 overflow-hidden">
+              <ng-container *transloco="let t; read: 'navigation'">
+                @for (link of navigationLinks; track link.path) {
+                  <li class="relative flex-shrink-0">
+                    <a
+                      routerLink="{{ link.path }}"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      class="terminal-command text-base-content hover:text-secondary hover:border-secondary before:text-secondary
+                             relative border border-transparent px-2 py-1 font-mono text-sm transition-all
+                             duration-300 before:mr-1 before:content-['./']"
+                      [attr.data-command]="t(link.name)">
+                      {{ t(link.name) }}
+                    </a>
+                  </li>
+                }
+              </ng-container>
             </ul>
-          </ng-container>
+          </div>
         </div>
-        <ul class="menu menu-horizontal hidden px-1 text-base lg:flex xl:gap-8">
-          <ng-container *transloco="let t; read: 'navigation'">
-            @for (link of navigationLinks; track link.path) {
-              <li
-                class="relative block w-fit text-xl after:absolute after:block after:h-[3px] after:w-full after:origin-center after:scale-x-0 after:bg-black after:transition after:duration-300 after:content-[''] after:hover:[&:not(&:has(a.active))]:scale-x-100">
-                <a
-                  routerLink="{{ link.path }}"
-                  routerLinkActive="active"
-                  [routerLinkActiveOptions]="{ exact: true }"
-                  class="hover:outline-none hover:[&:not(.active)]:bg-transparent"
-                  >{{ t(link.name) }}</a
-                >
-              </li>
-            }
-          </ng-container>
-        </ul>
-      </div>
-      <div class="navbar-center ml-4 mr-4">
-        <div class="avatar">
-          <div
-            class="ring-primary ring-offset-base-100 hover:ring-secondary-focus w-24 rounded-full ring ring-offset-2 hover:h-auto hover:w-28 hover:transition-all">
-            <a routerLink="/home"
-              ><img
+
+        <!-- Center logo (cyberpunk emblem) -->
+        <div class="mx-4 flex-shrink-0">
+          <div class="group relative">
+            <a
+              routerLink="/home"
+              class="from-base-200 to-base-300 border-base-300 hover:border-secondary group-hover:shadow-secondary/20 before:via-secondary/10
+                     relative flex h-16
+                     w-20 items-center justify-center
+                     overflow-hidden border bg-gradient-to-br
+                     transition-all duration-500
+                     before:absolute before:inset-0 before:translate-x-[-100%]
+                     before:bg-gradient-to-r before:from-transparent before:to-transparent
+                     before:transition-transform before:duration-700 hover:before:translate-x-[100%]
+                     group-hover:shadow-lg">
+              <!-- Background pattern -->
+              <div class="absolute inset-0 opacity-5">
+                <div
+                  class="from-secondary/20 absolute inset-0 bg-gradient-to-br to-transparent"></div>
+                <div
+                  class="bg-secondary/30 absolute left-0 top-0 h-px w-full"></div>
+                <div
+                  class="bg-secondary/30 absolute bottom-0 left-0 h-px w-full"></div>
+              </div>
+
+              <!-- Logo -->
+              <img
                 src="assets/logo.svg"
-                width="80"
-                height="80"
-                alt="Luis H. Castro Dev logo"
-                aria-label="Luis H. Castro Dev logo"
-            /></a>
+                width="48"
+                height="48"
+                alt="Luis Castro Dev"
+                class="contrast-110 relative z-10 brightness-110 filter transition-all duration-300 group-hover:scale-110" />
+
+              <!-- Corner accents -->
+              <div
+                class="border-secondary/40 absolute left-1 top-1 h-2 w-2 border-l-2 border-t-2"></div>
+              <div
+                class="border-secondary/40 absolute right-1 top-1 h-2 w-2 border-r-2 border-t-2"></div>
+              <div
+                class="border-secondary/40 absolute bottom-1 left-1 h-2 w-2 border-b-2 border-l-2"></div>
+              <div
+                class="border-secondary/40 absolute bottom-1 right-1 h-2 w-2 border-b-2 border-r-2"></div>
+
+              <!-- Scanning line -->
+              <div
+                class="bg-secondary/60 absolute left-0 right-0 top-0 h-0.5
+                          animate-pulse opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right side controls (terminal utilities) -->
+        <div class="flex flex-shrink-0 items-center gap-2">
+          <div class="text-base-content/60 mr-2 hidden text-xs xl:block">
+            <span class="text-secondary text-xs">[CTRL+ALT+T]</span>
+          </div>
+          <div class="flex gap-2">
+            <app-translate-button class="overflow-hidden" />
+            <app-theme-button class="overflow-hidden" />
           </div>
         </div>
       </div>
-      <div class="navbar-end">
-        <ul class="menu menu-horizontal gap-2 px-1 text-base">
-          <li>
-            <app-translate-button class="px-0 hover:bg-transparent" />
-          </li>
-          <li>
-            <app-theme-button class="px-0 hover:bg-transparent" />
-          </li>
-        </ul>
+
+      <!-- Terminal status bar -->
+      <div class="bg-base-200 border-base-300 border-t px-4 py-1">
+        <div
+          class="text-base-content/60 flex items-center justify-between text-xs">
+          <div class="flex gap-4">
+            <span>STATUS: <span class="text-success">CONNECTED</span></span>
+            <span>USER: <span class="text-secondary">root</span></span>
+            <span>SHELL: <span class="text-info">/bin/bash</span></span>
+          </div>
+          <div class="flex gap-2">
+            <span class="text-success">●</span>
+            <span>Network: 192.168.1.100</span>
+          </div>
+        </div>
       </div>
     </nav>
   `,
