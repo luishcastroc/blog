@@ -1,10 +1,13 @@
-import { Component, Input } from '@angular/core';
-import { ContentFile } from '@analogjs/content';
 import { DatePipe, NgOptimizedImage } from '@angular/common';
-import { DateTime } from 'luxon';
-import { PostAttributes } from '../models/post.model';
+import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+
+import { DateTime } from 'luxon';
+
+import { ContentFile } from '@analogjs/content';
 import { TranslocoDirective } from '@jsverse/transloco';
+
+import { PostAttributes } from '../models/post.model';
 
 @Component({
   standalone: true,
@@ -21,7 +24,8 @@ import { TranslocoDirective } from '@jsverse/transloco';
           {{ t('new') }}
         </div>
       }
-      <div class="card bg-base-100 relative h-[490px] shadow-xl lg:w-96">
+      <div
+        class="card bg-base-100 font-terminal relative h-[490px] shadow-xl lg:w-96">
         <figure class="flex-none">
           <img
             class="w-full"
@@ -31,13 +35,19 @@ import { TranslocoDirective } from '@jsverse/transloco';
             alt="{{ t('alt') }}" />
         </figure>
         <div class="card-body p-4">
-          <h2 class="card-title basis-2/6">{{ post.attributes.title }}</h2>
-          <p>{{ post.attributes.description }}</p>
+          <h2 class="card-title font-terminal text-base-content basis-2/6">
+            {{ post.attributes.title }}
+          </h2>
+          <p class="font-terminal text-base-content">
+            {{ post.attributes.description }}
+          </p>
           <div class="card-actions jus items-center justify-between">
-            <div class="badge badge-outline">
+            <div class="badge badge-outline font-terminal">
               {{ post.attributes.date | date }}
             </div>
-            <button [routerLink]="post.attributes.slug" class="btn btn-primary">
+            <button
+              [routerLink]="post.attributes.slug"
+              class="btn btn-secondary font-terminal">
               {{ t('read') }}
             </button>
           </div>

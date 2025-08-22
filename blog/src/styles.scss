@@ -8,6 +8,8 @@
 @use 'prismjs/plugins/toolbar/prism-toolbar.css';
 @use 'prismjs/themes/prism-tomorrow';
 
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Inter:wght@100..900&display=swap');
+
 :root {
   --scrollbar-bg: white;
   --scrollbar-color: #4e54c8;
@@ -19,6 +21,384 @@ body {
   @apply flex min-h-screen w-full flex-auto flex-col antialiased;
   font-family: 'Inter', sans-serif;
   background-color: var(--bg) !important;
+}
+
+// Terminal/Mono font utility classes
+.font-terminal {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+// Mobile dropdown menu fixes
+.dropdown {
+  position: relative;
+
+  &.dropdown-open .dropdown-content {
+    position: fixed !important;
+    z-index: 99999 !important;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    display: block;
+    top: auto !important;
+    left: auto !important;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    z-index: 99999 !important;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.2s ease-in-out;
+    display: none;
+  }
+}
+.terminal-cursor::after {
+  content: '_';
+  animation: cursor-blink 1s infinite;
+  color: currentColor;
+}
+
+// Terminal command styling for navbar
+.terminal-command {
+  position: relative;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+
+  &.active {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 7, 58, 0.1),
+      transparent
+    );
+    border-color: #ff073a !important;
+    color: #ff073a;
+
+    &::after {
+      content: ' [ACTIVE]';
+      font-size: 0.75rem;
+      color: #ff073a;
+      opacity: 0.8;
+    }
+  }
+
+  &:hover:not(.active) {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 7, 58, 0.05),
+      transparent
+    );
+
+    &::before {
+      color: #ff073a;
+    }
+  }
+
+  // Terminal execution effect on click
+  &:active {
+    transform: scale(0.98);
+    background: rgba(255, 7, 58, 0.2);
+  }
+}
+
+// Blog navigation button styling
+.btn-secondary {
+  // Base terminal button styling
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    rgba(26, 26, 26, 0.8),
+    rgba(42, 42, 42, 0.8)
+  );
+  border: 2px solid #ff073a;
+  color: #ff073a;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow:
+    0 0 10px rgba(255, 7, 58, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  min-width: 8rem;
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  font-size: 0.75rem;
+
+  // Terminal prompt prefix
+  &::before {
+    content: '$ ';
+    color: #ff073a;
+    font-weight: bold;
+    margin-right: 0.125rem;
+    font-size: 0.75rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  // Scanning line effect
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 7, 58, 0.4),
+      transparent
+    );
+    transition: left 0.5s ease;
+    z-index: 1;
+  }
+
+  // Active/hover states
+  &:hover:not(:disabled) {
+    background: linear-gradient(
+      145deg,
+      rgba(255, 7, 58, 0.1),
+      rgba(255, 7, 58, 0.05)
+    );
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(255, 7, 58, 0.8);
+    box-shadow:
+      0 0 20px rgba(255, 7, 58, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+
+    &::before {
+      color: #ffffff;
+      text-shadow: 0 0 5px rgba(255, 7, 58, 0.8);
+    }
+
+    &::after {
+      left: 100%;
+    }
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow:
+      0 0 15px rgba(255, 7, 58, 0.4),
+      inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  // Disabled state
+  &:disabled {
+    background: linear-gradient(
+      145deg,
+      rgba(80, 80, 80, 0.6),
+      rgba(100, 100, 100, 0.6)
+    );
+    border-color: rgba(255, 7, 58, 0.6);
+    color: rgba(255, 7, 58, 0.7);
+    cursor: not-allowed;
+    box-shadow:
+      0 0 5px rgba(255, 7, 58, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    text-shadow: none;
+    opacity: 0.8;
+
+    &::before {
+      content: '# ';
+      color: rgba(255, 7, 58, 0.7);
+      font-size: 0.75rem;
+      line-height: 1;
+      margin-right: 0.125rem;
+      flex-shrink: 0;
+    }
+
+    &::after {
+      display: none;
+    }
+
+    &:hover {
+      transform: none;
+      background: linear-gradient(
+        145deg,
+        rgba(80, 80, 80, 0.6),
+        rgba(100, 100, 100, 0.6)
+      );
+      color: rgba(255, 7, 58, 0.7);
+      box-shadow:
+        0 0 5px rgba(255, 7, 58, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  // Terminal text content styling
+  span,
+  & {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+// Mr. Robot cyberpunk text effects
+.cyberpunk-highlight {
+  position: relative;
+  background: linear-gradient(45deg, #ff073a, #ff073a, #00ff41);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: cyberpunk-gradient 3s ease infinite;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(255, 7, 58, 0.1),
+      transparent
+    );
+    animation: cyberpunk-scan 2s linear infinite;
+    z-index: -1;
+  }
+}
+
+.hacker-text {
+  position: relative;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  background: linear-gradient(90deg, #1a1a1a, #ff073a, #1a1a1a);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: hacker-sweep 4s ease-in-out infinite;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 7, 58, 0.1);
+    opacity: 0;
+    animation: hacker-pulse 2s ease-in-out infinite;
+    z-index: -1;
+  }
+}
+
+@keyframes cyberpunk-gradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes cyberpunk-scan {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes hacker-sweep {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes hacker-pulse {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes cursor-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+// Welcome header styling - font-based terminal effect
+.welcome-header {
+  position: relative;
+}
+
+.welcome-text {
+  position: relative;
+  color: var(--fallback-sc, oklch(var(--sc) / 1));
+  text-shadow:
+    0 0 5px rgba(255, 7, 58, 0.5),
+    0 0 10px rgba(255, 7, 58, 0.3),
+    0 0 15px rgba(255, 7, 58, 0.1);
+  letter-spacing: 0.3rem;
+  font-weight: 900;
+
+  // Terminal-style border effect
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 2px solid rgba(255, 7, 58, 0.3);
+    border-style: dashed;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  // Subtle scan line effect
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 7, 58, 0.03) 2px,
+      rgba(255, 7, 58, 0.03) 4px
+    );
+    pointer-events: none;
+  }
 }
 
 html {
@@ -50,34 +430,36 @@ div {
       flex: 1 1 auto;
       width: 100%;
       min-height: 100dvh;
-      z-index: 99;
+      z-index: 1;
       @apply px-[0.5rem] py-6 sm:px-12 md:px-20 lg:p-6;
     }
   }
 }
 
-[data-theme='bumblebee'] {
-  --scrollbar-bg: white;
-  --scrollbar-color: #4e54c8;
-  --bg: white;
+[data-theme='mr-robot-light'] {
+  --scrollbar-bg: #e8e8e8;
+  --scrollbar-color: #1a1a1a;
+  --bg: #f8f8f8;
+  --terminal-text-color: rgba(26, 26, 26, 0.4);
+  --terminal-prompt-color: rgba(255, 7, 58, 0.6);
+  --terminal-highlight-color: rgba(255, 7, 58, 0.8);
 
-  .circle-container {
-    --circle-bg: rgba(0, 0, 0, 0.2);
-    background: white;
-    background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
+  .terminal-container {
+    background: #f8f8f8;
     width: 100%;
   }
 }
 
-[data-theme='dark'] {
-  --scrollbar-bg: hsl(var(--n));
-  --scrollbar-color: #f7c545;
-  --bg: hsl(var(--n));
+[data-theme='mr-robot-dark'] {
+  --scrollbar-bg: #0a0a0a;
+  --scrollbar-color: #00ff41;
+  --bg: #0a0a0a;
+  --terminal-text-color: rgba(0, 255, 65, 0.4);
+  --terminal-prompt-color: rgba(255, 7, 58, 0.7);
+  --terminal-highlight-color: rgba(255, 7, 58, 0.9);
 
-  .circle-container {
-    --circle-bg: rgba(255, 255, 255, 0.2);
-    background: hsl(var(--n));
-    background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
+  .terminal-container {
+    background: #0a0a0a;
     width: 100%;
   }
 
@@ -88,130 +470,370 @@ div {
   }
 }
 
-.circles {
+.terminal-rain {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 100%;
-  height: 100dvh;
+  height: 100vh;
   overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+  background: transparent;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
 
-  li {
+  .terminal-line {
     position: absolute;
-    display: block;
-    list-style: none;
-    background: var(--circle-bg);
-    animation: animate 30s linear infinite;
-    bottom: -300px;
+    left: 0;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--terminal-text-color);
+    white-space: nowrap;
+    opacity: 0;
+    animation: terminal-scroll linear infinite;
+    width: 100%;
+    overflow: hidden;
 
-    $circles: (
-      (
-        left: 25%,
-        width: 80px,
-        height: 80px,
-        delay: 0s,
-        duration: null,
-      ),
-      (
-        left: 10%,
-        width: 100px,
-        height: 100px,
-        delay: 2s,
-        duration: 12s,
-      ),
-      (
-        left: 70%,
-        width: 20px,
-        height: 20px,
-        delay: 4s,
-        duration: null,
-      ),
-      (
-        left: 40%,
-        width: 60px,
-        height: 60px,
-        delay: 0s,
-        duration: 18s,
-      ),
-      (
-        left: 65%,
-        width: 20px,
-        height: 20px,
-        delay: 0s,
-        duration: null,
-      ),
-      (
-        left: 75%,
-        width: 110px,
-        height: 110px,
-        delay: 3s,
-        duration: null,
-      ),
-      (
-        left: 35%,
-        width: 150px,
-        height: 150px,
-        delay: 7s,
-        duration: null,
-      ),
-      (
-        left: 50%,
-        width: 25px,
-        height: 25px,
-        delay: 15s,
-        duration: 45s,
-      ),
-      (
-        left: 20%,
-        width: 15px,
-        height: 15px,
-        delay: 2s,
-        duration: 35s,
-      ),
-      (
-        left: 85%,
-        width: 150px,
-        height: 150px,
-        delay: 0s,
-        duration: 11s,
-      ),
-      (
-        left: 50%,
-        width: 180px,
-        height: 180px,
-        delay: 4s,
-        duration: 8s,
-      )
-    );
+    &.prompt {
+      color: var(--terminal-prompt-color);
+      font-weight: bold;
 
-    @for $i from 1 through list.length($circles) {
-      $circle: list.nth($circles, $i);
-      &:nth-child(#{$i}) {
-        left: map.get($circle, left);
-        width: map.get($circle, width);
-        height: map.get($circle, height);
-        animation-delay: map.get($circle, delay);
-        $duration: map.get($circle, duration);
-        @if $duration != null {
-          animation-duration: $duration;
-        }
+      &::before {
+        content: '> ';
+        color: var(--terminal-highlight-color);
       }
+    }
+
+    &.error {
+      color: var(--terminal-highlight-color);
+      text-shadow: 0 0 8px currentColor;
+    }
+
+    &.success {
+      color: var(--terminal-text-color);
+    }
+
+    // Stagger the animation delays to create a flowing effect
+    &:nth-child(1) {
+      animation-delay: 0s;
+      top: 5%;
+    }
+    &:nth-child(2) {
+      animation-delay: 2s;
+      top: 10%;
+    }
+    &:nth-child(3) {
+      animation-delay: 4s;
+      top: 15%;
+    }
+    &:nth-child(4) {
+      animation-delay: 6s;
+      top: 20%;
+    }
+    &:nth-child(5) {
+      animation-delay: 8s;
+      top: 25%;
+    }
+    &:nth-child(6) {
+      animation-delay: 10s;
+      top: 30%;
+    }
+    &:nth-child(7) {
+      animation-delay: 12s;
+      top: 35%;
+    }
+    &:nth-child(8) {
+      animation-delay: 14s;
+      top: 40%;
+    }
+    &:nth-child(9) {
+      animation-delay: 16s;
+      top: 45%;
+    }
+    &:nth-child(10) {
+      animation-delay: 18s;
+      top: 50%;
+    }
+    &:nth-child(11) {
+      animation-delay: 20s;
+      top: 55%;
+    }
+    &:nth-child(12) {
+      animation-delay: 22s;
+      top: 60%;
+    }
+    &:nth-child(13) {
+      animation-delay: 24s;
+      top: 65%;
+    }
+    &:nth-child(14) {
+      animation-delay: 26s;
+      top: 70%;
+    }
+    &:nth-child(15) {
+      animation-delay: 28s;
+      top: 75%;
+    }
+    &:nth-child(16) {
+      animation-delay: 30s;
+      top: 80%;
+    }
+    &:nth-child(17) {
+      animation-delay: 32s;
+      top: 85%;
+    }
+    &:nth-child(18) {
+      animation-delay: 34s;
+      top: 90%;
     }
   }
 }
 
-@keyframes animate {
+// Fallback scanning effect
+.terminal-rain::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--terminal-prompt-color),
+    transparent
+  );
+  opacity: 0.1;
+  animation: terminal-scan 4s linear infinite;
+}
+
+@keyframes terminal-scan {
   0% {
-    transform: translateY(0) rotate(0deg);
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes terminal-scroll {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  15% {
     opacity: 1;
-    border-radius: 0;
+  }
+
+  85% {
+    opacity: 1;
   }
 
   100% {
-    transform: translateY(-1000px) rotate(720deg);
     opacity: 0;
-    border-radius: 50%;
+    transform: translateX(100%);
+  }
+}
+
+.glitch-effect {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+  }
+
+  &::before {
+    animation: glitch-1 0.3s infinite linear alternate-reverse;
+    color: #ff073a;
+    z-index: -1;
+  }
+
+  &::after {
+    animation: glitch-2 0.3s infinite linear alternate-reverse;
+    color: #00ff41;
+    z-index: -2;
+  }
+}
+
+@keyframes glitch-1 {
+  0% {
+    clip: rect(42px, 9999px, 44px, 0);
+    transform: skew(0.5deg);
+  }
+  5% {
+    clip: rect(12px, 9999px, 59px, 0);
+    transform: skew(0.4deg);
+  }
+  10% {
+    clip: rect(48px, 9999px, 29px, 0);
+    transform: skew(0.1deg);
+  }
+  15% {
+    clip: rect(42px, 9999px, 73px, 0);
+    transform: skew(0.1deg);
+  }
+  20% {
+    clip: rect(63px, 9999px, 27px, 0);
+    transform: skew(0.2deg);
+  }
+  25% {
+    clip: rect(34px, 9999px, 55px, 0);
+    transform: skew(0.2deg);
+  }
+  30% {
+    clip: rect(86px, 9999px, 73px, 0);
+    transform: skew(0.5deg);
+  }
+  35% {
+    clip: rect(20px, 9999px, 20px, 0);
+    transform: skew(0.5deg);
+  }
+  40% {
+    clip: rect(26px, 9999px, 60px, 0);
+    transform: skew(0.5deg);
+  }
+  45% {
+    clip: rect(25px, 9999px, 65px, 0);
+    transform: skew(0.2deg);
+  }
+  50% {
+    clip: rect(57px, 9999px, 98px, 0);
+    transform: skew(0.5deg);
+  }
+  55% {
+    clip: rect(5px, 9999px, 46px, 0);
+    transform: skew(0.1deg);
+  }
+  60% {
+    clip: rect(82px, 9999px, 31px, 0);
+    transform: skew(0.5deg);
+  }
+  65% {
+    clip: rect(54px, 9999px, 27px, 0);
+    transform: skew(0.1deg);
+  }
+  70% {
+    clip: rect(28px, 9999px, 99px, 0);
+    transform: skew(0.5deg);
+  }
+  75% {
+    clip: rect(45px, 9999px, 69px, 0);
+    transform: skew(0.4deg);
+  }
+  80% {
+    clip: rect(23px, 9999px, 85px, 0);
+    transform: skew(0.5deg);
+  }
+  85% {
+    clip: rect(54px, 9999px, 84px, 0);
+    transform: skew(0.5deg);
+  }
+  90% {
+    clip: rect(45px, 9999px, 47px, 0);
+    transform: skew(0.4deg);
+  }
+  95% {
+    clip: rect(37px, 9999px, 20px, 0);
+    transform: skew(0.1deg);
+  }
+  100% {
+    clip: rect(4px, 9999px, 91px, 0);
+    transform: skew(0.1deg);
+  }
+}
+
+@keyframes glitch-2 {
+  0% {
+    clip: rect(65px, 9999px, 100px, 0);
+    transform: skew(0.2deg);
+  }
+  5% {
+    clip: rect(52px, 9999px, 74px, 0);
+    transform: skew(0.4deg);
+  }
+  10% {
+    clip: rect(79px, 9999px, 85px, 0);
+    transform: skew(0.5deg);
+  }
+  15% {
+    clip: rect(75px, 9999px, 5px, 0);
+    transform: skew(0.3deg);
+  }
+  20% {
+    clip: rect(1px, 9999px, 40px, 0);
+    transform: skew(0.4deg);
+  }
+  25% {
+    clip: rect(68px, 9999px, 14px, 0);
+    transform: skew(0.2deg);
+  }
+  30% {
+    clip: rect(87px, 9999px, 95px, 0);
+    transform: skew(0.1deg);
+  }
+  35% {
+    clip: rect(10px, 9999px, 61px, 0);
+    transform: skew(0.4deg);
+  }
+  40% {
+    clip: rect(87px, 9999px, 14px, 0);
+    transform: skew(0.2deg);
+  }
+  45% {
+    clip: rect(38px, 9999px, 95px, 0);
+    transform: skew(0.5deg);
+  }
+  50% {
+    clip: rect(41px, 9999px, 49px, 0);
+    transform: skew(0.4deg);
+  }
+  55% {
+    clip: rect(52px, 9999px, 78px, 0);
+    transform: skew(0.3deg);
+  }
+  60% {
+    clip: rect(30px, 9999px, 25px, 0);
+    transform: skew(0.2deg);
+  }
+  65% {
+    clip: rect(59px, 9999px, 32px, 0);
+    transform: skew(0.4deg);
+  }
+  70% {
+    clip: rect(38px, 9999px, 71px, 0);
+    transform: skew(0.5deg);
+  }
+  75% {
+    clip: rect(96px, 9999px, 72px, 0);
+    transform: skew(0.4deg);
+  }
+  80% {
+    clip: rect(18px, 9999px, 60px, 0);
+    transform: skew(0.1deg);
+  }
+  85% {
+    clip: rect(86px, 9999px, 84px, 0);
+    transform: skew(0.2deg);
+  }
+  90% {
+    clip: rect(34px, 9999px, 43px, 0);
+    transform: skew(0.5deg);
+  }
+  95% {
+    clip: rect(19px, 9999px, 30px, 0);
+    transform: skew(0.3deg);
+  }
+  100% {
+    clip: rect(64px, 9999px, 47px, 0);
+    transform: skew(0.1deg);
   }
 }
 
@@ -220,37 +842,119 @@ div {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+    @apply text-base-content font-terminal;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      @apply text-base-content font-terminal;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, #ff073a, transparent);
+        animation: terminal-underline 2s ease-in-out infinite;
+      }
+    }
 
     h2 {
       font-size: 1.5rem;
       font-weight: 600;
+      @apply text-base-content font-terminal;
+      position: relative;
+      color: #ff073a;
+
+      &::before {
+        content: '## ';
+        color: #ff073a;
+        font-weight: 400;
+      }
     }
 
     h3 {
       font-size: 1.2rem;
       font-weight: 600;
+      @apply text-base-content font-terminal;
+
+      &::before {
+        content: '### ';
+        color: #ff073a;
+        font-weight: 400;
+      }
     }
 
     h4 {
       font-size: 1rem;
       font-weight: 600;
+      @apply text-base-content font-terminal;
+
+      &::before {
+        content: '#### ';
+        color: #ff073a;
+        font-weight: 400;
+      }
+    }
+
+    p {
+      @apply text-base-content font-terminal;
+      line-height: 1.6;
     }
 
     ul {
-      list-style: disc;
+      list-style: none;
       padding-left: 1.5rem;
+      @apply text-base-content font-terminal;
+
+      li {
+        @apply text-base-content font-terminal;
+        position: relative;
+
+        &::before {
+          content: '▸ ';
+          color: #ff073a;
+          font-weight: bold;
+          position: absolute;
+          left: -1.2rem;
+        }
+      }
+    }
+
+    ol {
+      list-style: none;
+      padding-left: 1.5rem;
+      @apply text-base-content font-terminal;
+      counter-reset: terminal-counter;
+
+      li {
+        @apply text-base-content font-terminal;
+        position: relative;
+        counter-increment: terminal-counter;
+
+        &::before {
+          content: '[' counter(terminal-counter) '] ';
+          color: #ff073a;
+          font-weight: bold;
+          position: absolute;
+          left: -1.5rem;
+        }
+      }
     }
 
     pre {
       font-size: 0.9rem;
-      background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
       padding: 1.5rem;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      border: 2px solid #00ff41;
       box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+        0 0 20px rgba(0, 255, 65, 0.2),
+        inset 0 0 20px rgba(0, 255, 65, 0.05);
       position: relative;
       overflow: hidden;
       margin: 1rem 0;
@@ -258,11 +962,10 @@ div {
 
       &:hover {
         box-shadow:
-          0 12px 40px rgba(0, 0, 0, 0.4),
-          inset 0 1px 0 rgba(255, 255, 255, 0.25),
-          inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+          0 0 30px rgba(0, 255, 65, 0.4),
+          inset 0 0 30px rgba(0, 255, 65, 0.1);
         transform: translateY(-2px);
-        border-color: rgba(255, 255, 255, 0.2);
+        border-color: #ff073a;
       }
 
       &::before {
@@ -272,8 +975,9 @@ div {
         left: 0;
         right: 0;
         height: 2px;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        background: linear-gradient(90deg, transparent, #00ff41, transparent);
         z-index: 1;
+        animation: code-scanner 2s infinite;
       }
 
       &::after {
@@ -283,30 +987,85 @@ div {
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), transparent 50%, rgba(255, 255, 255, 0.02));
+        background: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(0, 255, 65, 0.03) 2px,
+          rgba(0, 255, 65, 0.03) 4px
+        );
         pointer-events: none;
-        border-radius: 12px;
+        border-radius: 4px;
         z-index: 1;
       }
 
       code {
         position: relative;
         z-index: 2;
+        color: #00ff41;
+        text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+      }
+    }
+
+    @keyframes code-scanner {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.3;
+      }
+      100% {
+        opacity: 1;
       }
     }
 
     code:not([class]) {
-      @apply text-primary-content bg-primary rounded-sm px-1;
+      @apply bg-base-200 text-secondary rounded-sm px-1;
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      font-size: 0.9em;
+      padding: 0.2rem 0.4rem;
+      border: 1px solid #ff073a;
+      box-shadow: 0 0 5px rgba(255, 7, 58, 0.3);
+      background: linear-gradient(
+        145deg,
+        rgba(255, 7, 58, 0.1),
+        rgba(255, 7, 58, 0.05)
+      );
     }
 
     a {
-      text-decoration: revert;
+      text-decoration: none;
       font-weight: 600;
+      @apply text-base-content font-terminal;
+      position: relative;
+      color: #ff073a;
+      transition: all 0.3s ease;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: #ff073a;
+        transition: width 0.3s ease;
+      }
+
+      &:hover {
+        color: #ff073a;
+        text-shadow: 0 0 5px rgba(255, 7, 58, 0.5);
+
+        &::after {
+          width: 100%;
+        }
+      }
     }
 
     ol {
       list-style: decimal;
       padding-left: 1.5rem;
+      @apply text-base-content;
     }
 
     blockquote {
@@ -314,22 +1073,73 @@ div {
       padding: 1rem 2rem;
       margin: 2rem 0;
       font-style: italic;
-      @apply bg-primary text-primary-content border-primary-content border-l-4;
-      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      @apply bg-base-200 text-base-content border-secondary border-l-4;
+      box-shadow:
+        0px 4px 15px rgba(0, 0, 0, 0.1),
+        0 0 20px rgba(255, 7, 58, 0.1);
+      border-radius: 0 4px 4px 0;
 
-      /* Large quotation mark style */
+      /* Terminal-style quotation mark */
       &::before {
-        content: '“';
-        font-size: 3rem;
-        top: -10px;
-        left: 10px;
-        @apply text-primary-content absolute left-[10px] top-[-10];
-        opacity: 0.7;
+        content: '> ';
+        font-size: 1.2rem;
+        top: 1rem;
+        left: 0.5rem;
+        @apply text-secondary absolute font-bold;
+        font-family: 'JetBrains Mono', 'Courier New', monospace;
+        opacity: 0.8;
+      }
+
+      /* Add scanning line effect */
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #ff073a, transparent);
+        animation: quote-scanner 3s infinite;
+      }
+    }
+
+    @keyframes quote-scanner {
+      0%,
+      100% {
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes terminal-underline {
+      0%,
+      100% {
+        opacity: 0.5;
+        transform: scaleX(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scaleX(1.1);
       }
     }
 
     table {
-      @apply table-zebra table;
+      @apply table-zebra text-base-content font-terminal table;
+      border: 1px solid #ff073a;
+
+      th {
+        @apply font-terminal text-base-content;
+        background: rgba(255, 7, 58, 0.1);
+        border-bottom: 2px solid #ff073a;
+      }
+
+      td {
+        @apply font-terminal text-base-content;
+        border-bottom: 1px solid rgba(255, 7, 58, 0.2);
+      }
     }
   }
 }
@@ -393,25 +1203,24 @@ div {
 }
 
 pre {
-  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
   padding: 1.5rem;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  border: 2px solid #00ff41;
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+    0 0 20px rgba(0, 255, 65, 0.2),
+    inset 0 0 20px rgba(0, 255, 65, 0.05);
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
 
   &:hover {
     box-shadow:
-      0 12px 40px rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.25),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+      0 0 30px rgba(0, 255, 65, 0.4),
+      inset 0 0 30px rgba(0, 255, 65, 0.1);
     transform: translateY(-2px);
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: #ff073a;
   }
 
   &::before {
@@ -421,8 +1230,9 @@ pre {
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    background: linear-gradient(90deg, transparent, #00ff41, transparent);
     z-index: 1;
+    animation: code-scanner 2s infinite;
   }
 
   &::after {
@@ -432,14 +1242,81 @@ pre {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), transparent 50%, rgba(255, 255, 255, 0.02));
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 65, 0.03) 2px,
+      rgba(0, 255, 65, 0.03) 4px
+    );
     pointer-events: none;
-    border-radius: 12px;
+    border-radius: 4px;
     z-index: 1;
   }
 
   code {
     position: relative;
     z-index: 2;
+    color: #00ff41;
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+  }
+}
+
+// Terminal window styling
+.terminal-window {
+  @apply bg-base-100 border-primary border-2;
+  box-shadow:
+    0 0 20px rgba(0, 255, 65, 0.2),
+    inset 0 0 20px rgba(0, 255, 65, 0.05);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
+    border-bottom: 1px solid #00ff41;
+  }
+
+  &::after {
+    content: '● ● ●';
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    font-size: 8px;
+    color: #ff073a;
+    z-index: 10;
+  }
+}
+
+// Button hover effects for terminal aesthetic
+.btn-terminal {
+  @apply border-primary text-primary border-2 bg-transparent;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 255, 65, 0.2),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+
+  &:hover::before {
+    left: 100%;
   }
 }

@@ -1,8 +1,10 @@
-import { Component, OnInit, Renderer2, inject, signal } from '@angular/core';
-import { fromEvent, map, startWith } from 'rxjs';
-import { SvgIconComponent } from '@ngneat/svg-icon';
 import { NgClass } from '@angular/common';
+import { Component, inject, OnInit, Renderer2, signal } from '@angular/core';
+
+import { fromEvent, map, startWith } from 'rxjs';
+
 import { TranslocoDirective } from '@jsverse/transloco';
+import { SvgIconComponent } from '@ngneat/svg-icon';
 
 @Component({
   standalone: true,
@@ -11,7 +13,7 @@ import { TranslocoDirective } from '@jsverse/transloco';
   template: `
     <ng-container *transloco="let t; read: 'navigation'">
       <button
-        class="btn btn-square btn-ghost relative h-[46px] w-10 overflow-hidden md:w-16"
+        class="btn btn-square btn-ghost font-terminal hover:bg-primary hover:text-primary-content relative h-[46px] w-10 overflow-hidden transition-all duration-300 md:w-16"
         [attr.aria-label]="t('aria-label')"
         (click)="changeTheme()">
         <svg-icon
@@ -67,14 +69,14 @@ export class ThemeButtonComponent implements OnInit {
 
     if (typeof theme === 'undefined') {
       // Toggle the theme if no argument is provided
-      theme = body.getAttribute('data-theme') !== 'dark';
+      theme = body.getAttribute('data-theme') !== 'mr-robot-dark';
     }
 
     if (theme) {
-      body.setAttribute('data-theme', 'dark');
+      body.setAttribute('data-theme', 'mr-robot-dark');
       this.isDarkMode.set(true);
     } else {
-      body.setAttribute('data-theme', 'bumblebee');
+      body.setAttribute('data-theme', 'mr-robot-light');
       this.isDarkMode.set(false);
     }
   }
