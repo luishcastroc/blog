@@ -1,4 +1,7 @@
-import { Component, inject } from '@angular/core';
+import {
+  Component,
+  inject,
+} from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import { TranslocoDirective } from '@jsverse/transloco';
@@ -11,7 +14,7 @@ import { TranslocoDirective } from '@jsverse/transloco';
   template: `
     <ng-container *transloco="let t; read: 'about'">
       <div
-        class="text-base-content font-terminal container flex flex-auto flex-col gap-6 px-2 pt-16 md:px-24">
+        class="text-base-content font-terminal glass-hero container relative flex flex-auto flex-col gap-6 rounded-lg px-2 py-16 md:px-24">
         <header>
           <!-- Stylized About Header like Welcome -->
           <div class="welcome-header mb-6 text-center">

@@ -1,4 +1,7 @@
-import { Component, inject } from '@angular/core';
+import {
+  Component,
+  inject,
+} from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import { TranslocoDirective } from '@jsverse/transloco';
@@ -13,7 +16,8 @@ import { TranslocoDirective } from '@jsverse/transloco';
         <div class="hero flex-1">
           <div class="bg-opacity-60"></div>
           <div class="hero-content text-base-content">
-            <div class="max-w-md md:max-w-[80%]">
+            <div
+              class="glass-hero relative max-w-md rounded-lg p-8 md:max-w-[80%]">
               <!-- Stylized Welcome Header -->
               <div class="welcome-header mb-6 text-center">
                 <h1

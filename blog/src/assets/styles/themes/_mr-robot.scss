@@ -3,12 +3,20 @@
   --scrollbar-bg: #e8e8e8;
   --scrollbar-color: #ff073a;
   --bg: #ffffff;
+
+  // RGB values for glass effects
+  --b1-rgb: 255, 255, 255;
+  --secondary-rgb: 255, 7, 58;
 }
 
 [data-theme='mr-robot-dark'] {
   --scrollbar-bg: #2a2a2a;
   --scrollbar-color: #ff073a;
   --bg: #1a1a1a;
+
+  // RGB values for glass effects
+  --b1-rgb: 40, 40, 40;
+  --secondary-rgb: 255, 7, 58;
 }
 
 // Cyberpunk text effects

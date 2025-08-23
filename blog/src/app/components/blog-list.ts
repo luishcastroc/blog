@@ -1,10 +1,16 @@
-import { Component, inject } from '@angular/core';
-import { injectContentFiles } from '@analogjs/content';
+import {
+  Component,
+  inject,
+} from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+
 import { DateTime } from 'luxon';
 import { map } from 'rxjs';
-import { PostAttributes } from '../models/post.model';
+
+import { injectContentFiles } from '@analogjs/content';
 import { TranslocoService } from '@jsverse/transloco';
-import { toSignal } from '@angular/core/rxjs-interop';
+
+import { PostAttributes } from '../models/post.model';
 import { BlogCoverComponent } from './blog-cover';
 
 @Component({
@@ -13,7 +19,7 @@ import { BlogCoverComponent } from './blog-cover';
   imports: [BlogCoverComponent],
   template: `
     <div
-      class="flex flex-col flex-wrap justify-center gap-8 overflow-auto pb-4 pt-4 lg:flex-row lg:gap-6">
+      class="glass-container-terminal relative flex flex-col flex-wrap justify-center gap-8 overflow-auto rounded-lg p-6 pb-4 pt-4 lg:flex-row lg:gap-6">
       @for (post of posts(); track post.attributes.slug || $index) {
         <app-blog-cover [post]="post" />
       }

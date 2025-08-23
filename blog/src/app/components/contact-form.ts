@@ -1,10 +1,17 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import {
+  Component,
+  inject,
+} from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { TranslocoDirective } from '@jsverse/transloco';
 import { HotToastService } from '@ngxpert/hot-toast';
-import { injectForm, injectStore, TanStackField } from '@tanstack/angular-form';
+import {
+  injectForm,
+  injectStore,
+  TanStackField,
+} from '@tanstack/angular-form';
 
 import { ContactService } from '../services/contact.service';
 import { ValidationService } from '../services/validation.service';
@@ -17,9 +24,8 @@ import { ValidationService } from '../services/validation.service';
   template: `
     <ng-container *transloco="let t; read: 'contact'">
       <div
-        class="font-terminal flex flex-auto flex-col items-center gap-3 pt-20">
-        <div
-          class="flex w-full max-w-sm flex-col justify-start gap-4 align-baseline md:max-w-lg lg:max-w-2xl xl:max-w-3xl">
+        class="font-terminal glass-hero relative mx-auto flex w-[90%] max-w-2xl flex-auto flex-col items-center gap-3 rounded-lg p-8 pt-20 lg:w-[70%]">
+        <div class="flex w-full flex-col justify-start gap-4 align-baseline">
           <!-- Stylized Contact Header like Welcome -->
           <div class="welcome-header mb-5 text-center">
             <h1
@@ -36,7 +42,7 @@ import { ValidationService } from '../services/validation.service';
         </div>
         <form
           (submit)="submitForm($event)"
-          class="form-control flex w-full max-w-sm flex-col items-center gap-3 md:max-w-lg lg:max-w-2xl xl:max-w-3xl">
+          class="form-control flex w-full flex-col items-center gap-3">
           <div class="w-full">
             <div class="form-control">
               <ng-container

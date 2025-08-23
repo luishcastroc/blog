@@ -4,9 +4,10 @@ import {
 } from '@angular/common';
 import {
   Component,
+  inject,
   Input,
 } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { DateTime } from 'luxon';
 
@@ -18,7 +19,7 @@ import { PostAttributes } from '../models/post.model';
 @Component({
   standalone: true,
   selector: 'app-blog-cover',
-  imports: [NgOptimizedImage, RouterLink, DatePipe, TranslocoDirective],
+  imports: [NgOptimizedImage, DatePipe, TranslocoDirective],
   host: {
     class: 'p-0',
   },
@@ -31,7 +32,8 @@ import { PostAttributes } from '../models/post.model';
         </div>
       }
       <div
-        class="card bg-base-100 font-terminal border-secondary/30 hover:border-secondary/60 terminal-card relative h-[490px] border-2 shadow-xl transition-all duration-300 hover:scale-[1.02] hover:transform hover:shadow-2xl lg:w-96">
+        class="card bg-base-100 font-terminal border-secondary/30 hover:border-secondary/60 glass-card terminal-card relative h-[490px] cursor-pointer border-2 shadow-xl transition-all duration-300 hover:scale-[1.02] hover:transform hover:shadow-2xl lg:w-96"
+        (click)="navigateToPost()">
         <figure class="relative flex-none overflow-hidden">
           @if (post.attributes.coverImage) {
             <img
@@ -66,8 +68,8 @@ import { PostAttributes } from '../models/post.model';
               >{{ post.attributes.date | date }}
             </div>
             <button
-              [routerLink]="post.attributes.slug"
-              class="btn btn-secondary font-terminal hover:bg-secondary hover:text-secondary-content border-secondary hover:glow-red border-2 px-4 text-xs transition-all duration-300 hover:shadow-lg">
+              class="btn btn-secondary font-terminal hover:bg-secondary hover:text-secondary-content border-secondary hover:glow-red border-2 px-4 text-xs transition-all duration-300 hover:shadow-lg"
+              (click)="navigateToPost(); $event.stopPropagation()">
               <span class="mr-1">></span>{{ t('read') }}
             </button>
           </div>
@@ -79,11 +81,17 @@ import { PostAttributes } from '../models/post.model';
 export class BlogCoverComponent {
   @Input({ required: true }) post!: ContentFile<PostAttributes>;
 
+  private router = inject(Router);
+
   //method that returns true if the date is >= today - 7 days using luxon
   isNew(date: string): boolean {
     const today = DateTime.now();
     const sevenDaysAgo = today.minus({ days: 7 });
     const postDate = DateTime.fromISO(date);
     return postDate >= sevenDaysAgo;
+  }
+
+  navigateToPost(): void {
+    this.router.navigate(['/blog', this.post.attributes.slug]);
   }
 }

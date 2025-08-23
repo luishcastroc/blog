@@ -1,0 +1,215 @@
+// Frosted glass effects for content containers
+// This provides a backdrop filter to reduce distraction from background animations
+
+.glass-container {
+  backdrop-filter: blur(8px) saturate(1.02) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(1.02) !important;
+  background: rgba(var(--b1-rgb, 40, 40, 40), 0.005) !important;
+  border: 1px solid rgba(255, 255, 255, 0.01) !important;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.01),
+    inset 0 1px 0 rgba(255, 255, 255, 0.015);
+
+  // Ultra minimal inner glow for true glass effect
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.008) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.003) 100%
+    );
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  // Ensure content is above the glass overlay
+  // Ensure content is above the glass overlay
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.glass-container-terminal {
+  @extend .glass-container;
+
+  // Terminal-specific glass styling with ultra minimal cyberpunk accents
+  background: rgba(var(--b1-rgb, 40, 40, 40), 0.008) !important;
+  border: 1px solid rgba(var(--secondary-rgb, 255, 7, 58), 0.02) !important;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.015),
+    0 0 2px rgba(var(--secondary-rgb, 255, 7, 58), 0.008),
+    inset 0 1px 0 rgba(255, 255, 255, 0.01);
+
+  // Almost invisible terminal-style glass reflection
+  &::before {
+    background: linear-gradient(
+      135deg,
+      rgba(var(--secondary-rgb, 255, 7, 58), 0.01) 0%,
+      transparent 30%,
+      rgba(255, 255, 255, 0.003) 70%,
+      rgba(var(--secondary-rgb, 255, 7, 58), 0.003) 100%
+    ) !important;
+  }
+
+  // Ultra minimal glow on hover
+  &:hover {
+    background: rgba(var(--b1-rgb, 40, 40, 40), 0.012) !important;
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.02),
+      0 0 3px rgba(var(--secondary-rgb, 255, 7, 58), 0.012),
+      inset 0 1px 0 rgba(255, 255, 255, 0.015);
+
+    border-color: rgba(var(--secondary-rgb, 255, 7, 58), 0.03);
+  }
+}
+
+.glass-card {
+  @extend .glass-container-terminal;
+
+  // Card-specific adjustments - 8px blur for cards
+  backdrop-filter: blur(8px) saturate(1.02) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(1.02) !important;
+  background: rgba(var(--b1-rgb, 40, 40, 40), 0.02) !important;
+
+  // Almost invisible glass effect for cards
+  &::before {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.02) 0%,
+      transparent 40%,
+      rgba(var(--secondary-rgb, 255, 7, 58), 0.008) 100%
+    );
+  }
+
+  // Ultra minimal shadows for true glass look
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.02),
+    0 0 2px rgba(var(--secondary-rgb, 255, 7, 58), 0.01),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+
+  &:hover {
+    background: rgba(var(--b1-rgb, 40, 40, 40), 0.03) !important;
+    box-shadow:
+      0 2px 6px rgba(0, 0, 0, 0.03),
+      0 0 4px rgba(var(--secondary-rgb, 255, 7, 58), 0.015),
+      inset 0 1px 0 rgba(255, 255, 255, 0.025);
+  }
+}
+
+.glass-hero {
+  @extend .glass-container-terminal;
+
+  // Hero section specific glass effect - 8px blur
+  backdrop-filter: blur(8px) saturate(1.08) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(1.08) !important;
+  background: rgba(var(--b1-rgb, 40, 40, 40), 0.008) !important;
+
+  // Ultra minimal glass effect for hero content
+  &::before {
+    background: linear-gradient(
+      135deg,
+      rgba(var(--secondary-rgb, 255, 7, 58), 0.015) 0%,
+      transparent 25%,
+      rgba(255, 255, 255, 0.008) 75%,
+      rgba(var(--secondary-rgb, 255, 7, 58), 0.005) 100%
+    ) !important;
+  }
+
+  // Ultra light shadows
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.02),
+    0 0 3px rgba(var(--secondary-rgb, 255, 7, 58), 0.01),
+    inset 0 1px 0 rgba(255, 255, 255, 0.015) !important;
+}
+
+.glass-article {
+  @extend .glass-container-terminal;
+
+  // Article/blog post specific glass effect - 10px blur for articles
+  backdrop-filter: blur(10px) saturate(1.02) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(1.02) !important;
+  background: rgba(var(--b1-rgb, 40, 40, 40), 0.01) !important;
+  border: 1px solid rgba(255, 255, 255, 0.02) !important;
+
+  // Almost invisible glass effect for optimal reading
+  &::before {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.008) 0%,
+      transparent 35%,
+      rgba(var(--secondary-rgb, 255, 7, 58), 0.003) 100%
+    ) !important;
+  }
+
+  // Barely visible shadows
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.01),
+    0 0 2px rgba(var(--secondary-rgb, 255, 7, 58), 0.005),
+    inset 0 1px 0 rgba(255, 255, 255, 0.01) !important;
+}
+
+// Terminal window glass effect
+.terminal-window-glass {
+  @extend .glass-container-terminal;
+
+  backdrop-filter: blur(6px) saturate(1);
+  -webkit-backdrop-filter: blur(6px) saturate(1);
+  background: rgba(10, 10, 10, 0.85);
+  border: 2px solid rgba(var(--secondary-rgb, 255, 7, 58), 0.3);
+
+  &::before {
+    background: linear-gradient(
+      135deg,
+      rgba(var(--secondary-rgb, 255, 7, 58), 0.15) 0%,
+      transparent 20%,
+      rgba(0, 255, 65, 0.05) 80%,
+      rgba(var(--secondary-rgb, 255, 7, 58), 0.1) 100%
+    );
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .glass-container,
+  .glass-container-terminal,
+  .glass-card,
+  .glass-hero,
+  .glass-article {
+    backdrop-filter: blur(16px) saturate(1.05);
+    -webkit-backdrop-filter: blur(16px) saturate(1.05);
+    background: rgba(var(--b1-rgb, 40, 40, 40), 0.12);
+  }
+}
+
+// Utility classes for different glass intensities
+.glass-light {
+  backdrop-filter: blur(12px) saturate(1);
+  -webkit-backdrop-filter: blur(12px) saturate(1);
+  background: rgba(var(--b1-rgb, 40, 40, 40), 0.04);
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.02),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.glass-medium {
+  backdrop-filter: blur(16px) saturate(1.05);
+  -webkit-backdrop-filter: blur(16px) saturate(1.05);
+  background: rgba(var(--b1-rgb, 40, 40, 40), 0.08);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.glass-heavy {
+  backdrop-filter: blur(20px) saturate(1.1);
+  -webkit-backdrop-filter: blur(20px) saturate(1.1);
+  background: rgba(var(--b1-rgb, 40, 40, 40), 0.15);
+  box-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}

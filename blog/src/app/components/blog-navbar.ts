@@ -40,7 +40,9 @@ interface NavigationLink {
   template: `
     <!-- Terminal-style navbar -->
     <nav
-      class="bg-base-100 border-secondary font-terminal relative overflow-hidden border-b-2 shadow-xl">
+      class="terminal-window-glass bg-base-200 border-base-300 relative flex w-full flex-col border-2 font-mono text-sm shadow-lg"
+      role="navigation"
+      aria-label="Main navigation">
       <!-- Terminal header bar -->
       <div
         class="bg-base-200 border-base-300 flex items-center justify-between border-b px-4 py-1">

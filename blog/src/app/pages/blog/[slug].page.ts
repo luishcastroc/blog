@@ -60,7 +60,7 @@ export const routeMeta: RouteMeta = {
       @let postItem = post();
       @if (postItem) {
         <article
-          class="text-base-content font-terminal flex w-full flex-auto flex-col items-center gap-4 overflow-auto">
+          class="text-base-content font-terminal glass-article relative mx-auto flex w-[90%] max-w-7xl flex-auto flex-col items-center gap-4 overflow-auto rounded-lg p-6 xl:w-[85%]">
           <section
             class="mb-4 flex w-full flex-auto flex-row justify-between gap-4 lg:w-3/5">
             <button
