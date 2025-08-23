@@ -1,5 +1,11 @@
-import { DatePipe, NgOptimizedImage } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import {
+  DatePipe,
+  NgOptimizedImage,
+} from '@angular/common';
+import {
+  Component,
+  Input,
+} from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { DateTime } from 'luxon';
@@ -27,12 +33,14 @@ import { PostAttributes } from '../models/post.model';
       <div
         class="card bg-base-100 font-terminal border-secondary/30 hover:border-secondary/60 terminal-card relative h-[490px] border-2 shadow-xl transition-all duration-300 hover:scale-[1.02] hover:transform hover:shadow-2xl lg:w-96">
         <figure class="relative flex-none overflow-hidden">
-          <img
-            class="w-full filter transition-all duration-300 hover:scale-105 hover:brightness-110"
-            [ngSrc]="post.attributes.coverImage"
-            width="500"
-            height="210"
-            alt="{{ t('alt') }}" />
+          @if (post.attributes.coverImage) {
+            <img
+              class="w-full filter transition-all duration-300 hover:scale-105 hover:brightness-110"
+              [ngSrc]="post.attributes.coverImage"
+              width="500"
+              height="210"
+              alt="{{ t('alt') }}" />
+          }
           <!-- Terminal scan line effect on image -->
           <div
             class="via-secondary/5 scan-line absolute inset-0 bg-gradient-to-b from-transparent to-transparent"></div>

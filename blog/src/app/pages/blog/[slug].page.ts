@@ -8,10 +8,20 @@ import {
   runInInjectionContext,
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { Router, RouterLink } from '@angular/router';
+import {
+  Router,
+  RouterLink,
+} from '@angular/router';
 
 import { DateTime } from 'luxon';
-import { combineLatest, map, of, Subject, switchMap, takeUntil } from 'rxjs';
+import {
+  combineLatest,
+  map,
+  of,
+  Subject,
+  switchMap,
+  takeUntil,
+} from 'rxjs';
 
 import {
   injectContent,
@@ -19,10 +29,16 @@ import {
   MarkdownComponent,
 } from '@analogjs/content';
 import { RouteMeta } from '@analogjs/router';
-import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
+import {
+  TranslocoDirective,
+  TranslocoService,
+} from '@jsverse/transloco';
 
 import { PostAttributes } from '../../models/post.model';
-import { postMetaResolver, postTitleResolver } from '../../models/resolvers';
+import {
+  postMetaResolver,
+  postTitleResolver,
+} from '../../models/resolvers';
 
 export const routeMeta: RouteMeta = {
   title: postTitleResolver,
@@ -78,12 +94,14 @@ export const routeMeta: RouteMeta = {
               [IMG_VIEWER]
             </div>
             <div class="mt-6">
-              <img
-                [ngSrc]="postItem.attributes.coverImage"
-                width="1000"
-                height="420"
-                priority
-                class="contrast-110 w-full brightness-110 filter" />
+              @if (postItem.attributes.coverImage) {
+                <img
+                  [ngSrc]="postItem.attributes.coverImage"
+                  width="1000"
+                  height="420"
+                  priority
+                  class="contrast-110 w-full brightness-110 filter" />
+              }
             </div>
             <!-- Scanning line -->
             <div
