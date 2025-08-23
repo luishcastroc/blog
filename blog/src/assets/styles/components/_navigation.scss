@@ -9,7 +9,7 @@
     right: 1rem !important;
     width: calc(100vw - 2rem) !important;
     max-width: 20rem !important;
-    z-index: 99999 !important;
+    z-index: 100000 !important;
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
@@ -29,7 +29,7 @@
 
   .dropdown-content {
     position: absolute;
-    z-index: 99999 !important;
+    z-index: 100000 !important;
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
@@ -50,6 +50,15 @@
         text-decoration: none;
         outline: none;
       }
+    }
+  }
+
+  // Specific override for mobile menu to appear above status bar
+  &.dropdown-open {
+    z-index: 100001 !important;
+
+    .dropdown-content {
+      z-index: 100002 !important;
     }
   }
 }

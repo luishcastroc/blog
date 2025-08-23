@@ -1,6 +1,7 @@
 import {
   afterNextRender,
   Component,
+  DOCUMENT,
   HostListener,
   inject,
   OnDestroy,
@@ -64,8 +65,7 @@ interface NavigationLink {
       </div>
 
       <!-- Main navigation area -->
-      <!-- Main navigation area -->
-      <div class="relative flex min-h-[4rem] items-center px-4 py-4">
+      <div class="relative z-10 flex min-h-[4rem] items-center px-4 py-4">
         <!-- Terminal prompt and navigation -->
         <div class="flex min-w-0 flex-1 items-center gap-3">
           <!-- Mobile menu button (terminal style) -->
@@ -81,7 +81,7 @@ interface NavigationLink {
             <ng-container *transloco="let t; read: 'navigation'">
               <ul
                 tabindex="0"
-                class="menu menu-sm dropdown-content bg-base-300 border-secondary font-terminal z-[99999] mt-2 w-64 border-2 p-0 shadow-2xl"
+                class="menu menu-sm dropdown-content bg-base-300 border-secondary font-terminal z-[100000] mt-2 w-64 border-2 p-0 shadow-2xl"
                 role="menu">
                 <li class="bg-base-200 border-base-300 border-b px-3 py-2">
                   <span class="text-secondary text-xs font-bold"
@@ -195,7 +195,7 @@ interface NavigationLink {
       </div>
 
       <!-- Terminal status bar -->
-      <div class="bg-base-200 border-base-300 border-t px-4 py-1">
+      <div class="bg-base-200 border-base-300 relative z-0 border-t px-4 py-1">
         <div
           class="text-base-content/60 flex items-center justify-between text-xs">
           <div class="flex gap-4">
@@ -223,6 +223,7 @@ export class BlogNavbarComponent implements OnDestroy {
   currentRoute = '';
   private router = inject(Router);
   private currentMobileMenuElement: HTMLDivElement | null = null;
+  private document = inject(DOCUMENT);
 
   constructor() {
     afterNextRender(() => {
@@ -232,8 +233,8 @@ export class BlogNavbarComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     // Restore body scroll when component is destroyed
-    document.body.classList.remove('mobile-menu-open');
-    document.body.style.overflow = '';
+    this.document.body.classList.remove('mobile-menu-open');
+    this.document.body.style.overflow = '';
   }
 
   /**
@@ -306,8 +307,8 @@ export class BlogNavbarComponent implements OnDestroy {
    */
   private openMobileMenu(menuElement: HTMLDivElement): void {
     menuElement.classList.add('dropdown-open');
-    document.body.classList.add('mobile-menu-open');
-    document.body.style.overflow = 'hidden';
+    this.document.body.classList.add('mobile-menu-open');
+    this.document.body.style.overflow = 'hidden';
   }
 
   /**
@@ -315,8 +316,8 @@ export class BlogNavbarComponent implements OnDestroy {
    */
   private closeMobileMenu(menuElement: HTMLDivElement): void {
     menuElement.classList.remove('dropdown-open');
-    document.body.classList.remove('mobile-menu-open');
-    document.body.style.overflow = '';
+    this.document.body.classList.remove('mobile-menu-open');
+    this.document.body.style.overflow = '';
     this.currentMobileMenuElement = null;
   }
 
@@ -342,8 +343,8 @@ export class BlogNavbarComponent implements OnDestroy {
    * Removes focus from the currently active element
    */
   private blurActiveElement(): void {
-    if (document.activeElement instanceof HTMLElement) {
-      document.activeElement.blur();
+    if (this.document.activeElement instanceof HTMLElement) {
+      this.document.activeElement.blur();
     }
   }
 }

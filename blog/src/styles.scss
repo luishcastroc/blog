@@ -33,7 +33,7 @@ body {
     right: 1rem !important;
     width: calc(100vw - 2rem) !important;
     max-width: 20rem !important;
-    z-index: 99999 !important;
+    z-index: 100000 !important;
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
@@ -53,7 +53,7 @@ body {
 
   .dropdown-content {
     position: absolute;
-    z-index: 99999 !important;
+    z-index: 100000 !important;
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
@@ -74,6 +74,15 @@ body {
         text-decoration: none;
         outline: none;
       }
+    }
+  }
+
+  // Specific override for mobile menu to appear above status bar
+  &.dropdown-open {
+    z-index: 100001 !important;
+
+    .dropdown-content {
+      z-index: 100002 !important;
     }
   }
 }
@@ -978,9 +987,19 @@ div {
         0 0 20px rgba(0, 255, 65, 0.2),
         inset 0 0 20px rgba(0, 255, 65, 0.05);
       position: relative;
-      overflow: hidden;
+      overflow-x: auto;
+      overflow-y: hidden;
       margin: 1rem 0;
       transition: all 0.3s ease;
+      max-width: 100%;
+
+      @media (max-width: 768px) {
+        font-size: 0.8rem;
+        padding: 1rem;
+        overflow-x: auto;
+        overflow-y: auto;
+        max-height: 400px;
+      }
 
       &:hover {
         box-shadow:
@@ -1026,6 +1045,9 @@ div {
         z-index: 2;
         color: #00ff41;
         text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+        white-space: pre;
+        word-wrap: normal;
+        overflow-wrap: normal;
       }
     }
 
@@ -1234,8 +1256,18 @@ pre {
     0 0 20px rgba(0, 255, 65, 0.2),
     inset 0 0 20px rgba(0, 255, 65, 0.05);
   position: relative;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   transition: all 0.3s ease;
+  max-width: 100%;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    padding: 1rem;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 400px;
+  }
 
   &:hover {
     box-shadow:
@@ -1281,6 +1313,9 @@ pre {
     z-index: 2;
     color: #00ff41;
     text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+    white-space: pre;
+    word-wrap: normal;
+    overflow-wrap: normal;
   }
 }
 
@@ -1340,5 +1375,90 @@ pre {
 
   &:hover::before {
     left: 100%;
+  }
+}
+
+// Responsive code block enhancements
+@media (max-width: 768px) {
+  pre {
+    // Ensure proper scrolling on mobile
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #00ff41 rgba(0, 0, 0, 0.1);
+
+    // Custom scrollbar for webkit browsers on mobile
+    &::-webkit-scrollbar {
+      height: 8px;
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #00ff41;
+      border-radius: 4px;
+      
+      &:hover {
+        background: #ff073a;
+      }
+    }
+
+    code {
+      font-size: 0.75rem;
+      line-height: 1.4;
+    }
+  }
+
+  // Ensure container doesn't restrict code block width
+  .prose, .content, article {
+    overflow-x: visible;
+  }
+
+  .analog-markdown {
+    overflow-x: visible;
+
+    pre {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+}
+
+// Additional responsive utilities for very small screens
+@media (max-width: 480px) {
+  pre {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    
+    code {
+      font-size: 0.7rem;
+    }
+  }
+
+  .analog-markdown {
+    overflow-x: visible;
+    padding-left: 0;
+    padding-right: 0;
+
+    pre {
+      margin-left: -1rem;
+      margin-right: -1rem;
+      width: calc(100vw - 2rem);
+      max-width: none;
+    }
+  }
+
+  .blog-post {
+    overflow-x: visible;
+    
+    .analog-markdown {
+      overflow-x: visible;
+    }
   }
 }
