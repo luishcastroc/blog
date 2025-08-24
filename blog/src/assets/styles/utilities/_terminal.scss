@@ -1,3 +1,5 @@
+@use '../base/variables' as vars;
+
 // Terminal-specific utility classes
 .terminal-rain {
   position: fixed;
@@ -58,5 +60,59 @@
   100% {
     transform: translateX(100vw);
     opacity: 0;
+  }
+}
+
+// Terminal/Mono font utility classes
+.font-terminal {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+.terminal-cursor::after {
+  content: '_';
+  animation: cursor-blink 1s infinite;
+  color: currentColor;
+}
+
+// Terminal command styling for navbar
+.terminal-command {
+  position: relative;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+
+  &.active {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      vars.$red-alpha-10,
+      transparent
+    );
+    border-color: vars.$mr-robot-red !important;
+    color: vars.$mr-robot-red;
+
+    &::after {
+      content: ' [ACTIVE]';
+      font-size: 0.75rem;
+      color: vars.$mr-robot-red;
+      opacity: 0.8;
+    }
+  }
+
+  &:hover:not(.active) {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      vars.$red-alpha-05,
+      transparent
+    );
+
+    &::before {
+      color: vars.$mr-robot-red;
+    }
+  }
+
+  // Terminal execution effect on click
+  &:active {
+    transform: scale(0.98);
+    background: vars.$red-alpha-20;
   }
 }

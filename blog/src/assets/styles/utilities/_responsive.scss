@@ -1,2 +1,87 @@
-// Responsive utilities and breakpoints
-// Add responsive-specific utilities here when needed
+@use '../base/variables.scss' as vars;
+// Responsive code block enhancements
+@media (max-width: 768px) {
+  pre {
+    // Ensure proper scrolling on mobile
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: vars.$mr-robot-green vars.$black-alpha-10;
+
+    // Custom scrollbar for webkit browsers on mobile
+    &::-webkit-scrollbar {
+      height: 8px;
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: vars.$black-alpha-10;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: vars.$mr-robot-green;
+      border-radius: 4px;
+
+      &:hover {
+        background: vars.$mr-robot-red;
+      }
+    }
+
+    code {
+      font-size: 0.75rem;
+      line-height: 1.4;
+    }
+  }
+
+  // Ensure container doesn't restrict code block width
+  .prose,
+  .content,
+  article {
+    overflow-x: visible;
+  }
+
+  .analog-markdown {
+    overflow-x: visible;
+
+    pre {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+}
+
+// Additional responsive utilities for very small screens
+@media (max-width: 480px) {
+  pre {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+
+    code {
+      font-size: 0.7rem;
+    }
+  }
+
+  .analog-markdown {
+    overflow-x: visible;
+    padding-left: 0;
+    padding-right: 0;
+
+    pre {
+      margin-left: -1rem;
+      margin-right: -1rem;
+      width: calc(100vw - 2rem);
+      max-width: none;
+    }
+  }
+
+  .blog-post {
+    overflow-x: visible;
+
+    .analog-markdown {
+      overflow-x: visible;
+    }
+  }
+}

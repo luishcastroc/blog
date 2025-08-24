@@ -233,3 +233,168 @@
     z-index: 2;
   }
 }
+
+// Blog navigation button styling
+.btn-secondary {
+  // Base terminal button styling
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    rgba(26, 26, 26, 0.8),
+    rgba(42, 42, 42, 0.8)
+  );
+  border: 2px solid vars.$mr-robot-red;
+  color: vars.$mr-robot-red;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow:
+    0 0 10px vars.$red-alpha-30,
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  min-width: 8rem;
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  font-size: 0.75rem;
+
+  // Terminal prompt prefix
+  &::before {
+    content: '$ ';
+    color: vars.$mr-robot-red;
+    font-weight: bold;
+    margin-right: 0.125rem;
+    font-size: 0.75rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  // Scanning line effect
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      vars.$red-alpha-40,
+      transparent
+    );
+    transition: left 0.5s ease;
+    z-index: 1;
+  }
+
+  // Active/hover states
+  &:hover:not(:disabled) {
+    background: linear-gradient(145deg, vars.$red-alpha-10, vars.$red-alpha-05);
+    color: vars.$mr-robot-light-bg;
+    text-shadow: 0 0 5px vars.$red-alpha-80;
+    box-shadow:
+      0 0 20px vars.$red-alpha-60,
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+
+    &::before {
+      color: vars.$mr-robot-light-bg;
+      text-shadow: 0 0 5px vars.$red-alpha-80;
+    }
+
+    &::after {
+      left: 100%;
+    }
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow:
+      0 0 15px vars.$red-alpha-40,
+      inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  // Disabled state
+  &:disabled {
+    background: linear-gradient(
+      145deg,
+      rgba(80, 80, 80, 0.6),
+      rgba(100, 100, 100, 0.6)
+    );
+    border-color: vars.$red-alpha-60;
+    color: vars.$red-alpha-70;
+    cursor: not-allowed;
+    box-shadow:
+      0 0 5px vars.$red-alpha-20,
+      inset 0 1px 0 vars.$white-alpha-05;
+    text-shadow: none;
+    opacity: 0.8;
+
+    &::before {
+      content: '# ';
+      color: vars.$red-alpha-70;
+      font-size: 0.75rem;
+      line-height: 1;
+      margin-right: 0.125rem;
+      flex-shrink: 0;
+    }
+
+    &::after {
+      display: none;
+    }
+
+    &:hover {
+      transform: none;
+      background: linear-gradient(
+        145deg,
+        vars.$black-alpha-60,
+        vars.$black-alpha-60
+      );
+      color: vars.$red-alpha-70;
+      box-shadow:
+        0 0 5px vars.$red-alpha-20,
+        inset 0 1px 0 vars.$white-alpha-05;
+    }
+  }
+
+  // Terminal text content styling
+  span,
+  & {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+// Button hover effects for terminal aesthetic
+.btn-terminal {
+  @apply border-primary text-primary border-2 bg-transparent;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      vars.$green-alpha-20,
+      transparent
+    );
+    transition: left 0.5s;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+}

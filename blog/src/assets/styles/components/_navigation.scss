@@ -1,3 +1,4 @@
+@use '../base/variables' as vars;
 // Mobile dropdown menu fixes
 .dropdown {
   position: relative;
@@ -72,12 +73,12 @@
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(255, 7, 58, 0.1),
+      vars.$red-alpha-10,
       transparent
     );
-    border-color: #ff073a !important;
-    color: #ff073a;
-    text-shadow: 0 0 3px rgba(255, 7, 58, 0.6);
+    border-color: vars.$mr-robot-red !important;
+    color: vars.$mr-robot-red;
+    text-shadow: 0 0 3px vars.$red-alpha-60;
 
     &::after {
       content: '';
@@ -86,7 +87,12 @@
       left: 0;
       right: 0;
       height: 2px;
-      background: linear-gradient(90deg, transparent, #ff073a, transparent);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        vars.$mr-robot-red,
+        transparent
+      );
       animation: terminal-glow 2s ease-in-out infinite alternate;
     }
   }
@@ -134,5 +140,70 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+// Mobile dropdown menu fixes
+.dropdown {
+  position: relative;
+
+  &.dropdown-open .dropdown-content {
+    position: fixed !important;
+    top: 80px !important; // Account for navbar height
+    left: 1rem !important;
+    right: 1rem !important;
+    width: calc(100vw - 2rem) !important;
+    max-width: 20rem !important;
+    z-index: 100000 !important;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    display: block;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+    @media (min-width: 1024px) {
+      position: absolute !important;
+      top: auto !important;
+      left: auto !important;
+      right: auto !important;
+      width: 16rem !important;
+      max-width: none !important;
+    }
+  }
+
+  .dropdown-content {
+    position: absolute;
+    z-index: 100000 !important;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.2s ease-in-out;
+    display: none;
+
+    // Ensure menu items are interactive
+    a {
+      display: block;
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+
+      &:hover,
+      &:focus,
+      &:active {
+        text-decoration: none;
+        outline: none;
+      }
+    }
+  }
+
+  // Specific override for mobile menu to appear above status bar
+  &.dropdown-open {
+    z-index: 100001 !important;
+
+    .dropdown-content {
+      z-index: 100002 !important;
+    }
   }
 }

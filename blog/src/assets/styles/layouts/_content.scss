@@ -1,3 +1,5 @@
+@use '../base/variables' as vars;
+
 // Main content area layout styles
 div {
   router-outlet {
@@ -10,5 +12,153 @@ div {
       z-index: 1;
       @apply px-[0.5rem] py-6 sm:px-12 md:px-20 lg:p-6;
     }
+  }
+}
+
+.welcome-text {
+  position: relative;
+  color: var(--fallback-sc, oklch(var(--sc) / 1));
+  text-shadow:
+    0 0 5px vars.$red-alpha-50,
+    0 0 10px vars.$red-alpha-30,
+    0 0 15px vars.$red-alpha-10;
+  letter-spacing: 0.3rem;
+  font-weight: 900;
+
+  // Terminal-style border effect
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 2px solid vars.$red-alpha-30;
+    border-style: dashed;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  // Subtle scan line effect
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      vars.$red-alpha-03 2px,
+      vars.$red-alpha-03 4px
+    );
+    pointer-events: none;
+  }
+}
+
+pre {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+  padding: 1.5rem;
+  border-radius: 4px;
+  border: 2px solid vars.$mr-robot-green;
+  box-shadow:
+    0 0 20px vars.$green-alpha-20,
+    inset 0 0 20px vars.$green-alpha-05;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  transition: all 0.3s ease;
+  max-width: 100%;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    padding: 1rem;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 400px;
+  }
+
+  &:hover {
+    box-shadow:
+      0 0 30px vars.$green-alpha-40,
+      inset 0 0 30px vars.$green-alpha-10;
+    transform: translateY(-2px);
+    border-color: vars.$mr-robot-red;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      vars.$mr-robot-green,
+      transparent
+    );
+    z-index: 1;
+    animation: code-scanner 2s infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      vars.$green-alpha-03 2px,
+      vars.$green-alpha-03 4px
+    );
+    pointer-events: none;
+    border-radius: 4px;
+    z-index: 1;
+  }
+
+  code {
+    position: relative;
+    z-index: 2;
+    color: vars.$mr-robot-green;
+    text-shadow: 0 0 5px vars.$green-alpha-50;
+    white-space: pre;
+    word-wrap: normal;
+    overflow-wrap: normal;
+  }
+}
+
+// Terminal window styling
+.terminal-window {
+  @apply bg-base-100 border-primary border-2;
+  box-shadow:
+    0 0 20px vars.$green-alpha-20,
+    inset 0 0 20px vars.$green-alpha-05;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
+    border-bottom: 1px solid vars.$mr-robot-green;
+  }
+
+  &::after {
+    content: '● ● ●';
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    font-size: 8px;
+    color: vars.$mr-robot-red;
+    z-index: 10;
   }
 }

@@ -62,7 +62,7 @@ export const routeMeta: RouteMeta = {
         <article
           class="text-base-content font-terminal glass-article relative mx-auto flex w-[90%] max-w-7xl flex-auto flex-col items-center gap-4 overflow-auto rounded-lg p-6 xl:w-[85%]">
           <section
-            class="mb-4 flex w-full flex-auto flex-row justify-between gap-4 lg:w-3/5">
+            class="mb-4 flex w-full flex-auto flex-row justify-between gap-4 lg:w-[70%]">
             <button
               [routerLink]="['/blog', postItem.previousPost]"
               [disabled]="!postItem.previousPost"
@@ -83,7 +83,7 @@ export const routeMeta: RouteMeta = {
 
           <!-- Terminal-style image frame -->
           <div
-            class="border-secondary bg-base-200 relative mb-4 w-full border-2 p-2 lg:w-3/5">
+            class="border-secondary bg-base-200 relative mb-4 w-full border-2 p-2 lg:w-[70%]">
             <div class="absolute left-2 top-1 flex gap-1">
               <div class="bg-error h-2 w-2 rounded-full opacity-70"></div>
               <div class="bg-warning h-2 w-2 rounded-full opacity-70"></div>
@@ -109,12 +109,12 @@ export const routeMeta: RouteMeta = {
           </div>
 
           <h1
-            class="font-terminal text-base-content glitch-effect relative self-center text-center text-3xl font-extrabold lg:w-3/5"
+            class="font-terminal text-base-content glitch-effect relative self-center text-center text-3xl font-extrabold lg:w-[70%]"
             [attr.data-text]="postItem.attributes.title">
             {{ postItem.attributes.title }}
           </h1>
           <div
-            class="line-numbers blog-post container w-full pb-8 pt-4 md:w-11/12 md:px-0 lg:w-3/5">
+            class="line-numbers blog-post container w-full pb-8 pt-4 md:w-11/12 md:px-0 lg:w-[70%]">
             <analog-markdown [content]="postItem.content" />
           </div>
         </article>

@@ -122,11 +122,13 @@ $inset-dark: inset 0 2px 4px oklch(var(--b3) / 0.3);
 // -----------------------------------------------------------------------------
 
 // Green alpha variants
+$green-alpha-03: rgba(0, 255, 65, 0.03);
 $green-alpha-05: rgba(0, 255, 65, 0.05);
 $green-alpha-10: rgba(0, 255, 65, 0.1);
 $green-alpha-20: rgba(0, 255, 65, 0.2);
 $green-alpha-30: rgba(0, 255, 65, 0.3);
 $green-alpha-40: rgba(0, 255, 65, 0.4);
+$green-alpha-50: rgba(0, 255, 65, 0.5);
 $green-alpha-60: rgba(0, 255, 65, 0.6);
 $green-alpha-70: rgba(0, 255, 65, 0.7);
 $green-alpha-80: rgba(0, 255, 65, 0.8);
@@ -138,9 +140,20 @@ $red-alpha-10: rgba(255, 7, 58, 0.1);
 $red-alpha-20: rgba(255, 7, 58, 0.2);
 $red-alpha-30: rgba(255, 7, 58, 0.3);
 $red-alpha-40: rgba(255, 7, 58, 0.4);
+$red-alpha-50: rgba(255, 7, 58, 0.5);
 $red-alpha-60: rgba(255, 7, 58, 0.6);
 $red-alpha-70: rgba(255, 7, 58, 0.7);
 $red-alpha-80: rgba(255, 7, 58, 0.8);
+
+// white alpha variants
+$white-alpha-03: rgba(255, 255, 255, 0.03);
+$white-alpha-05: rgba(255, 255, 255, 0.05);
+
+// black alpha variants
+$black-alpha-03: rgba(0, 0, 0, 0.03);
+$black-alpha-05: rgba(0, 0, 0, 0.05);
+$black-alpha-10: rgba(0, 0, 0, 0.1);
+$black-alpha-60: rgba(0, 0, 0, 0.6);
 
 // -----------------------------------------------------------------------------
 // Gradients
