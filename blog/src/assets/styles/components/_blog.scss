@@ -208,7 +208,7 @@
 
     ol {
       list-style: none;
-      padding-left: 1.5rem;
+      padding-left: 2rem;
       @apply text-base-content font-terminal;
       counter-reset: terminal-counter;
 
@@ -216,13 +216,16 @@
         @apply text-base-content font-terminal;
         position: relative;
         counter-increment: terminal-counter;
+        padding-left: 0.5rem;
 
         &::before {
-          content: '[' counter(terminal-counter) '] ';
+          content: '[' counter(terminal-counter) ']';
           color: vars.$mr-robot-red;
           font-weight: bold;
           position: absolute;
-          left: -1.5rem;
+          left: -2rem;
+          width: 1.8rem;
+          text-align: left;
         }
       }
     }
@@ -360,12 +363,6 @@
           width: 100%;
         }
       }
-    }
-
-    ol {
-      list-style: decimal;
-      padding-left: 1.5rem;
-      @apply text-base-content;
     }
 
     blockquote {
