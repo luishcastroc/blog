@@ -1,6 +1,14 @@
-import { afterNextRender, Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  afterNextRender,
+  Component,
+  effect,
+  inject,
+  OnDestroy,
+  signal,
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+import { TerminalService } from '../services/terminal.service';
 import { BlogFooterComponent } from './blog-footer';
 import { BlogNavbarComponent } from './blog-navbar';
 
@@ -25,32 +33,64 @@ import { BlogNavbarComponent } from './blog-navbar';
     </main>
   `,
 })
-export class DashboardComponent implements OnInit, OnDestroy {
+export class DashboardComponent implements OnDestroy {
+  #terminalService = inject(TerminalService);
   private terminalInterval?: number;
-  private terminalLines: string[] = [];
+  private isRendered = signal(false);
 
   constructor() {
     afterNextRender(() => {
-      this.initializeTerminal();
+      this.isRendered.set(true);
+    });
+
+    effect(() => {
+      const isActive = this.#terminalService.isTerminalActive();
+      const isRendered = this.isRendered();
+
+      if (!isRendered) return;
+
+      if (isActive) {
+        this.initializeTerminal();
+      } else {
+        this.stopTerminal();
+      }
     });
   }
 
-  ngOnInit(): void {}
-
   ngOnDestroy(): void {
-    if (this.terminalInterval) {
-      clearInterval(this.terminalInterval);
-    }
+    this.stopTerminal();
   }
 
+  private stopTerminal(): void {
+    // Clear the interval
+    if (this.terminalInterval) {
+      clearInterval(this.terminalInterval);
+      this.terminalInterval = undefined;
+    }
+
+    // Stop CSS animations by adding disabled class and clear the terminal container
+    const container = document.getElementById('terminal-container');
+    if (container) {
+      // Add disabled class to stop all animations (including ::before)
+      container.classList.add('terminal-disabled');
+
+      // Clear the container content
+      container.innerHTML = '';
+
+      // Keep the disabled class until next initialization
+    }
+  }
   private initializeTerminal(): void {
+    // Stop any existing terminal before initializing a new one
+    this.stopTerminal();
+
     const container = document.getElementById('terminal-container');
     if (!container) {
-      console.log('Terminal container not found');
       return;
     }
 
-    console.log('Initializing terminal animation...');
+    // Remove disabled class to re-enable animations
+    container.classList.remove('terminal-disabled');
 
     // Mr. Robot style terminal commands and outputs
     const terminalCommands = [
@@ -104,7 +144,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     // Create terminal lines - covering more of the screen
     const lineCount = 18; // Increased from previous implementation
-    console.log(`Creating ${lineCount} terminal lines`);
 
     for (let i = 0; i < lineCount; i++) {
       const line = document.createElement('div');
@@ -130,8 +169,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
       container.appendChild(line);
     }
-
-    console.log('Terminal initialization complete');
 
     // Periodically update the terminal commands
     this.terminalInterval = window.setInterval(() => {

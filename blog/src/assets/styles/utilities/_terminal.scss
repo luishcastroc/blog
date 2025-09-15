@@ -13,6 +13,18 @@
   background: transparent;
   font-family: 'JetBrains Mono', 'Courier New', monospace;
 
+  &.terminal-disabled {
+    &::before {
+      animation: none !important;
+      opacity: 0 !important;
+    }
+
+    .terminal-line {
+      animation: none !important;
+      opacity: 0 !important;
+    }
+  }
+
   .terminal-line {
     position: absolute;
     left: 0;

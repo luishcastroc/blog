@@ -8,20 +8,10 @@ import {
   runInInjectionContext,
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import {
-  Router,
-  RouterLink,
-} from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 import { DateTime } from 'luxon';
-import {
-  combineLatest,
-  map,
-  of,
-  Subject,
-  switchMap,
-  takeUntil,
-} from 'rxjs';
+import { combineLatest, map, of, Subject, switchMap, takeUntil } from 'rxjs';
 
 import {
   injectContent,
@@ -29,16 +19,11 @@ import {
   MarkdownComponent,
 } from '@analogjs/content';
 import { RouteMeta } from '@analogjs/router';
-import {
-  TranslocoDirective,
-  TranslocoService,
-} from '@jsverse/transloco';
+import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 
 import { PostAttributes } from '../../models/post.model';
-import {
-  postMetaResolver,
-  postTitleResolver,
-} from '../../models/resolvers';
+import { postMetaResolver, postTitleResolver } from '../../models/resolvers';
+import { TerminalService } from '../../services/terminal.service';
 
 export const routeMeta: RouteMeta = {
   title: postTitleResolver,
@@ -127,6 +112,7 @@ export default class BlogPostComponent implements OnInit, OnDestroy {
   private readonly router = inject(Router);
   private readonly injector = inject(Injector);
   private readonly destroy$ = new Subject<boolean>();
+  private readonly terminalService = inject(TerminalService);
 
   private readonly contentFiles = injectContentFiles<PostAttributes>();
 
@@ -138,6 +124,10 @@ export default class BlogPostComponent implements OnInit, OnDestroy {
     { initialValue: null }
   );
 
+  constructor() {
+    this.terminalService.toggleTerminal(false);
+  }
+
   ngOnInit(): void {
     this.setupLanguageChangeNavigation();
   }
@@ -145,6 +135,8 @@ export default class BlogPostComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.complete();
+    // Re-enable terminal when leaving the blog post
+    this.terminalService.toggleTerminal(true);
   }
 
   /**
