@@ -52,6 +52,7 @@ export default defineConfig(({ mode }) => {
           externals: { inline: ['zone.js/node', 'tslib'] },
         },
         content: {
+          highlighter: 'prism',
           prismOptions: {
             additionalLangs: ['go', 'markdown', 'sql', 'clike', 'csharp'],
           },
