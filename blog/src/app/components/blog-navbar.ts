@@ -259,7 +259,7 @@ export class BlogNavbarComponent implements OnDestroy {
    * Listen for escape key to close the mobile menu
    */
   @HostListener('document:keydown.escape', ['$event'])
-  onEscapeKey(event: KeyboardEvent): void {
+  onEscapeKey(event: Event): void {
     if (
       this.currentMobileMenuElement &&
       this.currentMobileMenuElement.classList.contains('dropdown-open')
