@@ -83,7 +83,7 @@
     "@schematics/angular": "21.1.5",
     "@tailwindcss/typography": "^0.5.10",
     "@types/luxon": "^3.3.4",
-    "@types/node": "18.19.15",
+    "@types/node": "20.19.37",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
     "@typescript-eslint/utils": "7.18.0",
