@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@analogjs/content':
-        specifier: 2.2.3
-        version: 2.2.3(2b30a05de722cba8c95bcdb19d08e80b)
+        specifier: 2.3.1
+        version: 2.3.1(2b30a05de722cba8c95bcdb19d08e80b)
       '@analogjs/router':
-        specifier: 2.2.3
-        version: 2.2.3(@analogjs/content@2.2.3(2b30a05de722cba8c95bcdb19d08e80b))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(@angular/router@21.1.6(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(@angular/platform-browser@21.1.6(@angular/animations@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1)))(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1)))(rxjs@7.8.2))
+        specifier: 2.3.1
+        version: 2.3.1(@analogjs/content@2.3.1(2b30a05de722cba8c95bcdb19d08e80b))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(@angular/router@21.1.6(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(@angular/platform-browser@21.1.6(@angular/animations@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1)))(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1)))(rxjs@7.8.2))
       '@angular/animations':
         specifier: 21.1.6
         version: 21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))
@@ -51,14 +51,11 @@ importers:
         specifier: ^6.1.1
         version: 6.2.0(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))
       '@ngneat/svg-icon':
-        specifier: ^7.1.6
-        version: 7.1.6(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))
+        specifier: ^8.0.0
+        version: 8.0.0(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))
       '@ngxpert/hot-toast':
-        specifier: ^4.1.2
-        version: 4.2.0(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(@ngneat/overview@6.2.0(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1)))
-      '@tanstack/angular-form':
-        specifier: 1.1.2
-        version: 1.1.2(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))
+        specifier: ^6.1.0
+        version: 6.1.0(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(@ngneat/overview@6.2.0(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1)))
       dotenv:
         specifier: ^16.4.7
         version: 16.6.1
@@ -69,8 +66,8 @@ importers:
         specifier: ^3.4.0
         version: 3.7.2
       mailtrap:
-        specifier: ^3.3.0
-        version: 3.4.0
+        specifier: ^4.5.0
+        version: 4.5.0
       marked:
         specifier: ^15.0.7
         version: 15.0.12
@@ -84,7 +81,7 @@ importers:
         specifier: ^1.1.10
         version: 1.1.12(marked@15.0.12)
       prismjs:
-        specifier: ^1.29.0
+        specifier: ^1.30.0
         version: 1.30.0
       rxjs:
         specifier: ~7.8.0
@@ -97,11 +94,11 @@ importers:
         version: 0.16.1
     devDependencies:
       '@analogjs/platform':
-        specifier: 2.2.3
-        version: 2.2.3(8418c7488460b578c364b133c320746c)
+        specifier: 2.3.1
+        version: 2.3.1(8418c7488460b578c364b133c320746c)
       '@analogjs/vite-plugin-angular':
-        specifier: 2.2.3
-        version: 2.2.3(@angular-devkit/build-angular@21.1.5(6bf5cc9b01cca2cde001071020d55a7c))(@angular/build@21.1.5(b076ef83dba63437fd37832849925c22))
+        specifier: 2.3.1
+        version: 2.3.1(@angular-devkit/build-angular@21.1.5(6bf5cc9b01cca2cde001071020d55a7c))(@angular/build@21.1.5(b076ef83dba63437fd37832849925c22))
       '@angular-devkit/build-angular':
         specifier: 21.1.5
         version: 21.1.5(6bf5cc9b01cca2cde001071020d55a7c)
@@ -295,8 +292,8 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@analogjs/content@2.2.3':
-    resolution: {integrity: sha512-qBN9l4717GuIggVcydJ0HFo6gJi6BBf85PreCp62wdXh2l1kUgIX1anFTCgwrZb2uul+pMt8UlP1jWMhASNbxg==}
+  '@analogjs/content@2.3.1':
+    resolution: {integrity: sha512-3mxusf1H9EMyz3zqGHbZ8WNQFQdNLrYCwiH9itwHnIVPQ2m+ThKEuGULuJyh6wmplRh3xxtDXHpvXfxLW3rIcQ==}
     peerDependencies:
       '@angular/common': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0
       '@angular/core': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0
@@ -323,8 +320,8 @@ packages:
       sharp:
         optional: true
 
-  '@analogjs/platform@2.2.3':
-    resolution: {integrity: sha512-J75CHE2mFuW0xZM+2nUtA7gw8CWPIwuwkcotsWwnSkleQAl5VQkNp3Q7n1OUdzAjj/N/P06l+CVDEr6G+jSuWA==}
+  '@analogjs/platform@2.3.1':
+    resolution: {integrity: sha512-oCdYKRfX6U5PCTuFyMyn6TEFNuaGoeu++SRixvHaB9TpBztYb9yme4sIQj2ZkqocrkbWPhNQnQMr/UK2rkFzaA==}
     peerDependencies:
       '@nx/angular': ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0 || ^22.0.0 || ^22
       '@nx/devkit': ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0 || ^22.0.0 || ^22
@@ -353,15 +350,15 @@ packages:
       shiki:
         optional: true
 
-  '@analogjs/router@2.2.3':
-    resolution: {integrity: sha512-IWGQts6pO0205mjfC4EBiCg9wuJm+sG8Mv7S4DHzDGgfNh5drHKKTRxd1Ue4QRG43clgtusw9phM/rxPiKFKRw==}
+  '@analogjs/router@2.3.1':
+    resolution: {integrity: sha512-Hyn83QaiiYmTDmmrxvZ+wktUvo5dIbm3FlFPs3pEBYPJzqH4bhScUAhNi+O5Ub2ZaS/IV+abaES88+kVkAxrig==}
     peerDependencies:
-      '@analogjs/content': ^2.2.3
+      '@analogjs/content': ^2.3.1
       '@angular/core': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0
       '@angular/router': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0
 
-  '@analogjs/vite-plugin-angular@2.2.3':
-    resolution: {integrity: sha512-OqVfiJsaHdHMxzvK0heVvp8MenSXh+xib6/p+v3d44kJ3J7ooD4gRx/jKC350zkgRKwcZc3a0ybGUnG6LEF7mg==}
+  '@analogjs/vite-plugin-angular@2.3.1':
+    resolution: {integrity: sha512-6ttSrMFBYwvS5JfovagfhkLaje1RjzztIniBWtH5G8wc6vrud77/sRJWVaVC4Ri4XRBTQ2kG5thSDumccX1B7g==}
     peerDependencies:
       '@angular-devkit/build-angular': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0
       '@angular/build': ^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0
@@ -2510,10 +2507,10 @@ packages:
     peerDependencies:
       svgo: '>=3.0.0'
 
-  '@ngneat/svg-icon@7.1.6':
-    resolution: {integrity: sha512-mJpkXeNx5EQAhFyHYRp2D2VxIiuCAydaIT2uNU4ol3+/whsTO9g66Zt6gi43DU67Q6g8S/SmQWMkBth+tr3akA==}
+  '@ngneat/svg-icon@8.0.0':
+    resolution: {integrity: sha512-wxNba6ChuopSLQ7uXJ/7H8MDhI93/yY5nf7WSwADiG7DNoMCw8ATblyW17c41hHv0THZdM/qIqYbMZiWumlirw==}
     peerDependencies:
-      '@angular/common': '>= 15.2.0'
+      '@angular/common': '>= 19.0.0'
 
   '@ngtools/webpack@21.1.5':
     resolution: {integrity: sha512-5nG9v/nEzsaKxgw5NurM6tPKPw0OYsCM3DL4ZI8+TidT55hYbsroTnyBcHBouJ1qlZlQXNtlsjsjBmBDtF7JZA==}
@@ -2523,12 +2520,12 @@ packages:
       typescript: '>=5.9 <6.0'
       webpack: ^5.54.0
 
-  '@ngxpert/hot-toast@4.2.0':
-    resolution: {integrity: sha512-sFWJedVAS0OIDAF58DVMuE2z9JF0rN6cJuRGeGKEBRJtDtnd2vtFLIIlTtte7HJeFI8UBvbYqIMWA7UELi1/Mw==}
+  '@ngxpert/hot-toast@6.1.0':
+    resolution: {integrity: sha512-eD0kYsoi7/lkdxnHuBfdAM0NeInMAjWQHHJgKlkInGn60tmcGjFGWow7l/ZPOdZEjKq4ARhDsA7yDrXMG4J+UQ==}
     peerDependencies:
-      '@angular/common': '>= 19.0.0'
-      '@angular/core': '>= 19.0.0'
-      '@ngneat/overview': 6.1.1
+      '@angular/common': '>= 21.0.0'
+      '@angular/core': '>= 21.0.0'
+      '@ngneat/overview': '>= 7.0.0'
 
   '@noble/hashes@1.4.0':
     resolution: {integrity: sha512-V1JJ1WTRUqHHrOSh597hURcMqVKVGL/ea3kv0gSnEdsEZ0/+VyPghM1lMNGc00z7CIQorSvbKpuJkxvuHbvdbg==}
@@ -3292,23 +3289,6 @@ packages:
     resolution: {integrity: sha512-w31dd8HOx3k9vPtcQh5QHP9GwKcgbMp87j58qi6xgiBnFFtKEAgCWnDw4qUT8aHwkCp8bKvb/KGKWWHedP0AAg==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders || >=4.0.0-alpha.20 || >=4.0.0-beta.1'
-
-  '@tanstack/angular-form@1.1.2':
-    resolution: {integrity: sha512-k3XIvWM3I3ruW9QdI7ZpRfYM9qpWGqeOsngp8xz5HfjqKgKoyG1ArRRjYxwy3rm9MiZIxBOV58UbiXt/EDVamQ==}
-    peerDependencies:
-      '@angular/core': '>=19.0.0'
-
-  '@tanstack/angular-store@0.7.7':
-    resolution: {integrity: sha512-Lhtn4wY+U9r7f8FjD+lgwH2RIIssmoM0D8CcEcVMd5LGBG0EbzxatsWYMbg5Ezd1JqWCXktbevjF30tF4ndDPw==}
-    peerDependencies:
-      '@angular/common': '>=19.0.0'
-      '@angular/core': '>=19.0.0'
-
-  '@tanstack/form-core@1.1.2':
-    resolution: {integrity: sha512-Pjges7LoCKoglwnXPQrOUlR2L4LEyb6LVr3sMPcLCw15Ex32J7ox4rVEoz2TwPxz8LgoXl+sNsPn2Qp+thhTuQ==}
-
-  '@tanstack/store@0.7.7':
-    resolution: {integrity: sha512-xa6pTan1bcaqYDS9BDpSiS63qa6EoDkPN9RsRaxHuDdVDNntzq3xNwR5YKTU/V3SkSyC9T4YVOPh2zRQN0nhIQ==}
 
   '@tootallnate/once@2.0.0':
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
@@ -4199,8 +4179,8 @@ packages:
   caniuse-api@3.0.0:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
 
-  caniuse-lite@1.0.30001778:
-    resolution: {integrity: sha512-PN7uxFL+ExFJO61aVmP1aIEG4i9whQd4eoSCebav62UwDyp5OHh06zN4jqKSMePVgxHifCw1QJxdRkA1Pisekg==}
+  caniuse-lite@1.0.30001779:
+    resolution: {integrity: sha512-U5og2PN7V4DMgF50YPNtnZJGWVLFjjsN3zb6uMT5VGYIewieDj1upwfuVNXf4Kor+89c3iCRJnSzMD5LmTvsfA==}
 
   caseless@0.12.0:
     resolution: {integrity: sha512-4tYFyifaFfGacoiObjJegolkwSU4xQNGbVgUiNYVUxbQ2x2lUsFvY4hVgVzGiIe6WLOPqycWXA40l+PWsxthUw==}
@@ -6363,12 +6343,12 @@ packages:
   magicast@0.5.2:
     resolution: {integrity: sha512-E3ZJh4J3S9KfwdjZhe2afj6R9lGIN5Pher1pF39UGrXRqq/VDaGVIGN13BjHd2u8B61hArAGOnso7nBOouW3TQ==}
 
-  mailtrap@3.4.0:
-    resolution: {integrity: sha512-gegg90/gMY8hvfxB+WMtE8RRZyhQr90jUw00QOLApIAomItumqFBCpZv5IfG51EUKThu9+p7X4QdNA4buryenw==}
+  mailtrap@4.5.0:
+    resolution: {integrity: sha512-ebywWiTdw38mHSuG2q4GJ1tWqc5cDhs4SYZFHWVk12kq5TfqUFY0O7EqvQCPJ97GF9F139s7+1/a/vWDvHY5mg==}
     engines: {node: '>=16.20.1', yarn: '>=1.22.17'}
     peerDependencies:
       '@types/nodemailer': ^6.4.9
-      nodemailer: ^6.9.4
+      nodemailer: ^7.0.7
     peerDependenciesMeta:
       '@types/nodemailer':
         optional: true
@@ -9274,7 +9254,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.13
       '@jridgewell/trace-mapping': 0.3.31
 
-  '@analogjs/content@2.2.3(2b30a05de722cba8c95bcdb19d08e80b)':
+  '@analogjs/content@2.3.1(2b30a05de722cba8c95bcdb19d08e80b)':
     dependencies:
       '@angular/common': 21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2)
       '@angular/core': 21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1)
@@ -9291,9 +9271,9 @@ snapshots:
     optionalDependencies:
       '@nx/devkit': 22.5.4(nx@22.5.4)
 
-  '@analogjs/platform@2.2.3(8418c7488460b578c364b133c320746c)':
+  '@analogjs/platform@2.3.1(8418c7488460b578c364b133c320746c)':
     dependencies:
-      '@analogjs/vite-plugin-angular': 2.2.3(@angular-devkit/build-angular@21.1.5(6bf5cc9b01cca2cde001071020d55a7c))(@angular/build@21.1.5(b076ef83dba63437fd37832849925c22))
+      '@analogjs/vite-plugin-angular': 2.3.1(@angular-devkit/build-angular@21.1.5(6bf5cc9b01cca2cde001071020d55a7c))(@angular/build@21.1.5(b076ef83dba63437fd37832849925c22))
       '@analogjs/vite-plugin-nitro': 2.3.1(encoding@0.1.13)(rolldown@1.0.0-beta.58)
       marked: 15.0.12
       marked-gfm-heading-id: 4.1.3(marked@15.0.12)
@@ -9341,15 +9321,16 @@ snapshots:
       - uploadthing
       - xml2js
 
-  '@analogjs/router@2.2.3(@analogjs/content@2.2.3(2b30a05de722cba8c95bcdb19d08e80b))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(@angular/router@21.1.6(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(@angular/platform-browser@21.1.6(@angular/animations@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1)))(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1)))(rxjs@7.8.2))':
+  '@analogjs/router@2.3.1(@analogjs/content@2.3.1(2b30a05de722cba8c95bcdb19d08e80b))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(@angular/router@21.1.6(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(@angular/platform-browser@21.1.6(@angular/animations@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1)))(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1)))(rxjs@7.8.2))':
     dependencies:
-      '@analogjs/content': 2.2.3(2b30a05de722cba8c95bcdb19d08e80b)
+      '@analogjs/content': 2.3.1(2b30a05de722cba8c95bcdb19d08e80b)
       '@angular/core': 21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1)
       '@angular/router': 21.1.6(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(@angular/platform-browser@21.1.6(@angular/animations@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1)))(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1)))(rxjs@7.8.2)
       tslib: 2.8.1
 
-  '@analogjs/vite-plugin-angular@2.2.3(@angular-devkit/build-angular@21.1.5(6bf5cc9b01cca2cde001071020d55a7c))(@angular/build@21.1.5(b076ef83dba63437fd37832849925c22))':
+  '@analogjs/vite-plugin-angular@2.3.1(@angular-devkit/build-angular@21.1.5(6bf5cc9b01cca2cde001071020d55a7c))(@angular/build@21.1.5(b076ef83dba63437fd37832849925c22))':
     dependencies:
+      tinyglobby: 0.2.15
       ts-morph: 21.0.1
     optionalDependencies:
       '@angular-devkit/build-angular': 21.1.5(6bf5cc9b01cca2cde001071020d55a7c)
@@ -12319,7 +12300,7 @@ snapshots:
       svgo: 3.3.3
       typescript: 4.8.4
 
-  '@ngneat/svg-icon@7.1.6(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))':
+  '@ngneat/svg-icon@8.0.0(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))':
     dependencies:
       '@angular/common': 21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2)
       tslib: 2.8.1
@@ -12330,7 +12311,7 @@ snapshots:
       typescript: 5.9.2
       webpack: 5.105.0(esbuild@0.27.2)
 
-  '@ngxpert/hot-toast@4.2.0(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(@ngneat/overview@6.2.0(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1)))':
+  '@ngxpert/hot-toast@6.1.0(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(@ngneat/overview@6.2.0(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1)))':
     dependencies:
       '@angular/common': 21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2)
       '@angular/core': 21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1)
@@ -13376,28 +13357,6 @@ snapshots:
       postcss-selector-parser: 6.0.10
       tailwindcss: 3.4.19(yaml@2.8.2)
 
-  '@tanstack/angular-form@1.1.2(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))':
-    dependencies:
-      '@angular/core': 21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1)
-      '@tanstack/angular-store': 0.7.7(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))
-      '@tanstack/form-core': 1.1.2
-      tslib: 2.8.1
-    transitivePeerDependencies:
-      - '@angular/common'
-
-  '@tanstack/angular-store@0.7.7(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))':
-    dependencies:
-      '@angular/common': 21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1))(rxjs@7.8.2)
-      '@angular/core': 21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.2)(zone.js@0.16.1)
-      '@tanstack/store': 0.7.7
-      tslib: 2.8.1
-
-  '@tanstack/form-core@1.1.2':
-    dependencies:
-      '@tanstack/store': 0.7.7
-
-  '@tanstack/store@0.7.7': {}
-
   '@tootallnate/once@2.0.0': {}
 
   '@ts-morph/common@0.11.1':
@@ -14146,7 +14105,7 @@ snapshots:
   autoprefixer@10.4.23(postcss@8.5.6):
     dependencies:
       browserslist: 4.28.1
-      caniuse-lite: 1.0.30001778
+      caniuse-lite: 1.0.30001779
       fraction.js: 5.3.4
       picocolors: 1.1.1
       postcss: 8.5.6
@@ -14155,7 +14114,7 @@ snapshots:
   autoprefixer@10.4.27(postcss@8.5.8):
     dependencies:
       browserslist: 4.28.1
-      caniuse-lite: 1.0.30001778
+      caniuse-lite: 1.0.30001779
       fraction.js: 5.3.4
       picocolors: 1.1.1
       postcss: 8.5.8
@@ -14406,7 +14365,7 @@ snapshots:
   browserslist@4.28.1:
     dependencies:
       baseline-browser-mapping: 2.10.8
-      caniuse-lite: 1.0.30001778
+      caniuse-lite: 1.0.30001779
       electron-to-chromium: 1.5.313
       node-releases: 2.0.36
       update-browserslist-db: 1.2.3(browserslist@4.28.1)
@@ -14489,11 +14448,11 @@ snapshots:
   caniuse-api@3.0.0:
     dependencies:
       browserslist: 4.28.1
-      caniuse-lite: 1.0.30001778
+      caniuse-lite: 1.0.30001779
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
 
-  caniuse-lite@1.0.30001778: {}
+  caniuse-lite@1.0.30001779: {}
 
   caseless@0.12.0: {}
 
@@ -16870,9 +16829,10 @@ snapshots:
       '@babel/types': 7.29.0
       source-map-js: 1.2.1
 
-  mailtrap@3.4.0:
+  mailtrap@4.5.0:
     dependencies:
       axios: 1.13.6
+      qs: 6.15.0
     transitivePeerDependencies:
       - debug
 
