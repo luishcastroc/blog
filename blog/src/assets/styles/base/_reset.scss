@@ -3,7 +3,13 @@
 
 html,
 body {
-  @apply flex min-h-screen w-full flex-auto flex-col antialiased;
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  flex: 1 1 auto;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-family: vars.$font-body;
   background-color: var(--paper);
   color: var(--ink);

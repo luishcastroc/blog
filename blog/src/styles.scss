@@ -6,7 +6,13 @@
 
 html,
 body {
-  @apply flex min-h-screen w-full flex-auto flex-col antialiased;
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  flex: 1 1 auto;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-family: 'Inter', sans-serif;
   background-color: var(--paper);
   color: var(--ink);
@@ -19,5 +25,23 @@ router-outlet + * {
   flex: 1 1 auto;
   width: 100%;
   z-index: 1;
-  @apply px-4 py-6 sm:px-8 md:px-12 lg:p-6;
+  padding: 1.5rem 1rem;
+}
+
+@media (width >= 40rem) {
+  router-outlet + * {
+    padding-inline: 2rem;
+  }
+}
+
+@media (width >= 48rem) {
+  router-outlet + * {
+    padding-inline: 3rem;
+  }
+}
+
+@media (width >= 64rem) {
+  router-outlet + * {
+    padding: 1.5rem;
+  }
 }

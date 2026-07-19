@@ -8,20 +8,17 @@ interaction. Colors are CSS custom properties so the light/dark theme toggle
 ## Directory Structure
 
 ```
-src/assets/styles/
-├── main.scss                 # Entry point: Tailwind + Prism + the modules below
-├── base/
-│   ├── _variables.scss       # Design tokens (fonts, borders) + theme color vars
-│   ├── _reset.scss           # HTML/body reset, global focus-visible ring, scrollbar
-│   └── _typography.scss      # Bricolage display / Inter body / JetBrains Mono utility
-├── components/
-│   ├── _buttons.scss         # .nb-btn (+ --primary / --ghost / --square)
-│   ├── _forms.scss           # .nb-input / .nb-textarea / .nb-label / .nb-error
-│   ├── _card.scss            # .nb-card / .nb-panel / .nb-badge / .nb-chip / .nb-mark
-│   ├── _navigation.scss      # .nb-navlink and the mobile .nb-menu dropdown
-│   └── _blog.scss            # Article markdown + neobrutalist Prism code blocks
-└── utilities/
-    └── _nb.scss              # Shared primitives: block() + press() mixins, .nb-block / .nb-press
+src/
+├── tailwind.css              # Tailwind 4, daisyUI themes, and utility tokens
+└── assets/styles/
+    ├── main.scss             # Entry point: Prism + the modules below
+    ├── base/
+    │   ├── _variables.scss   # Design tokens (fonts, borders) + theme color vars
+    │   ├── _reset.scss       # Global reset, focus ring, and scrollbar
+    │   └── _typography.scss  # Display, body, and utility font rules
+    ├── components/           # Buttons, forms, cards, navigation, blog, and TOC
+    └── utilities/
+        └── _nb.scss          # Shared neobrutalist primitives and mixins
 ```
 
 ## Design tokens
@@ -32,9 +29,10 @@ Defined in `base/_variables.scss` as CSS custom properties, scoped per theme:
   `--red-ink`, `--link`, `--on-red`
 - Shadows: `--nb-shadow`, `--nb-shadow-sm`, `--nb-shadow-lg` (hard, no blur)
 
-Tailwind mirrors these in `blog/tailwind.config.cjs` (`bg-paper`, `text-ink`,
+Tailwind mirrors these in `src/tailwind.css` (`bg-paper`, `text-ink`,
 `border-3`, `shadow-nb`, `font-display`, `font-mono`, …) so utilities and the
-component classes share one source of truth.
+component classes share one source of truth. daisyUI's two custom themes also
+live in that CSS-first configuration.
 
 ## Conventions
 

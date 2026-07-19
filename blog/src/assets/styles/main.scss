@@ -1,15 +1,8 @@
 // Main styles entry point
 // ALL @use statements must come first - before any other rules
 
-// Sass built-ins
-@use 'sass:map';
-@use 'sass:list';
-
 // External libraries
 @use '@ngxpert/hot-toast/styles' as hotToast;
-@use 'tailwindcss/base';
-@use 'tailwindcss/components';
-@use 'tailwindcss/utilities';
 @use 'prismjs/plugins/toolbar/prism-toolbar.css';
 @use 'prismjs/themes/prism-tomorrow';
 

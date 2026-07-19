@@ -1,0 +1,106 @@
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+
+@source "./app/**/*.{ts,html}";
+
+@plugin "@tailwindcss/typography";
+@plugin "daisyui" {
+  themes: false;
+  logs: false;
+}
+
+@plugin "daisyui/theme" {
+  name: "mr-robot-light";
+  default: true;
+  color-scheme: light;
+
+  --color-primary: #ff073a;
+  --color-primary-content: #ffffff;
+  --color-secondary: #111111;
+  --color-secondary-content: #f5f2ea;
+  --color-accent: #0b4fd8;
+  --color-accent-content: #ffffff;
+  --color-neutral: #111111;
+  --color-neutral-content: #f5f2ea;
+  --color-base-100: #f5f2ea;
+  --color-base-200: #e4e0d5;
+  --color-base-300: #d6d1c2;
+  --color-base-content: #111111;
+  --color-info: #0b4fd8;
+  --color-info-content: #ffffff;
+  --color-success: #0f9d58;
+  --color-success-content: #ffffff;
+  --color-warning: #f4b400;
+  --color-warning-content: #111111;
+  --color-error: #ff073a;
+  --color-error-content: #ffffff;
+
+  --radius-selector: 0;
+  --radius-field: 0;
+  --radius-box: 0;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 3px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+  name: "mr-robot-dark";
+  prefersdark: true;
+  color-scheme: dark;
+
+  --color-primary: #ff2d55;
+  --color-primary-content: #111111;
+  --color-secondary: #f5f2ea;
+  --color-secondary-content: #16150f;
+  --color-accent: #7fa6ff;
+  --color-accent-content: #111111;
+  --color-neutral: #f5f2ea;
+  --color-neutral-content: #16150f;
+  --color-base-100: #16150f;
+  --color-base-200: #232019;
+  --color-base-300: #2e2a20;
+  --color-base-content: #f5f2ea;
+  --color-info: #7fa6ff;
+  --color-info-content: #111111;
+  --color-success: #3ddc84;
+  --color-success-content: #111111;
+  --color-warning: #f4b400;
+  --color-warning-content: #111111;
+  --color-error: #ff2d55;
+  --color-error-content: #111111;
+
+  --radius-selector: 0;
+  --radius-field: 0;
+  --radius-box: 0;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 3px;
+  --depth: 0;
+  --noise: 0;
+}
+
+/* Resolve aliases where utilities are used so body-level theme tokens win. */
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ash: var(--ash);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-red: var(--red);
+  --color-red-ink: var(--red-ink);
+  --color-link: var(--link);
+  --color-on-red: var(--on-red);
+
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: Inter, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+
+  --shadow-nb: 4px 4px 0 0 var(--ink);
+  --shadow-nb-sm: 2px 2px 0 0 var(--ink);
+  --shadow-nb-lg: 6px 6px 0 0 var(--ink);
+  --shadow-nb-red: 4px 4px 0 0 var(--red);
+}
