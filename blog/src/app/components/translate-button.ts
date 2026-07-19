@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 
 import { injectContentFiles } from '@analogjs/content';
@@ -31,38 +30,38 @@ export function getTranslatedPostPath(
   standalone: true,
   selector: 'app-translate-button',
   host: { class: 'flex' },
-  imports: [NgClass],
   template: `
+    <!-- Language codes, not flags: flags name countries, not languages. Both
+         codes stay visible with the active one marked, so the toggle's state
+         and target are explicit. -->
     <button
-      class="nb-btn nb-btn--ghost nb-btn--square relative overflow-hidden"
+      class="nb-btn nb-btn--ghost lang-btn"
       i18n-aria-label="@@navigation.aria-label-translate"
       aria-label="Change language to english/spanish"
       (click)="toggleLanguage()">
-      <img
-        class="flag-image"
-        [ngClass]="getFlagClasses(true)"
-        src="assets/mexico.png"
-        i18n-alt="@@navigation.alt-mex"
-        alt="Mexican Flag"
-        height="40"
-        width="40" />
-      <img
-        class="flag-image"
-        [ngClass]="getFlagClasses(false)"
-        src="assets/usa.png"
-        i18n-alt="@@navigation.alt-usa"
-        alt="USA Flag"
-        height="40"
-        width="40" />
+      <span class="lang-code" [class.lang-code--active]="isEnglish">EN</span>
+      <span aria-hidden="true">/</span>
+      <span class="lang-code" [class.lang-code--active]="!isEnglish">ES</span>
     </button>
   `,
   styles: [
     `
-      .flag-image {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
+      .lang-btn {
+        gap: 0.3rem;
+        padding: 0 0.65rem;
+      }
+
+      .lang-code {
+        padding: 0.1rem 0.3rem;
+        color: var(--muted);
+        transition:
+          background-color 0.15s ease,
+          color 0.15s ease;
+      }
+
+      .lang-code--active {
+        background: var(--red);
+        color: var(--on-red);
       }
     `,
   ],
@@ -72,16 +71,6 @@ export class TranslateButtonComponent {
   private contentFiles = injectContentFiles<PostAttributes>();
   // Active locale comes from the URL prefix (defaults to 'en').
   isEnglish = (injectLocale() ?? 'en') !== 'es';
-
-  getFlagClasses(isSpanishFlag: boolean): Record<string, boolean> {
-    const isVisible = isSpanishFlag ? this.isEnglish : !this.isEnglish;
-
-    return {
-      'translate-y-[20%] rotate-[50deg] opacity-0 transition-all': !isVisible,
-      'opacity-[1] transition-all duration-1000 ease-out': isVisible,
-      'rotate-[100deg]': !isVisible && !isSpanishFlag,
-    };
-  }
 
   toggleLanguage(): void {
     const target = this.isEnglish ? 'es' : 'en';
