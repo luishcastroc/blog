@@ -282,7 +282,7 @@ This probably looks familiar to you, right? In Angular, traditionally, you'd wor
 
 This is where things get interesting. The first thing that comes to my mind is that you're using the Hello component and AnotherOne component without putting them inside the imports array (What kind of sorcery is this??). But it doesn't stop there; you can also use "regular old school" Angular components (those you'll need to put inside the imports array, especially if you're using standalone components). Secondly, you can use the component with the file name (using camelCase) or using a selector... pretty cool, right? This approach is more familiar if you're coming from React or Vue codebases.
 
-And finally, the `<Script>` tag. This one, I think, might be self-explanatory 🧐. This is where you put your styles to make this component look beautiful...
+And finally, the `&amp;lt;Script&amp;gt;` tag. This one, I think, might be self-explanatory 🧐. This is where you put your styles to make this component look beautiful...
 
 ## How Does This Sorcery Work? 📝
 

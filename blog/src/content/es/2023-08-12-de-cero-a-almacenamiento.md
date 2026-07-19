@@ -182,7 +182,7 @@ Para encontrar la cadena de conexión:
 
 ![Conexión Cockroach](https://res.cloudinary.com/lhcc0134/image/upload/v1691874497/connect-string.png))
 
-Asegúrate de reemplazar el marcador de posición `<ENTER_SQL_USER_PASSWORD>` en la cadena de conexión con la contraseña que guardaste anteriormente. Esto es crucial para establecer una conexión exitosa con nuestra base de datos. Con la cadena de conexión en mano, la integraremos en nuestro proyecto en el siguiente paso.
+Asegúrate de reemplazar el marcador de posición `&amp;lt;ENTER_SQL_USER_PASSWORD&amp;gt;` en la cadena de conexión con la contraseña que guardaste anteriormente. Esto es crucial para establecer una conexión exitosa con nuestra base de datos. Con la cadena de conexión en mano, la integraremos en nuestro proyecto en el siguiente paso.
 
 ### Paso 4: Actualizar el Archivo `.env` con Nuestra Cadena de Conexión
 
@@ -194,7 +194,7 @@ Dirígete al archivo `.env` en el directorio de tu proyecto. Es probable que ya 
 DATABASE_URL="postgresql://luishcastroc:<ENTER-SQL-USER-PASSWORD>@analog-prisma-4966.g8z.cockroachlabs.cloud:26257/notes-db?sslmode=verify-full"
 ```
 
-Recuerda reemplazar `<ENTER-SQL-USER-PASSWORD>` con la contraseña que guardaste anteriormente de CockroachDB.
+Recuerda reemplazar `&amp;lt;ENTER-SQL-USER-PASSWORD&amp;gt;` con la contraseña que guardaste anteriormente de CockroachDB.
 
 Al actualizar esta cadena de conexión, estamos proporcionando a nuestra aplicación las credenciales y detalles necesarios para interactuar con nuestra instancia de CockroachDB. Siempre asegúrate de que tu archivo `.env` esté protegido y no se incluya accidentalmente en repositorios públicos para resguardar tus credenciales de la base de datos.
 

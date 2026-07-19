@@ -17,7 +17,7 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     provideContent(withMarkdownRenderer(), withPrismHighlighter()),
     provideHttpClient(withFetch()),
-    provideFileRouter(withViewTransitions()),
+    provideFileRouter(withViewTransitions({ skipInitialTransition: true })),
     provideI18n({
       loader: async locale => (await import(`../i18n/${locale}.json`)).default,
     }),

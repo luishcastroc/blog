@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "type": "module",
+  "packageManager": "pnpm@11.14.0",
   "scripts": {
     "start": "pnpm run svg && nx serve blog",
     "start:host": "pnpm run svg && nx serve blog --host",

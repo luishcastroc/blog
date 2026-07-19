@@ -282,7 +282,7 @@ Probablemente esto te resulte familiar, ¿verdad? En Angular, tradicionalmente, 
 
 Aquí es donde las cosas se ponen interesantes. La primera cosa se me viene a la mente es que estamos usando el componente Hello y AnotherOne sin ponerlos dentro del arreglo de imports (¿Qué tipo de brujería es esta?). Pero no se detiene ahí; también puedes usar componentes "viejos" de Angular (esos que necesitarás poner dentro del arreglo de imports, especialmente si estás usando componentes standalone). En segundo lugar, puedes usar el componente con el nombre del archivo (usando camelCase) o usando un selector... bastante genial, ¿verdad? Este enfoque es más familiar si vienes de bases de código de React o Vue.
 
-Y finalmente, el tag `<Script`. Este, creo, puede ser autoexplicativo 🧐. Aquí es donde pones tus estilos para que este componente se vea hermoso...
+Y finalmente, el tag `&amp;lt;Script&amp;gt;`. Este, creo, puede ser autoexplicativo 🧐. Aquí es donde pones tus estilos para que este componente se vea hermoso...
 
 ## Como funciona esta magia? 📝
 

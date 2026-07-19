@@ -189,7 +189,7 @@ To find the connection string:
 
 ![Cockroach Connection](https://res.cloudinary.com/lhcc0134/image/upload/v1691874497/connect-string.png))
 
-Ensure you replace the `<ENTER_SQL_USER_PASSWORD>` placeholder in the connection string with the password you saved earlier. This is crucial to establish a successful connection to our database. With the connection string in hand, we'll integrate it into our project in the next step.
+Ensure you replace the `&amp;lt;ENTER_SQL_USER_PASSWORD&amp;gt;` placeholder in the connection string with the password you saved earlier. This is crucial to establish a successful connection to our database. With the connection string in hand, we'll integrate it into our project in the next step.
 
 #### Step 4: Updating the `.env` File with Our Connection String
 
@@ -201,7 +201,7 @@ Navigate to the `.env` file in your project directory. You'll likely find a defa
 DATABASE_URL="postgresql://luishcastroc:<ENTER-SQL-USER-PASSWORD>@analog-prisma-4966.g8z.cockroachlabs.cloud:26257/notes-db?sslmode=verify-full"
 ```
 
-Remember to substitute `<ENTER-SQL-USER-PASSWORD>` with the password you saved earlier from CockroachDB.
+Remember to substitute `&amp;lt;ENTER-SQL-USER-PASSWORD&amp;gt;` with the password you saved earlier from CockroachDB.
 
 By updating this connection string, we're essentially providing our application with the necessary credentials and details to interact with our CockroachDB instance. Always ensure your `.env` file is protected and not accidentally committed to public repositories to safeguard your database credentials.
 
