@@ -1,400 +1,65 @@
-// Terminal-style button components
+// Neobrutalist buttons
 @use '../base/variables' as vars;
+@use '../utilities/nb';
 
-// Primary button - for main actions like Send
-.btn-primary {
-  // Base terminal button styling with green theme - adapts to light/dark
-  position: relative;
-  background: vars.$gradient-bg-subtle;
-  border: vars.$border-normal solid vars.$mr-robot-green;
-  color: vars.$mr-robot-green;
-  font-family: vars.$font-terminal;
-  font-weight: vars.$font-weight-semibold;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: vars.$glow-green-normal, vars.$inset-light;
-  transition: vars.$transition-all;
-  overflow: hidden;
-  display: flex;
+.nb-btn {
+  @include nb.block;
+  @include nb.press;
+
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  white-space: nowrap;
-  min-width: vars.$btn-min-width;
-  height: vars.$btn-height;
-  padding: 0 vars.$btn-padding-x;
-  font-size: vars.$btn-font-size;
+  gap: 0.5rem;
+  min-height: 44px; // comfortable tap target
+  padding: 0.625rem 1.25rem;
+  font-family: vars.$font-mono;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+  background: var(--surface);
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
 
-  // Terminal prompt prefix - execute symbol
-  &::before {
-    content: '> ';
-    color: vars.$mr-robot-green;
-    font-weight: bold;
-    margin-right: 0.125rem;
-    font-size: vars.$btn-font-size;
-    line-height: 1;
-    flex-shrink: 0;
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      transform 0.08s ease,
+      box-shadow 0.08s ease,
+      background-color 0.15s ease;
   }
 
-  // Scanning line effect
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: vars.$gradient-scan-green;
-    transition: left vars.$transition-slow ease;
-    z-index: 1;
-  }
-
-  // Active/hover states
-  &:hover:not(:disabled) {
-    background: vars.$gradient-hover-green;
-    color: oklch(var(--bc));
-    text-shadow: vars.$text-shadow-green-normal;
-    box-shadow:
-      vars.$glow-green-strong,
-      inset 0 1px 0 oklch(var(--bc) / 0.2);
-    transform: translateY(-1px);
-
-    &::before {
-      color: oklch(var(--bc));
-      text-shadow: vars.$text-shadow-green-normal;
-    }
-
-    &::after {
-      left: 100%;
-    }
-  }
-
-  &:active:not(:disabled) {
-    transform: translateY(0);
-    box-shadow:
-      0 0 15px vars.$green-alpha-40,
-      vars.$inset-dark;
-  }
-
-  // Disabled state
-  &:disabled {
-    background: vars.$gradient-disabled;
-    border-color: vars.$green-alpha-60;
-    color: vars.$green-alpha-70;
+  &:disabled,
+  &[disabled],
+  &[aria-disabled='true'] {
+    opacity: 0.5;
     cursor: not-allowed;
-    box-shadow:
-      vars.$glow-green-subtle,
-      inset 0 1px 0 oklch(var(--bc) / 0.05);
-    text-shadow: none;
-    opacity: 0.8;
-
-    &::before {
-      content: '# ';
-      color: vars.$green-alpha-70;
-      font-size: vars.$btn-font-size;
-      line-height: 1;
-      margin-right: 0.125rem;
-      flex-shrink: 0;
-    }
-
-    &::after {
-      display: none;
-    }
-
-    &:hover {
-      transform: none;
-      background: vars.$gradient-disabled;
-      color: vars.$green-alpha-70;
-      box-shadow:
-        vars.$glow-green-subtle,
-        inset 0 1px 0 oklch(var(--bc) / 0.05);
-    }
-  }
-
-  // Terminal text content styling
-  span,
-  & {
-    position: relative;
-    z-index: 2;
+    box-shadow: var(--nb-shadow-sm);
+    transform: none;
   }
 }
 
-.btn-secondary {
-  // Base terminal button styling - adapts to light/dark theme
-  position: relative;
-  background: vars.$gradient-bg-subtle;
-  border: vars.$border-normal solid vars.$mr-robot-red;
-  color: vars.$mr-robot-red;
-  font-family: vars.$font-terminal;
-  font-weight: vars.$font-weight-semibold;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: vars.$glow-red-normal, vars.$inset-light;
-  transition: vars.$transition-all;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  min-width: vars.$btn-min-width;
-  height: vars.$btn-height;
-  padding: 0 vars.$btn-padding-x;
-  font-size: vars.$btn-font-size;
+// Primary — solid red fill.
+.nb-btn--primary {
+  background: var(--red);
+  color: var(--on-red);
+}
 
-  // Terminal prompt prefix
-  &::before {
-    content: '$ ';
-    color: vars.$mr-robot-red;
-    font-weight: bold;
-    margin-right: 0.125rem;
-    font-size: vars.$btn-font-size;
-    line-height: 1;
-    flex-shrink: 0;
-  }
+// Ghost — neutral surface, used for secondary actions.
+.nb-btn--ghost {
+  background: var(--surface);
+  color: var(--ink);
 
-  // Scanning line effect
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: vars.$gradient-scan-red;
-    transition: left vars.$transition-slow ease;
-    z-index: 1;
-  }
-
-  // Active/hover states
-  &:hover:not(:disabled) {
-    background: vars.$gradient-hover-red;
-    color: oklch(var(--bc));
-    text-shadow: vars.$text-shadow-red-normal;
-    box-shadow:
-      vars.$glow-red-strong,
-      inset 0 1px 0 oklch(var(--bc) / 0.2);
-    transform: translateY(-1px);
-
-    &::before {
-      color: oklch(var(--bc));
-      text-shadow: vars.$text-shadow-red-normal;
-    }
-
-    &::after {
-      left: 100%;
-    }
-  }
-
-  &:active:not(:disabled) {
-    transform: translateY(0);
-    box-shadow:
-      0 0 15px vars.$red-alpha-40,
-      vars.$inset-dark;
-  }
-
-  // Disabled state
-  &:disabled {
-    background: vars.$gradient-disabled;
-    border-color: vars.$red-alpha-60;
-    color: vars.$red-alpha-70;
-    cursor: not-allowed;
-    box-shadow:
-      vars.$glow-red-subtle,
-      inset 0 1px 0 oklch(var(--bc) / 0.05);
-    text-shadow: none;
-    opacity: 0.8;
-
-    &::before {
-      content: '# ';
-      color: vars.$red-alpha-70;
-      font-size: vars.$btn-font-size;
-      line-height: 1;
-      margin-right: 0.125rem;
-      flex-shrink: 0;
-    }
-
-    &::after {
-      display: none;
-    }
-
-    &:hover {
-      transform: none;
-      background: vars.$gradient-disabled;
-      color: vars.$red-alpha-70;
-      box-shadow:
-        vars.$glow-red-subtle,
-        inset 0 1px 0 oklch(var(--bc) / 0.05);
-    }
-  }
-
-  // Terminal text content styling
-  span,
-  & {
-    position: relative;
-    z-index: 2;
+  &:hover {
+    background: var(--ash);
   }
 }
 
-// Blog navigation button styling
-.btn-secondary {
-  // Base terminal button styling
-  position: relative;
-  background: linear-gradient(
-    145deg,
-    rgba(26, 26, 26, 0.8),
-    rgba(42, 42, 42, 0.8)
-  );
-  border: 2px solid vars.$mr-robot-red;
-  color: vars.$mr-robot-red;
-  font-family: 'JetBrains Mono', 'Courier New', monospace;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow:
-    0 0 10px vars.$red-alpha-30,
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  min-width: 8rem;
-  height: 2.5rem;
-  padding: 0 0.75rem;
-  font-size: 0.75rem;
-
-  // Terminal prompt prefix
-  &::before {
-    content: '$ ';
-    color: vars.$mr-robot-red;
-    font-weight: bold;
-    margin-right: 0.125rem;
-    font-size: 0.75rem;
-    line-height: 1;
-    flex-shrink: 0;
-  }
-
-  // Scanning line effect
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      vars.$red-alpha-40,
-      transparent
-    );
-    transition: left 0.5s ease;
-    z-index: 1;
-  }
-
-  // Active/hover states
-  &:hover:not(:disabled) {
-    background: linear-gradient(145deg, vars.$red-alpha-10, vars.$red-alpha-05);
-    color: vars.$mr-robot-light-bg;
-    text-shadow: 0 0 5px vars.$red-alpha-80;
-    box-shadow:
-      0 0 20px vars.$red-alpha-60,
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    transform: translateY(-1px);
-
-    &::before {
-      color: vars.$mr-robot-light-bg;
-      text-shadow: 0 0 5px vars.$red-alpha-80;
-    }
-
-    &::after {
-      left: 100%;
-    }
-  }
-
-  &:active:not(:disabled) {
-    transform: translateY(0);
-    box-shadow:
-      0 0 15px vars.$red-alpha-40,
-      inset 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-
-  // Disabled state
-  &:disabled {
-    background: linear-gradient(
-      145deg,
-      rgba(80, 80, 80, 0.6),
-      rgba(100, 100, 100, 0.6)
-    );
-    border-color: vars.$red-alpha-60;
-    color: vars.$red-alpha-70;
-    cursor: not-allowed;
-    box-shadow:
-      0 0 5px vars.$red-alpha-20,
-      inset 0 1px 0 vars.$white-alpha-05;
-    text-shadow: none;
-    opacity: 0.8;
-
-    &::before {
-      content: '# ';
-      color: vars.$red-alpha-70;
-      font-size: 0.75rem;
-      line-height: 1;
-      margin-right: 0.125rem;
-      flex-shrink: 0;
-    }
-
-    &::after {
-      display: none;
-    }
-
-    &:hover {
-      transform: none;
-      background: linear-gradient(
-        145deg,
-        vars.$black-alpha-60,
-        vars.$black-alpha-60
-      );
-      color: vars.$red-alpha-70;
-      box-shadow:
-        0 0 5px vars.$red-alpha-20,
-        inset 0 1px 0 vars.$white-alpha-05;
-    }
-  }
-
-  // Terminal text content styling
-  span,
-  & {
-    position: relative;
-    z-index: 2;
-  }
-}
-
-// Button hover effects for terminal aesthetic
-.btn-terminal {
-  @apply border-primary text-primary border-2 bg-transparent;
-  font-family: 'JetBrains Mono', 'Courier New', monospace;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      vars.$green-alpha-20,
-      transparent
-    );
-    transition: left 0.5s;
-  }
-
-  &:hover::before {
-    left: 100%;
-  }
+// Square button for icons (theme / language toggles).
+.nb-btn--square {
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
 }

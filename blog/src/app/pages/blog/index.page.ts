@@ -3,12 +3,18 @@ import { RouteMeta } from '@analogjs/router';
 import { BlogListComponent } from '../../components/blog-list';
 
 /**
- * Route metadata for the blog index page
- * Kept outside the component to separate routing concerns
+ * Route metadata for the blog index page.
+ * Title/description use resolver functions so they run at navigation time —
+ * after the active locale's translations are loaded — and localize correctly.
  */
 export const routeMeta: RouteMeta = {
-  title: 'Luis Castro - Blog',
-  meta: [{ name: 'description', content: 'Blog Posts' }],
+  title: () => $localize`:@@title.blog:Luis Castro - Blog`,
+  meta: [
+    {
+      name: 'description',
+      content: $localize`:@@meta.blog-description:Blog Posts`,
+    },
+  ],
 };
 
 /**

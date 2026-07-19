@@ -1,209 +1,84 @@
+// Neobrutalist navigation
 @use '../base/variables' as vars;
-// Mobile dropdown menu fixes
-.dropdown {
-  position: relative;
+@use '../utilities/nb';
 
-  &.dropdown-open .dropdown-content {
-    position: fixed !important;
-    top: 80px !important; // Account for navbar height
-    left: 1rem !important;
-    right: 1rem !important;
-    width: calc(100vw - 2rem) !important;
-    max-width: 20rem !important;
-    z-index: 100000 !important;
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-    display: block;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+// Desktop nav link — bordered mono block; active link inverts to red.
+.nb-navlink {
+  @include nb.press;
 
-    @media (min-width: 1024px) {
-      position: absolute !important;
-      top: auto !important;
-      left: auto !important;
-      right: auto !important;
-      width: 16rem !important;
-      max-width: none !important;
-    }
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.4rem 0.9rem;
+  font-family: vars.$font-mono;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+  background: var(--surface);
+  border: 2px solid var(--ink);
+  border-radius: vars.$radius;
+  text-decoration: none;
+
+  &:hover {
+    background: var(--ash);
   }
 
-  .dropdown-content {
-    position: absolute;
-    z-index: 100000 !important;
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-10px);
-    transition: all 0.2s ease-in-out;
-    display: none;
-
-    // Ensure menu items are interactive
-    a {
-      display: block;
-      cursor: pointer;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-
-      &:hover,
-      &:focus,
-      &:active {
-        text-decoration: none;
-        outline: none;
-      }
-    }
-  }
-
-  // Specific override for mobile menu to appear above status bar
-  &.dropdown-open {
-    z-index: 100001 !important;
-
-    .dropdown-content {
-      z-index: 100002 !important;
-    }
-  }
-}
-
-// Terminal command styling for navbar
-.terminal-command {
-  position: relative;
-  font-family: 'JetBrains Mono', 'Courier New', monospace;
-
+  &[aria-current='page'],
   &.active {
-    background: linear-gradient(
-      90deg,
-      transparent,
-      vars.$red-alpha-10,
-      transparent
-    );
-    border-color: vars.$mr-robot-red !important;
-    color: vars.$mr-robot-red;
-    text-shadow: 0 0 3px vars.$red-alpha-60;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        vars.$mr-robot-red,
-        transparent
-      );
-      animation: terminal-glow 2s ease-in-out infinite alternate;
-    }
+    background: var(--red);
+    color: var(--on-red);
+    box-shadow: var(--nb-shadow-sm);
   }
 }
 
-// Mobile navigation enhancements
-@media (max-width: 1023px) {
-  // Prevent body scroll when mobile menu is open
-  body.mobile-menu-open {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-  }
-
-  // Enhanced mobile menu styling
-  .dropdown-content {
-    backdrop-filter: blur(8px);
-
-    li a {
-      min-height: 3rem;
-      display: flex;
-      align-items: center;
-      font-size: 0.95rem;
-
-      // Better touch targets
-      @media (pointer: coarse) {
-        min-height: 3.5rem;
-        font-size: 1rem;
-      }
-    }
-  }
-
-  // Mobile menu button enhancements
-  .dropdown label {
-    min-height: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+// Mobile dropdown menu. The toggle wrapper stays static; the panel is
+// positioned against the <nav> (which is `relative`) so it drops down as a
+// full-width bar-aligned panel instead of a box floating off the toggle.
+.nb-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  background: var(--surface);
+  border: vars.$border-width solid var(--ink);
+  box-shadow: var(--nb-shadow-lg);
+  border-radius: vars.$radius;
+  overflow: hidden;
 }
 
-@keyframes terminal-glow {
-  0% {
-    opacity: 0.8;
-  }
-  100% {
-    opacity: 1;
-  }
+.dropdown-open > .nb-menu {
+  display: flex;
 }
 
-// Mobile dropdown menu fixes
-.dropdown {
-  position: relative;
+.nb-menu__item {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0.75rem 1rem;
+  font-family: vars.$font-mono;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 2px solid var(--ink);
 
-  &.dropdown-open .dropdown-content {
-    position: fixed !important;
-    top: 80px !important; // Account for navbar height
-    left: 1rem !important;
-    right: 1rem !important;
-    width: calc(100vw - 2rem) !important;
-    max-width: 20rem !important;
-    z-index: 100000 !important;
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-    display: block;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-
-    @media (min-width: 1024px) {
-      position: absolute !important;
-      top: auto !important;
-      left: auto !important;
-      right: auto !important;
-      width: 16rem !important;
-      max-width: none !important;
-    }
+  &:last-child {
+    border-bottom: 0;
   }
 
-  .dropdown-content {
-    position: absolute;
-    z-index: 100000 !important;
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-10px);
-    transition: all 0.2s ease-in-out;
-    display: none;
-
-    // Ensure menu items are interactive
-    a {
-      display: block;
-      cursor: pointer;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-
-      &:hover,
-      &:focus,
-      &:active {
-        text-decoration: none;
-        outline: none;
-      }
-    }
+  &:hover {
+    background: var(--ash);
   }
 
-  // Specific override for mobile menu to appear above status bar
-  &.dropdown-open {
-    z-index: 100001 !important;
-
-    .dropdown-content {
-      z-index: 100002 !important;
-    }
+  &[aria-current='page'],
+  &.active {
+    background: var(--red);
+    color: var(--on-red);
   }
 }

@@ -3,41 +3,40 @@ import { Component, inject, OnInit, Renderer2, signal } from '@angular/core';
 
 import { fromEvent, map, startWith } from 'rxjs';
 
-import { TranslocoDirective } from '@jsverse/transloco';
 import { SvgIconComponent } from '@ngneat/svg-icon';
 
 @Component({
   standalone: true,
   selector: 'app-theme-button',
-  imports: [SvgIconComponent, NgClass, TranslocoDirective],
+  host: { class: 'flex' },
+  imports: [SvgIconComponent, NgClass],
   template: `
-    <ng-container *transloco="let t; read: 'navigation'">
-      <button
-        class="btn btn-square btn-ghost font-terminal hover:bg-primary hover:text-primary-content relative h-[46px] w-10 overflow-hidden transition-all duration-300 md:w-16"
-        [attr.aria-label]="t('aria-label')"
-        (click)="changeTheme()">
-        <svg-icon
-          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
-          [ngClass]="{
-            'translate-y-[20%] rotate-[50deg] opacity-0 transition-all':
-              isDarkMode(),
-            'opacity-[1] transition-all duration-1000 ease-out': !isDarkMode(),
-          }"
-          key="dark-mode"
-          fontSize="30px"
-          height="30px" />
-        <svg-icon
-          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
-          [ngClass]="{
-            'opacity-[1] transition-all duration-1000 ease-out': isDarkMode(),
-            'translate-y-[20%] rotate-[100deg] opacity-0 transition-all':
-              !isDarkMode(),
-          }"
-          key="light"
-          fontSize="30px"
-          height="30px" />
-      </button>
-    </ng-container>
+    <button
+      class="nb-btn nb-btn--ghost nb-btn--square relative overflow-hidden"
+      i18n-aria-label="@@navigation.aria-label"
+      aria-label="Change theme to dark/light"
+      (click)="changeTheme()">
+      <svg-icon
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
+        [ngClass]="{
+          'translate-y-[20%] rotate-[50deg] opacity-0 transition-all':
+            isDarkMode(),
+          'opacity-[1] transition-all duration-1000 ease-out': !isDarkMode(),
+        }"
+        key="dark-mode"
+        fontSize="30px"
+        height="30px" />
+      <svg-icon
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
+        [ngClass]="{
+          'opacity-[1] transition-all duration-1000 ease-out': isDarkMode(),
+          'translate-y-[20%] rotate-[100deg] opacity-0 transition-all':
+            !isDarkMode(),
+        }"
+        key="light"
+        fontSize="30px"
+        height="30px" />
+    </button>
   `,
 })
 export class ThemeButtonComponent implements OnInit {

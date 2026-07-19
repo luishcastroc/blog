@@ -1,28 +1,62 @@
-// Form styling
+// Neobrutalist form controls
 @use '../base/variables' as vars;
 
-.form-control {
-  .input {
-    font-family: vars.$font-terminal;
-    border: vars.$border-normal solid vars.$red-alpha-30;
-    background: vars.$gradient-bg-subtle;
-    color: var(--fallback-sc, oklch(var(--sc) / 1));
+.nb-label {
+  display: block;
+  font-family: vars.$font-mono;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
 
-    &:focus {
-      border-color: vars.$mr-robot-red;
-      box-shadow: vars.$glow-red-normal;
-    }
+.nb-input,
+.nb-textarea {
+  width: 100%;
+  font-family: vars.$font-mono;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--surface);
+  border: vars.$border-width solid var(--ink);
+  border-radius: vars.$radius;
+  padding: 0.75rem 1rem;
+  min-height: 48px;
+
+  &::placeholder {
+    color: var(--muted);
   }
 
-  .textarea {
-    font-family: vars.$font-terminal;
-    border: vars.$border-normal solid vars.$red-alpha-30;
-    background: vars.$gradient-bg-subtle;
-    color: var(--fallback-sc, oklch(var(--sc) / 1));
+  // Hard offset shadow appears on focus — the tactile signature.
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    box-shadow: var(--nb-shadow);
+  }
 
-    &:focus {
-      border-color: vars.$mr-robot-red;
-      box-shadow: vars.$glow-red-normal;
+  // Invalid state pulls the accent red border + shadow.
+  &[aria-invalid='true'] {
+    border-color: var(--red);
+
+    &:focus,
+    &:focus-visible {
+      box-shadow: 4px 4px 0 0 var(--red);
     }
   }
+}
+
+.nb-textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+// Inline field error message.
+.nb-error {
+  display: block;
+  font-family: vars.$font-mono;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--red-ink);
+  margin-top: 0.4rem;
 }

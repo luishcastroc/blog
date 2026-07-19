@@ -1,0 +1,70 @@
+// Neobrutalism primitives — shared block + tactile-press behavior.
+// Exposed both as mixins (for component partials) and utility classes (templates).
+@use '../base/variables' as vars;
+
+// A flat block: solid fill, thick ink border, hard offset shadow, sharp corners.
+@mixin block {
+  background: var(--surface);
+  border: vars.$border-width solid var(--ink);
+  box-shadow: var(--nb-shadow);
+  border-radius: vars.$radius;
+}
+
+// Tactile press: hover lifts the block, active presses it flush.
+// Motion only runs when the user permits it.
+@mixin press {
+  transition: none;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      transform 0.08s ease,
+      box-shadow 0.08s ease;
+
+    &:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: var(--nb-shadow-lg);
+    }
+
+    &:active {
+      transform: translate(2px, 2px);
+      box-shadow: var(--nb-shadow-sm);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &:active {
+      box-shadow: var(--nb-shadow-sm);
+    }
+  }
+}
+
+.nb-block {
+  @include block;
+}
+
+.nb-press {
+  @include press;
+}
+
+// Entrance reveal — a short rise + fade, played once when the element mounts.
+@keyframes nb-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@mixin rise($delay: 0s) {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: nb-rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: $delay;
+  }
+}
+
+.nb-reveal {
+  @include rise;
+}

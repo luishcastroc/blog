@@ -1,0 +1,105 @@
+// Neobrutalist cards, panels, badges and chips
+@use '../base/variables' as vars;
+@use '../utilities/nb';
+
+// Interactive card (blog cover). Rendered as an <a> for keyboard access.
+.nb-card {
+  @include nb.block;
+  @include nb.press;
+  @include nb.rise;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--ink);
+  text-decoration: none;
+  height: 100%;
+
+  // Cover image gently zooms on hover/focus (motion-safe only).
+  img {
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform 0.35s ease;
+    }
+  }
+
+  &:hover img,
+  &:focus-visible img {
+    @media (prefers-reduced-motion: no-preference) {
+      transform: scale(1.04);
+    }
+  }
+}
+
+// Stagger the reveal of cards in a grid for a light cascade.
+@media (prefers-reduced-motion: no-preference) {
+  @for $i from 1 through 9 {
+    app-blog-cover:nth-child(#{$i}) .nb-card {
+      animation-delay: #{$i * 0.05}s;
+    }
+  }
+}
+
+// Static content panel (about sections, hero, article shell).
+.nb-panel {
+  @include nb.block;
+  @include nb.rise;
+  padding: 1.5rem;
+
+  @media (min-width: 768px) {
+    padding: 2rem;
+  }
+}
+
+// Sticker badge — e.g. the "NEW" flag on recent posts. Tilted like a slapped-on
+// sticker; straightens when its parent card is hovered.
+.nb-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: vars.$font-mono;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  line-height: 1;
+  padding: 0.35rem 0.6rem;
+  color: var(--on-red);
+  background: var(--red);
+  border: 2px solid var(--ink);
+  border-radius: vars.$radius;
+  box-shadow: var(--nb-shadow-sm);
+  transform: rotate(-4deg);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform 0.2s ease;
+  }
+}
+
+.nb-card:hover .nb-badge,
+.nb-card:focus-visible .nb-badge {
+  transform: rotate(0);
+}
+
+// Metadata chip — mono, bordered, on ash. Used for dates/tags.
+.nb-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: vars.$font-mono;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+  color: var(--ink);
+  background: var(--ash);
+  border: 2px solid var(--ink);
+  border-radius: vars.$radius;
+}
+
+// Inline red highlight for emphasized words in body copy.
+.nb-mark {
+  background: var(--red);
+  color: var(--on-red);
+  padding: 0.05em 0.35em;
+  font-weight: 700;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}

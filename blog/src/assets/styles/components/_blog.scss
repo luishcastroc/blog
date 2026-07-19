@@ -1,446 +1,189 @@
-// Blog-specific styling
+// Neobrutalist blog article + markdown rendering
 @use '../base/variables' as vars;
 
 .blog-post {
-  // Blog post container styles
-  font-family: vars.$font-terminal;
+  width: 100%;
+  // Allow this flex item to shrink below its content so wide code blocks
+  // scroll (overflow-x) instead of forcing the whole page wider than mobile.
+  min-width: 0;
 
-  .analog-markdown {
-    // Blog markdown content styles
-    line-height: 1.7;
-    color: var(--fallback-bc, oklch(var(--bc) / 1));
-  }
-}
-
-// Blog card terminal styling
-.terminal-card {
-  position: relative;
-  background: linear-gradient(145deg, oklch(var(--b1)), oklch(var(--b2)));
-  box-shadow:
-    0 4px 6px rgba(0, 0, 0, 0.1),
-    0 0 20px vars.$red-alpha-10;
-
-  &:hover {
-    box-shadow:
-      0 8px 25px rgba(0, 0, 0, 0.15),
-      0 0 30px vars.$red-alpha-20;
-  }
-
-  // Terminal-style border glow
-  &::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    background: linear-gradient(
-      45deg,
-      vars.$red-alpha-20,
-      transparent,
-      vars.$red-alpha-20
-    );
-    border-radius: inherit;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity vars.$transition-normal ease;
-  }
-
-  &:hover::before {
-    opacity: 1;
-  }
-}
-
-// Terminal glow effect for elements
-.terminal-glow {
-  box-shadow: vars.$glow-green-normal;
-
-  &:hover {
-    box-shadow: vars.$glow-green-strong;
-  }
-}
-
-// Scanning line animation for images
-.scan-line {
-  position: relative;
-  overflow: hidden;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-      45deg,
-      transparent,
-      vars.$red-alpha-10,
-      transparent
-    );
-    transform: rotate(45deg);
-    animation: scan-sweep 3s ease-in-out infinite;
-    opacity: 0;
-  }
-}
-
-@keyframes scan-sweep {
-  0%,
-  100% {
-    transform: translateX(-100%) rotate(45deg);
-    opacity: 0;
-  }
-  50% {
-    transform: translateX(100%) rotate(45deg);
-    opacity: 1;
-  }
-}
-
-// Glow effect for buttons
-.glow-red {
-  box-shadow: vars.$glow-red-strong;
-}
-
-// Terminal prompt styling for badges
-.badge-secondary-border {
-  border-color: vars.$red-alpha-30;
-  background: linear-gradient(
-    145deg,
-    oklch(var(--b2) / 0.5),
-    oklch(var(--b3) / 0.5)
-  );
-
-  &:hover {
-    border-color: vars.$mr-robot-red;
-    background: linear-gradient(145deg, vars.$red-alpha-05, vars.$red-alpha-10);
-    box-shadow: vars.$glow-red-subtle;
-  }
-}
-
-// Enhanced card animations
-.card:hover .scan-line::after {
-  animation-duration: 2s;
-}
-
-.blog-post {
   .analog-markdown {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
-    @apply text-base-content font-terminal;
+    gap: 1.15rem;
+    min-width: 0;
+    color: var(--ink);
+    line-height: 1.7;
+    font-family: vars.$font-body;
+
+    // Flex children default to min-width:auto and won't shrink; force them to
+    // so <pre>/<table> can scroll rather than overflow the viewport.
+    > * {
+      min-width: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: vars.$font-display;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-top: 0.75rem;
+      scroll-margin-top: 7rem; // clears the sticky header on anchor jumps
+    }
 
     h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      @apply text-base-content font-terminal;
-      position: relative;
-
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(90deg, vars.$mr-robot-red, transparent);
-        animation: terminal-underline 2s ease-in-out infinite;
-      }
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
     }
 
     h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      @apply text-base-content font-terminal;
-      position: relative;
-      color: vars.$mr-robot-red;
-
-      &::before {
-        content: '## ';
-        color: vars.$mr-robot-red;
-        font-weight: 400;
-      }
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      border-bottom: vars.$border-width solid var(--ink);
+      padding-bottom: 0.35rem;
     }
 
     h3 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      @apply text-base-content font-terminal;
-
-      &::before {
-        content: '### ';
-        color: vars.$mr-robot-red;
-        font-weight: 400;
-      }
+      font-size: 1.3rem;
     }
 
     h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      @apply text-base-content font-terminal;
+      font-size: 1.1rem;
+    }
 
-      &::before {
-        content: '#### ';
-        color: vars.$mr-robot-red;
-        font-weight: 400;
+    a {
+      color: var(--link);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 2px;
+
+      &:hover {
+        color: var(--on-red);
+        background: var(--red);
       }
     }
 
-    p {
-      @apply text-base-content font-terminal;
-      line-height: 1.6;
+    ul,
+    ol {
+      padding-left: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
     }
 
     ul {
       list-style: none;
-      padding-left: 1.5rem;
-      @apply text-base-content font-terminal;
+
+      li::before {
+        content: '▸';
+        color: var(--red);
+        font-weight: 800;
+        position: absolute;
+        left: -1.25rem;
+      }
 
       li {
-        @apply text-base-content font-terminal;
         position: relative;
-
-        &::before {
-          content: '▸ ';
-          color: vars.$mr-robot-red;
-          font-weight: bold;
-          position: absolute;
-          left: -1.2rem;
-        }
       }
     }
 
     ol {
-      list-style: none;
-      padding-left: 2rem;
-      @apply text-base-content font-terminal;
-      counter-reset: terminal-counter;
-
-      li {
-        @apply text-base-content font-terminal;
-        position: relative;
-        counter-increment: terminal-counter;
-        padding-left: 0.5rem;
-
-        &::before {
-          content: '[' counter(terminal-counter) ']';
-          color: vars.$mr-robot-red;
-          font-weight: bold;
-          position: absolute;
-          left: -2rem;
-          width: 1.8rem;
-          text-align: left;
-        }
-      }
+      list-style: decimal;
     }
 
+    // Inline code — bordered mono chip.
+    code:not([class*='language-']) {
+      font-family: vars.$font-mono;
+      font-size: 0.9em;
+      padding: 0.1rem 0.35rem;
+      color: var(--ink);
+      background: var(--ash);
+      border: 2px solid var(--ink);
+      border-radius: vars.$radius;
+    }
+
+    // Code blocks — neobrutalist framed panel with a dark surface.
+    // NOTE: the Prism highlighter puts the `language-*` class on the <code>,
+    // not the <pre>, so target the <pre> directly (all <pre> in an article are
+    // code blocks). Prism-tomorrow's token colors are tuned for a dark
+    // background, so we give the panel one regardless of theme.
     pre {
+      font-family: vars.$font-mono;
       font-size: 0.9rem;
-      font-family: 'JetBrains Mono', 'Courier New', monospace;
-      background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
-      padding: 1.5rem;
-      border-radius: 4px;
-      border: 2px solid vars.$mr-robot-green;
-      box-shadow:
-        0 0 20px vars.$green-alpha-20,
-        inset 0 0 20px vars.$green-alpha-05;
-      position: relative;
+      line-height: 1.6;
+      background: #24222c;
+      color: #e6e6e6;
+      border: vars.$border-width solid var(--ink);
+      box-shadow: var(--nb-shadow);
+      border-radius: vars.$radius;
+      margin: 0.5rem 0;
+      padding: 1.25rem;
       overflow-x: auto;
-      overflow-y: hidden;
-      margin: 1rem 0;
-      transition: all 0.3s ease;
-      max-width: 100%;
 
       @media (max-width: 768px) {
         font-size: 0.8rem;
         padding: 1rem;
-        overflow-x: auto;
+        max-height: 420px;
         overflow-y: auto;
-        max-height: 400px;
       }
 
-      &:hover {
-        box-shadow:
-          0 0 30px vars.$green-alpha-40,
-          inset 0 0 30px vars.$green-alpha-10;
-        transform: translateY(-2px);
-        border-color: vars.$mr-robot-red;
-      }
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          vars.$mr-robot-green,
-          transparent
-        );
-        z-index: 1;
-        animation: code-scanner 2s infinite;
-      }
-
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 2px,
-          vars.$green-alpha-03 2px,
-          vars.$green-alpha-03 4px
-        );
-        pointer-events: none;
-        border-radius: 4px;
-        z-index: 1;
-      }
-
+      // Reset the inline-code chip styling for code inside a block.
       code {
-        position: relative;
-        z-index: 2;
-        color: vars.$mr-robot-green;
-        text-shadow: 0 0 5px vars.$green-alpha-50;
-        white-space: pre;
-        word-wrap: normal;
-        overflow-wrap: normal;
-      }
-    }
-
-    @keyframes code-scanner {
-      0% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.3;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-
-    code:not([class]) {
-      @apply bg-base-200 text-secondary rounded-sm px-1;
-      font-family: 'JetBrains Mono', 'Courier New', monospace;
-      font-size: 0.9em;
-      padding: 0.2rem 0.4rem;
-      border: 1px solid vars.$mr-robot-red;
-      box-shadow: 0 0 5px vars.$red-alpha-30;
-      background: linear-gradient(
-        145deg,
-        vars.$red-alpha-10,
-        vars.$red-alpha-05
-      );
-    }
-
-    a {
-      text-decoration: none;
-      font-weight: 600;
-      @apply text-base-content font-terminal;
-      position: relative;
-      color: vars.$mr-robot-red;
-      transition: all 0.3s ease;
-
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 0;
-        height: 1px;
-        background: vars.$mr-robot-red;
-        transition: width 0.3s ease;
-      }
-
-      &:hover {
-        color: vars.$mr-robot-red;
-        text-shadow: 0 0 5px vars.$red-alpha-50;
-
-        &::after {
-          width: 100%;
-        }
+        background: none;
+        border: 0;
+        padding: 0;
+        color: inherit;
+        font-size: inherit;
+        text-shadow: none;
       }
     }
 
     blockquote {
-      position: relative;
-      padding: 1rem 2rem;
-      margin: 2rem 0;
-      font-style: italic;
-      font-family: 'JetBrains Mono', 'Courier New', monospace;
-      @apply bg-base-200 text-base-content border-secondary border-l-4;
-      box-shadow:
-        0px 4px 15px rgba(0, 0, 0, 0.1),
-        0 0 20px vars.$red-alpha-10;
-      border-radius: 0 4px 4px 0;
-
-      /* Terminal-style quotation mark */
-      &::before {
-        content: '> ';
-        font-size: 1.2rem;
-        top: 1rem;
-        left: 0.5rem;
-        @apply text-secondary absolute font-bold;
-        font-family: 'JetBrains Mono', 'Courier New', monospace;
-        opacity: 0.8;
-      }
-
-      /* Add scanning line effect */
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          vars.$mr-robot-red,
-          transparent
-        );
-        animation: quote-scanner 3s infinite;
-      }
+      font-family: vars.$font-mono;
+      background: var(--ash);
+      border: vars.$border-width solid var(--ink);
+      border-left-width: 8px;
+      border-left-color: var(--red);
+      box-shadow: var(--nb-shadow);
+      padding: 1rem 1.25rem;
+      margin: 0.5rem 0;
+      color: var(--ink);
     }
 
-    @keyframes quote-scanner {
-      0%,
-      100% {
-        opacity: 0.3;
-      }
-      50% {
-        opacity: 1;
-      }
-    }
-
-    @keyframes terminal-underline {
-      0%,
-      100% {
-        opacity: 0.5;
-        transform: scaleX(1);
-      }
-      50% {
-        opacity: 1;
-        transform: scaleX(1.1);
-      }
+    img {
+      border: vars.$border-width solid var(--ink);
+      box-shadow: var(--nb-shadow);
+      max-width: 100%;
+      height: auto;
     }
 
     table {
-      @apply table-zebra text-base-content font-terminal table;
-      border: 1px solid vars.$mr-robot-red;
+      display: block;
+      width: 100%;
+      overflow-x: auto; // scroll wide tables instead of overflowing the page
+      border-collapse: collapse;
+      font-family: vars.$font-mono;
+      border: vars.$border-width solid var(--ink);
+      box-shadow: var(--nb-shadow);
 
-      th {
-        @apply font-terminal text-base-content;
-        background: vars.$red-alpha-10;
-        border-bottom: 2px solid vars.$mr-robot-red;
+      th,
+      td {
+        border: 2px solid var(--ink);
+        padding: 0.5rem 0.75rem;
+        text-align: left;
+        color: var(--ink);
       }
 
-      td {
-        @apply font-terminal text-base-content;
-        border-bottom: 1px solid vars.$red-alpha-20;
+      th {
+        background: var(--red);
+        color: var(--on-red);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+
+      tr:nth-child(even) td {
+        background: var(--ash);
       }
     }
   }

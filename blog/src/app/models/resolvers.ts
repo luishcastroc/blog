@@ -2,8 +2,8 @@ import { ActivatedRouteSnapshot, ResolveFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
 import { injectContentFiles } from '@analogjs/content';
 import { MetaTag } from '@analogjs/router';
+import { injectLocale } from '@analogjs/router/tokens';
 import { PostAttributes } from './post.model';
-import { TranslocoService } from '@jsverse/transloco';
 
 // Constants
 const DOMAIN = 'mrrobot.dev';
@@ -17,7 +17,7 @@ function injectActivePostAttributes(
   route: ActivatedRouteSnapshot
 ): PostAttributes {
   const router = inject(Router);
-  const activeLang = inject(TranslocoService).getActiveLang();
+  const activeLang = injectLocale() ?? 'en';
   const file = injectContentFiles<PostAttributes>().find(contentFile => {
     return (
       removeDateFromFile(contentFile.filename) ===

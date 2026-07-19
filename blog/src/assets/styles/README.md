@@ -1,61 +1,49 @@
 # Styles Architecture
 
-This project uses a modular SCSS architecture for better maintainability and organization.
+A small, modular SCSS **Neobrutalism** design system: flat solid fills, thick
+ink borders, hard offset shadows, sharp corners, and a tactile press
+interaction. Colors are CSS custom properties so the light/dark theme toggle
+(`data-theme` on `<body>`) swaps them with no markup changes.
 
 ## Directory Structure
 
 ```
 src/assets/styles/
-├── main.scss                 # Main entry point
+├── main.scss                 # Entry point: Tailwind + Prism + the modules below
 ├── base/
-│   ├── _variables.scss       # CSS custom properties and variables
-│   ├── _reset.scss          # Base HTML/body reset and scrollbar
-│   └── _typography.scss     # Typography utilities and font styles
+│   ├── _variables.scss       # Design tokens (fonts, borders) + theme color vars
+│   ├── _reset.scss           # HTML/body reset, global focus-visible ring, scrollbar
+│   └── _typography.scss      # Bricolage display / Inter body / JetBrains Mono utility
 ├── components/
-│   ├── _buttons.scss        # Terminal-style button components
-│   ├── _forms.scss          # Form styling (inputs, textareas)
-│   ├── _navigation.scss     # Navbar and dropdown menu styles
-│   └── _blog.scss           # Blog post and content styling
-├── layouts/
-│   ├── _header.scss         # Header and navigation layout
-│   └── _content.scss        # Main content area layout
-├── themes/
-│   ├── _mr-robot.scss       # Mr. Robot theme colors and effects
-│   └── _animations.scss     # All keyframe animations
+│   ├── _buttons.scss         # .nb-btn (+ --primary / --ghost / --square)
+│   ├── _forms.scss           # .nb-input / .nb-textarea / .nb-label / .nb-error
+│   ├── _card.scss            # .nb-card / .nb-panel / .nb-badge / .nb-chip / .nb-mark
+│   ├── _navigation.scss      # .nb-navlink and the mobile .nb-menu dropdown
+│   └── _blog.scss            # Article markdown + neobrutalist Prism code blocks
 └── utilities/
-    ├── _terminal.scss       # Terminal-specific utility classes
-    ├── _effects.scss        # Visual effects (glitch, cyberpunk, etc.)
-    └── _responsive.scss     # Responsive utilities and breakpoints
+    └── _nb.scss              # Shared primitives: block() + press() mixins, .nb-block / .nb-press
 ```
 
-## How to Add New Styles
+## Design tokens
 
-1. **Components**: Add new component styles to the `components/` directory
-2. **Utilities**: Add utility classes to the `utilities/` directory
-3. **Themes**: Add theme-specific styles to the `themes/` directory
-4. **Layouts**: Add layout-specific styles to the `layouts/` directory
+Defined in `base/_variables.scss` as CSS custom properties, scoped per theme:
 
-## File Naming Convention
+- Colors: `--paper`, `--surface`, `--ash`, `--ink`, `--muted`, `--red`,
+  `--red-ink`, `--link`, `--on-red`
+- Shadows: `--nb-shadow`, `--nb-shadow-sm`, `--nb-shadow-lg` (hard, no blur)
 
-- Use underscore prefix for partials: `_filename.scss`
-- Use descriptive names that match the content purpose
-- Keep files focused on a single responsibility
+Tailwind mirrors these in `blog/tailwind.config.cjs` (`bg-paper`, `text-ink`,
+`border-3`, `shadow-nb`, `font-display`, `font-mono`, …) so utilities and the
+component classes share one source of truth.
 
-## Import Order
+## Conventions
 
-The main.scss file imports in this order:
-
-1. External dependencies (Tailwind, libraries)
-2. Base styles (variables, reset, typography)
-3. Components (buttons, forms, navigation)
-4. Layouts (header, content)
-5. Themes (colors, animations)
-6. Utilities (helpers, effects, responsive)
-
-## Benefits
-
-- **Maintainability**: Easy to find and modify specific styles
-- **Debugging**: Smaller files make debugging much easier
-- **Team Collaboration**: Multiple developers can work on different files
-- **Performance**: Better caching and build optimization
-- **Organization**: Logical separation of concerns
+- **Neobrutalism primitives**: reuse `@include nb.block;` / `@include nb.press;`
+  (or the `.nb-block` / `.nb-press` classes) rather than re-authoring borders,
+  shadows, and hover/press behavior.
+- **Motion**: any transform/transition must sit inside
+  `@media (prefers-reduced-motion: no-preference)` — the `press()` mixin already
+  does this.
+- **Accessibility**: keep contrast at WCAG AA; use `--link` / `--red-ink` for
+  accent *text*, and `--red` fills only with `--on-red` text.
+- Partials are `_prefixed` and imported via `@use` in `main.scss`.

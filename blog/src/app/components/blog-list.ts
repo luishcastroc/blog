@@ -1,14 +1,9 @@
-import {
-  Component,
-  inject,
-} from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { Component, signal } from '@angular/core';
 
 import { DateTime } from 'luxon';
-import { map } from 'rxjs';
 
 import { injectContentFiles } from '@analogjs/content';
-import { TranslocoService } from '@jsverse/transloco';
+import { injectLocale } from '@analogjs/router/tokens';
 
 import { PostAttributes } from '../models/post.model';
 import { BlogCoverComponent } from './blog-cover';
@@ -17,9 +12,10 @@ import { BlogCoverComponent } from './blog-cover';
   selector: 'app-blog-list',
   standalone: true,
   imports: [BlogCoverComponent],
+  host: { class: 'w-full' },
   template: `
     <div
-      class="glass-container-terminal relative flex flex-col flex-wrap justify-center gap-8 overflow-auto rounded-lg p-6 pb-4 pt-4 lg:flex-row lg:gap-6">
+      class="mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       @for (post of posts(); track post.attributes.slug || $index) {
         <app-blog-cover [post]="post" />
       }
@@ -28,14 +24,10 @@ import { BlogCoverComponent } from './blog-cover';
 })
 export class BlogListComponent {
   private readonly contentFiles = injectContentFiles<PostAttributes>();
-  private readonly translocoService = inject(TranslocoService);
+  // Active locale comes from the URL prefix (defaults to 'en').
+  private readonly locale = injectLocale() ?? 'en';
 
-  posts = toSignal(
-    this.translocoService.langChanges$.pipe(
-      map(currentLanguage => this.getProcessedPosts(currentLanguage))
-    ),
-    { initialValue: [] }
-  );
+  posts = signal(this.getProcessedPosts(this.locale));
 
   /**
    * Processes content files by filtering, transforming, and sorting posts

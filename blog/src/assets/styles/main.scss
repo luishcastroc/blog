@@ -1,11 +1,11 @@
 // Main styles entry point
 // ALL @use statements must come first - before any other rules
 
-// Import Sass built-ins
+// Sass built-ins
 @use 'sass:map';
 @use 'sass:list';
 
-// Import external libraries
+// External libraries
 @use '@ngxpert/hot-toast/styles' as hotToast;
 @use 'tailwindcss/base';
 @use 'tailwindcss/components';
@@ -13,27 +13,19 @@
 @use 'prismjs/plugins/toolbar/prism-toolbar.css';
 @use 'prismjs/themes/prism-tomorrow';
 
-// Import modular styles using modern @use syntax
+// Neobrutalism design system
 @use 'base/variables';
 @use 'base/reset';
 @use 'base/typography';
 
+@use 'utilities/nb';
+
 @use 'components/buttons';
 @use 'components/forms';
+@use 'components/card';
 @use 'components/navigation';
 @use 'components/blog';
+@use 'components/toc';
 
-@use 'layouts/header';
-@use 'layouts/content';
-
-@use 'themes/mr-robot';
-@use 'themes/animations';
-
-@use 'effects/glass';
-
-@use 'utilities/terminal';
-@use 'utilities/effects';
-@use 'utilities/responsive';
-
-// Import fonts (must come after @use statements)
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Inter:wght@100..900&display=swap');
+// Fonts (must come after @use statements)
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');

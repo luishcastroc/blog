@@ -1,27 +1,48 @@
 // Base HTML and body reset
+@use 'variables' as vars;
+
 html,
 body {
   @apply flex min-h-screen w-full flex-auto flex-col antialiased;
-  font-family: 'Inter', sans-serif;
-  background-color: var(--bg) !important;
+  font-family: vars.$font-body;
+  background-color: var(--paper);
+  color: var(--ink);
 }
 
-// Scrollbar styling
+// Subtle dot-grid gives the flat paper some depth without competing with content.
+body {
+  background-image: radial-gradient(var(--dot) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  background-attachment: fixed;
+}
+
+// Global focus-visible ring — thick, offset, on-brand. Applies to every
+// interactive element unless a component overrides it.
+:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+// Neobrutalist scrollbar
 html {
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 12px;
+    height: 12px;
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--scrollbar-bg);
+    background: var(--ash);
+    border-left: 2px solid var(--ink);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-color);
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: var(--red);
+    border: 2px solid var(--ink);
   }
 }

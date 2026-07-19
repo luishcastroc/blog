@@ -2,6 +2,7 @@
   "extends": ["../.eslintrc.json"],
   "ignorePatterns": [
     "!**/*",
+    "src/app/svg/**/*.ts",
     "**/vite.config.*.timestamp*",
     "**/vitest.config.*.timestamp*"
   ],
@@ -25,8 +26,14 @@
           "error",
           {
             "type": "element",
-            "prefix": "blog",
+            "prefix": "app",
             "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/component-class-suffix": [
+          "error",
+          {
+            "suffixes": ["Component", "Page"]
           }
         ]
       }

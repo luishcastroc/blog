@@ -13,6 +13,8 @@ export default class ContactPage {
   private titleService = inject(Title);
 
   constructor() {
-    this.titleService.setTitle('Luis Castro - Contact');
+    this.titleService.setTitle(
+      $localize`:@@title.contact:Luis Castro - Contact`
+    );
   }
 }

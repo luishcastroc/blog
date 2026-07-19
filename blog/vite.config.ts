@@ -33,6 +33,14 @@ export default defineConfig(({ mode }) => {
     plugins: [
       analog({
         ssr: false,
+        i18n: {
+          defaultLocale: 'en',
+          locales: ['en', 'es'],
+          extract: {
+            format: 'json',
+            outFile: 'src/i18n/messages.json',
+          },
+        },
         prerender: {
           routes: [
             '/',

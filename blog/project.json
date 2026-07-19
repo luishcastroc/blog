@@ -58,13 +58,13 @@
       }
     },
     "extract-i18n": {
-      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "executor": "nx:run-commands",
       "options": {
-        "buildTarget": "blog:build"
+        "command": "pnpm exec nx build blog"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["./blog/**/*.ts", "./blog/**/*.html"]

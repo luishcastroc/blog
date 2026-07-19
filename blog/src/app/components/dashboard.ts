@@ -1,14 +1,6 @@
-import {
-  afterNextRender,
-  Component,
-  effect,
-  inject,
-  OnDestroy,
-  signal,
-} from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { TerminalService } from '../services/terminal.service';
 import { BlogFooterComponent } from './blog-footer';
 import { BlogNavbarComponent } from './blog-navbar';
 
@@ -17,235 +9,23 @@ import { BlogNavbarComponent } from './blog-navbar';
   selector: 'app-dashboard',
   imports: [RouterOutlet, BlogFooterComponent, BlogNavbarComponent],
   host: {
-    class: 'flex min-h-[100dvh] flex-col',
+    class: 'flex min-h-[100dvh] flex-col bg-paper text-ink',
   },
   template: `
-    <main class="z-10 flex w-full flex-auto flex-col pt-6">
+    <!-- Skip link: first tab stop, visible only on focus -->
+    <a
+      href="#main"
+      class="nb-btn nb-btn--primary sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[2000]"
+      i18n="@@navigation.skip">
+      Skip to content
+    </a>
+    <div class="flex w-full flex-auto flex-col">
       <app-blog-navbar />
-      <div class="relative flex flex-auto">
+      <main id="main" role="main" class="relative flex flex-auto flex-col">
         <router-outlet />
-        <!-- Terminal Rain Background -->
-        <div
-          class="terminal-rain fixed left-0 top-0 h-full w-full"
-          id="terminal-container"></div>
-      </div>
+      </main>
       <app-blog-footer />
-    </main>
+    </div>
   `,
 })
-export class DashboardComponent implements OnDestroy {
-  #terminalService = inject(TerminalService);
-  private terminalInterval?: number;
-  private isRendered = signal(false);
-
-  constructor() {
-    afterNextRender(() => {
-      this.isRendered.set(true);
-    });
-
-    effect(() => {
-      const isActive = this.#terminalService.isTerminalActive();
-      const isRendered = this.isRendered();
-
-      if (!isRendered) return;
-
-      if (isActive) {
-        this.initializeTerminal();
-      } else {
-        this.stopTerminal();
-      }
-    });
-  }
-
-  ngOnDestroy(): void {
-    this.stopTerminal();
-  }
-
-  private stopTerminal(): void {
-    // Clear the interval
-    if (this.terminalInterval) {
-      clearInterval(this.terminalInterval);
-      this.terminalInterval = undefined;
-    }
-
-    // Stop CSS animations by adding disabled class and clear the terminal container
-    const container = document.getElementById('terminal-container');
-    if (container) {
-      // Add disabled class to stop all animations (including ::before)
-      container.classList.add('terminal-disabled');
-
-      // Clear the container content
-      container.innerHTML = '';
-
-      // Keep the disabled class until next initialization
-    }
-  }
-  private initializeTerminal(): void {
-    // Stop any existing terminal before initializing a new one
-    this.stopTerminal();
-
-    const container = document.getElementById('terminal-container');
-    if (!container) {
-      return;
-    }
-
-    // Remove disabled class to re-enable animations
-    container.classList.remove('terminal-disabled');
-
-    // Mr. Robot style terminal commands and outputs
-    const terminalCommands = [
-      'ssh root@192.168.1.1',
-      'whoami',
-      'ps aux | grep -i evil',
-      'netstat -tulpn',
-      'cat /etc/passwd',
-      'sudo rm -rf /*',
-      'ping -c 4 evil-corp.com',
-      'nmap -sS 192.168.1.0/24',
-      'tail -f /var/log/auth.log',
-      'hydra -l admin -P rockyou.txt ssh://target',
-      'john --wordlist=dict.txt shadow',
-      'aircrack-ng -w wordlist capture.cap',
-      'msfconsole',
-      'exploit/multi/handler',
-      'use exploit/windows/smb/ms17_010_eternalblue',
-      'set RHOST 192.168.1.100',
-      'exploit',
-      '[+] Meterpreter session opened',
-      'sysinfo',
-      'hashdump',
-      'ERROR: Access denied',
-      'Connection lost...',
-      'Retrying connection...',
-      '[WARNING] Firewall detected',
-      'Bypassing security...',
-      '[SUCCESS] Shell access gained',
-      'Downloading files...',
-      '[ERROR] Connection terminated',
-      'fsociety.dat loaded',
-      'Initiating payload...',
-      'rm -rf evil_corp_backup/*',
-      'cd /home/elliot',
-      'nano mr_robot.py',
-      'python3 exploit.py',
-      'gcc -o backdoor backdoor.c',
-      './backdoor --silent',
-      'killall -9 antivirus',
-      'chmod +x root_shell',
-      'su - root',
-      'Password: ********',
-      'root@fsociety:~#',
-      'echo "Hello friend"',
-      'history -c',
-    ];
-
-    // Clear existing content
-    container.innerHTML = '';
-
-    // Create terminal lines - covering more of the screen
-    const lineCount = 18; // Increased from previous implementation
-
-    for (let i = 0; i < lineCount; i++) {
-      const line = document.createElement('div');
-      line.className = 'terminal-line';
-
-      // Randomly assign command types
-      const rand = Math.random();
-      if (rand < 0.3) {
-        line.classList.add('prompt');
-      } else if (rand < 0.5) {
-        line.classList.add('error');
-      } else {
-        line.classList.add('success');
-      }
-
-      // Select random command
-      const command =
-        terminalCommands[Math.floor(Math.random() * terminalCommands.length)];
-      line.textContent = command;
-
-      // Add animation duration - longer for better visibility
-      line.style.animationDuration = `${8 + Math.random() * 4}s`; // 8-12 seconds
-
-      container.appendChild(line);
-    }
-
-    // Periodically update the terminal commands
-    this.terminalInterval = window.setInterval(() => {
-      this.updateTerminalLines();
-    }, 2000); // Slower update for better readability
-  }
-
-  private updateTerminalLines(): void {
-    const container = document.getElementById('terminal-container');
-    if (!container) return;
-
-    const terminalCommands = [
-      'ssh root@192.168.1.1',
-      'whoami',
-      'ps aux | grep -i evil',
-      'netstat -tulpn',
-      'cat /etc/passwd',
-      'sudo rm -rf /*',
-      'ping -c 4 evil-corp.com',
-      'nmap -sS 192.168.1.0/24',
-      'tail -f /var/log/auth.log',
-      'hydra -l admin -P rockyou.txt ssh://target',
-      'john --wordlist=dict.txt shadow',
-      'aircrack-ng -w wordlist capture.cap',
-      'msfconsole',
-      'exploit/multi/handler',
-      'use exploit/windows/smb/ms17_010_eternalblue',
-      'set RHOST 192.168.1.100',
-      'exploit',
-      '[+] Meterpreter session opened',
-      'sysinfo',
-      'hashdump',
-      'ERROR: Access denied',
-      'Connection lost...',
-      'Retrying connection...',
-      '[WARNING] Firewall detected',
-      'Bypassing security...',
-      '[SUCCESS] Shell access gained',
-      'Downloading files...',
-      '[ERROR] Connection terminated',
-      'fsociety.dat loaded',
-      'Initiating payload...',
-      'rm -rf evil_corp_backup/*',
-      'cd /home/elliot',
-      'nano mr_robot.py',
-      'python3 exploit.py',
-      'gcc -o backdoor backdoor.c',
-      './backdoor --silent',
-      'killall -9 antivirus',
-      'chmod +x root_shell',
-      'su - root',
-      'Password: ********',
-      'root@fsociety:~#',
-      'echo "Hello friend"',
-      'history -c',
-    ];
-
-    const lines = container.querySelectorAll('.terminal-line');
-
-    lines.forEach((line, index) => {
-      // Randomly update some lines for variety
-      if (Math.random() < 0.6) {
-        const command =
-          terminalCommands[Math.floor(Math.random() * terminalCommands.length)];
-        line.textContent = command;
-
-        // Randomly change line type
-        line.className = 'terminal-line';
-        const rand = Math.random();
-        if (rand < 0.3) {
-          line.classList.add('prompt');
-        } else if (rand < 0.5) {
-          line.classList.add('error');
-        } else {
-          line.classList.add('success');
-        }
-      }
-    });
-  }
-}
+export class DashboardComponent {}

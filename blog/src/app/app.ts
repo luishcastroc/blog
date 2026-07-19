@@ -1,6 +1,8 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { TranslocoService } from '@jsverse/transloco';
+
+import { injectLocale } from '@analogjs/router/tokens';
+
 import { DashboardComponent } from './components/dashboard';
 
 @Component({
@@ -11,11 +13,9 @@ import { DashboardComponent } from './components/dashboard';
 })
 export class AppComponent implements OnInit {
   private document = inject(DOCUMENT);
-  private transloco = inject(TranslocoService);
+  private locale = injectLocale() ?? 'en';
 
   ngOnInit(): void {
-    this.transloco.langChanges$.subscribe(lang => {
-      this.document.documentElement.lang = lang;
-    });
+    this.document.documentElement.lang = this.locale;
   }
 }

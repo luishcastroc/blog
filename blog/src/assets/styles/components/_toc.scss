@@ -1,0 +1,115 @@
+// "On this page" table of contents (blog posts)
+@use '../base/variables' as vars;
+
+// Post layout: single centered column on smaller screens; on wide screens a
+// 3-column grid whose equal side gutters keep the ARTICLE centered while the
+// table of contents sits out in the right gutter.
+.post-article {
+  margin-inline: auto;
+}
+
+@media (min-width: 1280px) {
+  .post-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 48rem) minmax(0, 1fr);
+    column-gap: 2rem;
+  }
+
+  .post-article {
+    grid-column: 2;
+    margin-inline: 0;
+    max-width: none;
+  }
+
+  .post-toc {
+    grid-column: 3;
+  }
+
+  .post-toc nav {
+    max-width: 15rem;
+  }
+}
+
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.toc-link {
+  display: block;
+  font-family: vars.$font-mono;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  padding: 0.3rem 0.75rem;
+  color: var(--ink);
+  text-decoration: none;
+  border-left: 3px solid var(--ash);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      color 0.12s ease,
+      border-color 0.12s ease;
+  }
+
+  &:hover {
+    color: var(--red-ink);
+    border-left-color: var(--ink);
+  }
+}
+
+// Nested (h3) entries sit indented and slightly smaller.
+.toc-link--h3 {
+  padding-left: 1.5rem;
+  font-size: 0.75rem;
+}
+
+// The section currently in view.
+.toc-link--active {
+  color: var(--red-ink);
+  font-weight: 700;
+  border-left-color: var(--red);
+}
+
+.toc-heading {
+  font-family: vars.$font-mono;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.72rem;
+  color: var(--red-ink);
+  margin-bottom: 0.5rem;
+}
+
+// Mobile collapsible variant.
+.toc-details summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: vars.$font-mono;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  color: var(--ink);
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+  &::after {
+    content: '+';
+    font-size: 1.15rem;
+    line-height: 1;
+  }
+}
+
+.toc-details[open] summary {
+  margin-bottom: 0.75rem;
+  &::after {
+    content: '\2212'; // minus
+  }
+}

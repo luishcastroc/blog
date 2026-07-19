@@ -10,7 +10,6 @@ import {
 
 import { lastValueFrom } from 'rxjs';
 
-import { TranslocoDirective } from '@jsverse/transloco';
 import { HotToastService } from '@ngxpert/hot-toast';
 
 import { ContactService } from '../services/contact.service';
@@ -18,128 +17,131 @@ import { ContactService } from '../services/contact.service';
 @Component({
   standalone: true,
   selector: 'app-contact-form',
-  imports: [TranslocoDirective, FormField],
+  imports: [FormField],
   host: { class: 'w-full' },
   template: `
-    <ng-container *transloco="let t; prefix: 'contact'">
-      <div
-        class="font-terminal glass-hero relative mx-auto flex w-[90%] max-w-2xl flex-auto flex-col items-center gap-3 rounded-lg p-8 pt-20 lg:w-[70%]">
-        <div class="flex w-full flex-col justify-start gap-4 align-baseline">
-          <!-- Stylized Contact Header like Welcome -->
-          <div class="welcome-header mb-5 text-center">
-            <h1
-              class="text-secondary font-terminal welcome-text relative
-                       mb-3 text-4xl font-bold
-                       sm:text-5xl md:text-6xl lg:text-7xl"
-              [attr.data-text]="t('header')">
-              {{ t('header') }}
-            </h1>
-          </div>
-          <p class="text-base-content font-terminal text-lg font-bold">
-            {{ t('subheader') }}
-          </p>
+    <div class="mx-auto flex w-full max-w-2xl flex-auto flex-col gap-6">
+      <header class="flex flex-col gap-2">
+        <p class="nb-kicker text-red-ink">/contact</p>
+        <h1
+          class="font-display text-5xl font-extrabold leading-none text-ink md:text-6xl"
+          i18n="@@contact.header">
+          Contact Me
+        </h1>
+        <p class="text-lg text-muted" i18n="@@contact.subheader">
+          Have any question?, project? debate about Futbol, game you want me to
+          try?... shoot me a mail!
+        </p>
+      </header>
+
+      <form
+        (submit)="handleSubmit($event)"
+        novalidate
+        class="nb-panel flex w-full flex-col gap-5">
+        <!-- Name -->
+        <div class="flex flex-col">
+          <label for="name" class="nb-label" i18n="@@contact.name"
+            >What is your name?</label
+          >
+          <input
+            [formField]="contactForm.name"
+            id="name"
+            class="nb-input"
+            i18n-placeholder="@@contact.type-here"
+            placeholder="type here"
+            type="text"
+            [attr.aria-invalid]="
+              contactForm.name().touched() && contactForm.name().invalid()
+            "
+            aria-describedby="name-error" />
+          <span id="name-error" role="alert" aria-live="polite">
+            @if (contactForm.name().touched() && contactForm.name().invalid()) {
+              <span class="nb-error" i18n="@@contact.name-error"
+                >The name is required.</span
+              >
+            }
+          </span>
         </div>
-        <form
-          (submit)="handleSubmit($event)"
-          class="form-control flex w-full flex-col items-center gap-3">
-          <div class="w-full">
-            <div class="form-control">
-              <label for="name" class="label">
-                <span
-                  class="label-text font-terminal text-base-content font-extrabold">
-                  {{ t('name') }}
-                </span>
-              </label>
-              <input
-                [formField]="contactForm.name"
-                id="name"
-                class="input input-bordered font-terminal w-full"
-                placeholder="{{ t('type-here') }}"
-                type="text" />
-              @if (
-                contactForm.name().touched() && contactForm.name().invalid()
-              ) {
-                <label class="label">
-                  <span class="label-text-alt text-error font-bold">{{
-                    t('name-error')
-                  }}</span>
-                </label>
+
+        <!-- Email -->
+        <div class="flex flex-col">
+          <label for="email" class="nb-label" i18n="@@contact.email"
+            >What is your email?</label
+          >
+          <input
+            [formField]="contactForm.email"
+            id="email"
+            class="nb-input"
+            i18n-placeholder="@@contact.email-placeholder"
+            placeholder="greatusername@something.com"
+            type="email"
+            [attr.aria-invalid]="
+              contactForm.email().touched() &&
+              contactForm.email().errors().length > 0
+            "
+            aria-describedby="email-error" />
+          <span id="email-error" role="alert" aria-live="polite">
+            @if (
+              contactForm.email().touched() &&
+              contactForm.email().errors().length > 0
+            ) {
+              @if (contactForm.email().errors()[0].kind === 'required') {
+                <span class="nb-error" i18n="@@contact.email-error-one"
+                  >The email is required.</span
+                >
+              } @else {
+                <span class="nb-error" i18n="@@contact.email-error-two"
+                  >The email is not valid.</span
+                >
               }
-            </div>
-          </div>
-          <div class="w-full">
-            <div class="form-control">
-              <label for="email" class="label">
-                <span class="label-text font-extrabold">{{ t('email') }}</span>
-              </label>
-              <input
-                [formField]="contactForm.email"
-                id="email"
-                class="input input-bordered w-full"
-                placeholder="{{ t('email-placeholder') }}"
-                type="email" />
-              @if (
-                contactForm.email().touched() &&
-                contactForm.email().errors().length > 0
-              ) {
-                @if (contactForm.email().errors()[0].kind === 'required') {
-                  <label class="label">
-                    <span class="label-text-alt text-error font-bold">{{
-                      t('email-error-one')
-                    }}</span>
-                  </label>
-                } @else {
-                  <label class="label">
-                    <span class="label-text-alt text-error font-bold">{{
-                      t('email-error-two')
-                    }}</span>
-                  </label>
-                }
-              }
-            </div>
-          </div>
-          <div class="w-full">
-            <div class="form-control">
-              <label for="message" class="label">
-                <span class="label-text font-extrabold">{{
-                  t('message')
-                }}</span>
-              </label>
-              <textarea
-                [formField]="contactForm.message"
-                id="message"
-                class="textarea textarea-bordered h-24 text-base"
-                placeholder="{{ t('say-hi') }}"></textarea>
-              @if (
-                contactForm.message().touched() &&
-                contactForm.message().invalid()
-              ) {
-                <label class="label">
-                  <span class="label-text-alt text-error font-bold">{{
-                    t('message-error')
-                  }}</span>
-                </label>
-              }
-            </div>
-          </div>
-          <div class="mt-2 flex w-full justify-center gap-4">
-            <button
-              [class.spinner-loading]="contactForm().submitting()"
-              [disabled]="contactForm().submitting()"
-              class="btn btn-primary font-terminal border-primary hover:bg-primary hover:text-primary-content w-1/3 border-2 transition-all duration-300"
-              type="submit">
-              {{ t('send') }}
-            </button>
-            <button
-              (click)="resetForm()"
-              class="btn btn-outline btn-secondary font-terminal border-secondary hover:bg-secondary hover:text-secondary-content w-1/3 border-2 transition-all duration-300"
-              type="button">
-              {{ t('clear') }}
-            </button>
-          </div>
-        </form>
-      </div>
-    </ng-container>
+            }
+          </span>
+        </div>
+
+        <!-- Message -->
+        <div class="flex flex-col">
+          <label for="message" class="nb-label" i18n="@@contact.message"
+            >Your message</label
+          >
+          <textarea
+            [formField]="contactForm.message"
+            id="message"
+            class="nb-textarea"
+            i18n-placeholder="@@contact.say-hi"
+            placeholder="Say hi!"
+            [attr.aria-invalid]="
+              contactForm.message().touched() && contactForm.message().invalid()
+            "
+            aria-describedby="message-error"></textarea>
+          <span id="message-error" role="alert" aria-live="polite">
+            @if (
+              contactForm.message().touched() && contactForm.message().invalid()
+            ) {
+              <span class="nb-error" i18n="@@contact.message-error"
+                >The message is required.</span
+              >
+            }
+          </span>
+        </div>
+
+        <div class="flex flex-wrap gap-4">
+          <button
+            [disabled]="contactForm().submitting()"
+            class="nb-btn nb-btn--primary flex-1"
+            type="submit"
+            i18n="@@contact.send">
+            Send
+          </button>
+          <button
+            (click)="resetForm()"
+            class="nb-btn nb-btn--ghost flex-1"
+            type="button"
+            i18n="@@contact.clear">
+            Clear
+          </button>
+        </div>
+      </form>
+    </div>
   `,
 })
 export class ContactFormComponent {

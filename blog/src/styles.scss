@@ -4,89 +4,20 @@
 // Import the main modular styles
 @use 'assets/styles/main';
 
-:root {
-  --scrollbar-bg: white;
-  --scrollbar-color: #4e54c8;
-  --bg: white;
-}
-
 html,
 body {
   @apply flex min-h-screen w-full flex-auto flex-col antialiased;
   font-family: 'Inter', sans-serif;
-  background-color: var(--bg) !important;
+  background-color: var(--paper);
+  color: var(--ink);
 }
 
-// Welcome header styling - font-based terminal effect
-.welcome-header {
+// Route content region: mobile-first padding, capped on larger screens.
+router-outlet + * {
   position: relative;
-}
-
-html {
-  ::-webkit-scrollbar {
-    -webkit-appearance: none;
-    width: 8px;
-    height: 8px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: var(--scrollbar-color);
-  }
-
-  ::-webkit-scrollbar-track {
-    background: var(--scrollbar-bg);
-  }
-
-  ::-webkit-scrollbar-track-piece:start {
-    margin-top: 1.5rem;
-  }
-}
-
-div {
-  router-outlet {
-    + * {
-      position: relative;
-      display: flex;
-      flex: 1 1 auto;
-      width: 100%;
-      min-height: 100dvh;
-      z-index: 1;
-      @apply px-[0.5rem] py-6 sm:px-12 md:px-20 lg:p-6;
-    }
-  }
-}
-
-[data-theme='mr-robot-light'] {
-  --scrollbar-bg: #e8e8e8;
-  --scrollbar-color: #1a1a1a;
-  --bg: #f8f8f8;
-  --terminal-text-color: rgba(26, 26, 26, 0.4);
-  --terminal-prompt-color: rgba(255, 7, 58, 0.6);
-  --terminal-highlight-color: rgba(255, 7, 58, 0.8);
-
-  .terminal-container {
-    background: #f8f8f8;
-    width: 100%;
-  }
-}
-
-[data-theme='mr-robot-dark'] {
-  --scrollbar-bg: #0a0a0a;
-  --scrollbar-color: #00ff41;
-  --bg: #0a0a0a;
-  --terminal-text-color: rgba(0, 255, 65, 0.4);
-  --terminal-prompt-color: rgba(255, 7, 58, 0.7);
-  --terminal-highlight-color: rgba(255, 7, 58, 0.9);
-
-  .terminal-container {
-    background: #0a0a0a;
-    width: 100%;
-  }
-
-  button {
-    &:disabled {
-      @apply cursor-not-allowed bg-gray-500;
-    }
-  }
+  display: flex;
+  flex: 1 1 auto;
+  width: 100%;
+  z-index: 1;
+  @apply px-4 py-6 sm:px-8 md:px-12 lg:p-6;
 }

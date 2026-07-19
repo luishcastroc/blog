@@ -1,54 +1,36 @@
-// Typography utilities and base styles
+// Typography — Bricolage Grotesque display, Inter body, JetBrains Mono utility
 @use 'variables' as vars;
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-display {
+  font-family: vars.$font-display;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+body {
+  font-family: vars.$font-body;
+  line-height: 1.6;
+}
+
+// Monospace utility — the developer nod (labels, metadata, badges, code).
+.font-mono,
+.mono,
 .font-terminal {
-  font-family: vars.$font-terminal;
+  font-family: vars.$font-mono;
 }
 
-.terminal-cursor::after {
-  content: '_';
-  animation: cursor-blink 1s infinite;
-  color: currentColor;
-}
-
-// Welcome header styling - font-based terminal effect
-.welcome-header {
-  position: relative;
-}
-
-.welcome-text {
-  position: relative;
-  color: var(--fallback-sc, oklch(var(--sc) / 1));
-  text-shadow: vars.$text-shadow-red-layered;
-  letter-spacing: vars.$letter-spacing-terminal;
-  font-weight: vars.$font-weight-black;
-
-  // Terminal-style border effect
-  &::before {
-    content: '';
-    position: absolute;
-    inset: -4px;
-    border: vars.$border-normal solid vars.$red-alpha-30;
-    border-style: dashed;
-    pointer-events: none;
-    opacity: 0.6;
-  }
-
-  // Subtle scan line effect
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      vars.$red-alpha-03 2px,
-      vars.$red-alpha-03 4px
-    );
-    pointer-events: none;
-  }
+// Uppercase mono eyebrow/label used on chips and section kickers.
+.nb-kicker {
+  font-family: vars.$font-mono;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
 }

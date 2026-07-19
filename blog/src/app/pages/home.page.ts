@@ -4,74 +4,65 @@ import {
 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-import { TranslocoDirective } from '@jsverse/transloco';
-
 @Component({
   standalone: true,
   selector: 'app-home',
-  imports: [TranslocoDirective],
   template: `
-    <ng-container *transloco="let t; read: 'home'">
-      <section class="z-10 flex w-full flex-1 flex-col">
-        <div class="hero flex-1">
-          <div class="bg-opacity-60"></div>
-          <div class="hero-content text-base-content">
-            <div
-              class="glass-hero relative max-w-md rounded-lg p-8 md:max-w-[80%]">
-              <!-- Stylized Welcome Header -->
-              <div class="welcome-header mb-6 text-center">
-                <h1
-                  class="text-secondary font-terminal welcome-text relative
-                           mb-3 text-4xl font-bold
-                           sm:text-5xl md:text-6xl lg:text-7xl">
-                  {{ t('header.welcome') }}
-                </h1>
-                <div
-                  class="text-secondary font-terminal text-lg font-bold md:text-2xl lg:text-3xl">
-                  {{ t('header.name') }}
-                </div>
-              </div>
-              <p
-                class="text-base-content font-terminal mb-5 text-lg md:text-2xl md:leading-8 lg:leading-[3rem]">
-                {{ t('subheader.first') }}
-                <span
-                  class="cyberpunk-highlight inline-block skew-y-1 border-none px-2 font-extrabold"
-                  >{{ t('subheader.second') }}</span
-                >
-                {{ t('subheader.third') }}
-              </p>
-              <p
-                class="text-base-content font-terminal mb-5 text-lg md:text-2xl md:leading-8 lg:leading-[3rem]">
-                {{ t('more.first') }}
-                <span
-                  class="hacker-text inline-block skew-y-1 border-none px-2 font-extrabold"
-                  >{{ t('more.second') }}</span
-                >{{ t('more.third') }}
-                <span
-                  class="cyberpunk-highlight inline-block skew-y-1 border-none px-2 font-extrabold"
-                  >{{ t('more.fourth') }}</span
-                >
-                {{ t('more.fifth') }}
-              </p>
-              <p
-                class="text-base-content font-terminal mb-5 text-lg md:text-2xl md:leading-8 lg:leading-[3rem]">
-                {{ t('mission') }}
-              </p>
-              <p
-                class="text-base-content font-terminal mb-5 text-lg md:text-2xl md:leading-8 lg:leading-[3rem]">
-                {{ t('conclusion') }}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </ng-container>
+    <section
+      class="mx-auto flex w-full max-w-4xl flex-1 flex-col justify-center">
+      <div class="nb-panel flex flex-col gap-6">
+        <header class="flex flex-col gap-3">
+          <p class="nb-kicker text-red-ink" i18n="@@home.header.welcome">
+            WELCOME
+          </p>
+          <h1
+            class="font-display text-4xl font-extrabold leading-none text-ink sm:text-6xl lg:text-7xl"
+            i18n="@@home.header.name">
+            I'm Luis Castro
+          </h1>
+          <span
+            class="block h-2.5 w-28 border-2 border-ink bg-red"
+            aria-hidden="true"></span>
+        </header>
+
+        <p class="text-lg leading-relaxed text-ink md:text-xl">
+          <span i18n="@@home.subheader.first">I'm a</span>
+          <span class="nb-mark" i18n="@@home.subheader.second">dedicated</span>
+          <span i18n="@@home.subheader.third"
+            >software engineer with over a decade of experience.</span
+          >
+        </p>
+        <p class="text-lg leading-relaxed text-ink md:text-xl">
+          <span i18n="@@home.more.first">Originally from</span>
+          <span class="nb-mark" i18n="@@home.more.second">México</span
+          ><span i18n="@@home.more.third"
+            >, now residing in the United States, I thrive on new technologies,
+            particularly</span
+          >
+          <span class="nb-mark" i18n="@@home.more.fourth">Angular</span>
+          <span i18n="@@home.more.fifth">and JavaScript.</span>
+        </p>
+        <p
+          class="text-lg leading-relaxed text-muted md:text-xl"
+          i18n="@@home.mission">
+          My mission is to create efficient, scalable, and user-friendly web
+          applications, transforming visions into reality.
+        </p>
+        <p
+          class="text-lg leading-relaxed text-muted md:text-xl"
+          i18n="@@home.conclusion">
+          When I'm not deep in code or keeping up with the latest tech trends,
+          you might catch me in a heated soccer (fútbol!) match or masterfully
+          playing a video game (if my kids and wife allow me).
+        </p>
+      </div>
+    </section>
   `,
 })
 export default class HomePage {
   private titleService = inject(Title);
 
   constructor() {
-    this.titleService.setTitle('Luis Castro - Home');
+    this.titleService.setTitle($localize`:@@title.home:Luis Castro - Home`);
   }
 }
